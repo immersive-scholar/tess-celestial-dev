@@ -1,12 +1,12 @@
-const path = require('path');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const webpack = require('webpack')
 
 const extractSass = new ExtractTextPlugin({
-    filename: '[name].[contenthash].css',
-    disable: process.env.NODE_ENV === 'development'
-});
+  filename: '[name].[contenthash].css',
+  disable: process.env.NODE_ENV === 'production'
+})
 
 module.exports = {
   entry: {
@@ -21,12 +21,15 @@ module.exports = {
       {
         test: /\.js$/,
         include: path.resolve(__dirname, 'src'),
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['env']
-          }
-        }
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: ['env']
+            }
+          },
+          'eslint-loader'
+        ]
       },
       {
         test: /\.scss$/,
@@ -34,7 +37,8 @@ module.exports = {
           fallback: 'style-loader',
           use: [
             'css-loader',
-            'sass-loader'
+            'sass-loader',
+            'postcss-loader'
           ]
         })
       },
@@ -49,14 +53,18 @@ module.exports = {
         use: [
           'file-loader'
         ]
-      },
+      }
     ]
   },
   plugins: [
-    new CleanWebpackPlugin(['dist']),
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify('development')
+      }
+    }),
     new HtmlWebpackPlugin({
-      title: 'Production'
+      template: './index.html'
     }),
     extractSass
   ]
-};
+}
