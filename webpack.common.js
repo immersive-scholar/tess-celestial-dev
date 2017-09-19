@@ -1,7 +1,6 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const webpack = require('webpack')
 
 const extractSass = new ExtractTextPlugin({
   filename: '[name].css',
@@ -57,11 +56,6 @@ module.exports = {
     ]
   },
   plugins: [
-    new webpack.DefinePlugin({
-      'process.env': {
-        'NODE_ENV': JSON.stringify('development')
-      }
-    }),
     new HtmlWebpackPlugin({
       template: './index.html'
     }),
