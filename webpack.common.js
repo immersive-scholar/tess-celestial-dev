@@ -52,12 +52,25 @@ module.exports = {
         use: [
           'file-loader'
         ]
+      },
+      {
+        test: /\.(csv|tsv)$/,
+        use: [
+          {
+            loader: 'csv-loader',
+            options: {
+              dynamicTyping: true,
+              header: true,
+              skipEmptyLines: true
+            }
+          }
+        ]
       }
     ]
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './index.html'
+      template: path.join(path.resolve(__dirname, 'src'), 'index.html')
     }),
     extractSass
   ]

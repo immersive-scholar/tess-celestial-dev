@@ -3,6 +3,11 @@
 
 To use:
 ---
+Install node modules:
+  ```
+  npm install
+  ```
+
 Run in development mode:
   ```
   npm start
@@ -17,7 +22,10 @@ Build for production:
 
 Features
 ---
-* Hot reloading in development
+* Hot reloading in development (no more `⌘ + R`)
+* ES6 support (Using eslint with standard JS style guide)
+* Babel transpiler
 * SASS support
-* ES6 support
 * Autoprefixer for css
+* Image and font loaders
+* csv file loader
