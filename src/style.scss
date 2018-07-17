@@ -1,4 +1,13 @@
+:root {
+  --color: #333333;
+}
+
 body {
-  background-color: #333333;
-  display: flex;
+  background-color: var(--color)
+}
+
+@media (min-width: 600px) {
+  :root {
+    --color: pink;
+  }
 }

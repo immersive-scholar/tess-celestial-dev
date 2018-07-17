@@ -1,5 +1,5 @@
 # Webpack Starter
-> Starter template for web development without a framework
+> Starter template for web development without a front-end framework
 
 To use:
 ---
