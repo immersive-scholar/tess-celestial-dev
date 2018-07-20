@@ -1,20 +1,26 @@
 /* Everything */
 :root {
   --background-color: #333333;
-  --color: #FFFFFF
+  --text-color: #FFFFFF;
+  --popup-bg-color: rgba(255, 255, 255, .25);
+
+  --matrix-item-length: 100px; // Matrix items are squares/circles
+  --matrix-item-spacing: 25px; // Horizontal and vertical
+
+  //--main-title-size
+  //--main-desc-size
+  //--main-link-size
+  //--popup-title-size
+  //--popup-story-size
+  //--popup-link-size
 }
 
 body {
   background-color: var(--background-color);
-  color: var(--color);
+  color: var(--text-color);
 }
 
-@media (min-width: 600px) {
-  :root {
-    --color: #333333;
-    --background-color: #FFFFFF;
-  }
-}
+// add font families for p and h1, h2, h3
 
 /* Main text area */
 
@@ -23,4 +29,12 @@ body {
 /* Popup */
 .matrix-popup {
   border: 5px solid black;
+}
+
+/* Media queries */
+@media (min-width: 600px) {
+  :root {
+    --text-color: #333333;
+    --background-color: #FFFFFF;
+  }
 }
