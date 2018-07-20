@@ -1,9 +1,9 @@
-# Webpack Starter
-> Starter template for web development without a front-end framework
+# Tessellations and Explanations (working title)
+> Immersive Scholar Local Resident Radmila Sazdanovic
 
-To use:
+Quick start:
 ---
-Install node modules:
+Install node modules after initial clone or download:
   ```
   npm install
   ```
@@ -20,8 +20,13 @@ Build for production:
   ```
   _Build an optimized version for production_
 
-Features
+
+Initial source
 ---
+
+This application was initialized with the base Webpack template https://github.ncsu.edu/jwgurley/no-framework-webpack-starter
+
+Features:
 * Hot reloading in development (no more `⌘ + R`)
 * ES6 support (Using eslint with standard JS style guide)
 * Babel transpiler

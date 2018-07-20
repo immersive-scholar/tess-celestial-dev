@@ -1,13 +1,16 @@
 :root {
-  --color: #333333;
+  --background-color: #333333;
+  --color: #FFFFFF
 }
 
 body {
-  background-color: var(--color)
+  background-color: var(--background-color);
+  color: var(--color);
 }
 
 @media (min-width: 600px) {
   :root {
-    --color: pink;
+    --color: #333333;
+    --background-color: #FFFFFF;
   }
 }
