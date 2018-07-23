@@ -2,25 +2,37 @@
 :root {
   --background-color: #333333;
   --text-color: #FFFFFF;
-  --popup-bg-color: rgba(255, 255, 255, .25);
-
-  --matrix-item-length: 100px; // Matrix items are squares/circles
-  --matrix-item-spacing: 25px; // Horizontal and vertical
+  --outermost-padding: 20px;
 
   //--main-title-size
   //--main-desc-size
   //--main-link-size
+  //--main-text-padding
+
+  --matrix-item-side-length: 100px; // Matrix items are squares/circles
+  --matrix-item-spacing: 25px; // Horizontal and vertical
+  //--matrix-outside-padding
+
   //--popup-title-size
   //--popup-story-size
   //--popup-link-size
+  --popup-bg-color: rgba(255, 255, 255, .25);
 }
 
 body {
   background-color: var(--background-color);
   color: var(--text-color);
+  padding: var(--outermost-padding);
 }
 
-// add font families for p and h1, h2, h3
+h1, h2, h3 {
+  font-family: 'Titillium Web', sans-serif;
+  font-weight: 700;
+}
+
+p {
+  font-family: 'Roboto', sans-serif;
+}
 
 /* Main text area */
 
