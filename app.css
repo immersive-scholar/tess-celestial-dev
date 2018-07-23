@@ -1,0 +1,23 @@
+/* Everything */
+:root {
+  --background-color: #333333;
+  --text-color: #FFFFFF;
+  --popup-bg-color: rgba(255, 255, 255, .25);
+  --matrix-item-length: 100px;
+  --matrix-item-spacing: 25px; }
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color); }
+
+/* Main text area */
+/* Matrix */
+/* Popup */
+.matrix-popup {
+  border: 5px solid black; }
+
+/* Media queries */
+@media (min-width: 600px) {
+  :root {
+    --text-color: #333333;
+    --background-color: #FFFFFF; } }
