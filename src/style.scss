@@ -21,6 +21,14 @@ body {
 }
 
 // add font families for p and h1, h2, h3
+h1, h2, h3 {
+  font-family: 'Titillium Web', sans-serif;
+  font-weight: 700;
+}
+
+p {
+  font-family: 'Roboto', sans-serif;
+}
 
 /* Main text area */
 
