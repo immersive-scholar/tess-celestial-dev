@@ -31,20 +31,13 @@ module.exports = {
         ]
       },
       {
-        test: /\.css$/,
-        use: [
-          'style-loader',
-          'css-loader'
-        ]
-      },
-      {
-        test: /\.scss$/,
+        test: /\.(css|scss)$/,
         use: extractSass.extract({
           fallback: 'style-loader',
           use: [
             'css-loader',
-            'sass-loader',
-            'postcss-loader'
+            'postcss-loader',
+            'sass-loader'
           ]
         })
       },
