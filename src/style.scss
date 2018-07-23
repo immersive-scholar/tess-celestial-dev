@@ -19,8 +19,8 @@
   --matrix-item-side-length: 100px; // Matrix items are squares/circles
   --matrix-item-spacing: 25px; // Horizontal and vertical
   //--matrix-outside-padding
-  //--matrix-num-columns
-  //--matrix-num-rows
+  --matrix-num-columns: 7;
+  --matrix-num-rows: 3;
   --matrix-width: 4544px;
 
   //--popup-title-size
@@ -52,6 +52,7 @@ p {
   border: 1px solid black; // Border for testing purposes - remove later
   order: 2;
   width: var(--main-text-width);
+  flex-wrap: wrap;
 }
 
 .main-title {
