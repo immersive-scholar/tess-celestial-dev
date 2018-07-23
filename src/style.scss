@@ -1,17 +1,27 @@
-/* Everything */
+/*||||||||||||||||||||||||||||||||||||||||||||||||||*/
+/*||||||||||||||||||||||||||||||||||||||||||||||||||*/
+/* Default settings (Immersion Theater - 6816 x 2240) */
+/* (Works for any screens with ratios similar to 27:9) */
+/*||||||||||||||||||||||||||||||||||||||||||||||||||*/
+/*||||||||||||||||||||||||||||||||||||||||||||||||||*/
 :root {
   --background-color: #333333;
   --text-color: #FFFFFF;
   --outermost-padding: 20px;
 
-  //--main-title-size
-  //--main-desc-size
-  //--main-link-size
+  --main-title-size: 180px;
+  --main-researcher-name-size: 120px;
+  --main-desc-size: 72px;
+  --main-link-size: 60px;
   //--main-text-padding
+  --main-text-width: 2272px;
 
   --matrix-item-side-length: 100px; // Matrix items are squares/circles
   --matrix-item-spacing: 25px; // Horizontal and vertical
   //--matrix-outside-padding
+  //--matrix-num-columns
+  //--matrix-num-rows
+  --matrix-width: 4544px;
 
   //--popup-title-size
   //--popup-story-size
@@ -23,27 +33,102 @@ body {
   background-color: var(--background-color);
   color: var(--text-color);
   padding: var(--outermost-padding);
+  display: flex;
 }
 
 h1, h2, h3 {
   font-family: 'Titillium Web', sans-serif;
-  font-weight: 700;
 }
 
 p {
   font-family: 'Roboto', sans-serif;
 }
 
-/* Main text area */
 
-/* Matrix */
-
-/* Popup */
-.matrix-popup {
-  border: 5px solid black;
+/********************/
+/********** Main text area **********/
+/********************/
+.main-txt {
+  border: 1px solid black; // Border for testing purposes - remove later
+  order: 2;
+  width: var(--main-text-width);
 }
 
-/* Media queries */
+.main-title {
+  font-size: var(--main-title-size);
+}
+
+.researcher-name {
+  font-size: var(--main-researcher-name-size);
+}
+
+.main-desc {
+  font-size: var(--main-desc-size);
+}
+
+.main-url {
+  font-size: var(--main-link-size);
+}
+
+
+/********************/
+/********** Matrix **********/
+/********************/
+.matrix {
+  width: var(--matrix-width);
+  border: 1px solid black; // Border for testing purposes - remove later
+  order: 1;
+}
+
+
+/********************/
+/********** Popup **********/
+/********************/
+.matrix-popup {
+  border: 5px solid black;
+  display: none; // Hide popup for now - work on matrix and main-txt first
+}
+
+
+
+
+
+/*||||||||||||||||||||||||||||||||||||||||||||||||||*/
+/*||||||||||||||||||||||||||||||||||||||||||||||||||*/
+/* Media queries - for all other screen sizes */
+/*||||||||||||||||||||||||||||||||||||||||||||||||||*/
+/*||||||||||||||||||||||||||||||||||||||||||||||||||*/
+
+/********************/
+/********** For large-scale displays **********/
+/********************/
+/*
+@media () {
+  :root {
+
+  }
+}
+*/
+
+/********************/
+/********** For large desktop **********/
+/********************/
+
+/********************/
+/********** For desktop **********/
+/********************/
+
+/********************/
+/********** For tablet **********/
+/********************/
+
+/********************/
+/********** For larger mobile device/mini-tablet **********/
+/********************/
+
+/********************/
+/********** For small mobile device **********/
+/********************/
 @media (min-width: 600px) {
   :root {
     --text-color: #333333;
