@@ -21,6 +21,10 @@ Build for production:
   _Build an optimized version for production_
 
 
+*For initial testing/sharing*
+Commit dist folder to gh-pages:
+`git subtree push --prefix dist origin gh-pages`
+
 Initial source
 ---
 
