@@ -15,8 +15,8 @@
   /* .main-txt properties */
   --main-title-size: 180px;
   --main-researcher-name-size: 120px;
-  --main-desc-size: 72px;
-  --main-link-size: 60px;
+  --main-desc-size: 60px;
+  --main-link-size: 48px;
   --main-text-padding: 100px;
   --main-text-width: 20%;
   --logo-proportions: 10%;
@@ -24,16 +24,17 @@
   /* .matrix properties */
   --matrix-item-side-length: 75%; // Matrix items are squares/circles
   --matrix-item-spacing: 25px; // Horizontal and vertical
-  //--matrix-outside-padding
   --matrix-num-columns: 7;
   --matrix-num-rows: 3;
   --matrix-width: 75%;
 
   /* .popup properties */
-  //--popup-title-size
-  //--popup-story-size
-  //--popup-link-size
+  --popup-title-size: 168px;
+  --popup-story-size: 48px;
+  --popup-link-size: 36px;
   --popup-bg-color: rgba(255, 255, 255, .25);
+  --popup-border-color: rgba(255, 255, 255, 100);
+  --popup-inner-padding: 100px;
 }
 
 body {
@@ -118,6 +119,7 @@ p {
 /********** Popup **********/
 /********************/
 .matrix-popup {
+  z-index: 100;
   border: 5px solid white;
   display: none; // Hide popup for now - work on matrix and main-txt first
 }
