@@ -9,24 +9,25 @@
   --text-color: #FFFFFF;
   --outermost-padding: 200px;
   --main-container-flex-flow: row-reverse nowrap;
+  --heading-font-family: 'Titillium Web', sans-serif;
+  --paragraph-font-family: 'Roboto', sans-serif;
 
   /* .main-txt properties */
   --main-title-size: 180px;
   --main-researcher-name-size: 120px;
   --main-desc-size: 72px;
   --main-link-size: 60px;
-  --main-text-padding: 300px;
-  --main-text-width: 25%;
-  --main-text-height: 1000px;
+  --main-text-padding: 100px;
+  --main-text-width: 20%;
   --logo-proportions: 10%;
 
   /* .matrix properties */
-  --matrix-item-side-length: 15%; // Matrix items are squares/circles
+  --matrix-item-side-length: 75%; // Matrix items are squares/circles
   --matrix-item-spacing: 25px; // Horizontal and vertical
   //--matrix-outside-padding
   --matrix-num-columns: 7;
   --matrix-num-rows: 3;
-  --matrix-width: 60%;
+  --matrix-width: 75%;
 
   /* .popup properties */
   //--popup-title-size
@@ -51,12 +52,12 @@ body {
 }
 
 h1, h2, h3 {
-  font-family: 'Titillium Web', sans-serif;
+  font-family: var(--heading-font-family);
   line-height: 50%;
 }
 
 p {
-  font-family: 'Roboto', sans-serif;
+  font-family: var(--paragraph-font-family);
 }
 
 
@@ -99,8 +100,8 @@ p {
 .matrix {
   width: var(--matrix-width);
   display: grid;
-  grid-template-columns: auto;
-  grid-template-rows: auto;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
   align-content: space-between;
 
   border: 1px solid white; // Border for testing purposes - remove later
@@ -108,6 +109,8 @@ p {
 
 .matrix-item {
   width: var(--matrix-item-side-length);
+  justify-self: center;
+  align-items: center;
 }
 
 
@@ -130,11 +133,24 @@ p {
 /*||||||||||||||||||||||||||||||||||||||||||||||||||*/
 
 /********************/
-/********** For large-scale displays **********/
+/********** For other large-scale displays (square/portrait) **********/
 /********************/
-@media (max-aspect-ratio: 3/2) {
+@media (max-aspect-ratio: 3/2) { // Still looking for ideal breakpoint (use logic?)!
   :root {
     --main-container-flex-flow: column nowrap;
+
+    --main-text-padding: 0;
+    --main-text-width: 100%;
+
+    // Probably have to split main-txt div into two columns
+    // Left contains main title, researcher name, URL, and logo
+    // Right contains description paragraph
+
+    --matrix-width: 100%;
+  }
+
+  .main-txt {
+    display: grid;
   }
 }
 
@@ -150,14 +166,20 @@ p {
 /********** For tablet **********/
 /********************/
 
+
 /********************/
 /********** For larger mobile device/mini-tablet **********/
 /********************/
+@media (max-width: 800px) { // Check pointer size/type too?
+  :root {
+
+  }
+}
 
 /********************/
 /********** For small mobile device **********/
 /********************/
-@media (max-width: 600px) {
+@media (max-width: 600px) { // Check pointer size/type too?
   :root {
     --text-color: #000000;
     --background-color: #FFFFFF;
