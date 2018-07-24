@@ -149,8 +149,40 @@ p {
     --matrix-width: 100%;
   }
 
+  // Need to refactor all of this stuff
+  .main-title {
+    grid-area: title;
+    font-size: var(--main-title-size);
+  }
+
+  .researcher-name {
+    grid-area: name;
+    font-size: var(--main-researcher-name-size);
+  }
+
+  .main-desc {
+    grid-area: desc;
+    font-size: var(--main-desc-size);
+  }
+
+  .main-url {
+    grid-area: url;
+    font-size: var(--main-link-size);
+  }
+
+  #logo {
+    grid-area: logo;
+  }
+
   .main-txt {
     display: grid;
+    grid-template-columns: 50%;
+    grid-template-rows: 25% 10% 10% auto;
+    grid-template-areas:
+      "title desc"
+      "name desc"
+      "url desc"
+      "logo desc";
   }
 }
 
