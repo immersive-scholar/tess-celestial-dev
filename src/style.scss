@@ -5,23 +5,24 @@
 /*||||||||||||||||||||||||||||||||||||||||||||||||||*/
 /*||||||||||||||||||||||||||||||||||||||||||||||||||*/
 :root {
-  --background-color: #333333;
+  --background-color: #000000;
   --text-color: #FFFFFF;
-  --outermost-padding: 20px;
+  --outermost-padding: 200px;
 
-  --main-title-size: 180px;
-  --main-researcher-name-size: 120px;
+  --main-title-size: 168px;
+  --main-researcher-name-size: 108px;
   --main-desc-size: 72px;
   --main-link-size: 60px;
   //--main-text-padding
-  --main-text-width: 2272px;
+  --main-text-width: 30%;
+  --main-text-height: 1000px;
 
   --matrix-item-side-length: 100px; // Matrix items are squares/circles
   --matrix-item-spacing: 25px; // Horizontal and vertical
   //--matrix-outside-padding
   --matrix-num-columns: 7;
   --matrix-num-rows: 3;
-  --matrix-width: 4544px;
+  --matrix-width: 60%;
 
   //--popup-title-size
   //--popup-story-size
@@ -33,11 +34,20 @@ body {
   background-color: var(--background-color);
   color: var(--text-color);
   padding: var(--outermost-padding);
+  font-color: var(--text-color);
+}
+
+.main-container {
+  height: 100%;
+  width: 100%;
   display: flex;
+  flex-flow: row-reverse nowrap;
+  justify-content: center;
 }
 
 h1, h2, h3 {
   font-family: 'Titillium Web', sans-serif;
+  line-height: 50%;
 }
 
 p {
@@ -49,10 +59,9 @@ p {
 /********** Main text area **********/
 /********************/
 .main-txt {
-  border: 1px solid black; // Border for testing purposes - remove later
-  order: 2;
+  border: 1px solid white; // Border for testing purposes - remove later
   width: var(--main-text-width);
-  flex-wrap: wrap;
+  //height: var(--main-text-height);
 }
 
 .main-title {
@@ -77,8 +86,7 @@ p {
 /********************/
 .matrix {
   width: var(--matrix-width);
-  border: 1px solid black; // Border for testing purposes - remove later
-  order: 1;
+  border: 1px solid white; // Border for testing purposes - remove later
 }
 
 
@@ -86,7 +94,7 @@ p {
 /********** Popup **********/
 /********************/
 .matrix-popup {
-  border: 5px solid black;
+  border: 5px solid white;
   display: none; // Hide popup for now - work on matrix and main-txt first
 }
 
@@ -130,9 +138,9 @@ p {
 /********************/
 /********** For small mobile device **********/
 /********************/
-@media (min-width: 600px) {
+@media (max-width: 600px) {
   :root {
-    --text-color: #333333;
+    --text-color: #000000;
     --background-color: #FFFFFF;
   }
 }
