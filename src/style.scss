@@ -1,7 +1,13 @@
 /*||||||||||||||||||||||||||||||||||||||||||||||||||*/
 /*||||||||||||||||||||||||||||||||||||||||||||||||||*/
+/*||||||||||||||||||||||||||||||||||||||||||||||||||*/
+/*||||||||||||||||||||||||||||||||||||||||||||||||||*/
+/*||||||||||||||||||||||||||||||||||||||||||||||||||*/
 /* Default settings (Immersion Theater - 6816 x 2240) */
 /* (Works for any screens with ratios similar to 27:9) */
+/*||||||||||||||||||||||||||||||||||||||||||||||||||*/
+/*||||||||||||||||||||||||||||||||||||||||||||||||||*/
+/*||||||||||||||||||||||||||||||||||||||||||||||||||*/
 /*||||||||||||||||||||||||||||||||||||||||||||||||||*/
 /*||||||||||||||||||||||||||||||||||||||||||||||||||*/
 :root {
@@ -33,8 +39,12 @@
   --popup-story-size: 48px;
   --popup-link-size: 36px;
   --popup-bg-color: rgba(255, 255, 255, .25);
-  --popup-border-color: rgba(255, 255, 255, 100);
+  --popup-border: 25px solid rgba(255, 255, 255, 100);
+  --popup-border-radius: 25px;
   --popup-inner-padding: 100px;
+  --popup-width: 65%;
+  --popup-primary-img-width: 100%;
+  --popup-secondary-img-width: 50%;
 }
 
 body {
@@ -120,8 +130,48 @@ p {
 /********************/
 .matrix-popup {
   z-index: 100;
-  border: 5px solid white;
+  display: grid;
+  grid-template-columns: 50%;
+  grid-template-areas: "img txt";
+  position: relative;
+    left: 50%;
+  border: var(--popup-border);
+  background-color: var(--popup-bg-color);
+  border-radius: var(--popup-border-radius);
+  width: var(--popup-width);
   display: none; // Hide popup for now - work on matrix and main-txt first
+}
+
+.popup-img-area {
+  padding: var(--popup-inner-padding);
+  grid-area: img;
+  place-self: center;
+}
+
+#primary-popup-img {
+  width: var(--popup-primary-img-width);
+}
+
+.secondary-img {
+  width: var(--popup-secondary-img-width);
+}
+
+.popup-txt-area {
+  padding: var(--popup-inner-padding);
+  grid-area: txt;
+  place-self: center;
+}
+
+.project-title {
+  font-size: var(--popup-title-size);
+}
+
+.project-story {
+  font-size: var(--popup-story-size);
+}
+
+.project-url {
+  font-size: var(--popup-link-size);
 }
 
 
@@ -130,7 +180,13 @@ p {
 
 /*||||||||||||||||||||||||||||||||||||||||||||||||||*/
 /*||||||||||||||||||||||||||||||||||||||||||||||||||*/
+/*||||||||||||||||||||||||||||||||||||||||||||||||||*/
+/*||||||||||||||||||||||||||||||||||||||||||||||||||*/
+/*||||||||||||||||||||||||||||||||||||||||||||||||||*/
 /* Media queries - for all other screen sizes */
+/*||||||||||||||||||||||||||||||||||||||||||||||||||*/
+/*||||||||||||||||||||||||||||||||||||||||||||||||||*/
+/*||||||||||||||||||||||||||||||||||||||||||||||||||*/
 /*||||||||||||||||||||||||||||||||||||||||||||||||||*/
 /*||||||||||||||||||||||||||||||||||||||||||||||||||*/
 
