@@ -8,22 +8,27 @@
   --background-color: #000000;
   --text-color: #FFFFFF;
   --outermost-padding: 200px;
+  --main-container-flex-flow: row-reverse nowrap;
 
-  --main-title-size: 168px;
-  --main-researcher-name-size: 108px;
+  /* .main-txt properties */
+  --main-title-size: 180px;
+  --main-researcher-name-size: 120px;
   --main-desc-size: 72px;
   --main-link-size: 60px;
-  //--main-text-padding
-  --main-text-width: 30%;
+  --main-text-padding: 300px;
+  --main-text-width: 25%;
   --main-text-height: 1000px;
+  --logo-proportions: 10%;
 
-  --matrix-item-side-length: 100px; // Matrix items are squares/circles
+  /* .matrix properties */
+  --matrix-item-side-length: 15%; // Matrix items are squares/circles
   --matrix-item-spacing: 25px; // Horizontal and vertical
   //--matrix-outside-padding
   --matrix-num-columns: 7;
   --matrix-num-rows: 3;
   --matrix-width: 60%;
 
+  /* .popup properties */
   //--popup-title-size
   //--popup-story-size
   //--popup-link-size
@@ -41,7 +46,7 @@ body {
   height: 100%;
   width: 100%;
   display: flex;
-  flex-flow: row-reverse nowrap;
+  flex-flow: var(--main-container-flex-flow);
   justify-content: center;
 }
 
@@ -59,9 +64,10 @@ p {
 /********** Main text area **********/
 /********************/
 .main-txt {
-  border: 1px solid white; // Border for testing purposes - remove later
   width: var(--main-text-width);
-  //height: var(--main-text-height);
+  padding: 0 0 0 var(--main-text-padding);
+
+  border: 1px solid white; // Border for testing purposes - remove later
 }
 
 .main-title {
@@ -80,13 +86,28 @@ p {
   font-size: var(--main-link-size);
 }
 
+#logo {
+  height: var(--logo-proportions);
+  weight: var(--logo-proportions);
+  float: right;
+}
+
 
 /********************/
 /********** Matrix **********/
 /********************/
 .matrix {
   width: var(--matrix-width);
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+  align-content: space-between;
+
   border: 1px solid white; // Border for testing purposes - remove later
+}
+
+.matrix-item {
+  width: var(--matrix-item-side-length);
 }
 
 
@@ -111,13 +132,11 @@ p {
 /********************/
 /********** For large-scale displays **********/
 /********************/
-/*
-@media () {
+@media (max-aspect-ratio: 3/2) {
   :root {
-
+    --main-container-flex-flow: column nowrap;
   }
 }
-*/
 
 /********************/
 /********** For large desktop **********/
