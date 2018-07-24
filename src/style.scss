@@ -1,52 +1,281 @@
-/* Everything */
+/*||||||||||||||||||||||||||||||||||||||||||||||||||*/
+/*||||||||||||||||||||||||||||||||||||||||||||||||||*/
+/*||||||||||||||||||||||||||||||||||||||||||||||||||*/
+/*||||||||||||||||||||||||||||||||||||||||||||||||||*/
+/*||||||||||||||||||||||||||||||||||||||||||||||||||*/
+/* Default settings (Immersion Theater - 6816 x 2240) */
+/* (Works for any screens with ratios similar to 27:9) */
+/*||||||||||||||||||||||||||||||||||||||||||||||||||*/
+/*||||||||||||||||||||||||||||||||||||||||||||||||||*/
+/*||||||||||||||||||||||||||||||||||||||||||||||||||*/
+/*||||||||||||||||||||||||||||||||||||||||||||||||||*/
+/*||||||||||||||||||||||||||||||||||||||||||||||||||*/
 :root {
-  --background-color: #333333;
+  --background-color: #000000;
   --text-color: #FFFFFF;
-  --outermost-padding: 20px;
+  --outermost-padding: 200px;
+  --main-container-flex-flow: row-reverse nowrap;
+  --heading-font-family: 'Titillium Web', sans-serif;
+  --paragraph-font-family: 'Roboto', sans-serif;
 
-  //--main-title-size
-  //--main-desc-size
-  //--main-link-size
-  //--main-text-padding
+  /* .main-txt properties */
+  --main-title-size: 180px;
+  --main-researcher-name-size: 120px;
+  --main-desc-size: 60px;
+  --main-link-size: 48px;
+  --main-text-padding: 100px;
+  --main-text-width: 20%;
+  --logo-proportions: 10%;
 
-  --matrix-item-side-length: 100px; // Matrix items are squares/circles
+  /* .matrix properties */
+  --matrix-item-side-length: 75%; // Matrix items are squares/circles
   --matrix-item-spacing: 25px; // Horizontal and vertical
-  //--matrix-outside-padding
+  --matrix-num-columns: 7;
+  --matrix-num-rows: 3;
+  --matrix-width: 75%;
 
-  //--popup-title-size
-  //--popup-story-size
-  //--popup-link-size
+  /* .popup properties */
+  --popup-title-size: 168px;
+  --popup-story-size: 48px;
+  --popup-link-size: 36px;
   --popup-bg-color: rgba(255, 255, 255, .25);
+  --popup-border: 25px solid rgba(255, 255, 255, 100);
+  --popup-border-radius: 25px;
+  --popup-inner-padding: 100px;
+  --popup-width: 65%;
+  --popup-primary-img-width: 100%;
+  --popup-secondary-img-width: 50%;
 }
 
 body {
   background-color: var(--background-color);
   color: var(--text-color);
   padding: var(--outermost-padding);
+  font-color: var(--text-color);
+}
+
+.main-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-flow: var(--main-container-flex-flow);
+  justify-content: center;
 }
 
 h1, h2, h3 {
-  font-family: 'Titillium Web', sans-serif;
-  font-weight: 700;
+  font-family: var(--heading-font-family);
+  line-height: 50%;
 }
 
 p {
-  font-family: 'Roboto', sans-serif;
+  font-family: var(--paragraph-font-family);
 }
 
-/* Main text area */
+a:visited {
+  color: var(--text-color);
+}
 
-/* Matrix */
 
-/* Popup */
+/********************/
+/********** Main text area **********/
+/********************/
+.main-txt {
+  width: var(--main-text-width);
+  padding: 0 0 0 var(--main-text-padding);
+
+  border: 1px solid white; // Border for testing purposes - remove later
+}
+
+.main-title {
+  font-size: var(--main-title-size);
+}
+
+.researcher-name {
+  font-size: var(--main-researcher-name-size);
+}
+
+.main-desc {
+  font-size: var(--main-desc-size);
+}
+
+.main-url {
+  font-size: var(--main-link-size);
+}
+
+#logo {
+  height: var(--logo-proportions);
+  weight: var(--logo-proportions);
+  float: right;
+}
+
+
+/********************/
+/********** Matrix **********/
+/********************/
+.matrix {
+  width: var(--matrix-width);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  align-content: space-between;
+
+  border: 1px solid white; // Border for testing purposes - remove later
+}
+
+.matrix-item {
+  width: var(--matrix-item-side-length);
+  justify-self: center;
+  align-items: center;
+}
+
+
+/********************/
+/********** Popup **********/
+/********************/
 .matrix-popup {
-  border: 5px solid black;
+  z-index: 100;
+  display: grid;
+  grid-template-columns: 50%;
+  grid-template-areas: "img txt";
+  position: relative;
+    left: 50%;
+  border: var(--popup-border);
+  background-color: var(--popup-bg-color);
+  border-radius: var(--popup-border-radius);
+  width: var(--popup-width);
+  display: none; // Hide popup for now - work on matrix and main-txt first
 }
 
-/* Media queries */
-@media (min-width: 600px) {
+.popup-img-area {
+  padding: var(--popup-inner-padding);
+  grid-area: img;
+  place-self: center;
+}
+
+#primary-popup-img {
+  width: var(--popup-primary-img-width);
+}
+
+.secondary-img {
+  width: var(--popup-secondary-img-width);
+}
+
+.popup-txt-area {
+  padding: var(--popup-inner-padding);
+  grid-area: txt;
+  place-self: center;
+}
+
+.project-title {
+  font-size: var(--popup-title-size);
+}
+
+.project-story {
+  font-size: var(--popup-story-size);
+}
+
+.project-url {
+  font-size: var(--popup-link-size);
+}
+
+
+
+
+
+/*||||||||||||||||||||||||||||||||||||||||||||||||||*/
+/*||||||||||||||||||||||||||||||||||||||||||||||||||*/
+/*||||||||||||||||||||||||||||||||||||||||||||||||||*/
+/*||||||||||||||||||||||||||||||||||||||||||||||||||*/
+/*||||||||||||||||||||||||||||||||||||||||||||||||||*/
+/* Media queries - for all other screen sizes */
+/*||||||||||||||||||||||||||||||||||||||||||||||||||*/
+/*||||||||||||||||||||||||||||||||||||||||||||||||||*/
+/*||||||||||||||||||||||||||||||||||||||||||||||||||*/
+/*||||||||||||||||||||||||||||||||||||||||||||||||||*/
+/*||||||||||||||||||||||||||||||||||||||||||||||||||*/
+
+/********************/
+/********** For other large-scale displays (square/portrait) **********/
+/********************/
+@media (max-aspect-ratio: 3/2) { // Still looking for ideal breakpoint (use logic?)!
   :root {
-    --text-color: #333333;
+    --main-container-flex-flow: column nowrap;
+
+    --main-text-padding: 0;
+    --main-text-width: 100%;
+
+    // Probably have to split main-txt div into two columns
+    // Left contains main title, researcher name, URL, and logo
+    // Right contains description paragraph
+
+    --matrix-width: 100%;
+  }
+
+  // Need to refactor all of this stuff
+  .main-title {
+    grid-area: title;
+    font-size: var(--main-title-size);
+  }
+
+  .researcher-name {
+    grid-area: name;
+    font-size: var(--main-researcher-name-size);
+  }
+
+  .main-desc {
+    grid-area: desc;
+    font-size: var(--main-desc-size);
+  }
+
+  .main-url {
+    grid-area: url;
+    font-size: var(--main-link-size);
+  }
+
+  #logo {
+    grid-area: logo;
+  }
+
+  .main-txt {
+    display: grid;
+    grid-template-columns: 50%;
+    grid-template-rows: 25% 10% 10% auto;
+    grid-template-areas:
+      "title desc"
+      "name desc"
+      "url desc"
+      "logo desc";
+  }
+}
+
+/********************/
+/********** For large desktop **********/
+/********************/
+
+/********************/
+/********** For desktop **********/
+/********************/
+
+/********************/
+/********** For tablet **********/
+/********************/
+
+
+/********************/
+/********** For larger mobile device/mini-tablet **********/
+/********************/
+@media (max-width: 800px) { // Check pointer size/type too?
+  :root {
+
+  }
+}
+
+/********************/
+/********** For small mobile device **********/
+/********************/
+@media (max-width: 600px) { // Check pointer size/type too?
+  :root {
+    --text-color: #000000;
     --background-color: #FFFFFF;
   }
 }
