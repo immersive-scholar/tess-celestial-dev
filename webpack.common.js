@@ -42,9 +42,15 @@ module.exports = {
         })
       },
       {
-        test: /\.(png|svg|jpg|gif)$/,
+        test: /\.(png|svg|jpe?g|gif)$/,
         use: [
-          'file-loader'
+          'file-loader',
+          {
+            loader: 'image-webpack-loader',
+            options: {
+              disable: true
+            }
+          }
         ]
       },
       {
