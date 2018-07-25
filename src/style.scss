@@ -30,8 +30,8 @@
   /* .matrix properties */
   --matrix-item-side-length: 75%; // Matrix items are squares/circles
   --matrix-item-spacing: 25px; // Horizontal and vertical
-  --matrix-num-columns: 7;
-  --matrix-num-rows: 3;
+  --matrix-col-spacing: 1fr 1fr 1fr 1fr 1fr 1fr 1fr; // 7 columns
+  --matrix-row-spacing: 1fr 1fr 1fr; // 3 rows
   --matrix-width: 75%;
 
   /* .popup properties */
@@ -115,8 +115,8 @@ a:visited {
 .matrix {
   width: var(--matrix-width);
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: var(--matrix-col-spacing);
+  grid-template-rows: var(--matrix-row-spacing);
   align-content: space-between;
 
   border: 1px solid white; // Border for testing purposes - remove later
@@ -197,54 +197,15 @@ a:visited {
 /********************/
 /********** For other large-scale displays (square/portrait) **********/
 /********************/
-@media (max-aspect-ratio: 3/2) { // Still looking for ideal breakpoint (use logic?)!
+// Still looking for ideal breakpoint (use logic?)!
+@media (max-aspect-ratio: 3/2) {
   :root {
-    --main-container-flex-flow: column nowrap;
+    //--main-text-padding: 0;
+    --main-text-width: 50%;
 
-    --main-text-padding: 0;
-    --main-text-width: 100%;
-
-    // Probably have to split main-txt div into two columns
-    // Left contains main title, researcher name, URL, and logo
-    // Right contains description paragraph
-
-    --matrix-width: 100%;
-  }
-
-  // Need to refactor all of this stuff
-  .main-title {
-    grid-area: title;
-    font-size: var(--main-title-size);
-  }
-
-  .researcher-name {
-    grid-area: name;
-    font-size: var(--main-researcher-name-size);
-  }
-
-  .main-desc {
-    grid-area: desc;
-    font-size: var(--main-desc-size);
-  }
-
-  .main-url {
-    grid-area: url;
-    font-size: var(--main-link-size);
-  }
-
-  #logo {
-    grid-area: logo;
-  }
-
-  .main-txt {
-    display: grid;
-    grid-template-columns: 50%;
-    grid-template-rows: 25% 10% 10% auto;
-    grid-template-areas:
-      "title desc"
-      "name desc"
-      "url desc"
-      "logo desc";
+    --matrix-col-spacing: 1fr 1fr 1fr;
+    --matrix-row-spacing: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    --matrix-width: 50%;
   }
 }
 
