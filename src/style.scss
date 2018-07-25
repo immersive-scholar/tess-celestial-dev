@@ -198,7 +198,9 @@ a:visited {
 /********** For other large-scale displays (square/portrait) **********/
 /********************/
 // Still looking for ideal breakpoint (use logic?)!
-@media (max-aspect-ratio: 3/2) {
+
+// For a "square" or "nearly square" layout
+@media (max-aspect-ratio: 6/5) {
   :root {
     //--main-text-padding: 0;
     --main-text-width: 50%;
@@ -208,6 +210,15 @@ a:visited {
     --matrix-width: 50%;
   }
 }
+
+// For a "portrait" layout
+/*
+@media () {
+  :root {
+
+  }
+}
+*/
 
 /********************/
 /********** For large desktop **********/
