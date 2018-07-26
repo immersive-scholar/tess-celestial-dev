@@ -1,6 +1,12 @@
 import './style.scss'
 import imgData from './data.csv'
 
+// FOR TESTING: copy imgData multiple times to populate matrix
+let testImgData = imgData
+for (let i = 0; i < 9; i++) {
+  testImgData = testImgData.concat(...imgData)
+}
+testImgData.push(imgData[0])
 // Name of the folder containing the image assets, must be located in 'src' folder
 const imgFolder = `test-img`
 
@@ -17,7 +23,7 @@ const createImgElements = function (imgSrc, title) {
 }
 
 // An array containing the image elements of the matrix
-const matrixImgs = imgData.map(d => createImgElements(d.imgName, d.title))
+const matrixImgs = testImgData.map(d => createImgElements(d.imgName, d.title))
 
 // Append matrix images to the matrix container
 matrixImgs.forEach(function (img) {
@@ -40,11 +46,21 @@ const preparePopupAssets = function (assetsObject, value) {
   return assetsObject
 }
 
-const popupAssets = imgData.reduce(preparePopupAssets, {})
+const popupAssets = testImgData.reduce(preparePopupAssets, {})
 console.log(popupAssets)
 
-const showPopup = function () {
-  // const storyPopup = document.querySelector('.matrix-popup')
+const showPopup = function (e) {
+  e.stopPropagation()
+  console.log('popup!')
+  const storyPopup = document.querySelector('.matrix-popup')
+  storyPopup.classList.add('visible')
+
+  const removePopup = function () {
+    console.log('popup!')
+    storyPopup.classList.remove('visible')
+    document.querySelector('body').removeEventListener('click', removePopup)
+  }
+  document.querySelector('body').addEventListener('click', removePopup)
 }
 
 matrixImgs.forEach(d =>
