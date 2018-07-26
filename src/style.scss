@@ -56,6 +56,11 @@ body {
   font-color: var(--text-color);
 }
 
+/* class to set properties of hidden elements*/
+.visible {
+  display: grid !important;
+}
+
 .main-container {
   padding: var(--outermost-padding);
   height: 100vh;
@@ -144,8 +149,8 @@ a:visited {
   z-index: 100;
   grid-template-columns: 50%;
   grid-template-areas: "img txt";
-  position: relative;
-    left: 50%;
+  position: absolute;
+  left: 50%;
   border: var(--popup-border);
   background-color: var(--popup-bg-color);
   border-radius: var(--popup-border-radius);
