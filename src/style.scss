@@ -66,6 +66,7 @@ body {
   padding: var(--outermost-padding);
   height: 100vh;
   width: 100vw;
+  box-sizing: border-box;
   display: flex;
   flex-flow: var(--main-container-flex-flow);
   justify-content: var(--center-position);
@@ -93,7 +94,7 @@ a:visited {
   max-width: var(--max-line-length);
   padding: 0 0 0 var(--main-text-padding);
 
-  border: 1px solid white; // Border for testing purposes - remove later
+  border: 5px solid white; // Border for testing purposes - remove later
 }
 
 .main-title {
@@ -134,7 +135,7 @@ a:visited {
   align-content: space-between;
   align-items: var(--center-position);
 
-  border: 1px solid white; // Border for testing purposes - remove later
+  border: 5px solid white; // Border for testing purposes - remove later
 }
 
 .matrix-item {
