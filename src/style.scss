@@ -18,6 +18,7 @@
   --heading-font-family: 'Titillium Web', sans-serif;
   --paragraph-font-family: 'Roboto', sans-serif;
   --center-position: center; // For centering in various properties
+  --best-line-length: 1250px;
 
   /* .main-txt properties */
   --main-title-size: 180px;
@@ -83,6 +84,7 @@ a:visited {
 /********************/
 .main-txt {
   width: var(--main-text-width);
+  max-width: var(--best-line-length);
   padding: 0 0 0 var(--main-text-padding);
 
   border: 1px solid white; // Border for testing purposes - remove later
