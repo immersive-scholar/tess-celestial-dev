@@ -32,10 +32,11 @@
 
   /* .matrix properties */
   --matrix-item-side-length: 75%; // Matrix items are squares/circles
-  --matrix-item-spacing: 25px; // Horizontal and vertical
+  --matrix-item-spacing: 50px; // Horizontal and vertical
   --matrix-col-spacing: 1fr 1fr 1fr 1fr 1fr 1fr 1fr; // 7 columns
   --matrix-row-spacing: 1fr 1fr 1fr; // 3 rows
   --matrix-width: 75%;
+  --max-matrix-width: 6000px;
 
   /* .popup properties */
   --popup-title-size: 168px;
@@ -129,11 +130,15 @@ a:visited {
 /********************/
 .matrix {
   width: var(--matrix-width);
+  max-width: var(--max-matrix-width);
   display: grid;
   grid-template-columns: var(--matrix-col-spacing);
   grid-template-rows: var(--matrix-row-spacing);
   align-content: space-between;
   align-items: var(--center-position);
+  column-gap: var(--matrix-item-spacing);
+  row-gap: var(--matrix-item-spacing);
+  // max-height: 1890px; // Set this equal to main-container's height
 
   border: 5px solid white; // Border for testing purposes - remove later
 }
@@ -244,8 +249,8 @@ a:visited {
 
     --matrix-col-spacing: 1fr 1fr 1fr;
     --matrix-row-spacing: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-
     --matrix-width: 100%;
+    --max-matrix-width: 1250px;
   }
 }
 
