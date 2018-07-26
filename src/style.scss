@@ -50,11 +50,15 @@
   --popup-border-radius: 25px;
   --popup-inner-padding: 100px;
   --popup-width: 65%;
+  --popup-max-width: 50%;
   --popup-primary-img-width: 100%;
   --popup-secondary-img-width: 50%;
   --popup-txt-col-size: 50%;
   --popup-txt-row-size: 100%;
   --popup-grid-layout: "img txt";
+  --popup-img-subgrid-layout: "secondary primary";
+  --popup-primary-col-size: 80%;
+  --popup-secondary-col-size: 20%;
 }
 
 body {
@@ -165,35 +169,41 @@ a:visited {
   grid-template-rows: var(--popup-txt-row-size);
   grid-template-areas: var(--popup-grid-layout);
   position: absolute;
-    left: 0%;
-    top: 0%;
+    left: 100px;
+    top: calc(25% - 100px);
+    //top: calc(100vh / 4);
   border: var(--popup-border);
   background-color: var(--popup-bg-color);
   border-radius: var(--popup-border-radius);
   width: var(--popup-width);
   display: grid;
-  // display: none; // Hide popup for now - work on matrix and main-txt first
+  max-width: var(--popup-max-width);
+  // display: none;
 }
 
 .visible {
   display: grid;
   position: absolute;
-  left: 0;
-  top: 0;
+    left: 100px;
+    top: 100px;
 }
 
 .popup-img-area {
   padding: var(--popup-inner-padding);
   grid-area: img;
   place-self: var(--center-position);
+  grid-template-columns: var(--popup-secondary-col-size) var(--popup-primary-col-size);
+  grid-template-areas: var(--popup-img-subgrid-layout);
 }
 
 #primary-popup-img {
   width: var(--popup-primary-img-width);
+  grid-area: primary;
 }
 
 .secondary-img-slides {
-  display: grid;
+  grid-area: secondary;
+  display: flex;
 }
 
 .secondary-img {
@@ -283,29 +293,57 @@ a:visited {
 /********************/
 /********** For large desktop **********/
 /********************/
-
-/********************/
-/********** For desktop **********/
-/********************/
-
-/********************/
-/********** For tablet **********/
-/********************/
-
-
-/********************/
-/********** For larger mobile device/mini-tablet **********/
-/********************/
-@media (max-width: 800px) { // Check pointer size/type too?
+@media (max-width: 1440px) {
   :root {
 
   }
 }
 
 /********************/
+/********** For desktop **********/
+/********************/
+@media (max-width: 1024px) {
+  :root {
+    --text-color: #000000;
+    --background-color: #FFFFFF;
+  }
+}
+
+/********************/
+/********** For tablet **********/
+/********************/
+@media (max-width: 768px) {
+  :root {
+    --text-color: #000000;
+    --background-color: #FFFFFF;
+  }
+}
+
+
+/********************/
+/********** For larger mobile device **********/
+/********************/
+@media (max-width: 425px) { // Check pointer size/type too?
+  :root {
+    --text-color: #000000;
+    --background-color: #FFFFFF;
+  }
+}
+
+/********************/
+/********** For medium mobile device **********/
+/********************/
+@media (max-width: 375px) { // Check pointer size/type too?
+  :root {
+    --text-color: #000000;
+    --background-color: #FFFFFF;
+  }
+}
+
+/********************/
 /********** For small mobile device **********/
 /********************/
-@media (max-width: 600px) { // Check pointer size/type too?
+@media (max-width: 320px) { // Check pointer size/type too?
   :root {
     --text-color: #000000;
     --background-color: #FFFFFF;
