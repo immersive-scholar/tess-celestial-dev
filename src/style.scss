@@ -52,6 +52,9 @@
   --popup-width: 65%;
   --popup-primary-img-width: 100%;
   --popup-secondary-img-width: 50%;
+  --popup-txt-col-size: 50%;
+  --popup-txt-row-size: 100%;
+  --popup-grid-layout: "img txt";
 }
 
 body {
@@ -158,8 +161,9 @@ a:visited {
 /********************/
 .matrix-popup {
   z-index: 100;
-  grid-template-columns: 50%;
-  grid-template-areas: "img txt";
+  grid-template-columns: var(--popup-txt-col-size);
+  grid-template-rows: var(--popup-txt-row-size);
+  grid-template-areas: var(--popup-grid-layout);
   position: absolute;
     left: 0%;
     top: 0%;
@@ -248,6 +252,11 @@ a:visited {
     --matrix-col-spacing: 1fr 1fr 1fr;
     --matrix-row-spacing: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     --matrix-width: 50%;
+
+    --popup-width: 40%;
+    --popup-txt-col-size: 100%;
+    --popup-txt-row-size: 50%;
+    --popup-grid-layout: "img" "txt";
   }
 }
 
@@ -262,7 +271,11 @@ a:visited {
     --matrix-col-spacing: 1fr 1fr 1fr;
     --matrix-row-spacing: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     --matrix-width: 100%;
-    --max-matrix-width: 1250px;
+    --max-matrix-width: 1045px;
+
+    --popup-txt-col-size: 100%;
+    --popup-txt-row-size: 50%;
+    --popup-grid-layout: "img" "txt";
   }
 }
 
