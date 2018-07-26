@@ -18,10 +18,10 @@
   --heading-font-family: 'Titillium Web', sans-serif;
   --paragraph-font-family: 'Roboto', sans-serif;
   --center-position: center; // For centering in various properties
-  --min-line-length: 1045px;
-  --max-line-length: 1250px;
 
   /* .main-txt properties */
+  --min-main-line-length: 1045px;
+  --max-main-line-length: 1250px;
   --main-title-size: 180px;
   --main-researcher-name-size: 120px;
   --main-desc-size: 60px;
@@ -29,6 +29,7 @@
   --main-text-padding: 100px;
   //--main-text-width: 20%;
   --logo-proportions: 10%;
+  --max-logo-height: 189px;
 
   /* .matrix properties */
   --matrix-item-side-length: 75%; // Matrix items are squares/circles
@@ -39,9 +40,11 @@
   --max-matrix-width: 6000px;
 
   /* .popup properties */
-  --popup-title-size: 168px;
-  --popup-story-size: 48px;
-  --popup-link-size: 36px;
+  --min-popup-line-length: 590px;
+  --max-popup-line-length: 760px;
+  --popup-title-size: 108px;
+  --popup-story-size: 36px;
+  --popup-link-size: 24px;
   --popup-bg-color: rgba(255, 255, 255, .25);
   --popup-border: 25px solid rgba(255, 255, 255, 100);
   --popup-border-radius: 25px;
@@ -91,8 +94,8 @@ a:visited {
 /********** Main text area **********/
 /********************/
 .main-txt {
-  width: var(--min-line-width);
-  max-width: var(--max-line-length);
+  width: var(--min-main-line-length);
+  max-width: var(--max-main-line-length);
   padding: 0 0 0 var(--main-text-padding);
 
   border: 5px solid white; // Border for testing purposes - remove later
@@ -120,7 +123,8 @@ a:visited {
 
 #logo {
   height: var(--logo-proportions);
-  weight: var(--logo-proportions);
+  //width: var(--logo-proportions);
+  max-height: var(--max-logo-height);
   float: right;
 }
 
@@ -157,22 +161,22 @@ a:visited {
   grid-template-columns: 50%;
   grid-template-areas: "img txt";
   position: absolute;
-    left: 50%;
+    left: 0%;
+    top: 0%;
   border: var(--popup-border);
   background-color: var(--popup-bg-color);
   border-radius: var(--popup-border-radius);
   width: var(--popup-width);
-  display: none; // Hide popup for now - work on matrix and main-txt first
+  display: grid;
+  // display: none; // Hide popup for now - work on matrix and main-txt first
 }
 
-/*
 .visible {
   display: grid;
   position: absolute;
   left: 0;
   top: 0;
 }
-*/
 
 .popup-img-area {
   padding: var(--popup-inner-padding);
@@ -184,6 +188,10 @@ a:visited {
   width: var(--popup-primary-img-width);
 }
 
+.secondary-img-slides {
+  display: grid;
+}
+
 .secondary-img {
   width: var(--popup-secondary-img-width);
 }
@@ -192,9 +200,12 @@ a:visited {
   padding: var(--popup-inner-padding);
   grid-area: txt;
   place-self: var(--center-position);
+  min-width: var(--min-popup-line-length);
+  max-width: var(--max-popup-line-length);
 }
 
 .project-title {
+  margin: 0;
   font-size: var(--popup-title-size);
 }
 
@@ -245,6 +256,7 @@ a:visited {
   :root {
     --main-container-flex-flow: column nowrap;
 
+    --main-text-padding: 0px;
     //--main-text-width: 100%;
 
     --matrix-col-spacing: 1fr 1fr 1fr;
