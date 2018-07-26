@@ -178,7 +178,7 @@ a:visited {
   width: var(--popup-width);
   display: grid;
   max-width: var(--popup-max-width);
-  // display: none; // Hide popup for now - work on matrix and main-txt first
+  // display: none;
 }
 
 .visible {
@@ -198,11 +198,11 @@ a:visited {
 
 #primary-popup-img {
   width: var(--popup-primary-img-width);
-  grid-area: "primary";
+  grid-area: primary;
 }
 
 .secondary-img-slides {
-  grid-area: "secondary";
+  grid-area: secondary;
   display: flex;
 }
 
