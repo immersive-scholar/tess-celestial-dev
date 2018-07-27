@@ -50,7 +50,7 @@ const popupAssets = testImgData.reduce(preparePopupAssets, {})
 
 const showPopup = function (event) {
   const storyPopup = document.querySelector('.matrix-popup')
-  if (storyPopup.classList.contains('visible')) { return }
+  if (!storyPopup.classList.contains('hidden')) { return }
   const storyId = this.dataset.id
   const story = popupAssets[storyId]
 
@@ -64,7 +64,7 @@ const showPopup = function (event) {
   story.storyMedia
     .filter(d => d !== '')
     .forEach(function (mediaItem, i) {
-      secondaryImgs[i].classList.add('visible')
+      secondaryImgs[i].classList.remove('hidden')
       secondaryImgs[i].src = require(`./${imgFolder}/${storyId}/${mediaItem}`)
     })
 
@@ -72,7 +72,7 @@ const showPopup = function (event) {
   document.querySelector('.project-title').textContent = story.title
   document.querySelector('.project-story').textContent = story.text
 
-  storyPopup.classList.add('visible')
+  storyPopup.classList.remove('hidden')
 
   // Prevent click on matrix img throwing event attached to body
   event.stopPropagation()
@@ -80,13 +80,14 @@ const showPopup = function (event) {
   // This function removes the popup from the screen when a click occurs anywhere on the screem
   const removePopup = function () {
     console.log('popup!')
-    storyPopup.classList.remove('visible')
-    secondaryImgs.forEach(d => d.classList.remove('visible'))
+    storyPopup.classList.add('hidden')
+    secondaryImgs.forEach(d => d.classList.add('hidden'))
     document.querySelector('body').removeEventListener('click', removePopup)
   }
   document.querySelector('body').addEventListener('click', removePopup)
 }
 
+// Attach an event listener to each matrix img to show popup on click
 matrixImgs.forEach(d =>
   d.addEventListener('click', showPopup)
 )

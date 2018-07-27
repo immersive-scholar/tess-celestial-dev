@@ -68,9 +68,9 @@ body {
   font-color: var(--text-color);
 }
 
-/* class to set properties of hidden elements*/
-.visible {
-  display: grid !important;
+/* class to remove element from page flow*/
+.hidden {
+  display: none !important;
 }
 
 .main-container {
@@ -178,14 +178,9 @@ a:visited {
   width: var(--popup-width);
   display: grid;
   max-width: var(--popup-max-width);
-  // display: none;
-}
-
-.visible {
-  display: grid;
   position: absolute;
-    left: 100px;
-    top: 100px;
+  left: 100px;
+  top: 100px;
 }
 
 .popup-img-area {
