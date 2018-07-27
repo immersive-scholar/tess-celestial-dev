@@ -254,7 +254,7 @@ a:visited {
 // Let's say each matrix item should be at least 400px long/tall
 
 // Remove one column (now 3 x 6 matrix)
-@media (max-width: 5580px) and (min-height: 2100px) {
+@media (max-aspect-ratio: 558/210) and (min-height: 2100px) {
   :root {
     --matrix-col-spacing: 1fr 1fr 1fr 1fr 1fr 1fr;
     --matrix-row-spacing: 1fr 1fr 1fr;
@@ -262,7 +262,7 @@ a:visited {
 }
 
 // Remove two columns (now 3 x 5 matrix)
-@media (max-width: 4815px) and (min-height: 2100px) {
+@media (max-aspect-ratio: 4815/2100) and (min-height: 2100px) {
   :root {
     --matrix-col-spacing: 1fr 1fr 1fr 1fr 1fr;
     --matrix-row-spacing: 1fr 1fr 1fr;
@@ -270,7 +270,7 @@ a:visited {
 }
 
 // Remove three columns (now 3 x 4 matrix)
-@media (max-width: 4190px) and (min-height: 2100px) {
+@media (max-aspect-ratio: 419/210) and (min-height: 2100px) {
   :root {
     --matrix-col-spacing: 1fr 1fr 1fr 1fr;
     --matrix-row-spacing: 1fr 1fr 1fr;
