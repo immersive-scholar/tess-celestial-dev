@@ -249,9 +249,37 @@ a:visited {
 /*||||||||||||||||||||||||||||||||||||||||||||||||||*/
 
 /********************/
+/********** For narrower landscape layouts **********/
+/********************/
+// Let's say each matrix item should be at least 400px long/tall
+
+// Remove one column (now 3 x 6 matrix)
+@media (max-width: 5580px) and (min-height: 2100px) {
+  :root {
+    --matrix-col-spacing: 1fr 1fr 1fr 1fr 1fr 1fr;
+    --matrix-row-spacing: 1fr 1fr 1fr;
+  }
+}
+
+// Remove two columns (now 3 x 5 matrix)
+@media (max-width: 4815px) and (min-height: 2100px) {
+  :root {
+    --matrix-col-spacing: 1fr 1fr 1fr 1fr 1fr;
+    --matrix-row-spacing: 1fr 1fr 1fr;
+  }
+}
+
+// Remove three columns (now 3 x 4 matrix)
+@media (max-width: 4190px) and (min-height: 2100px) {
+  :root {
+    --matrix-col-spacing: 1fr 1fr 1fr 1fr;
+    --matrix-row-spacing: 1fr 1fr 1fr;
+  }
+}
+
+/********************/
 /********** For other large-scale displays (square/portrait) **********/
 /********************/
-// Still looking for ideal breakpoints!
 // Should we include (min-height: 2100px) in the large-scale media queries?
 
 // For a "square" or "nearly square" layout
