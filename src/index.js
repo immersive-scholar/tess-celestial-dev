@@ -1,12 +1,13 @@
 import './style.scss'
-import imgData from './data.csv'
+import columnResize from './columnResize.js'
+import rawImgData from './data.csv'
 
 // FOR TESTING: copy imgData multiple times to populate matrix
-let testImgData = imgData
+let imgData = rawImgData
 for (let i = 0; i < 9; i++) {
-  testImgData = testImgData.concat(...imgData)
+  imgData = imgData.concat(...rawImgData)
 }
-testImgData.push(imgData[0])
+imgData.push(rawImgData[0])
 // Name of the folder containing the image assets, must be located in 'src' folder
 const imgFolder = `test-img`
 
@@ -22,7 +23,7 @@ const createImgElement = function (imgSrc, title) {
 }
 
 // An array containing the image elements of the matrix
-const matrixImgs = testImgData.map(d => createImgElement(d.imgName, d.title))
+const matrixImgs = imgData.map(d => createImgElement(d.imgName, d.title))
 
 // Append matrix images to the matrix container
 matrixImgs.forEach(function (img) {
@@ -46,7 +47,7 @@ const preparePopupAssets = function (assetsObject, value) {
   return assetsObject
 }
 
-const popupAssets = testImgData.reduce(preparePopupAssets, {})
+const popupAssets = imgData.reduce(preparePopupAssets, {})
 
 const showPopup = function (event) {
   const storyPopup = document.querySelector('.matrix-popup')
@@ -91,3 +92,5 @@ const showPopup = function (event) {
 matrixImgs.forEach(d =>
   d.addEventListener('click', showPopup)
 )
+
+columnResize(matrix, matrixImgs)
