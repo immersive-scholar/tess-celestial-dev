@@ -60,6 +60,7 @@
 body {
   background-color: var(--background-color);
   color: var(--text-color);
+<<<<<<< HEAD
   font-color: var(--text-color); }
 
 /* class to remove element from page flow*/
@@ -305,4 +306,26 @@ a:visited {
 @media (max-width: 320px) {
   :root {
     --text-color: #000000;
+=======
+  padding: var(--outermost-padding); }
+
+h1, h2, h3 {
+  font-family: 'Titillium Web', sans-serif;
+  font-weight: 700; }
+
+p {
+  font-family: 'Roboto', sans-serif; }
+
+/* Main text area */
+/* Matrix */
+/* Popup */
+.matrix-popup {
+  border: 5px solid black;
+  display: none; }
+
+/* Media queries */
+@media (min-width: 600px) {
+  :root {
+    --text-color: #333333;
+>>>>>>> c41917e4960435cbaf6673090d70397e3117a937
     --background-color: #FFFFFF; } }
