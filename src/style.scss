@@ -18,6 +18,7 @@
   --heading-font-family: 'Titillium Web', sans-serif;
   --paragraph-font-family: 'Roboto', sans-serif;
   --center-position: center; // For centering in various properties
+  --horizontal-center-margins: 0;
 
   /* .main-txt properties */
   --min-main-line-length: 1045px;
@@ -81,6 +82,7 @@ body {
   display: flex;
   flex-flow: var(--main-container-flex-flow);
   justify-content: var(--center-position);
+  margin: var(--horizontal-center-margins);
 }
 
 h1, h2, h3 {
@@ -104,6 +106,7 @@ a:visited {
   width: var(--min-main-line-length);
   max-width: var(--max-main-line-length);
   padding: 0 0 0 var(--main-text-padding);
+  margin: var(--horizontal-center-margins);
 
   border: 5px solid white; // Border for testing purposes - remove later
 }
@@ -297,6 +300,7 @@ a:visited {
 @media (max-aspect-ratio: 1/1) and (min-height: 2100px) {
   :root {
     --main-container-flex-flow: column nowrap;
+    --horizontal-center-margins: 0 auto;
 
     --main-text-padding: 0px;
     //--main-text-width: 100%;
@@ -309,6 +313,14 @@ a:visited {
     --popup-txt-col-size: 100%;
     --popup-txt-row-size: 50%;
     --popup-grid-layout: "img" "txt";
+  }
+
+  .main-txt {
+    margin: 0 auto;
+  }
+
+  .matrix {
+    margin: 0 auto;
   }
 }
 
