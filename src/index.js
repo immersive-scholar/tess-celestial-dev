@@ -33,7 +33,7 @@ matrixImgs.forEach(function (img) {
 // This function takes in an array of objects with key names specified in 'data.csv' and returns an object with keys of 'title' and values of relative popup assets
 const preparePopupAssets = function (assetsObject, value) {
   assetsObject[value.title.split(' ').join('')] = {
-    id: value.title,
+    title: value.title,
     text: value.storyText,
     storyMedia: [
       value.storyMedia1,
@@ -49,14 +49,18 @@ const preparePopupAssets = function (assetsObject, value) {
 const popupAssets = testImgData.reduce(preparePopupAssets, {})
 
 const showPopup = function (event) {
+  const storyPopup = document.querySelector('.matrix-popup')
+  if (storyPopup.classList.contains('visible')) { return }
   const storyId = this.dataset.id
   const story = popupAssets[storyId]
 
   // Set source of main img to img selected from matrix
-  document.querySelector('#primary-popup-img').src = this.src
+  document.getElementById('primary-popup-img').src = this.src
 
+  // Array of 'secondary' img elements from popup
   const secondaryImgs = document.querySelectorAll('.secondary-img')
-  console.log(story)
+
+  // Filter story media to display available 'secondary' images
   story.storyMedia
     .filter(d => d !== '')
     .forEach(function (mediaItem, i) {
@@ -64,10 +68,16 @@ const showPopup = function (event) {
       secondaryImgs[i].src = require(`./${imgFolder}/${storyId}/${mediaItem}`)
     })
 
-  const storyPopup = document.querySelector('.matrix-popup')
+  // Set the title and text of the story popup
+  document.querySelector('.project-title').textContent = story.title
+  document.querySelector('.project-story').textContent = story.text
+
   storyPopup.classList.add('visible')
 
+  // Prevent click on matrix img throwing event attached to body
   event.stopPropagation()
+
+  // This function removes the popup from the screen when a click occurs anywhere on the screem
   const removePopup = function () {
     console.log('popup!')
     storyPopup.classList.remove('visible')
