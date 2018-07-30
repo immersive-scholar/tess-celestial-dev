@@ -43,7 +43,7 @@
   //--max-matrix-height: 0;
 
   /* .popup properties */
-  --popup-flex-flow: row nowrap;
+  --popup-flex-flow: row nowrap; // For whole popup
   --min-popup-line-length: 990px;
   --max-popup-line-length: 1160px;
   --popup-title-size: 144px;
@@ -60,10 +60,11 @@
   --popup-txt-col-size: 50%;
   --popup-txt-row-size: 100%;
   //--popup-grid-layout: "img txt";
-  --popup-img-flex-flow: row-reverse nowrap;
+  --popup-img-flex-flow: row-reverse nowrap; // For img subsection
   //--popup-img-subgrid-layout: "secondary primary";
   //--popup-primary-col-size: 80%;
   //--popup-secondary-col-size: 20%;
+  --popup-secondary-img-flex-flow: column nowrap;
 }
 
 body {
@@ -183,8 +184,9 @@ a:visited {
   display: flex;
   max-width: var(--popup-max-width);
   position: absolute;
-    left: 15%;
-    top: calc(25vh - 100px);
+    left: calc(100px + ((100vw - var(--matrix-width)
+      - var(--min-main-line-length) - 100px) / 2) + (var(--matrix-width) / 7));
+    top: calc(25vh / 3 + 100px);
   flex-flow: var(--popup-flex-flow);
   justify-content: var(--center-position);
   align-items: var(--center-position);
@@ -192,7 +194,7 @@ a:visited {
 
 .popup-img-area {
   padding: var(--popup-inner-padding);
-  grid-area: img;
+  //grid-area: img;
   place-self: var(--center-position);
   //grid-template-columns: var(--popup-secondary-col-size) var(--popup-primary-col-size);
   //grid-template-areas: var(--popup-img-subgrid-layout);
@@ -213,7 +215,7 @@ a:visited {
   width: var(--popup-secondary-img-width);
   height: var(--popup-primary-img-width);
   display: flex;
-  flex-flow: column nowrap;
+  flex-flow: var(--popup-secondary-img-flex-flow);
   align-items: var(--center-position);
   flex-grow: 1;
 }
@@ -309,7 +311,8 @@ a:visited {
     --popup-txt-col-size: 100%;
     --popup-txt-row-size: 50%;
     --popup-grid-layout: "img" "txt";
-    --popup-img-flex-flow: row nowrap;
+    --popup-img-flex-flow: column nowrap;
+    --popup-secondary-img-flex-flow: row nowrap;
   }
 }
 
