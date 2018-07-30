@@ -190,6 +190,7 @@ a:visited {
   flex-flow: var(--popup-flex-flow);
   justify-content: var(--center-position);
   align-items: var(--center-position);
+  max-height: 100%;
 }
 
 .popup-img-area {
@@ -227,7 +228,7 @@ a:visited {
 
 .popup-txt-area {
   padding: var(--popup-inner-padding);
-  grid-area: txt;
+  //grid-area: txt;
   place-self: var(--center-position);
   min-width: var(--min-popup-line-length);
   max-width: var(--max-popup-line-length);
