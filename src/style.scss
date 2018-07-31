@@ -69,8 +69,8 @@
 
   // Putting new variables here so it's easier for me to find them
   // (TODO: Organize them later)
-  --matrix-vw: 7/8vw;
-  --main-txt-vw: 1/8vw;
+  --matrix-vw: 87.5vw; // 7/8
+  --main-txt-vw: 12.5vw; // 1/8
   --matrix-main-txt-vh: 6/7vh;
   --link-vh: 1/7vh;
 }
@@ -90,16 +90,17 @@ body {
 
 .main-container {
   //padding: var(--outermost-padding);
-  height: 100vh;
-  width: 100vw;
+  //height: 100vh;
+  //width: 100vw;
   box-sizing: border-box;
-  display: flex;
+  //display: flex;
   flex-flow: var(--main-container-flex-flow);
   //justify-content: var(--center-position);
   //margin: var(--horizontal-center-margins);
+  display: grid;
   grid-template-areas:
     "matrix main-txt"
-    "link .";
+    "link link";
   grid-template-columns: var(--matrix-vw) var(--main-txt-vw);
   grid-template-rows: var(--matrix-main-txt-vh) var(--link-vh);
 }
@@ -149,6 +150,9 @@ a:visited {
 
 .main-url {
   font-size: var(--main-link-size);
+}
+
+.main-url-container {
   grid-area: link;
 }
 
