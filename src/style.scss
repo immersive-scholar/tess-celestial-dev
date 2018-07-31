@@ -48,7 +48,7 @@
   --popup-title-size: 108px;
   --popup-story-size: 36px;
   --popup-link-size: 24px;
-  --popup-bg-color: rgba(255, 255, 255, .25);
+  --popup-bg-color: rgba(0, 0, 0, .9);
   --popup-border: 25px solid rgba(255, 255, 255, 100);
   --popup-border-radius: 25px;
   --popup-inner-padding: 100px;
@@ -66,6 +66,7 @@
 }
 
 body {
+  overflow: hidden;
   background-color: var(--background-color);
   color: var(--text-color);
   //padding: var(--outermost-padding);
@@ -181,8 +182,10 @@ a:visited {
   display: grid;
   max-width: var(--popup-max-width);
   position: absolute;
-    left: 0;
-    top: calc(25vh - 100px);
+  // TODO: Stop-gap for testing in Immersion!!!! The positionings below will need to be reviewed after removing any fixed sizes
+  left: calc(41.65vw);
+  top: calc(50vh);
+  transform: translateY(-50%) translateX(-50%);
 }
 
 .popup-img-area {

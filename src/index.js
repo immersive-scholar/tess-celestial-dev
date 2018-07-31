@@ -9,11 +9,11 @@ let imgData = rawImgData
 // Variables for timed transitions, timed transitions will be set if 'timedTransitions' is 'true'
 let timedTransitions = true
 const timeBetweenPopup = 5000
-const timePopupShown = 8000
+const timePopupShown = 30000
 let timedPopup
 
 // FOR TESTING: copy imgData multiple times to populate matrix
-for (let i = 0; i < 9; i++) {
+for (let i = 0; i < 1; i++) {
   imgData = imgData.concat(...rawImgData)
 }
 imgData.push(rawImgData[0])
@@ -38,6 +38,7 @@ matrixImgs.forEach(function (img) {
   matrix.appendChild(img)
 })
 
+// TODO assetsObject Key is obsolete with new data format!!!!!!!
 // This function takes in an array of objects with key names specified in 'data.csv' and returns an object with keys of 'title' and values of relative popup assets
 const preparePopupAssets = function (assetsObject, value) {
   assetsObject[value.title.split(' ').join('')] = {
@@ -79,7 +80,7 @@ const showPopup = function (event) {
     .filter(d => d !== '')
     .forEach(function (mediaItem, i) {
       secondaryImgs[i].classList.remove('hidden')
-      secondaryImgs[i].src = require(`./${imgFolder}/${storyId}/${mediaItem}`)
+      secondaryImgs[i].src = require(`./${imgFolder}/${mediaItem}`)
     })
 
   // Set the title and text of the story popup
