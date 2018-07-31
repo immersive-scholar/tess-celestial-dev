@@ -24,17 +24,17 @@
   /* .main-txt properties */
   --min-main-line-length: 1045px;
   --max-main-line-length: 1250px;
-  --main-title-size: 180px;
-  --main-researcher-name-size: 120px;
-  --main-desc-size: 60px;
-  --main-link-size: 48px;
+  --main-title-size: 168px;
+  --main-researcher-name-size: 108px;
+  --main-desc-size: 48px;
+  --main-link-size: 36px;
   --main-text-padding: 100px;
   //--main-text-width: 20%;
   --logo-proportions: 10%;
   --max-logo-height: 189px;
 
   /* .matrix properties */
-  --matrix-item-side-length: 75%; // Matrix items are squares/circles
+  --matrix-item-side-length: 70%; // Matrix items are squares/circles
   --matrix-item-spacing: 50px; // Horizontal and vertical
   --matrix-col-spacing: 1fr 1fr 1fr 1fr 1fr 1fr 1fr; // 7 columns
   --matrix-row-spacing: 1fr 1fr 1fr; // 3 rows
@@ -65,14 +65,22 @@
   //--popup-primary-col-size: 80%;
   //--popup-secondary-col-size: 20%;
   --popup-secondary-img-flex-flow: column nowrap;
+
+
+  // Putting new variables here so it's easier for me to find them
+  // (TODO: Organize them later)
+  --matrix-vw: 7/8vw;
+  --main-txt-vw: 1/8vw;
+  --matrix-main-txt-vh: 6/7vh;
+  --link-vh: 1/7vh;
 }
 
 body {
   overflow: hidden;
   background-color: var(--background-color);
   color: var(--text-color);
-  //padding: var(--outermost-padding);
   font-color: var(--text-color);
+  background-image: url("test-img/Imm-Theater-Grid.jpg"); // Grid for testing
 }
 
 /* class to remove element from page flow*/
@@ -81,14 +89,19 @@ body {
 }
 
 .main-container {
-  padding: var(--outermost-padding);
+  //padding: var(--outermost-padding);
   height: 100vh;
   width: 100vw;
   box-sizing: border-box;
   display: flex;
   flex-flow: var(--main-container-flex-flow);
-  justify-content: var(--center-position);
-  margin: var(--horizontal-center-margins);
+  //justify-content: var(--center-position);
+  //margin: var(--horizontal-center-margins);
+  grid-template-areas:
+    "matrix main-txt"
+    "link .";
+  grid-template-columns: var(--matrix-vw) var(--main-txt-vw);
+  grid-template-rows: var(--matrix-main-txt-vh) var(--link-vh);
 }
 
 h1, h2, h3 {
@@ -111,10 +124,11 @@ a:visited {
 .main-txt {
   width: var(--min-main-line-length);
   max-width: var(--max-main-line-length);
-  padding: 0 0 0 var(--main-text-padding);
+  padding: 0 var(--main-text-padding) 0 var(--main-text-padding);
   margin: var(--horizontal-center-margins);
+  grid-area: main-txt;
 
-  border: 5px solid white; // Border for testing purposes - remove later
+  border: 3px solid white; // Border for testing purposes - remove later
 }
 
 .main-title {
@@ -135,6 +149,7 @@ a:visited {
 
 .main-url {
   font-size: var(--main-link-size);
+  grid-area: link;
 }
 
 #logo {
@@ -149,18 +164,20 @@ a:visited {
 /********** Matrix **********/
 /********************/
 .matrix {
-  width: var(--matrix-width);
-  max-width: var(--max-matrix-width);
+  //width: var(--matrix-width);
+  //max-width: var(--max-matrix-width);
+  width: var(--matrix-vw);
   display: grid;
   grid-template-columns: var(--matrix-col-spacing);
   grid-template-rows: var(--matrix-row-spacing);
   align-content: space-between;
   align-items: var(--center-position);
-  column-gap: var(--matrix-item-spacing);
-  row-gap: var(--matrix-item-spacing);
+  //column-gap: var(--matrix-item-spacing);
+  //row-gap: var(--matrix-item-spacing);
   // max-height: 1890px; // Set this equal to main-container's height
+  grid-area: matrix;
 
-  border: 5px solid white; // Border for testing purposes - remove later
+  border: 3px solid white; // Border for testing purposes - remove later
 }
 
 .matrix-item {
