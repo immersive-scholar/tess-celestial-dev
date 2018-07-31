@@ -43,28 +43,19 @@
   //--max-matrix-height: 0;
 
   /* .popup properties */
-<<<<<<< HEAD
-  --min-popup-line-length: 590px;
-  --max-popup-line-length: 760px;
-  --popup-title-size: 108px;
-  --popup-story-size: 36px;
-  --popup-link-size: 24px;
-  --popup-bg-color: rgba(0, 0, 0, .9);
-=======
   --popup-flex-flow: row nowrap; // For whole popup
   --min-popup-line-length: 990px;
   --max-popup-line-length: 1160px;
   --popup-title-size: 144px;
   --popup-story-size: 48px;
   --popup-link-size: 36px;
-  --popup-bg-color: rgba(255, 255, 255, .25);
->>>>>>> 064116fcf59afd3a81980beff656f72614964f2d
+  --popup-bg-color: rgba(0, 0, 0, .9);
   --popup-border: 25px solid rgba(255, 255, 255, 100);
   --popup-border-radius: 25px;
   --popup-inner-padding: 100px;
   --popup-width: 65%;
   --popup-max-width: 50%;
-  --popup-primary-img-width: 100%;
+  --popup-primary-img-width: 90%;
   --popup-secondary-img-width: 50%;
   --popup-txt-col-size: 50%;
   --popup-txt-row-size: 100%;
@@ -194,20 +185,14 @@ a:visited {
   display: flex;
   max-width: var(--popup-max-width);
   position: absolute;
-<<<<<<< HEAD
+  flex-flow: var(--popup-flex-flow);
+  justify-content: var(--center-position);
+  align-items: var(--center-position);
+  max-height: 85%;
   // TODO: Stop-gap for testing in Immersion!!!! The positionings below will need to be reviewed after removing any fixed sizes
   left: calc(41.65vw);
   top: calc(50vh);
   transform: translateY(-50%) translateX(-50%);
-=======
-    left: calc(100px + ((100vw - var(--matrix-width)
-      - var(--min-main-line-length) - 100px) / 2) + (var(--matrix-width) / 7));
-    top: calc(25vh / 3 + 100px);
-  flex-flow: var(--popup-flex-flow);
-  justify-content: var(--center-position);
-  align-items: var(--center-position);
-  max-height: 100%;
->>>>>>> 064116fcf59afd3a81980beff656f72614964f2d
 }
 
 .popup-img-area {
