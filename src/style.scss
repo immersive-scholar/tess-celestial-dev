@@ -24,14 +24,14 @@
   /* .main-txt properties */
   --min-main-line-length: 1045px;
   --max-main-line-length: 1250px;
-  --main-title-size: 168px;
-  --main-researcher-name-size: 108px;
+  --main-title-size: 156px;
+  --main-researcher-name-size: 96px;
   --main-desc-size: 48px;
   --main-link-size: 36px;
-  --main-text-padding: 100px;
+  --main-text-padding: 75px;
   //--main-text-width: 20%;
   --logo-proportions: 10%;
-  --max-logo-height: 189px;
+  --max-logo-height: 100px;
 
   /* .matrix properties */
   --matrix-item-side-length: 70%; // Matrix items are squares/circles
@@ -83,7 +83,7 @@ body {
   background-image: url("test-img/Imm-Theater-Grid.jpg"); // Grid for testing
 }
 
-/* class to remove element from page flow*/
+/* class to remove element from page flow */
 .hidden {
   display: none !important;
 }
@@ -123,8 +123,8 @@ a:visited {
 /********** Main text area **********/
 /********************/
 .main-txt {
-  width: var(--min-main-line-length);
-  max-width: var(--max-main-line-length);
+  //width: var(--min-main-line-length);
+  //max-width: var(--max-main-line-length);
   padding: 0 var(--main-text-padding) 0 var(--main-text-padding);
   margin: var(--horizontal-center-margins);
   grid-area: main-txt;
@@ -173,7 +173,7 @@ a:visited {
   width: var(--matrix-vw);
   display: grid;
   grid-template-columns: var(--matrix-col-spacing);
-  grid-template-rows: var(--matrix-row-spacing);
+  //grid-template-rows: var(--matrix-row-spacing);
   align-content: space-between;
   align-items: var(--center-position);
   //column-gap: var(--matrix-item-spacing);
