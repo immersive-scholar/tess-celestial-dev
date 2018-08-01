@@ -87,6 +87,9 @@ const showPopup = function (event) {
   document.querySelector('.project-title').textContent = story.title
   document.querySelector('.project-story').textContent = story.text
 
+  // Insert the story title into the "Learn more about (project)" URL
+  document.querySelector('.project-name-insert').textContent = story.title
+
   storyPopup.classList.remove('hidden')
 
   // This function removes the popup from the screen when a click occurs anywhere on the screen except on top of the open popup
