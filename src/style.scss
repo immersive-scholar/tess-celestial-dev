@@ -51,16 +51,16 @@
   --popup-flex-flow: row nowrap; // For whole popup
   --min-popup-line-length: 990px;
   --max-popup-line-length: 1160px;
-  --popup-title-size: 144px;
+  --popup-title-size: 120px;
   --popup-story-size: 48px;
   --popup-link-size: 36px;
   --popup-bg-color: rgba(0, 0, 0, .9);
   --popup-border: 25px solid rgba(255, 255, 255, 100);
   --popup-border-radius: 25px;
-  --popup-inner-padding: 100px;
+  --popup-inner-padding: 75px;
   --popup-width: 65%;
   --popup-max-width: 50%;
-  --popup-primary-img-width: 90%;
+  --popup-primary-img-width: 75%;
   --popup-secondary-img-width: 50%;
   --popup-txt-col-size: 50%;
   --popup-txt-row-size: 100%;
@@ -143,6 +143,7 @@ a:visited {
   font-size: var(--main-title-size);
   margin-top: var(--text-top-bottom-margins);
   margin-bottom: var(--text-top-bottom-margins);
+  font-weight: 700; // Should be bold...why won't it change!?
 }
 
 .researcher-name {
@@ -213,7 +214,7 @@ a:visited {
   //max-height: 85%;
   //height: 85%; // This is too tall - covers the URL at the bottom
   height: 71.429vh; // 5/7
-  max-width: 43.75vw; // 7/16
+  max-width: 50vw; // 1/2
   // TODO: Stop-gap for testing in Immersion!!!! The positionings below will need to be reviewed after removing any fixed sizes
   left: calc(43.75vw);
   top: calc(43.5vh);
@@ -230,13 +231,14 @@ a:visited {
   display: flex;
   flex-flow: var(--popup-img-flex-flow);
   align-items: var(--center-position);
+  box-sizing: border-box;
+  max-height: 100%;
 }
 
 /* The main (and largest) image of a matrix item */
 #primary-popup-img {
   width: var(--popup-primary-img-width);
   height: var(--popup-primary-img-width);
-  flex-grow: 2;
   //grid-area: primary;
 }
 
@@ -267,8 +269,9 @@ a:visited {
 }
 
 .project-title {
-  margin: 0;
   font-size: var(--popup-title-size);
+  margin-top: var(--text-top-bottom-margins);
+  margin-bottom: var(--text-top-bottom-margins);
 }
 
 .project-story {
