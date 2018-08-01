@@ -11,11 +11,12 @@
 /*||||||||||||||||||||||||||||||||||||||||||||||||||*/
 /*||||||||||||||||||||||||||||||||||||||||||||||||||*/
 :root {
-  /* body and main-container properties */
+  /* body and .main-container properties */
   --background-color: #000000;
   --text-color: #FFFFFF;
   --outermost-padding: 100px;
   --main-container-flex-flow: row-reverse nowrap;
+  --main-container-grid-areas:"matrix main-txt" "link main-txt";
   --heading-font-family: 'Titillium Web', sans-serif;
   --paragraph-font-family: 'Roboto', sans-serif;
   --center-position: center; // For centering in various properties
@@ -61,22 +62,18 @@
   --popup-width: 65%;
   --popup-max-width: 50%;
   --popup-primary-img-width: 75%;
-  --popup-secondary-img-width: 50%;
+  --popup-secondary-img-width: 75%;
   --popup-txt-col-size: 50%;
   --popup-txt-row-size: 100%;
-  //--popup-grid-layout: "img txt";
   --popup-img-flex-flow: row-reverse nowrap; // For img subsection
-  //--popup-img-subgrid-layout: "secondary primary";
-  //--popup-primary-col-size: 80%;
-  //--popup-secondary-col-size: 20%;
   --popup-secondary-img-flex-flow: column nowrap;
 }
 
+/* Element containing .main-container */
 body {
   overflow: hidden;
   background-color: var(--background-color);
   color: var(--text-color);
-  font-color: var(--text-color);
   background-image: url("test-img/Imm-Theater-Grid.jpg"); // Grid for testing
 }
 
@@ -94,14 +91,11 @@ body {
   //height: 100vh;
   //width: 100vw;
   box-sizing: border-box;
-  //display: flex;
   flex-flow: var(--main-container-flex-flow);
   //justify-content: var(--center-position);
   //margin: var(--horizontal-center-margins);
   display: grid;
-  grid-template-areas:
-    "matrix main-txt"
-    "link link";
+  grid-template-areas: var(--main-container-grid-areas);
   grid-template-columns: var(--matrix-vw) var(--main-txt-vw);
   grid-template-rows: var(--matrix-main-txt-vh) var(--link-vh);
 }
@@ -109,9 +103,9 @@ body {
 /* Main (collection) title, researcher name, and project titles */
 h1, h2, h3 {
   font-family: var(--heading-font-family);
-  //line-height: 50%;
 }
 
+/* All body text */
 p {
   font-family: var(--paragraph-font-family);
 }
@@ -139,6 +133,7 @@ a:visited {
   border: 3px solid white; // Border for testing purposes - remove later
 }
 
+/* Title of the researcher's collection of work */
 .main-title {
   font-size: var(--main-title-size);
   margin-top: var(--text-top-bottom-margins);
@@ -146,16 +141,19 @@ a:visited {
   font-weight: 700; // Should be bold...why won't it change!?
 }
 
+/* Name of the researcher */
 .researcher-name {
   font-size: var(--main-researcher-name-size);
   margin-top: var(--text-top-bottom-margins);
   margin-bottom: var(--text-top-bottom-margins);
 }
 
+/* Paragraph describing the collection of work */
 .main-desc {
   font-size: var(--main-desc-size);
 }
 
+/* Immersive Scholar logo */
 #logo {
   height: var(--logo-proportions);
   //width: var(--logo-proportions);
@@ -185,6 +183,7 @@ a:visited {
   border: 3px solid white; // Border for testing purposes - remove later
 }
 
+/* Individual cell in the matrix */
 .matrix-item {
   width: var(--matrix-item-side-length);
   justify-self: var(--center-position);
@@ -204,7 +203,6 @@ a:visited {
   background-color: var(--popup-bg-color);
   border-radius: var(--popup-border-radius);
   width: var(--popup-width);
-  //display: grid;
   display: flex;
   // max-width: var(--popup-max-width);
   position: absolute;
@@ -224,10 +222,7 @@ a:visited {
 /* Area of matrix popup containing primary image and secondary images */
 .popup-img-area {
   padding: var(--popup-inner-padding);
-  //grid-area: img;
   place-self: var(--center-position);
-  //grid-template-columns: var(--popup-secondary-col-size) var(--popup-primary-col-size);
-  //grid-template-areas: var(--popup-img-subgrid-layout);
   display: flex;
   flex-flow: var(--popup-img-flex-flow);
   align-items: var(--center-position);
@@ -239,18 +234,15 @@ a:visited {
 #primary-popup-img {
   width: var(--popup-primary-img-width);
   height: var(--popup-primary-img-width);
-  //grid-area: primary;
 }
 
 /* Container for all the secondary images of a matrix item */
 .secondary-img-slides {
-  //grid-area: secondary;
   width: var(--popup-secondary-img-width);
   height: var(--popup-primary-img-width);
   display: flex;
   flex-flow: var(--popup-secondary-img-flex-flow);
   align-items: var(--center-position);
-  flex-grow: 1;
 }
 
 /* Class for a single secondary image */
@@ -262,22 +254,24 @@ a:visited {
 /* Area of matrix popup containing item title, story, and URL */
 .popup-txt-area {
   padding: var(--popup-inner-padding);
-  //grid-area: txt;
   place-self: var(--center-position);
   min-width: var(--min-popup-line-length);
   max-width: var(--max-popup-line-length);
 }
 
+/* Title of the selected matrix item */
 .project-title {
   font-size: var(--popup-title-size);
   margin-top: var(--text-top-bottom-margins);
   margin-bottom: var(--text-top-bottom-margins);
 }
 
+/* "Story"/explanation of the selected matrix item */
 .project-story {
   font-size: var(--popup-story-size);
 }
 
+/* URL with more info about the selected matrix item (e.g. src files) */
 .project-url {
   font-size: var(--popup-link-size);
 }
@@ -292,6 +286,7 @@ a:visited {
   align-self: var(--center-position);
 }
 
+/* Actual URL to the collection */
 .main-url {
   font-size: var(--main-link-size);
   padding-left: 100px;
