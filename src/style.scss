@@ -31,7 +31,7 @@
 
   /* .main-txt properties */
   --min-main-line-length: 1045px;
-  --max-main-line-length: 1250px;
+  --max-main-line-length: 1090px;
   --main-title-size: 156px;
   --main-researcher-name-size: 96px;
   --main-desc-size: 48px;
@@ -128,7 +128,7 @@ a:visited {
  */
 .main-txt {
   //width: var(--min-main-line-length);
-  //max-width: var(--max-main-line-length);
+  max-width: var(--max-main-line-length);
   padding: 0 var(--main-text-padding) 0 var(--main-text-padding);
   margin: var(--horizontal-center-margins);
   grid-area: main-txt;
@@ -390,10 +390,13 @@ a:visited {
     --main-txt-vw: 50vw; // 1/2
     --matrix-main-txt-vh: 100vh; // 7/7
 
+    /* .main-txt properties */
+
     /* .matrix properties */
     --matrix-col-spacing: 1fr 1fr 1fr;
     --matrix-row-spacing: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     --matrix-width: 50%;
+    --matrix-item-side-length: 60%; // Matrix items are squares/circles
 
     /* .popup properties */
     --popup-flex-flow: column nowrap;
@@ -403,12 +406,23 @@ a:visited {
     --popup-grid-layout: "img" "txt";
     --popup-img-flex-flow: column nowrap;
     --popup-secondary-img-flex-flow: row nowrap;
+    --popup-title-size: 108px;
+    --popup-story-size: 48px;
+    --popup-link-size: 36px;
+    --popup-primary-img-width: 70%;
+    --popup-secondary-img-width: 70%;
 
     /* .main-url-container properties */
   }
 
-  .main-txt {
-    max-width: 1120px;
+  .matrix {
+    max-height: 100vh;
+  }
+
+  .matrix-popup {
+    height: 90vh;
+    left: 25vw;
+    top: 50vh;
   }
 }
 
