@@ -210,7 +210,8 @@ a:visited {
   flex-flow: var(--popup-flex-flow);
   justify-content: var(--center-position);
   align-items: var(--center-position);
-  max-height: 85%;
+  //max-height: 85%;
+  height: 85%;
   // TODO: Stop-gap for testing in Immersion!!!! The positionings below will need to be reviewed after removing any fixed sizes
   left: calc(41.65vw);
   top: calc(50vh);
