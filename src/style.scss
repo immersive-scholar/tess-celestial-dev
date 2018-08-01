@@ -205,16 +205,18 @@ a:visited {
   width: var(--popup-width);
   //display: grid;
   display: flex;
-  max-width: var(--popup-max-width);
+  // max-width: var(--popup-max-width);
   position: absolute;
   flex-flow: var(--popup-flex-flow);
   justify-content: var(--center-position);
   align-items: var(--center-position);
   //max-height: 85%;
-  height: 85%;
+  //height: 85%; // This is too tall - covers the URL at the bottom
+  height: 71.429vh; // 5/7
+  max-width: 43.75vw; // 7/16
   // TODO: Stop-gap for testing in Immersion!!!! The positionings below will need to be reviewed after removing any fixed sizes
-  left: calc(41.65vw);
-  top: calc(50vh);
+  left: calc(43.75vw);
+  top: calc(43.5vh);
   transform: translateY(-50%) translateX(-50%);
 }
 
