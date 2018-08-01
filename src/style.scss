@@ -4,7 +4,8 @@
 /*||||||||||||||||||||||||||||||||||||||||||||||||||*/
 /*||||||||||||||||||||||||||||||||||||||||||||||||||*/
 /* Default settings (Immersion Theater - 6816 x 2240) */
-/* (Works for any screens with ratios similar to 27:9) */
+/* (Lines up with the bevel grid lines in the Theater */
+/* (Works for any screen with ratios similar to 27:9) */
 /*||||||||||||||||||||||||||||||||||||||||||||||||||*/
 /*||||||||||||||||||||||||||||||||||||||||||||||||||*/
 /*||||||||||||||||||||||||||||||||||||||||||||||||||*/
@@ -240,7 +241,8 @@ a:visited {
 
 /* Container for all the secondary images of a matrix item */
 .secondary-img-slides {
-  width: var(--popup-secondary-img-width);
+  //width: var(--popup-secondary-img-width);
+  max-width: 10vw;
   height: var(--popup-primary-img-width);
   display: flex;
   flex-flow: var(--popup-secondary-img-flex-flow);
@@ -304,7 +306,7 @@ a:visited {
 /*||||||||||||||||||||||||||||||||||||||||||||||||||*/
 /*||||||||||||||||||||||||||||||||||||||||||||||||||*/
 /*||||||||||||||||||||||||||||||||||||||||||||||||||*/
-/* Media queries - for all other screen sizes */
+/* All other screen sizes (large scale + personal)! */
 /*||||||||||||||||||||||||||||||||||||||||||||||||||*/
 /*||||||||||||||||||||||||||||||||||||||||||||||||||*/
 /*||||||||||||||||||||||||||||||||||||||||||||||||||*/
