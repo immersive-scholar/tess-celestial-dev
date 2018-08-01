@@ -11,6 +11,7 @@
 /*||||||||||||||||||||||||||||||||||||||||||||||||||*/
 /*||||||||||||||||||||||||||||||||||||||||||||||||||*/
 :root {
+  /* body and main-container properties */
   --background-color: #000000;
   --text-color: #FFFFFF;
   --outermost-padding: 100px;
@@ -20,6 +21,10 @@
   --center-position: center; // For centering in various properties
   --horizontal-center-margins: 0; // For horizontally centering
   --text-top-bottom-margins: 0px; // Spacing above/beneath text elements
+  --matrix-vw: 87.5vw; // 7/8
+  --main-txt-vw: 12.5vw; // 1/8
+  --matrix-main-txt-vh: 85.714vh; // 6/7
+  --link-vh: 14.286vh; // 1/7
 
   /* .main-txt properties */
   --min-main-line-length: 1045px;
@@ -65,14 +70,6 @@
   //--popup-primary-col-size: 80%;
   //--popup-secondary-col-size: 20%;
   --popup-secondary-img-flex-flow: column nowrap;
-
-
-  // Putting new variables here so it's easier for me to find them
-  // (TODO: Organize them later)
-  --matrix-vw: 87.5vw; // 7/8
-  --main-txt-vw: 12.5vw; // 1/8
-  --matrix-main-txt-vh: 85.714vh; // 6/7
-  --link-vh: 14.286vh; // 1/7
 }
 
 body {
@@ -83,11 +80,15 @@ body {
   background-image: url("test-img/Imm-Theater-Grid.jpg"); // Grid for testing
 }
 
-/* class to remove element from page flow */
+/* Class to remove element from page flow */
 .hidden {
   display: none !important;
 }
 
+/*
+ * Class containing the matrix, main-txt, and main-url classes,
+ * all organized in a grid layout
+ */
 .main-container {
   //padding: var(--outermost-padding);
   //height: 100vh;
@@ -105,6 +106,7 @@ body {
   grid-template-rows: var(--matrix-main-txt-vh) var(--link-vh);
 }
 
+/* Main (collection) title, researcher name, and project titles */
 h1, h2, h3 {
   font-family: var(--heading-font-family);
   //line-height: 50%;
@@ -114,6 +116,7 @@ p {
   font-family: var(--paragraph-font-family);
 }
 
+/* Keeps visited links the same color as unvisted links */
 a:visited {
   color: var(--text-color);
 }
@@ -122,6 +125,10 @@ a:visited {
 /********************/
 /********** Main text area **********/
 /********************/
+/*
+ * Container for main (collection) title, researcher name,
+ * description, and Immersive Scholar logo
+ */
 .main-txt {
   //width: var(--min-main-line-length);
   //max-width: var(--max-main-line-length);
@@ -148,16 +155,6 @@ a:visited {
   font-size: var(--main-desc-size);
 }
 
-.main-url {
-  font-size: var(--main-link-size);
-  padding-left: 100px;
-}
-
-.main-url-container {
-  grid-area: link;
-  align-self: var(--center-position);
-}
-
 #logo {
   height: var(--logo-proportions);
   //width: var(--logo-proportions);
@@ -169,6 +166,7 @@ a:visited {
 /********************/
 /********** Matrix **********/
 /********************/
+/* Container for all the matrix items */
 .matrix {
   //width: var(--matrix-width);
   //max-width: var(--max-matrix-width);
@@ -195,6 +193,7 @@ a:visited {
 /********************/
 /********** Popup **********/
 /********************/
+/* Container for matrix item title, story, images, and URL */
 .matrix-popup {
   z-index: 100;
   grid-template-columns: var(--popup-txt-col-size);
@@ -218,6 +217,7 @@ a:visited {
   transform: translateY(-50%) translateX(-50%);
 }
 
+/* Area of matrix popup containing primary image and secondary images */
 .popup-img-area {
   padding: var(--popup-inner-padding);
   //grid-area: img;
@@ -229,6 +229,7 @@ a:visited {
   align-items: var(--center-position);
 }
 
+/* The main (and largest) image of a matrix item */
 #primary-popup-img {
   width: var(--popup-primary-img-width);
   height: var(--popup-primary-img-width);
@@ -236,6 +237,7 @@ a:visited {
   //grid-area: primary;
 }
 
+/* Container for all the secondary images of a matrix item */
 .secondary-img-slides {
   //grid-area: secondary;
   width: var(--popup-secondary-img-width);
@@ -246,11 +248,13 @@ a:visited {
   flex-grow: 1;
 }
 
+/* Class for a single secondary image */
 .secondary-img {
   width: var(--popup-secondary-img-width);
   height: var(--popup-secondary-img-width);
 }
 
+/* Area of matrix popup containing item title, story, and URL */
 .popup-txt-area {
   padding: var(--popup-inner-padding);
   //grid-area: txt;
@@ -271,6 +275,22 @@ a:visited {
 .project-url {
   font-size: var(--popup-link-size);
 }
+
+
+/********************/
+/********** Main URL **********/
+/********************/
+/* Container for the URL to the collection of work online */
+.main-url-container {
+  grid-area: link;
+  align-self: var(--center-position);
+}
+
+.main-url {
+  font-size: var(--main-link-size);
+  padding-left: 100px;
+}
+
 
 
 
