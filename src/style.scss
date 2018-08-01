@@ -33,7 +33,6 @@
   --main-title-size: 156px;
   --main-researcher-name-size: 96px;
   --main-desc-size: 48px;
-  --main-link-size: 36px;
   --main-text-padding: 75px;
   //--main-text-width: 20%;
   --logo-proportions: 10%;
@@ -67,6 +66,9 @@
   --popup-txt-row-size: 100%;
   --popup-img-flex-flow: row-reverse nowrap; // For img subsection
   --popup-secondary-img-flex-flow: column nowrap;
+
+  /* .main-url-container properties */
+  --main-link-size: 36px;
 }
 
 /* Element containing .main-container */
@@ -317,24 +319,54 @@ a:visited {
 // Remove one column (now 3 x 6 matrix)
 @media (max-aspect-ratio: 558/210) and (min-height: 2100px) {
   :root {
+    /* body and .main-container properties */
+    --matrix-vw: 84.615vw; // 11/13
+    --main-txt-vw: 15.385vw; // 2/13
+
+    /* .main-txt properties */
+
+    /* .matrix properties */
     --matrix-col-spacing: 1fr 1fr 1fr 1fr 1fr 1fr;
     --matrix-row-spacing: 1fr 1fr 1fr;
+
+    /* .popup properties */
+    /* .main-url-container properties */
   }
 }
 
 // Remove two columns (now 3 x 5 matrix)
 @media (max-aspect-ratio: 4815/2100) and (min-height: 2100px) {
   :root {
+    /* body and .main-container properties */
+    --matrix-vw: 83.333vw; // 5/6
+    --main-txt-vw: 16.667vw; // 1/6
+
+    /* .main-txt properties */
+
+    /* .matrix properties */
     --matrix-col-spacing: 1fr 1fr 1fr 1fr 1fr;
     --matrix-row-spacing: 1fr 1fr 1fr;
+
+    /* .popup properties */
+    /* .main-url-container properties */
   }
 }
 
 // Remove three columns (now 3 x 4 matrix)
 @media (max-aspect-ratio: 419/210) and (min-height: 2100px) {
   :root {
+    /* body and .main-container properties */
+    --matrix-vw: 80vw; // 4/5
+    --main-txt-vw: 20vw; // 1/5
+
+    /* .main-txt properties */
+
+    /* .matrix properties */
     --matrix-col-spacing: 1fr 1fr 1fr 1fr;
     --matrix-row-spacing: 1fr 1fr 1fr;
+
+    /* .popup properties */
+    /* .main-url-container properties */
   }
 }
 
@@ -346,13 +378,16 @@ a:visited {
 // For a "square" or "nearly square" (landscape) layout
 @media (min-aspect-ratio: 1/1) and (max-aspect-ratio: 8/5) and (min-height: 2100px) {
   :root {
-    //--main-text-padding: 0;
-    //--main-text-width: 50%;
+    /* body and .main-container properties */
+    --matrix-vw: 75vw; // 3/4
+    --main-txt-vw: 25vw; // 1/4
 
+    /* .matrix properties */
     --matrix-col-spacing: 1fr 1fr 1fr;
     --matrix-row-spacing: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     --matrix-width: 50%;
 
+    /* .popup properties */
     --popup-flex-flow: column nowrap;
     --popup-width: 40%;
     --popup-txt-col-size: 100%;
@@ -360,15 +395,19 @@ a:visited {
     --popup-grid-layout: "img" "txt";
     --popup-img-flex-flow: column nowrap;
     --popup-secondary-img-flex-flow: row nowrap;
+
+    /* .main-url-container properties */
   }
 }
 
 // For a "portrait" layout - remove three columns (now 4 x 3 matrix)
 @media (min-aspect-ratio: 5/7) and (max-aspect-ratio: 1/1) and (min-height: 2100px) {
   :root {
+    /* body and .main-container properties */
     --main-container-flex-flow: column nowrap;
     --horizontal-center-margins: 0 auto;
 
+    /* .main-txt properties */
     --min-main-line-length: 750px;
     --max-main-line-length: 850px;
     --main-text-padding: 0px;
@@ -377,16 +416,20 @@ a:visited {
     --main-desc-size: 36px;
     --main-link-size: 24px;
 
+    /* .matrix properties */
     --matrix-col-spacing: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     --matrix-row-spacing: 1fr 1fr 1fr;
     --matrix-width: 100%;
     --max-matrix-width: 100%;
 
+    /* .popup properties */
     --popup-flex-flow: column nowrap;
     --popup-txt-col-size: 100%;
     --popup-txt-row-size: 50%;
     --popup-grid-layout: "img" "txt";
     --popup-img-flex-flow: row nowrap;
+
+    /* .main-url-container properties */
   }
 
   .main-txt {
@@ -401,13 +444,21 @@ a:visited {
 // For an even narrower "portrait" layout
 @media (max-aspect-ratio: 5/7) and (min-height: 2100px) {
   :root {
+    /* body and .main-container properties */
+
+    /* .main-txt properties */
     --main-title-size: 108px;
     --main-researcher-name-size: 48px;
     --main-desc-size: 24px;
-    --main-link-size: 12px;
 
+    /* .matrix properties */
     --matrix-col-spacing: 1fr 1fr 1fr 1fr 1fr 1fr;
     --matrix-row-spacing: 1fr 1fr 1fr;
+
+    /* .popup properties */
+
+    /* .main-url-container properties */
+    --main-link-size: 12px;
   }
 }
 
@@ -416,7 +467,11 @@ a:visited {
 /********************/
 @media (max-width: 1440px) {
   :root {
-
+    /* body and .main-container properties */
+    /* .main-txt properties */
+    /* .matrix properties */
+    /* .popup properties */
+    /* .main-url-container properties */
   }
 }
 
@@ -425,8 +480,14 @@ a:visited {
 /********************/
 @media (max-width: 1024px) {
   :root {
+    /* body and .main-container properties */
     --text-color: #000000;
     --background-color: #FFFFFF;
+
+    /* .main-txt properties */
+    /* .matrix properties */
+    /* .popup properties */
+    /* .main-url-container properties */
   }
 }
 
@@ -435,8 +496,11 @@ a:visited {
 /********************/
 @media (max-width: 768px) {
   :root {
-    --text-color: #000000;
-    --background-color: #FFFFFF;
+    /* body and .main-container properties */
+    /* .main-txt properties */
+    /* .matrix properties */
+    /* .popup properties */
+    /* .main-url-container properties */
   }
 }
 
@@ -446,8 +510,11 @@ a:visited {
 /********************/
 @media (max-width: 425px) { // Check pointer size/type too?
   :root {
-    --text-color: #000000;
-    --background-color: #FFFFFF;
+    /* body and .main-container properties */
+    /* .main-txt properties */
+    /* .matrix properties */
+    /* .popup properties */
+    /* .main-url-container properties */
   }
 }
 
@@ -456,8 +523,11 @@ a:visited {
 /********************/
 @media (max-width: 375px) { // Check pointer size/type too?
   :root {
-    --text-color: #000000;
-    --background-color: #FFFFFF;
+    /* body and .main-container properties */
+    /* .main-txt properties */
+    /* .matrix properties */
+    /* .popup properties */
+    /* .main-url-container properties */
   }
 }
 
@@ -466,7 +536,10 @@ a:visited {
 /********************/
 @media (max-width: 320px) { // Check pointer size/type too?
   :root {
-    --text-color: #000000;
-    --background-color: #FFFFFF;
+    /* body and .main-container properties */
+    /* .main-txt properties */
+    /* .matrix properties */
+    /* .popup properties */
+    /* .main-url-container properties */
   }
 }
