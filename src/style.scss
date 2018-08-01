@@ -15,8 +15,9 @@
   --background-color: #000000;
   --text-color: #FFFFFF;
   --outermost-padding: 100px;
-  --main-container-flex-flow: row-reverse nowrap;
-  --main-container-grid-areas:"matrix main-txt" "link main-txt";
+  --main-container-grid-areas:
+    "matrix main-txt"
+    "link main-txt";
   --heading-font-family: 'Titillium Web', sans-serif;
   --paragraph-font-family: 'Roboto', sans-serif;
   --center-position: center; // For centering in various properties
@@ -93,7 +94,6 @@ body {
   //height: 100vh;
   //width: 100vw;
   box-sizing: border-box;
-  flex-flow: var(--main-container-flex-flow);
   //justify-content: var(--center-position);
   //margin: var(--horizontal-center-margins);
   display: grid;
@@ -376,11 +376,17 @@ a:visited {
 // Should we include (min-height: 2100px) in the large-scale media queries?
 
 // For a "square" or "nearly square" (landscape) layout
+// TODO TODO TODO TODO TODO TODO
+// TODO: Make link reappear again (how would I put it inside of main-txt?)
 @media (min-aspect-ratio: 1/1) and (max-aspect-ratio: 8/5) and (min-height: 2100px) {
   :root {
     /* body and .main-container properties */
-    --matrix-vw: 75vw; // 3/4
-    --main-txt-vw: 25vw; // 1/4
+    --main-container-grid-areas:
+      "matrix main-txt"
+      "matrix link";
+    --matrix-vw: 50vw; // 1/2
+    --main-txt-vw: 50vw; // 1/2
+    --matrix-main-txt-vh: 100vh; // 7/7
 
     /* .matrix properties */
     --matrix-col-spacing: 1fr 1fr 1fr;
@@ -398,14 +404,23 @@ a:visited {
 
     /* .main-url-container properties */
   }
+
+  .main-txt {
+    max-width: 1120px;
+  }
 }
 
 // For a "portrait" layout - remove three columns (now 4 x 3 matrix)
 @media (min-aspect-ratio: 5/7) and (max-aspect-ratio: 1/1) and (min-height: 2100px) {
   :root {
     /* body and .main-container properties */
-    --main-container-flex-flow: column nowrap;
     --horizontal-center-margins: 0 auto;
+    --main-container-grid-areas:
+      "main-txt"
+      "matrix";
+    --matrix-vw: 100vw; // 1/1
+    --main-txt-vw: 50vw; // 1/1
+    --matrix-main-txt-vh: 42.857vh; // 3/7
 
     /* .main-txt properties */
     --min-main-line-length: 750px;
