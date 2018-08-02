@@ -24,10 +24,11 @@
   --center-position: center; // For centering in various properties
   --horizontal-center-margins: 0; // For horizontally centering
   --text-top-bottom-margins: 0px; // Spacing above/beneath text elements
-  --matrix-vw: 87.5vw; // 7/8
-  --main-txt-vw: 12.5vw; // 1/8
-  --matrix-main-txt-vh: 85.714vh; // 6/7
-  --link-vh: 14.286vh; // 1/7
+  // .main-container will have 4 grid cells
+  --left-col-width: 87.5vw; // 7/8
+  --right-col-width: 12.5vw; // 1/8
+  --top-row-height: 85.714vh; // 6/7
+  --bottom-row-height: 14.286vh; // 1/7
 
   /* .main-txt properties */
   --min-main-line-length: 1045px;
@@ -106,8 +107,8 @@ body {
   //margin: var(--horizontal-center-margins);
   display: grid;
   grid-template-areas: var(--main-container-grid-areas);
-  grid-template-columns: var(--matrix-vw) var(--main-txt-vw);
-  grid-template-rows: var(--matrix-main-txt-vh) var(--link-vh);
+  grid-template-columns: var(--left-col-width) var(--right-col-width);
+  grid-template-rows: var(--top-row-height) var(--bottom-row-height);
 }
 
 /* Main (collection) title, researcher name, and project titles */
@@ -163,6 +164,7 @@ a:visited {
   font-size: var(--main-desc-size);
 }
 
+// TODO change this logo
 /* Immersive Scholar logo */
 #logo {
   height: var(--logo-proportions);
@@ -179,7 +181,7 @@ a:visited {
 .matrix {
   //width: var(--matrix-width);
   //max-width: var(--max-matrix-width);
-  width: var(--matrix-vw);
+  width: var(--left-col-width);
   display: grid;
   grid-template-columns: var(--matrix-col-spacing);
   //grid-template-rows: var(--matrix-row-spacing);
@@ -333,8 +335,8 @@ a:visited {
 @media (max-aspect-ratio: 558/210) and (min-height: 2100px) {
   :root {
     /* body and .main-container properties */
-    --matrix-vw: 84.615vw; // 11/13
-    --main-txt-vw: 15.385vw; // 2/13
+    --left-col-width: 84.615vw; // 11/13
+    --right-col-width: 15.385vw; // 2/13
 
     /* .main-txt properties */
 
@@ -353,8 +355,8 @@ a:visited {
 @media (max-aspect-ratio: 4815/2100) and (min-height: 2100px) {
   :root {
     /* body and .main-container properties */
-    --matrix-vw: 83.333vw; // 5/6
-    --main-txt-vw: 16.667vw; // 1/6
+    --left-col-width: 83.333vw; // 5/6
+    --right-col-width: 16.667vw; // 1/6
 
     /* .main-txt properties */
 
@@ -371,8 +373,8 @@ a:visited {
 @media (max-aspect-ratio: 419/210) and (min-height: 2100px) {
   :root {
     /* body and .main-container properties */
-    --matrix-vw: 80vw; // 4/5
-    --main-txt-vw: 20vw; // 1/5
+    --left-col-width: 80vw; // 4/5
+    --right-col-width: 20vw; // 1/5
 
     /* .main-txt properties */
 
@@ -395,9 +397,10 @@ a:visited {
     --main-container-grid-areas:
       "matrix main-txt"
       "matrix link";
-    --matrix-vw: 50vw; // 1/2
-    --main-txt-vw: 50vw; // 1/2
-    --matrix-main-txt-vh: 100vh; // 7/7
+    --left-col-width: 50vw; // 1/2
+    --right-col-width: 50vw; // 1/2
+    --top-row-height: 100vh; // 7/7
+    --bottom-row-height: 100vh; // 7/7
 
     /* .main-txt properties */
 
@@ -434,7 +437,7 @@ a:visited {
   }
 }
 
-// For a "portrait" layout - remove three columns (now 4 x 3 matrix)
+// For a wider "portrait" layout - 4 x 3 matrix
 @media (min-aspect-ratio: 5/7) and (max-aspect-ratio: 1/1) and (min-height: 2100px) {
   :root {
     /* body and .main-container properties */
@@ -442,21 +445,22 @@ a:visited {
     --main-container-grid-areas:
       "main-txt"
       "matrix";
-    --matrix-vw: 100vw; // 1/1
-    --main-txt-vw: 50vw; // 1/1
-    --matrix-main-txt-vh: 42.857vh; // 3/7
+    --left-col-width: 100vw; // 1/1
+    --right-col-width: 50vw; // 1/1
+    --top-row-height: 50vh; // 1/2
+    --bottom-row-height: 50vh; // 1/2
 
     /* .main-txt properties */
-    --min-main-line-length: 750px;
-    --max-main-line-length: 850px;
+    --min-main-line-length: 1050px;
+    --max-main-line-length: 1150px;
     --main-text-padding: 0px;
-    --main-title-size: 120px;
-    --main-researcher-name-size: 60px;
-    --main-desc-size: 36px;
-    --main-link-size: 24px;
+    --main-title-size: 132px;
+    --main-researcher-name-size: 72px;
+    --main-desc-size: 48px;
+    --main-link-size: 36px;
 
     /* .matrix properties */
-    --matrix-col-spacing: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    --matrix-col-spacing: 1fr 1fr 1fr 1fr;
     --matrix-row-spacing: 1fr 1fr 1fr;
     --matrix-width: 100%;
     --max-matrix-width: 100%;
@@ -470,14 +474,6 @@ a:visited {
     --main-url-included-display: initial; // URL that appears within .main-txt
     --main-url-separate-display: none; // URL that appears outside of .main-txt
     --main-url-left-padding: 0px;
-  }
-
-  .main-txt {
-    margin: 0 auto;
-  }
-
-  .matrix {
-    margin: 0 auto;
   }
 }
 
