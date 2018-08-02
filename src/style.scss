@@ -36,7 +36,6 @@
   --main-researcher-name-size: 96px;
   --main-desc-size: 48px;
   --main-text-padding: 75px;
-  //--main-text-width: 20%;
   --logo-proportions: 10%;
   --max-logo-height: 100px;
 
@@ -69,8 +68,11 @@
   --popup-img-flex-flow: row-reverse nowrap; // For img subsection
   --popup-secondary-img-flex-flow: column nowrap;
 
-  /* .main-url-container properties */
+  /* .main-url and .main-url-container properties */
   --main-link-size: 36px;
+  --main-url-included-display: none; // URL that appears within .main-txt
+  --main-url-separate-display: initial; // URL that appears outside of .main-txt
+  --main-url-left-padding: 2.083vw; // TODO align to left edge of leftmost matrix item in landscape
 }
 
 /* Element containing .main-container */
@@ -293,7 +295,17 @@ a:visited {
 /* Actual URL to the collection */
 .main-url {
   font-size: var(--main-link-size);
-  padding-left: 2.083vw; // TODO align to left edge of leftmost matrix item
+  padding-left: var(--main-url-left-padding);
+}
+
+/* URL for the collection that appears outside of .main-txt */
+.outer-url {
+  display: var(--main-url-separate-display);
+}
+
+/* URL for the collection that appears inside of .main-txt */
+.inner-url {
+  display: var(--main-url-included-display);
 }
 
 
@@ -332,7 +344,7 @@ a:visited {
     --matrix-row-spacing: 1fr 1fr 1fr;
 
     /* .popup properties */
-    /* .main-url-container properties */
+    /* .main-url and .main-url-container properties */
   }
 }
 
@@ -350,7 +362,7 @@ a:visited {
     --matrix-row-spacing: 1fr 1fr 1fr;
 
     /* .popup properties */
-    /* .main-url-container properties */
+    /* .main-url and .main-url-container properties */
   }
 }
 
@@ -368,18 +380,14 @@ a:visited {
     --matrix-row-spacing: 1fr 1fr 1fr;
 
     /* .popup properties */
-    /* .main-url-container properties */
+    /* .main-url and .main-url-container properties */
   }
 }
 
 /********************/
 /********** For other large-scale displays (square/portrait) **********/
 /********************/
-// Should we include (min-height: 2100px) in the large-scale media queries?
-
 // For a "square" or "nearly square" (landscape) layout
-// TODO TODO TODO TODO TODO TODO
-// TODO: Make link reappear again (how would I put it inside of main-txt?)
 @media (min-aspect-ratio: 1/1) and (max-aspect-ratio: 8/5) and (min-height: 2100px) {
   :root {
     /* body and .main-container properties */
@@ -412,7 +420,10 @@ a:visited {
     --popup-primary-img-width: 70%;
     --popup-secondary-img-width: 70%;
 
-    /* .main-url-container properties */
+    /* .main-url and .main-url-container properties */
+    --main-url-included-display: initial; // URL that appears within .main-txt
+    --main-url-separate-display: none; // URL that appears outside of .main-txt
+    --main-url-left-padding: 0px;
   }
 
   .matrix {
@@ -460,7 +471,10 @@ a:visited {
     --popup-grid-layout: "img" "txt";
     --popup-img-flex-flow: row nowrap;
 
-    /* .main-url-container properties */
+    /* .main-url and .main-url-container properties */
+    --main-url-included-display: initial; // URL that appears within .main-txt
+    --main-url-separate-display: none; // URL that appears outside of .main-txt
+    --main-url-left-padding: 0px;
   }
 
   .main-txt {
@@ -488,7 +502,10 @@ a:visited {
 
     /* .popup properties */
 
-    /* .main-url-container properties */
+    /* .main-url and .main-url-container properties */
+    --main-url-included-display: initial; // URL that appears within .main-txt
+    --main-url-separate-display: none; // URL that appears outside of .main-txt
+    --main-url-left-padding: 0px;
     --main-link-size: 12px;
   }
 }
@@ -502,7 +519,7 @@ a:visited {
     /* .main-txt properties */
     /* .matrix properties */
     /* .popup properties */
-    /* .main-url-container properties */
+    /* .main-url and .main-url-container properties */
   }
 }
 
@@ -518,7 +535,7 @@ a:visited {
     /* .main-txt properties */
     /* .matrix properties */
     /* .popup properties */
-    /* .main-url-container properties */
+    /* .main-url and .main-url-container properties */
   }
 }
 
@@ -531,7 +548,7 @@ a:visited {
     /* .main-txt properties */
     /* .matrix properties */
     /* .popup properties */
-    /* .main-url-container properties */
+    /* .main-url and .main-url-container properties */
   }
 }
 
@@ -545,7 +562,7 @@ a:visited {
     /* .main-txt properties */
     /* .matrix properties */
     /* .popup properties */
-    /* .main-url-container properties */
+    /* .main-url and .main-url-container properties */
   }
 }
 
@@ -558,7 +575,7 @@ a:visited {
     /* .main-txt properties */
     /* .matrix properties */
     /* .popup properties */
-    /* .main-url-container properties */
+    /* .main-url and .main-url-container properties */
   }
 }
 
@@ -571,6 +588,6 @@ a:visited {
     /* .main-txt properties */
     /* .matrix properties */
     /* .popup properties */
-    /* .main-url-container properties */
+    /* .main-url and .main-url-container properties */
   }
 }
