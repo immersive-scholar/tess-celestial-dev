@@ -48,25 +48,30 @@
   --max-matrix-width: 6000px;
   //--max-matrix-height: 0;
 
-  /* .popup properties */
+  /* .popup properties - overall */
   --popup-flex-flow: row nowrap; // For whole popup
   --min-popup-line-length: 990px;
   --max-popup-line-length: 1160px;
-  --popup-title-size: 120px;
-  --popup-story-size: 48px;
-  --popup-link-size: 36px;
+  --popup-width: 65%;
+  --popup-height: 71.429vh; // 5/7
+  --popup-max-width: 50vw; // 1/2
+  --popup-left-position: calc(43.75vw);
+  --popup-top-position: calc(43.5vh);
   --popup-bg-color: rgba(0, 0, 0, .9);
   --popup-border: 25px solid rgba(255, 255, 255, 100);
   --popup-border-radius: 25px;
   --popup-inner-padding: 75px;
-  --popup-width: 65%;
-  --popup-max-width: 50%;
+  /* .popup properties - text */
+  --popup-title-size: 120px;
+  --popup-story-size: 48px;
+  --popup-link-size: 36px;
+  /* .popup properties - image */
   --popup-primary-img-width: 75%;
   --popup-secondary-img-width: 75%;
-  --popup-txt-col-size: 50%;
-  --popup-txt-row-size: 100%;
   --popup-img-flex-flow: row-reverse nowrap; // For img subsection
   --popup-secondary-img-flex-flow: column nowrap;
+  --popup-img-area-max-height: 100%;
+  --popup-secondary-img-max-width: 10vw;
 
   /* .main-url and .main-url-container properties */
   --main-link-size: 36px;
@@ -201,26 +206,21 @@ a:visited {
 /* Container for matrix item title, story, images, and URL */
 .matrix-popup {
   z-index: 100;
-  grid-template-columns: var(--popup-txt-col-size);
-  grid-template-rows: var(--popup-txt-row-size);
-  grid-template-areas: var(--popup-grid-layout);
   border: var(--popup-border);
   background-color: var(--popup-bg-color);
   border-radius: var(--popup-border-radius);
   width: var(--popup-width);
   display: flex;
-  // max-width: var(--popup-max-width);
   position: absolute;
   flex-flow: var(--popup-flex-flow);
   justify-content: var(--center-position);
   align-items: var(--center-position);
-  //max-height: 85%;
   //height: 85%; // This is too tall - covers the URL at the bottom
-  height: 71.429vh; // 5/7
-  max-width: 50vw; // 1/2
+  height: var(--popup-height);
+  max-width: var(--popup-max-width);
   // TODO: Stop-gap for testing in Immersion!!!! The positionings below will need to be reviewed after removing any fixed sizes
-  left: calc(43.75vw);
-  top: calc(43.5vh);
+  left: var(--popup-left-position);
+  top: var(--popup-top-position);
   transform: translateY(-50%) translateX(-50%);
 }
 
@@ -232,7 +232,7 @@ a:visited {
   flex-flow: var(--popup-img-flex-flow);
   align-items: var(--center-position);
   box-sizing: border-box;
-  max-height: 100%;
+  max-height: var(--popup-img-area-max-height);
 }
 
 /* The main (and largest) image of a matrix item */
@@ -243,8 +243,7 @@ a:visited {
 
 /* Container for all the secondary images of a matrix item */
 .secondary-img-slides {
-  //width: var(--popup-secondary-img-width);
-  max-width: 10vw;
+  max-width: var(--popup-secondary-img-max-width);
   height: var(--popup-primary-img-width);
   display: flex;
   flex-flow: var(--popup-secondary-img-flex-flow);
@@ -328,7 +327,7 @@ a:visited {
 /********************/
 /********** For narrower landscape layouts **********/
 /********************/
-// Let's say each matrix item should be at least 400px long/tall
+// TODO Let's say each matrix item should be at least 400px long/tall?
 
 // Remove one column (now 3 x 6 matrix)
 @media (max-aspect-ratio: 558/210) and (min-height: 2100px) {
@@ -344,6 +343,8 @@ a:visited {
     --matrix-row-spacing: 1fr 1fr 1fr;
 
     /* .popup properties */
+
+
     /* .main-url and .main-url-container properties */
   }
 }
@@ -406,17 +407,19 @@ a:visited {
     --matrix-width: 50%;
     --matrix-item-side-length: 60%; // Matrix items are squares/circles
 
-    /* .popup properties */
+    /* .popup properties - overall */
     --popup-flex-flow: column nowrap;
     --popup-width: 40%;
-    --popup-txt-col-size: 100%;
-    --popup-txt-row-size: 50%;
-    --popup-grid-layout: "img" "txt";
-    --popup-img-flex-flow: column nowrap;
-    --popup-secondary-img-flex-flow: row nowrap;
+    --popup-height: 90vh;
+    --popup-left-position: calc(25vw);
+    --popup-top-position: calc(50vh);
+    /* .popup properties - text */
     --popup-title-size: 108px;
     --popup-story-size: 48px;
     --popup-link-size: 36px;
+    /* .popup properties - image */
+    --popup-img-flex-flow: column nowrap;
+    --popup-secondary-img-flex-flow: row nowrap;
     --popup-primary-img-width: 70%;
     --popup-secondary-img-width: 70%;
 
@@ -428,12 +431,6 @@ a:visited {
 
   .matrix {
     max-height: 100vh;
-  }
-
-  .matrix-popup {
-    height: 90vh;
-    left: 25vw;
-    top: 50vh;
   }
 }
 
@@ -466,8 +463,6 @@ a:visited {
 
     /* .popup properties */
     --popup-flex-flow: column nowrap;
-    --popup-txt-col-size: 100%;
-    --popup-txt-row-size: 50%;
     --popup-grid-layout: "img" "txt";
     --popup-img-flex-flow: row nowrap;
 
