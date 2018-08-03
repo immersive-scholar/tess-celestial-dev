@@ -474,10 +474,10 @@ a:visited {
     --main-container-grid-areas:
       "main-txt desc"
       "matrix matrix";
-    --left-col-width: 50vw; // 2/5
-    --right-col-width: 50vw; // 3/5
-    --top-row-height: 50vh; // 3/10
-    --bottom-row-height: 50vh; // 7/10
+    --left-col-width: 50vw; // 1/2
+    --right-col-width: 50vw; // 1/2
+    --top-row-height: 50vh; // 1/2
+    --bottom-row-height: 50vh; // 1/2
     --text-top-bottom-margins: 25px;
 
     /* .main-txt properties */
@@ -497,8 +497,16 @@ a:visited {
     --max-matrix-width: 100%;
 
     /* .popup properties */
-    --popup-flex-flow: column nowrap;
-    --popup-img-flex-flow: row nowrap;
+    --popup-flex-flow: row nowrap;
+    --popup-width: 90vw; // Am not sure why this has to be here
+    --popup-max-width: 90vw; // 9/10
+    --popup-height: 40%;
+    --popup-left-position: calc(50vw);
+    --popup-top-position: calc(75vh);
+    /* .popup properties - text */
+    --popup-title-size: 96px;
+    --popup-story-size: 36px;
+    --popup-link-size: 24px;
 
     /* .main-url and .main-url-container properties */
     --main-url-included-display: initial; // URL that appears within .main-txt
@@ -544,6 +552,7 @@ a:visited {
     --matrix-row-spacing: 1fr 1fr 1fr 1fr 1fr 1fr;
 
     /* .popup properties */
+    --popup-flex-flow: column nowrap;
 
     /* .main-url and .main-url-container properties */
     --main-url-included-display: initial; // URL that appears within .main-txt
