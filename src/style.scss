@@ -584,6 +584,7 @@ a:visited {
 /*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
 /*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
 
+// TODO use calc() for a more consistent font size and line length
 // TODO set better max-height
 /**********************************************************************/
 /******************** For 4K display (large desktop?) ********************/
@@ -599,6 +600,7 @@ a:visited {
     --bottom-row-height: 0vh; // 0/5
 
     /* .main-txt properties */
+    --main-text-padding: 3vw;
     --main-txt-bg-color: rgb(54, 69, 79, .5); // Charcoal, 50% opacity
     --main-title-size: 5.156vw;
     --main-researcher-name-size: 2.513vw;
@@ -672,14 +674,15 @@ a:visited {
       "matrix";
     --left-col-width: 100vw; // 1/1
     --right-col-width: 0vw; // 0/1
-    --top-row-height: 25vh; // 1/4
-    --bottom-row-height: 75vh; // 3/4
+    --top-row-height: 50vh; // 1/2
+    --bottom-row-height: 50vh; // 1/2
 
     /* .main-txt properties */
-    --main-title-size: 75%;
-    --main-researcher-name-size: 50%;
-    --main-desc-size: 25%;
-    --main-link-size: 10%;
+    --main-text-padding: 15vw;
+    --main-title-size: 7.183vw;
+    --main-researcher-name-size: 4.688vw;
+    --main-desc-size: 2.344vw;
+    --main-link-size: 1.563vw;
 
     /* .matrix properties */
     --matrix-col-spacing: 1fr 1fr 1fr;
@@ -703,10 +706,8 @@ a:visited {
     /* body and .main-container properties */
 
     /* .main-txt properties */
-    --main-title-size: 75%;
-    --main-researcher-name-size: 50%;
-    --main-desc-size: 25%;
-    --main-link-size: 10%;
+    --main-desc-size: 2.824vw;
+    --main-link-size: 2.353vw;
 
     /* .matrix properties */
     /* .popup properties */
