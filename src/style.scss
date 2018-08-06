@@ -93,6 +93,7 @@
 
 /* Element containing .main-container */
 body {
+  margin: 0;
   overflow: var(--body-overflow);
   background-color: var(--background-color);
   color: var(--text-color);
