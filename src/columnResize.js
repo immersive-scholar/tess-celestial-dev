@@ -1,3 +1,4 @@
+// This function removes overflow elements from a matrix at set media queries to ensure that the number of elements in each row and column are equal
 function columnResizeOnAspectChange (container, elements) {
   const aspect1 = window.matchMedia('(max-aspect-ratio: 4815/2100)')
   const aspect2 = window.matchMedia('(max-aspect-ratio: 558/210)')

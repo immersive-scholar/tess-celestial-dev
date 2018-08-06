@@ -1,6 +1,7 @@
 import './style.scss'
 import { sample, shuffle } from 'lodash'
 import columnResize from './columnResize.js'
+import matrixZoomAnimation from './matrixZoomAnimation.js'
 import rawImgData from './data.csv'
 
 // Name of the folder containing the image assets, must be located in 'src' folder
@@ -33,8 +34,9 @@ const createImgElement = function (imgSrc, title) {
 const matrixImgs = shuffle(imgData).map(d => createImgElement(d.imgName, d.title))
 
 // Append matrix images to the matrix container
-matrixImgs.forEach(function (img) {
+matrixImgs.forEach(function (img, i) {
   img.className = 'matrix-item'
+  img.dataset.pos = i
   matrix.appendChild(img)
 })
 
@@ -68,6 +70,8 @@ const showPopup = function (event) {
   const currentStory = event ? this : sample(matrixImgs)
   const storyId = currentStory.dataset.id
   const story = popupAssets[storyId]
+
+  matrixZoomAnimation(matrix, currentStory)
 
   // Set source of main img to img selected from matrix
   document.getElementById('primary-popup-img').src = currentStory.src
