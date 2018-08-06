@@ -13,10 +13,12 @@ const timePopupShown = 30000
 let timedPopup
 
 // FOR TESTING: copy imgData multiple times to populate matrix
-for (let i = 0; i < 1; i++) {
-  imgData = imgData.concat(...rawImgData)
+const imgPadding = 21 - imgData.length
+for (let i = 0; i < imgPadding; i++) {
+  imgData.push(sample(rawImgData))
 }
-imgData.push(rawImgData[0])
+// imgData.push(rawImgData[0])
+console.log(imgPadding)
 
 const matrix = document.querySelector('.matrix')
 
