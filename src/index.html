@@ -16,7 +16,6 @@
           <p class="main-desc inner-desc">Main project description. At vero eos et accusamus et iusto odio dignissimos ducimus, qui blanditiis praesentium voluptatum deleniti atque corrupti, quos dolores et quas molestias excepturi sint, obcaecati cupiditate non-provident, similique sunt in culpa, qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.</p>
           <p class="main-url inner-url">Learn more about <span class="researcher-name-insert">(researcher's name)</span>'s work at <a href="https://github.ncsu.edu" target="_blank">http://github.ncsu.edu</a>.</p>
           <br>
-          <img src="${require(`./test-img/Immersive-Scholar-Logo.png`)}" id="logo">
       </div>
       <div class="matrix">
         <!-- Images will be inserted here -->
@@ -42,11 +41,14 @@
 
       <!-- TODO make this part less messy -->
       <!-- The main-url-container and outer-desc elements are for alternative grid layouts -->
-      <!-- Making outer-url visible and inner-url invisible means the url will appear outside the main-txt container -->
       <!-- Making outer-desc visible and inner-url invisible means the desc will appear outside the main-txt container -->
-      <div class="main-url-container">
-        <p class="main-url outer-url">Learn more about <span class="researcher-name-insert">(researcher's name)</span>'s work at <a href="https://github.ncsu.edu" target="_blank">http://github.ncsu.edu</a>.</p>
+
+      <!-- TODO logo, desc, and link to Immersive Scholar website -->
+      <div class="imm-sch-url-container">
+        <img src="${require(`./test-img/Immersive-Scholar-Logo.png`)}" id="logo">
+        <p class="imm-sch-url">Learn more about Immersive Scholar at <a href="https://www.immersivescholar.org/" target="_blank">https://www.immersivescholar.org/</a>.</p>
       </div>
+
       <div class="outer-desc">
         <p class="main-desc">Main project description. At vero eos et accusamus et iusto odio dignissimos ducimus, qui blanditiis praesentium voluptatum deleniti atque corrupti, quos dolores et quas molestias excepturi sint, obcaecati cupiditate non-provident, similique sunt in culpa, qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.</p>
       </div>
