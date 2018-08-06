@@ -618,6 +618,8 @@ a:visited {
     --min-popup-line-length: 38.672vw;
     --max-popup-line-length: 45.313vw;
     --popup-flex-flow: row nowrap;
+    --popup-border: 0.977vw solid rgba(255, 255, 255, 100);
+    --popup-border-radius: 0.977vw;
     --popup-width: 90vw;
     --popup-max-width: 90vw; // 9/10
     --popup-height: 60vh;
@@ -688,6 +690,14 @@ a:visited {
     --matrix-item-gap: 2.5%;
 
     /* .popup properties */
+    --popup-flex-flow: column nowrap;
+    --popup-width: 75%;
+    --popup-height: 71.429vh; // 5/7
+    --popup-max-width: 75vw; // 3/4
+    --popup-inner-padding: 5vw;
+    /* .popup properties - image */
+    --popup-img-flex-flow: column nowrap; // For img subsection
+    --popup-secondary-img-flex-flow: row nowrap;
 
     /* .main-url and .main-url-container properties */
     --main-url-included-display: initial; // URL that appears within .main-txt
@@ -719,6 +729,8 @@ a:visited {
 
     /* .matrix properties */
     /* .popup properties */
+    --popup-height: 50vh; // 1/2
+
     /* .main-url and .main-url-container properties */
   }
 }
