@@ -615,6 +615,8 @@ a:visited {
     --matrix-row-spacing: 1fr 1fr 1fr 1fr 1fr 1fr;
 
     /* .popup properties */
+    --min-popup-line-length: 38.672vw;
+    --max-popup-line-length: 45.313vw;
     --popup-flex-flow: row nowrap;
     --popup-width: 90vw;
     --popup-max-width: 90vw; // 9/10
@@ -622,9 +624,9 @@ a:visited {
     --popup-left-position: calc(50vw);
     --popup-top-position: calc(50vh);
     /* .popup properties - text */
-    --popup-title-size: 96px;
-    --popup-story-size: 36px;
-    --popup-link-size: 24px;
+    --popup-title-size: 3.75vw;
+    --popup-story-size: 1.406vw;
+    --popup-link-size: 0.938vw;
 
     /* .main-url and .main-url-container properties */
     --main-url-included-display: initial; // URL that appears within .main-txt
