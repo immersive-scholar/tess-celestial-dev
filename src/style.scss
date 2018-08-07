@@ -78,8 +78,10 @@
   --popup-secondary-img-max-width: 10vw;
 
   /* .imm-sch-url-container properties */ // TODO change this
-  --imm-sch-url-left-padding: 1vw; // TODO align to left edge of leftmost matrix item in landscape
-  --imm-sch-link-size: 36px;
+  --imm-sch-url-left-padding: 0.5vw; // TODO align to left edge of leftmost matrix item in landscape
+  --imm-sch-link-size: 24px;
+  --imm-sch-url-display: inline; // inline or block
+  --logo-display: inline-block; // inline-block or block
   --logo-proportions: 10%;
   --max-logo-height: 110px;
   --logo-float: right;
@@ -157,7 +159,7 @@ a:visited {
   grid-area: main-txt;
   background-color: var(--main-txt-bg-color);
   z-index: 1;
-  
+
   will-change: transform, filter;
 
   border: 3px solid white; // Border for testing purposes - remove later
@@ -329,7 +331,6 @@ a:visited {
 }
 
 
-// TODO change this section to be for ImmSch logo, desc, and link!!!
 /**********************************************************************/
 /******************** Immersive Scholar URL ********************/
 /**********************************************************************/
@@ -347,16 +348,16 @@ a:visited {
   //width: var(--logo-proportions);
   max-height: var(--max-logo-height);
   //float: var(--logo-float);
-  display: inline-block;
+  display: var(--logo-display);
   padding: var(--logo-padding);
-  vertical-align: -44%;
 }
 
 /* URL for the Immersive Scholar project that appears outside of .main-txt */
 .imm-sch-url {
-  //padding-left: var(--imm-sch-url-left-padding);
+  padding-left: var(--imm-sch-url-left-padding);
   font-size: var(--imm-sch-link-size);
-  display: inline;
+  display: var(--imm-sch-url-display);
+  vertical-align: 65%;
 }
 
 
@@ -464,8 +465,8 @@ a:visited {
       "matrix link";
     --left-col-width: 50vw; // 1/2
     --right-col-width: 50vw; // 1/2
-    --top-row-height: 100vh; // 7/7
-    --bottom-row-height: 100vh; // 7/7
+    --top-row-height: 50vh; // 1/2
+    --bottom-row-height: 50vh; // 1/2
 
     /* .main-txt properties */
 
@@ -493,6 +494,8 @@ a:visited {
 
     /* .imm-sch-url-container properties */
     --imm-sch-url-left-padding: 0px;
+    --imm-sch-url-display: block; // inline or block
+    --logo-display: block; // inline-block or block
   }
 
   .matrix {
