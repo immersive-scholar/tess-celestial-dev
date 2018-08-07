@@ -1,6 +1,7 @@
 import './style.scss'
 import { sample, shuffle } from 'lodash'
 import columnResize from './columnResize.js'
+import matrixZoomAnimation from './matrixZoomAnimation.js'
 import rawImgData from './data.csv'
 
 // Name of the folder containing the image assets, must be located in 'src' folder
@@ -35,8 +36,9 @@ const createImgElement = function (imgSrc, title) {
 const matrixImgs = shuffle(imgData).map(d => createImgElement(d.imgName, d.title))
 
 // Append matrix images to the matrix container
-matrixImgs.forEach(function (img) {
+matrixImgs.forEach(function (img, i) {
   img.className = 'matrix-item'
+  img.dataset.pos = i
   matrix.appendChild(img)
 })
 
@@ -64,24 +66,27 @@ const showPopup = function (event) {
   const storyPopup = document.querySelector('.matrix-popup')
 
   // If a story popup is already visible, prevent a new popup from being displayed
-  if (!storyPopup.classList.contains('hidden')) { return }
+  if (storyPopup.classList.contains('visible')) { return }
 
-  // Set 'currentStory' to clicked matrix img element or random selection if timed event
-  const currentStory = event ? this : sample(matrixImgs)
+  // Set 'currentStory' to clicked matrix img element or random selection of images that have not been removed from the display if timed event
+  const currentStory = event ? this : sample(matrixImgs.filter(d =>
+    !d.classList.contains('removed'))
+  )
   const storyId = currentStory.dataset.id
   const story = popupAssets[storyId]
 
   // Set source of main img to img selected from matrix
   document.getElementById('primary-popup-img').src = currentStory.src
 
-  // Array of 'secondary' img elements from popup
+  // Set array of 'secondary' img elements from popup and make sure to remove any previously used images
   const secondaryImgs = document.querySelectorAll('.secondary-img')
+  secondaryImgs.forEach(d => d.classList.add('removed'))
 
   // Filter story media to display available secondary images
   story.storyMedia
     .filter(d => d !== '')
     .forEach(function (mediaItem, i) {
-      secondaryImgs[i].classList.remove('hidden')
+      secondaryImgs[i].classList.remove('removed')
       secondaryImgs[i].src = require(`./${imgFolder}/${mediaItem}`)
     })
 
@@ -92,14 +97,17 @@ const showPopup = function (event) {
   // Insert the story title into the "Learn more about (project)" URL
   document.querySelector('.project-name-insert').textContent = story.title
 
-  storyPopup.classList.remove('hidden')
+  // Zoom in on selected element (currentStory) in the matrix and display popup (storyPopup) after animation completes
+  matrixZoomAnimation(matrix, currentStory, storyPopup, 'zoom-in')
 
   // This function removes the popup from the screen when a click occurs anywhere on the screen except on top of the open popup
   const removePopup = function (event) {
     // Return if click occured on top of the popup
     if (event && event.path.includes(storyPopup)) { return }
-    storyPopup.classList.add('hidden')
-    secondaryImgs.forEach(d => d.classList.add('hidden'))
+
+    // Zoom out of selected element (currentStory) in the matrix and remove popup (storyPopup) before animation completes
+    matrixZoomAnimation(matrix, currentStory, storyPopup, 'zoom-out')
+    storyPopup.classList.remove('visible')
 
     // Timeout and interactive events
     document.querySelector('body').removeEventListener('click', removePopup)
