@@ -13,9 +13,9 @@ function columnResizeOnAspectChange (container, elements) {
 
     elements.forEach(function (element, i) {
       if (i > elements.length - numElementsOverflow - 1) {
-        element.classList.add('hidden')
+        element.classList.add('removed')
       } else {
-        element.classList.remove('hidden')
+        element.classList.remove('removed')
       }
     })
   }

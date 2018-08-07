@@ -101,7 +101,7 @@ body {
 }
 
 /* Class to remove element from page flow */
-.hidden {
+.removed {
   display: none !important;
 }
 
@@ -152,6 +152,9 @@ a:visited {
   margin: var(--horizontal-center-margins);
   grid-area: main-txt;
   background-color: var(--main-txt-bg-color);
+  z-index: 1;
+  
+  will-change: transform, filter;
 
   border: 3px solid white; // Border for testing purposes - remove later
 }
@@ -240,6 +243,24 @@ a:visited {
   left: var(--popup-left-position);
   top: var(--popup-top-position);
   transform: translateY(-50%) translateX(-50%);
+
+  pointer-events: none;
+  opacity: 0;
+  will-change: opacity;
+
+  transition-property: opacity;
+  transition-duration: 0.1s;
+  transition-timing-function: cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+
+/* Class to fade elements in/out */
+.matrix-popup.visible {
+  pointer-events: auto;
+  opacity: 1;
+
+  transition-property: opacity;
+  transition-duration: 0.3s;
+  transition-timing-function: cubic-bezier(0.445, 0.05, 0.55, 0.95);
 }
 
 /* Area of matrix popup containing primary image and secondary images */
@@ -307,6 +328,7 @@ a:visited {
 .main-url-container {
   grid-area: link;
   align-self: var(--center-position);
+  z-index: 1;
 }
 
 /* Actual URL to the collection */
