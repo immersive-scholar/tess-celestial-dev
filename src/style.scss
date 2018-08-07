@@ -78,8 +78,9 @@
   --popup-secondary-img-max-width: 10vw;
 
   /* .imm-sch-url-container properties */ // TODO change this
-  --imm-sch-url-left-padding: 0.5vw; // TODO align to left edge of leftmost matrix item in landscape
-  --imm-sch-link-size: 24px;
+  --imm-sch-url-vertical-align: center;
+  --imm-sch-url-padding: 0 0 0 0.5vw; // TODO align to left edge of leftmost matrix item in landscape
+  --imm-sch-url-size: 24px;
   --imm-sch-url-display: inline; // inline or block
   --logo-display: inline-block; // inline-block or block
   --logo-proportions: 10%;
@@ -337,7 +338,7 @@ a:visited {
 /* Container for the URL to the Immersion Scholar project website */
 .imm-sch-url-container {
   grid-area: link;
-  align-self: var(--center-position);
+  align-self: var(--imm-sch-url-vertical-align);
   z-index: 1;
 }
 
@@ -354,8 +355,9 @@ a:visited {
 
 /* URL for the Immersive Scholar project that appears outside of .main-txt */
 .imm-sch-url {
-  padding-left: var(--imm-sch-url-left-padding);
-  font-size: var(--imm-sch-link-size);
+  max-width: var(--max-main-line-length);
+  padding: var(--imm-sch-url-padding);
+  font-size: var(--imm-sch-url-size);
   display: var(--imm-sch-url-display);
   vertical-align: 65%;
 }
@@ -465,8 +467,8 @@ a:visited {
       "matrix link";
     --left-col-width: 50vw; // 1/2
     --right-col-width: 50vw; // 1/2
-    --top-row-height: 50vh; // 1/2
-    --bottom-row-height: 50vh; // 1/2
+    --top-row-height: 80vh; // 4/5
+    --bottom-row-height: 20vh; // 1/5
 
     /* .main-txt properties */
 
@@ -493,9 +495,11 @@ a:visited {
     --popup-secondary-img-width: 70%;
 
     /* .imm-sch-url-container properties */
-    --imm-sch-url-left-padding: 0px;
+    --imm-sch-url-vertical-align: end;
+    --imm-sch-url-padding: 0 0 75px 75px;
     --imm-sch-url-display: block; // inline or block
     --logo-display: block; // inline-block or block
+    --logo-padding: 0 0 0 75px;
   }
 
   .matrix {
@@ -546,7 +550,7 @@ a:visited {
     --popup-link-size: 24px;
 
     /* .imm-sch-url-container properties */
-    --imm-sch-url-left-padding: 0px;
+    --imm-sch-url-padding: 0px;
 
     /* .outer-desc properties */
     --main-desc-included-display: none; // desc that appears within .main-txt
@@ -594,7 +598,7 @@ a:visited {
     --popup-link-size: 12px;
 
     /* .imm-sch-url-container properties */
-    --imm-sch-url-left-padding: 0px;
+    --imm-sch-url-padding: 0px;
 
     --main-desc-included-display: block; // desc that appears within .main-txt
     --main-desc-separate-display: none; // desc that appears outside of .main-txt
@@ -662,7 +666,7 @@ a:visited {
     --popup-link-size: 0.938vw;
 
     /* .imm-sch-url-container properties */
-    --imm-sch-url-left-padding: 0vw;
+    --imm-sch-url-padding: 0vw;
   }
 }
 
