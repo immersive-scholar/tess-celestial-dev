@@ -41,10 +41,6 @@
   --main-desc-size: 48px;
   --main-link-size: 36px;
   --main-text-padding: 75px;
-  --logo-proportions: 10%;
-  --max-logo-height: 100px;
-  --logo-float: right;
-  --logo-padding: 50px 0 50px 0;
 
   /* .matrix properties */
   --matrix-item-side-length: 70%; // Matrix items are squares/circles
@@ -82,8 +78,12 @@
   --popup-secondary-img-max-width: 10vw;
 
   /* .imm-sch-url-container properties */ // TODO change this
-  --imm-sch-url-left-padding: 2.083vw; // TODO align to left edge of leftmost matrix item in landscape
+  --imm-sch-url-left-padding: 1vw; // TODO align to left edge of leftmost matrix item in landscape
   --imm-sch-link-size: 36px;
+  --logo-proportions: 10%;
+  --max-logo-height: 110px;
+  --logo-float: right;
+  --logo-padding: 0 0 0 2.083vw; // top, right, bottom, left
 
   /* .outer-desc properties */
   --main-desc-included-display: block; // desc that appears within .main-txt
@@ -129,6 +129,11 @@ h1, h2, h3 {
 /* All body text */
 p {
   font-family: var(--paragraph-font-family);
+}
+
+/* All links */
+a {
+  color: var(--text-color);
 }
 
 /* Keeps visited links the same color as unvisted links */
@@ -275,6 +280,16 @@ a:visited {
   max-width: var(--max-popup-line-length);
 }
 
+// TODO to keep or not to keep?
+/* Styling for infinity symbol for Radmila */
+.symbol {
+  font-size: 250px;
+  line-height: 0;
+  vertical-align: middle;
+  font-weight: normal;
+  margin: 0;
+}
+
 /* Title of the selected matrix item */
 .project-title {
   font-size: var(--popup-title-size);
@@ -310,14 +325,16 @@ a:visited {
   //width: var(--logo-proportions);
   max-height: var(--max-logo-height);
   //float: var(--logo-float);
-  display: block;
+  display: inline-block;
   padding: var(--logo-padding);
+  vertical-align: -44%;
 }
 
 /* URL for the Immersive Scholar project that appears outside of .main-txt */
 .imm-sch-url {
-  padding-left: var(--imm-sch-url-left-padding);
+  //padding-left: var(--imm-sch-url-left-padding);
   font-size: var(--imm-sch-link-size);
+  display: inline;
 }
 
 
