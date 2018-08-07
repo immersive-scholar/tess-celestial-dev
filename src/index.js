@@ -18,8 +18,6 @@ const imgPadding = 21 - imgData.length
 for (let i = 0; i < imgPadding; i++) {
   imgData.push(sample(rawImgData))
 }
-// imgData.push(rawImgData[0])
-console.log(imgPadding)
 
 const matrix = document.querySelector('.matrix')
 

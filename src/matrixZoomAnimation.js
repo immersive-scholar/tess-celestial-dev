@@ -16,18 +16,18 @@ function matrixZoomAnimation (container, element, popup, direction) {
   const animationDirection = direction === 'zoom-in' ? [
     {
       transform: 'scale(1) translate(0)',
-      filter: 'brightness(1)'
+      opacity: '1'
     },
     {
       transform: `scale(12) translateX(calc(${xTranslate} * 100%)) translateY(calc(${yTranslate} * 100%))`,
-      filter: 'brightness(50%)'}
+      opacity: '0.5'}
   ] : direction === 'zoom-out' ? [
     {
       transform: `scale(12) translateX(calc(${xTranslate} * 100%)) translateY(calc(${yTranslate} * 100%))`,
-      filter: 'brightness(50%)'},
+      opacity: '0.5'},
     {
       transform: 'scale(1) translate(0)',
-      filter: 'brightness(1)'
+      opacity: '1'
     }
   ] : null
 
@@ -38,12 +38,11 @@ function matrixZoomAnimation (container, element, popup, direction) {
 
   containerAnimation.addEventListener('finish', function () {
     container.style.transform = animationDirection[1].transform
-    container.style.filter = animationDirection[1].filter
+    container.style.opacity = animationDirection[1].opacity
     if (direction === 'zoom-in') {
       popup.classList.add('visible')
     }
   })
-  // console.log(popup.style)
 }
 
 export default matrixZoomAnimation

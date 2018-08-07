@@ -96,7 +96,7 @@ body {
   overflow: var(--body-overflow);
   background-color: var(--background-color);
   color: var(--text-color);
-  background-image: url("test-img/Imm-Theater-Grid.jpg"); // Grid for testing
+  // background-image: url("test-img/Imm-Theater-Grid.jpg"); // Grid for testing
 }
 
 /* Class to remove element from page flow */
@@ -157,10 +157,8 @@ a:visited {
   grid-area: main-txt;
   background-color: var(--main-txt-bg-color);
   z-index: 1;
-  
-  will-change: transform, filter;
 
-  border: 3px solid white; // Border for testing purposes - remove later
+  // border: 3px solid white; // Border for testing purposes - remove later
 }
 
 /* Title of the researcher's collection of work */
@@ -208,8 +206,10 @@ a:visited {
   // max-height: 1890px; // Set this equal to main-container's height
   grid-area: matrix;
   overflow: var(--matrix-overflow);
+  
+  // will-change: transform, opacity;
 
-  border: 3px solid white; // Border for testing purposes - remove later
+  // border: 3px solid white; // Border for testing purposes - remove later
 }
 
 /* Individual cell in the matrix */
