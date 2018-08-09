@@ -499,9 +499,9 @@ a:visited {
 
     /* .popup properties - overall */
     --popup-flex-flow: column nowrap;
-    --popup-width: 40%;
+    --popup-width: 45%;
     --popup-height: 90vh;
-    --popup-left-position: calc(25vw);
+    --popup-left-position: calc(30vw); // TODO how to center within matrix???
     --popup-top-position: calc(50vh);
     /* .popup properties - text */
     --popup-txt-inner-padding: 0 75px 75px 75px;
