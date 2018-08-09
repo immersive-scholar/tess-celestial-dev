@@ -247,7 +247,7 @@ a:visited {
   width: var(--popup-width); // Note: 85% is too tall
   height: var(--popup-height);
   // TODO modify this - don't want it too wide
-  // max-width: var(--popup-max-width);
+  max-width: 3500px;
 
   // TODO: Stop-gap for testing in Immersion!!!! The positionings below will need to be reviewed after removing any fixed sizes
   left: var(--popup-left-position);
