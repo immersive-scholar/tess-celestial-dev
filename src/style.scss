@@ -43,7 +43,7 @@
   --main-researcher-name-size: 96px;
   --main-desc-size: 48px;
   --main-link-size: 36px;
-  --main-text-padding: 75px;
+  --main-text-padding: 0 75px 0 75px;
 
   /* .matrix properties */
   --matrix-item-side-length: 70%; // Matrix items are squares/circles
@@ -135,6 +135,7 @@ body {
   grid-template-areas: var(--main-container-grid-areas);
   grid-template-columns: var(--left-col-width) var(--right-col-width);
   grid-template-rows: var(--top-row-height) var(--bottom-row-height);
+  justify-content: center;
 }
 
 /* Main (collection) title, researcher name, and project titles */
@@ -169,8 +170,8 @@ a:visited {
  */
 .main-txt {
   //width: var(--min-main-line-length);
-  max-width: var(--max-main-line-length);
-  padding: 0 var(--main-text-padding) 0 var(--main-text-padding);
+  //max-width: var(--max-main-line-length);
+  padding: var(--main-text-padding);
   margin: var(--horizontal-center-margins);
   grid-area: main-txt;
   background-color: var(--main-txt-bg-color);
@@ -483,11 +484,12 @@ a:visited {
       "matrix main-txt"
       "matrix link";
     --left-col-width: 50vw; // 1/2
-    --right-col-width: 50vw; // 1/2
+    --right-col-width: 40vw; // 2/5
     --top-row-height: 80vh; // 4/5
     --bottom-row-height: 20vh; // 1/5
 
     /* .main-txt properties */
+    --main-text-padding: 0 0 0 75px;
 
     /* .matrix properties */
     --matrix-col-spacing: 1fr 1fr 1fr;
