@@ -37,8 +37,8 @@
   /* .main-txt properties */
   --main-txt-heading-margin: 75px;
   --main-txt-bg-color: rgb(0, 0, 0, 0); // Black, 0% opacity
-  --min-main-line-length: 1045px;
-  --max-main-line-length: 1090px;
+  //--min-main-line-length: 1045px;
+  //--max-main-line-length: 1090px;
   --main-title-size: 156px;
   --main-researcher-name-size: 96px;
   --main-desc-size: 48px;
@@ -483,13 +483,17 @@ a:visited {
     --main-container-grid-areas:
       "matrix main-txt"
       "matrix link";
-    --left-col-width: 50vw; // 1/2
-    --right-col-width: 40vw; // 2/5
+    --left-col-width: 60vw; // 3/5
+    --right-col-width: 30vw; // 3/10
     --top-row-height: 80vh; // 4/5
     --bottom-row-height: 20vh; // 1/5
 
     /* .main-txt properties */
     --main-text-padding: 0 0 0 75px;
+    --main-title-size: 144px;
+    --main-researcher-name-size: 84px;
+    --main-desc-size: 42px;
+    --main-link-size: 30px;
 
     /* .matrix properties */
     --matrix-col-spacing: 1fr 1fr 1fr;
@@ -501,14 +505,15 @@ a:visited {
     --popup-flex-flow: column nowrap;
     --popup-width: 45%;
     --popup-height: 90vh;
-    --popup-left-position: calc(30vw); // TODO how to center within matrix???
+    --popup-max-width: 1300px;
+    --popup-left-position: calc(10vw + (var(--left-col-width) / 2.5)); // TODO how to center within matrix???
     --popup-top-position: calc(50vh);
     /* .popup properties - text */
     --popup-txt-inner-padding: 0 75px 75px 75px;
     --popup-heading-margin: 0px;
     --popup-title-size: 108px;
-    --popup-story-size: 48px;
-    --popup-link-size: 36px;
+    --popup-story-size: 42px;
+    --popup-link-size: 30px;
     --popup-txt-area-width: 100%;
     --popup-txt-area-height: 50%;
     /* .popup properties - image */
@@ -553,7 +558,7 @@ a:visited {
     //--text-top-bottom-margins: 25px; // delete this
 
     /* .main-txt properties */
-    --min-main-line-length: 1050px;
+    //--min-main-line-length: 1050px;
     --max-main-line-length: 1150px;
     --main-text-padding: 75px;
     --main-title-size: 132px;
