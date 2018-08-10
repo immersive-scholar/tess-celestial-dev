@@ -35,10 +35,10 @@
   --bottom-row-height: 14.286vh; // 1/7
 
   /* .main-txt properties */
-  --main-txt-heading-margin: 75px;
+  --main-txt-heading-margin: 75px 0;
   --main-txt-bg-color: rgb(0, 0, 0, 0); // Black, 0% opacity
   //--min-main-line-length: 1045px;
-  //--max-main-line-length: 1090px;
+  --max-main-line-length: 1090px;
   --main-title-size: 156px;
   --main-researcher-name-size: 96px;
   --main-desc-size: 48px;
@@ -92,6 +92,7 @@
 
   /* .imm-sch-url-container properties */ // TODO change this
   --imm-sch-url-vertical-align: center;
+  --imm-sch-url-vertical-align-percentage: 65%;
   --imm-sch-url-padding: 0 0 0 0.5vw; // TODO align to left edge of leftmost matrix item in landscape
   --imm-sch-url-size: 24px;
   --imm-sch-url-display: inline; // inline or block
@@ -185,16 +186,14 @@ a:visited {
 /* Title of the researcher's collection of work */
 .main-title {
   font-size: var(--main-title-size);
-  margin-top: var(--main-txt-heading-margin);
-  margin-bottom: var(--main-txt-heading-margin);
+  margin: var(--main-txt-heading-margin);
   font-weight: 700; // TODO Should be bold...why won't it change!?
 }
 
 /* Name of the researcher */
 .researcher-name {
   font-size: var(--main-researcher-name-size);
-  margin-top: var(--main-txt-heading-margin);
-  margin-bottom: var(--main-txt-heading-margin);
+  margin: var(--main-txt-heading-margin);
 }
 
 /* Paragraph describing the collection of work */
@@ -310,7 +309,7 @@ a:visited {
   display: flex;
   flex-flow: var(--popup-secondary-img-flex-flow);
   align-items: var(--center-position);
-  justify-content: space-around;
+  justify-content: space-evenly;
   width: var(--popup-secondary-img-slides-width);
   height: var(--popup-secondary-img-slides-height);
 }
@@ -377,7 +376,7 @@ a:visited {
   padding: var(--imm-sch-url-padding);
   font-size: var(--imm-sch-url-size);
   display: var(--imm-sch-url-display);
-  vertical-align: 65%;
+  vertical-align: var(--imm-sch-url-vertical-align-percentage);
 }
 
 
@@ -484,12 +483,12 @@ a:visited {
       "matrix main-txt"
       "matrix link";
     --left-col-width: 60vw; // 3/5
-    --right-col-width: 30vw; // 3/10
+    --right-col-width: 40vw; // 2/5
     --top-row-height: 80vh; // 4/5
     --bottom-row-height: 20vh; // 1/5
 
     /* .main-txt properties */
-    --main-text-padding: 0 0 0 75px;
+    --main-text-padding: 0 75px 0 75px;
     --main-title-size: 144px;
     --main-researcher-name-size: 84px;
     --main-desc-size: 42px;
@@ -503,10 +502,10 @@ a:visited {
 
     /* .popup properties - overall */
     --popup-flex-flow: column nowrap;
-    --popup-width: 45%;
+    --popup-width: 50%;
     --popup-height: 90vh;
     --popup-max-width: 1300px;
-    --popup-left-position: calc(10vw + (var(--left-col-width) / 2.5)); // TODO how to center within matrix???
+    --popup-left-position: calc(10vw + (var(--left-col-width) / 3)); // TODO how to center within matrix???
     --popup-top-position: calc(50vh);
     /* .popup properties - text */
     --popup-txt-inner-padding: 0 75px 75px 75px;
@@ -531,6 +530,7 @@ a:visited {
     /* .imm-sch-url-container properties */
     --imm-sch-url-vertical-align: end;
     --imm-sch-url-padding: 0 75px 75px 75px;
+    --imm-sch-url-size: 18px;
     --imm-sch-url-display: block; // inline or block
     --logo-display: block; // inline-block or block
     --logo-padding: 0 0 0 75px;
@@ -545,24 +545,25 @@ a:visited {
 @media (max-aspect-ratio: 1/1) and (min-height: 2100px) {
   :root {
     /* body and .main-container properties */
-    --horizontal-center-margins: 0 auto;
+    --horizontal-center-margins: 0;
     --main-container-grid-areas:
-      "main-txt desc"
       "matrix matrix"
+      "main-txt desc"
       "link link";
     --left-col-width: 50vw; // 1/2
     --right-col-width: 50vw; // 1/2
-    --top-row-height: 40vh; // 2/5
-    --middle-row-height: 50vh; // 1/2
+    --top-row-height: 40vh; // 3/10
+    --middle-row-height: 50vh; // 2/5
     --bottom-row-height: 10vh; // 1/10
     //--text-top-bottom-margins: 25px; // delete this
 
     /* .main-txt properties */
+    --main-txt-heading-margin: 0 0 75px 0;
     //--min-main-line-length: 1050px;
     --max-main-line-length: 1150px;
     --main-text-padding: 75px;
-    --main-title-size: 132px;
-    --main-researcher-name-size: 72px;
+    --main-title-size: 144px;
+    --main-researcher-name-size: 84px;
     --main-desc-size: 48px;
     --main-link-size: 36px;
     --logo-float: left;
@@ -587,6 +588,7 @@ a:visited {
 
     /* .imm-sch-url-container properties */
     --imm-sch-url-vertical-align: center;
+    --imm-sch-url-vertical-align-percentage: 60%;
     --imm-sch-url-padding: 0 75px 25px 0.5vw;
     --imm-sch-url-display: inline; // inline or block
     --logo-display: inline-block; // inline-block or block
@@ -599,6 +601,7 @@ a:visited {
 
   .main-container {
     grid-template-rows: var(--top-row-height) var(--middle-row-height) var(--bottom-row-height);
+    align-content: center;
   }
 
   .matrix {
@@ -606,7 +609,11 @@ a:visited {
   }
 
   .outer-desc {
-    padding: 0 var(--main-text-padding) 0 var(--main-text-padding);
+    padding: var(--main-text-padding) var(--main-text-padding) 0 0;
+  }
+
+  .main-desc {
+    margin: 0;
   }
 }
 
