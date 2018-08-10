@@ -641,13 +641,11 @@ a:visited {
     /* body and .main-container properties */
     --horizontal-center-margins: 0 auto;
     --main-container-grid-areas:
-      "matrix"
-      "main-txt"
-      "link";
-    --left-col-width: 100vw; // 1/1
-    --right-col-width: 0vw; // 0/1
-    --top-row-height: 40vh; // 2/5
-    --middle-row-height: 50vh; // 1/2
+      "matrix matrix"
+      "main-txt desc"
+      "link link";
+    --top-row-height: 60vh; // 3/5
+    --middle-row-height: 30vh; // 3/10
     --bottom-row-height: 10vh; // 1/10
 
     /* .main-txt properties */
@@ -670,7 +668,68 @@ a:visited {
 
     /* .imm-sch-url-container properties */
     --imm-sch-url-padding: 0px;
+    --imm-sch-url-size: 12px;
+    --max-logo-height: 50px;
 
+    /* .outer-desc properties */
+    --main-desc-included-display: none; // desc that appears within .main-txt
+    --main-desc-separate-display: block; // desc that appears outside of .main-txt
+  }
+}
+
+/* The narrowest "portrait" layouts */
+@media (max-aspect-ratio: 11/21) and (min-height: 2100px) {
+  :root {
+    /* body and .main-container properties */
+    --main-container-grid-areas:
+      "matrix"
+      "main-txt"
+      "link";
+    --left-col-width: 100vw; // 1/1
+    --right-col-width: 0vw; // 0/1
+
+    /* .main-txt properties */
+    --main-txt-heading-margin: 25px 0;
+
+    /* .matrix properties */
+
+    /* .popup properties - overall */
+    --popup-flex-flow: column nowrap;
+    --popup-width: 90%;
+    --popup-height: 60vh;
+    --popup-max-width: 1300px;
+    --popup-left-position: 50%; // TODO how to center within matrix???
+    --popup-top-position: 32.5%;
+    /* .popup properties - text */
+    --popup-txt-inner-padding: 0 75px 75px 75px;
+    --popup-heading-margin: 0px;
+    --popup-title-size: 78px;
+    --popup-story-size: 30px;
+    --popup-link-size: 12px;
+    --popup-txt-area-width: 100%;
+    --popup-txt-area-height: 50%;
+    /* .popup properties - image */
+    --popup-img-flex-flow: column nowrap;
+    --popup-secondary-img-flex-flow: row nowrap;
+    --popup-img-area-width: 100%;
+    --popup-img-area-height: 50%;
+    --popup-primary-img-max-width: 100%;
+    --popup-primary-img-max-height: 75%;
+    --popup-secondary-img-slides-width: 100%;
+    --popup-secondary-img-slides-height: 25%;
+    --popup-secondary-img-max-width: 25%;
+    --popup-secondary-img-max-height: 100%;
+
+    /* .imm-sch-url-container properties */
+    --imm-sch-url-padding: 0px;
+    --imm-sch-url-size: 12px;
+    --max-logo-height: 50px;
+
+    /* .imm-sch-url-container properties */
+    --imm-sch-url-padding: 0 75px 75px 75px;
+    --imm-sch-url-display: block; // inline or block
+
+    /* .outer-desc properties */
     --main-desc-included-display: block; // desc that appears within .main-txt
     --main-desc-separate-display: none; // desc that appears outside of .main-txt
   }
