@@ -552,8 +552,8 @@ a:visited {
       "link link";
     --left-col-width: 50vw; // 1/2
     --right-col-width: 50vw; // 1/2
-    --top-row-height: 40vh; // 3/10
-    --middle-row-height: 50vh; // 2/5
+    --top-row-height: 45vh; // 45/100
+    --middle-row-height: 45vh; // 45/100
     --bottom-row-height: 10vh; // 1/10
     //--text-top-bottom-margins: 25px; // delete this
 
@@ -562,7 +562,7 @@ a:visited {
     //--min-main-line-length: 1050px;
     --max-main-line-length: 800px;
     --main-text-padding: 75px;
-    --main-title-size: 144px;
+    --main-title-size: 132px;
     --main-researcher-name-size: 84px;
     --main-desc-size: 48px;
     --main-link-size: 36px;
@@ -580,11 +580,29 @@ a:visited {
     --popup-max-width: 90vw; // 9/10
     --popup-height: 40%;
     --popup-left-position: calc(50vw);
-    --popup-top-position: calc(75vh);
+    --popup-top-position: calc(25vh);
     /* .popup properties - text */
-    --popup-title-size: 96px;
-    --popup-story-size: 36px;
-    --popup-link-size: 24px;
+    --popup-txt-inner-padding: 75px;
+    --popup-title-size: 84px;
+    --popup-story-size: 24px;
+    --popup-link-size: 12px;
+    --popup-txt-area-width: 40%;
+    --popup-txt-area-height: 100%;
+    /* .popup properties - image */
+    --popup-img-flex-flow: row-reverse nowrap; // For img subsection
+    --popup-secondary-img-flex-flow: column nowrap;
+    --popup-img-area-width: 60%;
+    --popup-img-area-height: 100%;
+    --popup-primary-img-width: auto;
+    --popup-primary-img-height: auto;
+    --popup-primary-img-max-width: 75%;
+    --popup-primary-img-max-height: 100%;
+    --popup-secondary-img-slides-width: 25%;
+    --popup-secondary-img-slides-height: 100%;
+    --popup-secondary-img-width: auto;
+    --popup-secondary-img-height: auto;
+    --popup-secondary-img-max-width: 100%;
+    --popup-secondary-img-max-height: 25%;
 
     /* .imm-sch-url-container properties */
     --imm-sch-url-vertical-align: center;
@@ -623,8 +641,8 @@ a:visited {
     /* body and .main-container properties */
     --horizontal-center-margins: 0 auto;
     --main-container-grid-areas:
-      "main-txt"
       "matrix"
+      "main-txt"
       "link";
     --left-col-width: 100vw; // 1/1
     --right-col-width: 0vw; // 0/1
@@ -633,10 +651,10 @@ a:visited {
     --bottom-row-height: 10vh; // 1/10
 
     /* .main-txt properties */
-    --main-title-size: 96px;
-    --main-researcher-name-size: 60px;
-    --main-desc-size: 36px;
-    --main-link-size: 24px;
+    --main-title-size: 90px;
+    --main-researcher-name-size: 52px;
+    --main-desc-size: 30px;
+    --main-link-size: 18px;
     //--max-main-line-length: 1150px; // This seems to have no effect
 
     /* .matrix properties */
@@ -644,10 +662,10 @@ a:visited {
     --matrix-row-spacing: 1fr 1fr 1fr 1fr 1fr 1fr;
 
     /* .popup properties */
-    --popup-flex-flow: column nowrap;
+    --popup-flex-flow: row nowrap;
     /* .popup properties - text */
-    --popup-title-size: 84px;
-    --popup-story-size: 24px;
+    --popup-title-size: 78px;
+    --popup-story-size: 30px;
     --popup-link-size: 12px;
 
     /* .imm-sch-url-container properties */
