@@ -77,6 +77,7 @@
   /* .popup properties - image */
   --popup-img-inner-padding: 75px;
   --popup-img-flex-flow: row-reverse nowrap; // For img subsection
+  --popup-img-primary-secondary-gap: 0 5% 0 0; // Padding between primary-img and secondary-img-slides
   --popup-secondary-img-flex-flow: column nowrap;
   --popup-img-area-width: 60%;
   --popup-img-area-height: 100%;
@@ -307,6 +308,8 @@ a:visited {
 
 /* Container for all the secondary images of a matrix item */
 .secondary-img-slides {
+  padding: var(--popup-img-primary-secondary-gap);
+  box-sizing: border-box;
   display: flex;
   flex-flow: var(--popup-secondary-img-flex-flow);
   align-items: var(--center-position);
@@ -534,6 +537,7 @@ a:visited {
     --popup-txt-area-width: 100%;
     --popup-txt-area-height: 50%;
     /* .popup properties - image */
+    --popup-img-primary-secondary-gap: 5% 0 0 0;
     --popup-img-flex-flow: column nowrap;
     --popup-secondary-img-flex-flow: row nowrap;
     --popup-img-area-width: 100%;
