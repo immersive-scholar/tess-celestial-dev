@@ -1,4 +1,4 @@
-# Tessellations and Explanations (working title)
+# Hopscotch to Infinity
 > Immersive Scholar Local Resident Radmila Sazdanovic
 
 Quick start:
