@@ -465,6 +465,10 @@ a:visited {
     /* .popup properties */
     /* .imm-sch-url-container properties */
   }
+
+  body {
+    background-image: url("test-img/Art-Wall-Grid.jpg"); // For testing
+  }
 }
 
 /* 3/4 matrix, 1/4 text (3 x 5 matrix) */
@@ -547,6 +551,10 @@ a:visited {
     --imm-sch-url-display: block; // inline or block
     --logo-display: block; // inline-block or block
     --logo-padding: 0 0 0 75px;
+  }
+
+  body {
+    background-image: url("test-img/Commons-Wall-Grid.jpg"); // For testing
   }
 
   .matrix {
