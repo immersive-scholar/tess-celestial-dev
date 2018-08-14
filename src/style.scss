@@ -92,6 +92,7 @@
   --popup-secondary-img-max-height: 20%;
 
   /* .imm-sch-url-container properties */
+  --imm-sch-url-bg-color: rgba(0, 0, 0, 0); // transparent
   --imm-sch-url-vertical-align: center;
   --imm-sch-url-vertical-align-percentage: 65%;
   --imm-sch-url-padding: 0 0 0 0.5vw; // TODO align to left edge of leftmost matrix item in landscape
@@ -105,6 +106,7 @@
   /* .outer-desc properties */
   --main-desc-included-display: block; // desc that appears within .main-txt
   --main-desc-separate-display: none; // desc that appears outside of .main-txt
+  --outer-desc-padding: 0 75px 0 75px;
 }
 
 /* Element containing .main-container */
@@ -351,6 +353,7 @@ a:visited {
 .imm-sch-url-container {
   grid-area: link;
   align-self: var(--imm-sch-url-vertical-align);
+  background-color: var(--imm-sch-url-bg-color);
   z-index: 1;
 }
 
@@ -381,6 +384,7 @@ a:visited {
 .outer-desc {
   display: var(--main-desc-separate-display);
   background-color: var(--main-txt-bg-color);
+  padding: var(--outer-desc-padding);
   grid-area: desc;
   z-index: 1;
 }
@@ -534,9 +538,8 @@ a:visited {
     /* .popup properties - image */
 
     /* .imm-sch-url-container properties */
-    --imm-sch-url-vertical-align: center;
-    --imm-sch-url-padding: 0 75px 75px 75px;
-    --imm-sch-url-size: 18px;
+    --imm-sch-url-bg-color: rgba(0, 0, 0, .8);
+    --imm-sch-url-padding: 0 75px 75px 25px;
     --imm-sch-url-display: inline; // inline or block
     --logo-display: inline; // inline-block or block
     --logo-padding: 0 0 0 75px;
@@ -544,6 +547,7 @@ a:visited {
     /* .outer-desc properties */
     --main-desc-included-display: none; // desc that appears within .main-txt
     --main-desc-separate-display: block; // desc that appears outside of .main-txt
+    --outer-desc-padding: 75px;
   }
 
   .main-container {
@@ -555,17 +559,19 @@ a:visited {
     width: 100vw;
   }
 
-  .outer-desc {
-    padding: var(--main-text-padding) var(--main-text-padding) 0 0;
-  }
-
   .main-desc {
     margin: 0;
+  }
+
+  .imm-sch-url-container {
+    //height: 100%;
   }
 
   body {
     background-image: url("test-img/Commons-Wall-Grid.jpg"); // For testing
   }
+
+
 
   //.matrix {
     //max-height: 100vh;
