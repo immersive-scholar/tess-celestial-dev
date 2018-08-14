@@ -71,7 +71,6 @@
   --popup-heading-margin: 75px 0 75px 0;
   --popup-title-size: 120px;
   --popup-story-size: 48px;
-  --popup-link-size: 36px;
   --popup-txt-area-width: 40%;
   --popup-txt-area-height: 100%;
   /* .popup properties - image */
@@ -344,11 +343,6 @@ a:visited {
   font-size: var(--popup-story-size);
 }
 
-/* URL with more info about the selected matrix item (e.g. src files) */
-.project-url {
-  font-size: var(--popup-link-size);
-}
-
 
 /**********************************************************************/
 /******************** Immersive Scholar URL ********************/
@@ -531,7 +525,6 @@ a:visited {
     --popup-heading-margin: 0px;
     --popup-title-size: 108px;
     --popup-story-size: 42px;
-    --popup-link-size: 30px;
     --popup-txt-area-width: 100%;
     --popup-txt-area-height: 50%;
     /* .popup properties - image */
@@ -605,7 +598,6 @@ a:visited {
     --popup-txt-inner-padding: 75px;
     --popup-title-size: 84px;
     --popup-story-size: 24px;
-    --popup-link-size: 12px;
     --popup-txt-area-width: 40%;
     --popup-txt-area-height: 100%;
     /* .popup properties - image */
@@ -685,7 +677,6 @@ a:visited {
     /* .popup properties - text */
     --popup-title-size: 78px;
     --popup-story-size: 30px;
-    --popup-link-size: 12px;
 
     /* .imm-sch-url-container properties */
     --imm-sch-url-padding: 0px;
@@ -727,7 +718,6 @@ a:visited {
     --popup-heading-margin: 0px;
     --popup-title-size: 78px;
     --popup-story-size: 30px;
-    --popup-link-size: 12px;
     --popup-txt-area-width: 100%;
     --popup-txt-area-height: 50%;
     /* .popup properties - image */
@@ -817,7 +807,6 @@ a:visited {
     --popup-heading-margin: 0;
     --popup-title-size: 48px;
     --popup-story-size: 18px;
-    --popup-link-size: 12px;
 
     /* .imm-sch-url-container properties */
     --imm-sch-url-vertical-align-percentage: 52.5%;

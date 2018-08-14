@@ -92,9 +92,6 @@ const showPopup = function (event) {
   document.querySelector('.project-title').textContent = story.title
   document.querySelector('.project-story').textContent = story.text
 
-  // Insert the story title into the "Learn more about (project)" URL
-  document.querySelector('.project-name-insert').textContent = story.title
-
   // Zoom in on selected element (currentStory) in the matrix and display popup (storyPopup) after animation completes
   matrixZoomAnimation(matrix, currentStory, storyPopup, 'zoom-in')
 
