@@ -380,7 +380,9 @@ a:visited {
 /* desc for the collection that appears outside of .main-txt */
 .outer-desc {
   display: var(--main-desc-separate-display);
+  background-color: var(--main-txt-bg-color);
   grid-area: desc;
+  z-index: 1;
 }
 
 /* desc for the collection that appears inside of .main-txt */
@@ -497,69 +499,77 @@ a:visited {
   :root {
     /* body and .main-container properties */
     --main-container-grid-areas:
-      "matrix main-txt"
-      "matrix link";
-    --left-col-width: 60vw; // 3/5
-    --right-col-width: 40vw; // 2/5
-    --top-row-height: 80vh; // 4/5
-    --bottom-row-height: 20vh; // 1/5
+      "matrix matrix"
+      "main-txt desc"
+      "link link";
+    --left-col-width: 50vw; // 1/2
+    --right-col-width: 50vw; // 1/2
+    --top-row-height: 60vh; // 4/5
+    --middle-row-height: 30vh; // 3/10
+    --bottom-row-height: 10vh; // 1/10
 
     /* .main-txt properties */
     --main-text-padding: 0 75px 0 75px;
     --main-title-size: 144px;
     --main-researcher-name-size: 84px;
-    --main-desc-size: 42px;
-    --main-link-size: 30px;
+    --main-desc-size: 48px;
+    --main-link-size: 36px;
 
     /* .matrix properties */
-    --matrix-col-spacing: 1fr 1fr 1fr;
-    --matrix-row-spacing: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    --matrix-width: 50%;
-    --matrix-item-side-length: 55%; // Matrix items are squares/circles
+    --matrix-col-spacing: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    --matrix-row-spacing: 1fr 1fr 1fr;
+    --matrix-width: 100%;
+    //--matrix-item-side-length: 55%; // Matrix items are squares/circles
 
     /* .popup properties - overall */
-    --popup-flex-flow: column nowrap;
-    --popup-width: 50%;
-    --popup-height: 90vh;
-    --popup-max-width: 1300px;
-    --popup-left-position: calc(10vw + (var(--left-col-width) / 3)); // TODO how to center within matrix???
-    --popup-top-position: calc(50vh);
+    --popup-width: 90%;
+    --popup-height: 55vh;
+    --popup-max-width: 85.714vw; // 6/7
+    --popup-left-position: calc(50vw); // TODO how to center within matrix???
+    --popup-top-position: calc(30vh);
     /* .popup properties - text */
-    --popup-txt-inner-padding: 0 75px 75px 75px;
     --popup-heading-margin: 0px;
     --popup-title-size: 108px;
     --popup-story-size: 42px;
-    --popup-txt-area-width: 100%;
-    --popup-txt-area-height: 50%;
     /* .popup properties - image */
-    --popup-img-primary-secondary-gap: 5% 0 0 0;
-    --popup-img-flex-flow: column nowrap;
-    --popup-secondary-img-flex-flow: row nowrap;
-    --popup-img-area-width: 100%;
-    --popup-img-area-height: 50%;
-    --popup-primary-img-max-width: 100%;
-    --popup-primary-img-max-height: 75%;
-    --popup-secondary-img-slides-width: 100%;
-    --popup-secondary-img-slides-height: 25%;
-    --popup-secondary-img-max-width: 20%;
-    --popup-secondary-img-max-height: 100%;
 
     /* .imm-sch-url-container properties */
-    --imm-sch-url-vertical-align: end;
+    --imm-sch-url-vertical-align: center;
     --imm-sch-url-padding: 0 75px 75px 75px;
     --imm-sch-url-size: 18px;
-    --imm-sch-url-display: block; // inline or block
-    --logo-display: block; // inline-block or block
+    --imm-sch-url-display: inline; // inline or block
+    --logo-display: inline; // inline-block or block
     --logo-padding: 0 0 0 75px;
+
+    /* .outer-desc properties */
+    --main-desc-included-display: none; // desc that appears within .main-txt
+    --main-desc-separate-display: block; // desc that appears outside of .main-txt
+  }
+
+  .main-container {
+    grid-template-rows: var(--top-row-height) var(--middle-row-height) var(--bottom-row-height);
+    align-content: center;
+  }
+
+  .matrix {
+    width: 100vw;
+  }
+
+  .outer-desc {
+    padding: var(--main-text-padding) var(--main-text-padding) 0 0;
+  }
+
+  .main-desc {
+    margin: 0;
   }
 
   body {
     background-image: url("test-img/Commons-Wall-Grid.jpg"); // For testing
   }
 
-  .matrix {
-    max-height: 100vh;
-  }
+  //.matrix {
+    //max-height: 100vh;
+  //}
 }
 
 /* For a wider "portrait" layout - 4 x 3 matrix */
