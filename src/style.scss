@@ -473,7 +473,7 @@ a:visited {
   }
 
   body {
-    background-image: url("test-img/Art-Wall-Grid.jpg"); // For testing
+    //background-image: url("test-img/Art-Wall-Grid.jpg"); // For testing
   }
 }
 
@@ -528,7 +528,7 @@ a:visited {
     /* .popup properties - overall */
     --popup-width: 90%;
     --popup-height: 55vh;
-    --popup-max-width: 85.714vw; // 6/7
+    //--popup-max-width: 90vw;
     --popup-left-position: calc(50vw); // TODO how to center within matrix???
     --popup-top-position: calc(30vh);
     /* .popup properties - text */
@@ -568,7 +568,7 @@ a:visited {
   }
 
   body {
-    background-image: url("test-img/Commons-Wall-Grid.jpg"); // For testing
+    //background-image: url("test-img/Commons-Wall-Grid.jpg"); // For testing
   }
 
 
