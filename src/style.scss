@@ -36,7 +36,7 @@
 
   /* .main-txt properties */
   --main-txt-heading-margin: 75px 0;
-  --main-txt-bg-color: rgb(0, 0, 0, 0); // Black, 0% opacity
+  --main-txt-bg-color: rgb(0, 0, 0, 0.8); // Black, 0% opacity
   //--min-main-line-length: 1045px;
   --max-main-line-length: 1090px;
   --main-title-size: 156px;
@@ -63,8 +63,8 @@
   --popup-max-width: 3500px;
   --popup-left-position: calc(43.75vw);
   --popup-top-position: calc(43.5vh);
-  --popup-bg-color: rgba(0, 0, 0, .9);
-  --popup-border: 25px solid rgba(255, 255, 255, 100);
+  --popup-bg-color: rgba(0, 0, 0, .8);
+  --popup-border: 10px solid rgba(255, 255, 255, 100);
   --popup-border-radius: 25px;
   /* .popup properties - text */
   --popup-txt-inner-padding: 75px;
@@ -179,8 +179,6 @@ a:visited {
   background-color: var(--main-txt-bg-color);
   z-index: 1;
 
-  // will-change: transform, filter;
-
   // border: 3px solid white; // Border for testing purposes - remove later
 }
 
@@ -228,7 +226,7 @@ a:visited {
   grid-area: matrix;
   overflow: var(--matrix-overflow);
 
-  will-change: opacity;
+  // will-change: opacity;
 
   // border: 3px solid white; // Border for testing purposes - remove later
 }
