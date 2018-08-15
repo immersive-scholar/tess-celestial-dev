@@ -76,7 +76,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.join(path.resolve(__dirname, 'src'), 'index.html')
+      template: path.join(path.resolve(__dirname), 'index.html')
     }),
     extractSass
   ]

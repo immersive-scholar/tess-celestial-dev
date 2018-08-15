@@ -225,8 +225,8 @@ a:visited {
   // max-height: 1890px; // Set this equal to main-container's height
   grid-area: matrix;
   overflow: var(--matrix-overflow);
-
-  // will-change: opacity;
+  transform: translateZ(0);
+  // will-change: transform;
 
   // border: 3px solid white; // Border for testing purposes - remove later
 }
@@ -261,7 +261,8 @@ a:visited {
   // TODO: Stop-gap for testing in Immersion!!!! The positionings below will need to be reviewed after removing any fixed sizes
   left: var(--popup-left-position);
   top: var(--popup-top-position);
-  transform: translateY(-50%) translateX(-50%);
+  // transform: translateY(-50%) translateX(-50%);
+  transform: translate3D(-50%, -50%, 0);
 
   pointer-events: none;
   opacity: 0;
