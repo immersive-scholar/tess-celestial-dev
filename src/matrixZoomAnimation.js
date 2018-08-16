@@ -39,7 +39,7 @@ function matrixZoomAnimation (container, element, popup, direction) {
 
   const containerAnimation = container.animate(animationDirection, {
     easing: 'cubic-bezier(0.645, 0.045, 0.355, 1)',
-    duration: 8000
+    duration: 1000
   })
 
   containerAnimation.addEventListener('finish', function () {
