@@ -260,12 +260,11 @@ a:visited {
   // TODO: Stop-gap for testing in Immersion!!!! The positionings below will need to be reviewed after removing any fixed sizes
   left: var(--popup-left-position);
   top: var(--popup-top-position);
-  // transform: translateY(-50%) translateX(-50%);
-  transform: translate3D(-50%, -50%, 0);
+  transform: translateY(-50%) translateX(-50%);
+
 
   pointer-events: none;
   opacity: 0;
-  will-change: opacity;
 
   transition-property: opacity;
   transition-duration: 0.6s;
