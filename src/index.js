@@ -9,8 +9,8 @@ const imgFolder = `test-img`
 let imgData = rawImgData
 // Variables for timed transitions, timed transitions will be set if 'timedTransitions' is 'true'
 let timedTransitions = true
-const timeBetweenPopup = 5000
-const timePopupShown = 30000
+const timeBetweenPopup = 60000
+const timePopupShown = 60000
 let timedPopup
 
 // FOR TESTING: copy imgData multiple times to populate matrix
@@ -24,9 +24,12 @@ const matrix = document.querySelector('.matrix')
 // This function takes in an image source path and a title to create an img element with alt-text. It returns the created img element.
 const createImgElement = function (imgSrc, title) {
   const img = document.createElement('img')
-  img.src = require(`./${imgFolder}/${imgSrc}`)
+  img.src = require(`./${imgFolder}-small/${imgSrc}`)
   img.alt = title
   img.dataset.id = title.split(' ').join('')
+  // Set seperate sources for full matrix view (smallSrc) and the current image used in the zoom and popup window (bigSrc). These are switched on show/remove popup
+  img.dataset.bigSrc = require(`./${imgFolder}/${imgSrc}`)
+  img.dataset.smallSrc = require(`./${imgFolder}-small/${imgSrc}`)
   return img
 }
 
@@ -70,6 +73,9 @@ const showPopup = function (event) {
   const currentStory = event ? this : sample(matrixImgs.filter(d =>
     !d.classList.contains('removed'))
   )
+  // Switch src to higher resolution image for zoom
+  currentStory.src = currentStory.dataset.bigSrc
+
   const storyId = currentStory.dataset.id
   const story = popupAssets[storyId]
 
