@@ -9,8 +9,8 @@ const imgFolder = `test-img`
 let imgData = rawImgData
 // Variables for timed transitions, timed transitions will be set if 'timedTransitions' is 'true'
 let timedTransitions = true
-const timeBetweenPopup = 60000
-const timePopupShown = 60000
+const timeBetweenPopup = 15000
+const timePopupShown = 30000
 let timedPopup
 
 // FOR TESTING: copy imgData multiple times to populate matrix

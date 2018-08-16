@@ -284,7 +284,8 @@ a:visited {
 /* Area of matrix popup containing primary image and secondary images */
 .popup-img-area {
   padding: var(--popup-img-inner-padding);
-  place-self: var(--center-position);
+  justify-self: var(--center-position);
+  align-self: var(--center-position);
   display: flex;
   flex-flow: var(--popup-img-flex-flow);
   align-items: var(--center-position);
@@ -326,7 +327,8 @@ a:visited {
 /* Area of matrix popup containing item title, story, and URL */
 .popup-txt-area {
   padding: var(--popup-txt-inner-padding);
-  place-self: var(--center-position);
+  align-self: var(--center-position);
+  justify-self: var(--center-position);
   box-sizing: border-box;
   width: var(--popup-txt-area-width);
   height: var(--popup-txt-area-height);
@@ -470,9 +472,9 @@ a:visited {
     /* .imm-sch-url-container properties */
   }
 
-  body {
+  // body {
     //background-image: url("test-img/Art-Wall-Grid.jpg"); // For testing
-  }
+  // }
 }
 
 /* 3/4 matrix, 1/4 text (3 x 5 matrix) */
@@ -561,13 +563,13 @@ a:visited {
     margin: 0;
   }
 
-  .imm-sch-url-container {
-    //height: 100%;
-  }
+  // .imm-sch-url-container {
+  //   height: 100%;
+  // }
 
-  body {
-    //background-image: url("test-img/Commons-Wall-Grid.jpg"); // For testing
-  }
+  // body {
+  //   background-image: url("test-img/Commons-Wall-Grid.jpg"); // For testing
+  // }
 
 
 
@@ -858,13 +860,13 @@ a:visited {
 /******************** For laptop ********************/
 /**********************************************************************/
 @media (max-width: 1024px) and (max-height: 2099px)  {
-  :root {
+  // :root {
     /* body and .main-container properties */
     /* .main-txt properties */
     /* .matrix properties */
     /* .popup properties */
     /* .imm-sch-url-container properties */
-  }
+  // }
 }
 
 // TODO remove grid layout for these smaller personal devices?
@@ -941,24 +943,24 @@ a:visited {
 /******************** For medium mobile device ********************/
 /**********************************************************************/
 @media (max-width: 375px) and (max-height: 2099px)  { // Check pointer size/type too?
-  :root {
+  // :root {
     /* body and .main-container properties */
     /* .main-txt properties */
     /* .matrix properties */
     /* .popup properties */
     /* .imm-sch-url-container properties */
-  }
+  // }
 }
 
 /**********************************************************************/
 /******************** For small mobile device ********************/
 /**********************************************************************/
 @media (max-width: 320px) and (max-height: 2099px)  { // Check pointer size/type too?
-  :root {
+  // :root {
     /* body and .main-container properties */
     /* .main-txt properties */
     /* .matrix properties */
     /* .popup properties */
     /* .imm-sch-url-container properties */
-  }
+  // }
 }
