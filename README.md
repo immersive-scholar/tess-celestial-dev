@@ -1,5 +1,5 @@
-# Hopscotch to Infinity
-> Immersive Scholar Local Resident Radmila Sazdanovic
+# Tess-celestial
+> Immersive Scholar Local Resident Radmila Sazdanović
 
 Quick start:
 ---
