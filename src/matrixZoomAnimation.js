@@ -1,4 +1,4 @@
-function matrixZoomAnimation (container, element, popup, direction) {
+function matrixZoomAnimation (container, element, popup, direction, zoomSpeed = 8000) {
   const style = window.getComputedStyle(container)
   const columns = style.getPropertyValue('grid-template-columns')
     .split(' ').length
@@ -36,7 +36,7 @@ function matrixZoomAnimation (container, element, popup, direction) {
 
   const containerAnimation = container.animate(animationDirection, {
     easing: 'cubic-bezier(0.645, 0.045, 0.355, 1)',
-    duration: 8000
+    duration: zoomSpeed
   })
 
   containerAnimation.addEventListener('finish', function () {

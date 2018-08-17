@@ -16,6 +16,7 @@
   --body-overflow: hidden;
   --background-color: #000000;
   --text-color: #FFFFFF;
+  --link-color: #CC0000;
   --outermost-padding: 100px;
   --main-container-display: grid; // grid for large-scale to laptop, block for smaller
   --main-container-grid-areas:
@@ -64,7 +65,7 @@
   --popup-left-position: calc(43.75vw);
   --popup-top-position: calc(43.5vh);
   --popup-bg-color: rgba(0, 0, 0, .8);
-  --popup-border: 10px solid rgba(255, 255, 255, 100);
+  --popup-border: 6px solid rgba(255, 255, 255, 100);
   --popup-border-radius: 25px;
   /* .popup properties - text */
   --popup-txt-inner-padding: 75px;
@@ -155,12 +156,13 @@ p {
 
 /* All links */
 a {
-  color: var(--text-color);
+  text-decoration: none;
+  color: var(--link-color);
 }
 
 /* Keeps visited links the same color as unvisted links */
 a:visited {
-  color: var(--text-color);
+  color: var(--link-color);
 }
 
 
