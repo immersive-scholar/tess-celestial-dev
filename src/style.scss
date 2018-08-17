@@ -61,7 +61,7 @@
   --popup-width: 65%;
   --popup-height: 71.429vh; // 5/7
   --popup-max-width: 3500px;
-  --popup-left-position: calc(43.75vw);
+  --popup-left-position: calc(var(--left-col-width) / 2);
   --popup-top-position: calc(43.5vh);
   --popup-bg-color: rgba(0, 0, 0, .8);
   --popup-border: 10px solid rgba(255, 255, 255, 100);
@@ -451,6 +451,7 @@ a:visited {
     --matrix-row-spacing: 1fr 1fr 1fr;
 
     /* .popup properties */
+
     /* .imm-sch-url-container properties */
   }
 }
