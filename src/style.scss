@@ -509,18 +509,29 @@ a:visited {
       "matrix matrix"
       "main-txt desc"
       "link link";
-    --left-col-width: 50vw; // 1/2
-    --right-col-width: 50vw; // 1/2
-    --top-row-height: 60vh; // 4/5
+    //--left-col-width: 50vw; // 1/2
+    //--right-col-width: 50vw; // 1/2
+    // Added this so the gap between the title and desc wouldn't be huge
+    --left-col-width: 40vw; // 2/5
+    --right-col-width: 60vw; // 3/5
+    //--top-row-height: 60vh; // 4/5
+    //--middle-row-height: 30vh; // 3/10
+    //--bottom-row-height: 10vh; // 1/10
+    --top-row-height: 65vh; // 13/20
     --middle-row-height: 30vh; // 3/10
-    --bottom-row-height: 10vh; // 1/10
+    --bottom-row-height: 5vh; // 1/20 // TODO Reduce padding between logo row and main-txt rows
 
     /* .main-txt properties */
+    --main-txt-heading-margin: 50px 0;
     --main-text-padding: 0 75px 0 75px;
     --main-title-size: 144px;
     --main-researcher-name-size: 84px;
-    --main-desc-size: 48px;
-    --main-link-size: 36px;
+    //--main-desc-size: 48px;
+    // 60px fits for Commons Wall, but too big for smaller large-scale screens
+    --main-desc-size: 54px;
+    //--main-link-size: 36px;
+    // 36px looks better since it all fits on one line
+    --main-link-size: 48px;
 
     /* .matrix properties */
     --matrix-col-spacing: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -529,8 +540,8 @@ a:visited {
     --matrix-item-side-length: 85%; // Matrix items are squares/circles
 
     /* .popup properties - overall */
-    --popup-width: 90%;
-    --popup-height: 55vh;
+    --popup-width: 95%;
+    --popup-height: 60vh;
     //--popup-max-width: 90vw;
     --popup-left-position: calc(50vw);
     /* .popup properties - text */
@@ -540,6 +551,8 @@ a:visited {
     /* .popup properties - image */
 
     /* .imm-sch-url-container properties */
+    --imm-sch-url-vertical-align-percentage: 35%;
+    --imm-sch-url-size: 36px;
     --imm-sch-url-bg-color: rgba(0, 0, 0, .8);
     --imm-sch-url-padding: 0 75px 75px 25px;
     --imm-sch-url-display: inline; // inline or block
@@ -549,12 +562,16 @@ a:visited {
     /* .outer-desc properties */
     --main-desc-included-display: none; // desc that appears within .main-txt
     --main-desc-separate-display: block; // desc that appears outside of .main-txt
-    --outer-desc-padding: 75px;
+    --outer-desc-padding: 75px 75px 75px 0px;
   }
 
   .main-container {
     grid-template-rows: var(--top-row-height) var(--middle-row-height) var(--bottom-row-height);
     align-content: center;
+  }
+
+  .main-txt {
+    //text-align: right;
   }
 
   .matrix {
@@ -571,12 +588,12 @@ a:visited {
 
   #logo {
     position: relative;
-    top: 2.5vh;
+    //top: 2.5vh;
   }
 
   .imm-sch-url {
     position: relative;
-    top: 2.5vh;
+    //top: 2.5vh;
   }
 
   // body {
