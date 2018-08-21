@@ -5,7 +5,7 @@ import matrixZoomAnimation from './matrixZoomAnimation.js'
 import rawImgData from './data.csv'
 
 // Name of the folder containing the image assets, must be located in 'src' folder
-const imgFolder = `test-img`
+const imgFolder = `images`
 const imgData = rawImgData
 // Variables for timed transitions and zoom animation speed, timed transitions will be set if 'timedTransitions' is 'true'
 const zoomSpeed = 8000 // 8 sec for zoom in/out animation
