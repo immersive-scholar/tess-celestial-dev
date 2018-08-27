@@ -31,11 +31,14 @@
   // .main-container will have 4 grid cells in landscape layouts, 6 in portrait layouts
   --left-col-width: 87.5vw; // 7/8
   --right-col-width: 12.5vw; // 1/8
-  --middle-col-width: 0vw; // 0/7
   --top-row-height: 85.714vh; // 6/7
+  --middle-row-height: 0vh; // 0/7
   --bottom-row-height: 14.286vh; // 1/7
+  --main-cont-row-heights: var(--top-row-height) var(--bottom-row-height);
 
   /* .main-txt properties */
+  --main-txt-display: block;
+  --main-txt-grid-areas: "";
   --main-txt-heading-margin: 75px 0;
   --main-txt-bg-color: rgb(0, 0, 0, 0.8); // Black, 80% opacity
   --max-main-line-length: 1090px;
@@ -44,6 +47,8 @@
   --main-desc-size: 48px;
   --main-link-size: 36px;
   --main-text-padding: 0 75px 0 75px;
+  --main-desc-padding-left: 0px;
+  --main-desc-margin: initial;
 
   /* .matrix properties */
   --matrix-item-side-length: 70%; // Matrix items are squares/circles
@@ -91,6 +96,8 @@
   --popup-secondary-img-max-height: 20%;
 
   /* .imm-sch-url-container properties */
+  --imm-sch-cont-height: initial;
+  --imm-sch-cont-padding-top: 0px;
   --imm-sch-url-bg-color: rgba(0, 0, 0, 0); // transparent
   --imm-sch-url-vertical-align: center;
   --imm-sch-url-vertical-align-percentage: 62.5%;
@@ -123,13 +130,14 @@ body {
  * all organized in a grid layout
  */
 .main-container {
+  align-content: center;
   height: 100vh;
   width: 100vw;
   box-sizing: border-box;
   display: var(--main-container-display);
   grid-template-areas: var(--main-container-grid-areas);
   grid-template-columns: var(--left-col-width) var(--right-col-width);
-  grid-template-rows: var(--top-row-height) var(--bottom-row-height);
+  grid-template-rows: var(--main-cont-row-heights);
   justify-content: center;
 }
 
@@ -170,6 +178,8 @@ a:visited {
   grid-area: main-txt;
   background-color: var(--main-txt-bg-color);
   z-index: 1;
+  display: var(--main-txt-display);
+  grid-template-areas: var(--main-txt-grid-areas);
 }
 
 /* Title of the researcher's collection of work */
@@ -191,6 +201,8 @@ a:visited {
 .main-desc {
   font-size: var(--main-desc-size);
   grid-area: desc;
+  padding-left: var(--main-desc-padding-left);
+  margin: var(--main-desc-margin);
 }
 
 /* Actual URL to the collection */
@@ -337,6 +349,9 @@ a:visited {
   align-self: var(--imm-sch-url-vertical-align);
   background-color: var(--imm-sch-url-bg-color);
   z-index: 1;
+  box-sizing: border-box;
+  height: var(--imm-sch-cont-height);
+  padding-top: var(--imm-sch-cont-padding-top);
 }
 
 /* Immersive Scholar logo */
@@ -437,12 +452,20 @@ a:visited {
     --top-row-height: 65vh; // 13/20
     --middle-row-height: 25vh; // 3/10
     --bottom-row-height: 10vh; // 1/20
+    --main-cont-row-heights: var(--top-row-height) var(--middle-row-height) var(--bottom-row-height);
 
     /* .main-txt properties */
+    --main-txt-display: grid;
+    --main-txt-grid-areas:
+      "title desc"
+      "name desc"
+      "url desc";
     --main-txt-heading-margin: 0px 0px 25px 0px;
     --main-title-size: 144px;
     --main-researcher-name-size: 84px;
     --main-text-padding: 75px;
+    --main-desc-padding-left: 75px;
+    --main-desc-margin: 0px;
 
     /* .matrix properties */
     --matrix-width: 100%;
@@ -458,6 +481,8 @@ a:visited {
     /* .popup properties - image */
 
     /* .imm-sch-url-container properties */
+    --imm-sch-cont-height: 10vh;
+    --imm-sch-cont-padding-top: 2.5vh;
     --imm-sch-url-vertical-align-percentage: 55%;
     --imm-sch-url-size: 24px;
     --imm-sch-url-bg-color: rgba(0, 0, 0, .8);
@@ -466,47 +491,10 @@ a:visited {
     --logo-display: inline; // inline-block or block
     --logo-padding: 0 0 0 75px;
   }
-
-  .main-container {
-    grid-template-rows: var(--top-row-height) var(--middle-row-height) var(--bottom-row-height);
-    align-content: center;
-  }
-
-  .matrix {
-    width: 100vw;
-  }
-
-  .main-desc {
-    margin: 0;
-    padding-left: 75px;
-  }
-
-  .imm-sch-url-container {
-    height: 10vh;
-    box-sizing: border-box;
-    padding-top: 2.5vh;
-  }
-
-  #logo {
-    position: relative;
-    //top: 2.5vh;
-  }
-
-  .imm-sch-url {
-    position: relative;
-    //top: 2.5vh;
-  }
-
-  .main-txt {
-    display: grid;
-    grid-template-areas:
-      "title desc"
-      "name desc"
-      "url desc";
-  }
 }
 
-/* TODO comment this */
+/* For a wider "portrait" layout */
+/* (Aspect ratios between 8/5 and 8/7) */
 @media (max-aspect-ratio: 8/7) and (min-height: 2100px) {
   :root {
     /* body and .main-container properties */
@@ -521,7 +509,7 @@ a:visited {
   }
 }
 
-/* For a wider "portrait" layout - 4 x 3 matrix */
+/* For a wider "portrait" layout */
 /* (Aspect ratios between 5/7 and 1/1) */
 @media (max-aspect-ratio: 1/1) and (min-height: 2100px) {
   :root {
@@ -575,28 +563,6 @@ a:visited {
     --imm-sch-url-display: inline-table; // inline or block
     --logo-display: inline-block; // inline-block or block
     --max-logo-height: 90px;
-
-  }
-
-  .main-container {
-    grid-template-rows: var(--top-row-height) var(--middle-row-height) var(--bottom-row-height);
-    align-content: center;
-  }
-
-  .main-txt {
-    display: grid;
-    grid-template-areas:
-      "title desc"
-      "name desc"
-      "url desc";
-  }
-
-  .matrix {
-    width: 100vw;
-  }
-
-  .main-desc {
-    margin: 0;
   }
 }
 
@@ -635,16 +601,12 @@ a:visited {
     --popup-story-size: 30px;
 
     /* .imm-sch-url-container properties */
+    --imm-sch-cont-height: 5vh;
+    --imm-sch-cont-padding-top: 1.25vh;
     --imm-sch-url-vertical-align-percentage: 55%;
     --imm-sch-url-padding: 0px;
     --imm-sch-url-size: 12px;
     --max-logo-height: 50px;
-  }
-
-  .imm-sch-url-container {
-    height: 5vh;
-    box-sizing: border-box;
-    padding-top: 1.25vh;
   }
 }
 
@@ -661,7 +623,10 @@ a:visited {
     --right-col-width: 0vw; // 0/1
 
     /* .main-txt properties */
+    --main-txt-display: block;
+    --main-txt-grid-areas: "";
     --main-txt-heading-margin: 25px 0;
+    --main-desc-padding-left: 0px;
 
     /* .matrix properties */
     --matrix-item-side-length: 50%;
@@ -700,14 +665,6 @@ a:visited {
     /* .imm-sch-url-container properties */
     --imm-sch-url-padding: 0 75px 75px 75px;
     --imm-sch-url-display: block; // inline or block
-  }
-
-  .main-txt {
-    display: block;
-  }
-
-  .main-desc {
-    padding-left: 0;
   }
 }
 
