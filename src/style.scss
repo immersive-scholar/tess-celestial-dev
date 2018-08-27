@@ -702,8 +702,8 @@ a:visited {
   :root {
     /* body and .main-container properties */
     //--body-overflow: auto;
-    --left-col-width: 80vw; // 3/4
-    --right-col-width: 20vw; // 1/4
+    --left-col-width: 75vw; // 3/4
+    --right-col-width: 25vw; // 1/4
     --top-row-height: 90vh; // 9/10
     --bottom-row-height: 10vh; // 1/10
 
@@ -712,13 +712,13 @@ a:visited {
     --main-txt-padding: 40px;
     --main-txt-bg-color: rgb(54, 69, 79, .5); // Charcoal, 50% opacity
     --main-title-size: 60px;
-    --main-researcher-name-size: 36px;
-    --main-desc-size: 18px;
+    --main-researcher-name-size: 30px;
+    --main-desc-size: 16px;
     --main-link-size: 12px;
 
     /* .matrix properties */
     --matrix-overflow: auto; // Scroll if clipped
-    --matrix-col-spacing: 1fr 1fr 1fr 1fr 1fr 1fr;
+    --matrix-col-spacing: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     --matrix-row-spacing: 1fr 1fr 1fr;
 
     /* .popup properties */
@@ -730,8 +730,8 @@ a:visited {
     --popup-width: 90vw;
     --popup-max-width: 70vw; // 7/10
     --popup-height: 75vh;
-    --popup-left-position: 40%;
-    --popup-top-position: calc(50vh);
+    //--popup-left-position: 40%;
+    //--popup-top-position: calc(50vh);
     /* .popup properties - text */
     --popup-heading-margin: 0;
     --popup-title-size: 48px;
@@ -751,8 +751,8 @@ a:visited {
 @media (max-width: 1440px) and (max-height: 2099px)  {
   :root {
     /* body and .main-container properties */
-    --left-col-width: 50vw; // 1/2
-    --right-col-width: 50vw; // 1/2
+    --left-col-width: 70vw; // 7/10
+    --right-col-width: 30vw; // 3/10
 
     /* .main-txt properties */
     /* .matrix properties */
@@ -765,13 +765,21 @@ a:visited {
 /******************** For laptop ********************/
 /**********************************************************************/
 @media (max-width: 1024px) and (max-height: 2099px)  {
-  // :root {
+  :root {
     /* body and .main-container properties */
+    --left-col-width: 60vw; // 3/5
+    --right-col-width: 40vw; // 2/5
+
     /* .main-txt properties */
     /* .matrix properties */
+    --matrix-col-spacing: 1fr 1fr 1fr;
+    --matrix-row-spacing: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+
     /* .popup properties */
+
     /* .imm-sch-url-container properties */
-  // }
+    --imm-sch-url-bg-color: rgb(54, 69, 79, .5);
+  }
 }
 
 // TODO remove grid layout for these smaller personal devices?
