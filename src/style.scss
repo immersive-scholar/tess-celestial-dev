@@ -46,7 +46,7 @@
   --main-researcher-name-size: 96px;
   --main-desc-size: 48px;
   --main-link-size: 36px;
-  --main-text-padding: 0 75px 0 75px;
+  --main-txt-padding: 0 75px 0 75px;
   --main-desc-padding-left: 0px;
   --main-desc-margin: initial;
 
@@ -173,7 +173,7 @@ a:visited {
  * description, and Immersive Scholar logo
  */
 .main-txt {
-  padding: var(--main-text-padding);
+  padding: var(--main-txt-padding);
   margin: var(--horizontal-center-margins);
   grid-area: main-txt;
   background-color: var(--main-txt-bg-color);
@@ -463,8 +463,8 @@ a:visited {
     --main-txt-heading-margin: 0px 0px 25px 0px;
     --main-title-size: 144px;
     --main-researcher-name-size: 84px;
-    //--main-text-padding: 75px;
-    --main-text-padding: 75px calc(.5 * 100vw - 1125px); //  TODO test y = mx + b
+    //--main-txt-padding: 75px;
+    --main-txt-padding: 75px calc(.5 * 100vw - 1125px); //  TODO test y = mx + b
     --main-desc-padding-left: 75px;
     --main-desc-margin: 0px;
 
@@ -505,7 +505,7 @@ a:visited {
     --bottom-row-height: 10vh; // 1/20
 
     /* .main-txt properties */
-    --main-text-padding: 75px; // TODO add calc(y = mx + b) sizing for padding
+    --main-txt-padding: 75px; // TODO add calc(y = mx + b) sizing for padding
 
     /* .matrix properties */
     /* .popup properties */
@@ -530,7 +530,7 @@ a:visited {
     --main-link-size: 24px;
 
     /* .matrix properties */
-    --main-text-padding: 75px; // TODO add calc(y=mx+b) sizing for padding
+    --main-txt-padding: 75px; // TODO add calc(y=mx+b) sizing for padding
     --matrix-col-spacing: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     --matrix-row-spacing: 1fr 1fr 1fr;
     --matrix-width: 100%;
@@ -588,7 +588,7 @@ a:visited {
     --bottom-row-height: 5vh; // 1/20
 
     /* .main-txt properties */
-    --main-text-padding: 50px;
+    --main-txt-padding: 50px;
     --main-txt-heading-margin: 0px 0px 15px 0px;
     --main-title-size: 84px;
     --main-researcher-name-size: 48px;
@@ -636,7 +636,7 @@ a:visited {
     /* .main-txt properties */
     --main-txt-display: block;
     --main-txt-grid-areas: "";
-    --main-txt-heading-margin: 25px 0;
+    --main-txt-heading-margin: 0px 0px 25px 0px;
     --main-desc-padding-left: 0px;
 
     /* .matrix properties */
@@ -709,7 +709,7 @@ a:visited {
 
     /* .main-txt properties */
     --main-txt-heading-margin: 25px 0;
-    --main-text-padding: 40px;
+    --main-txt-padding: 40px;
     --main-txt-bg-color: rgb(54, 69, 79, .5); // Charcoal, 50% opacity
     --main-title-size: 60px;
     --main-researcher-name-size: 36px;
@@ -786,7 +786,7 @@ a:visited {
     --main-container-display: block; // grid for large-scale to laptop, block for smaller
 
     /* .main-txt properties */
-    --main-text-padding: 15vw;
+    --main-txt-padding: 15vw;
     --main-title-size: 7.183vw;
     --main-researcher-name-size: 4.688vw;
     --main-desc-size: 2.344vw;
