@@ -37,8 +37,7 @@
 
   /* .main-txt properties */
   --main-txt-heading-margin: 75px 0;
-  --main-txt-bg-color: rgb(0, 0, 0, 0.8); // Black, 0% opacity
-  //--min-main-line-length: 1045px;
+  --main-txt-bg-color: rgb(0, 0, 0, 0.8); // Black, 80% opacity
   --max-main-line-length: 1090px;
   --main-title-size: 156px;
   --main-researcher-name-size: 96px;
@@ -55,7 +54,6 @@
   --matrix-width: 75%;
   --max-matrix-width: 6000px;
   --matrix-overflow: hidden;
-  //--max-matrix-height: 0;
 
   /* .popup properties - overall */
   --popup-flex-flow: row nowrap; // For whole popup
@@ -103,11 +101,6 @@
   //--logo-proportions: 10%;
   --max-logo-height: 110px;
   --logo-padding: 0 0 0 2.083vw; // top, right, bottom, left
-
-  /* .outer-desc properties */
-  --main-desc-included-display: block; // desc that appears within .main-txt
-  --main-desc-separate-display: none; // desc that appears outside of .main-txt
-  --outer-desc-padding: 0 75px 0 75px;
 }
 
 /* Element containing .main-container */
@@ -116,6 +109,7 @@ body {
   overflow: var(--body-overflow);
   background-color: var(--background-color);
   color: var(--text-color);
+  // TODO remove when done:
   // background-image: url("test-img/Imm-Theater-Grid.jpg"); // Grid for testing
 }
 
@@ -129,12 +123,9 @@ body {
  * all organized in a grid layout
  */
 .main-container {
-  //padding: var(--outermost-padding);
   height: 100vh;
   width: 100vw;
   box-sizing: border-box;
-  //justify-content: var(--center-position);
-  //margin: var(--horizontal-center-margins);
   display: var(--main-container-display);
   grid-template-areas: var(--main-container-grid-areas);
   grid-template-columns: var(--left-col-width) var(--right-col-width);
@@ -174,15 +165,11 @@ a:visited {
  * description, and Immersive Scholar logo
  */
 .main-txt {
-  //width: var(--min-main-line-length);
-  //max-width: var(--max-main-line-length);
   padding: var(--main-text-padding);
   margin: var(--horizontal-center-margins);
   grid-area: main-txt;
   background-color: var(--main-txt-bg-color);
   z-index: 1;
-
-  // border: 3px solid white; // Border for testing purposes - remove later
 }
 
 /* Title of the researcher's collection of work */
@@ -190,22 +177,26 @@ a:visited {
   font-size: var(--main-title-size);
   margin: var(--main-txt-heading-margin);
   font-weight: 700; // TODO Should be bold...why won't it change!?
+  grid-area: title;
 }
 
 /* Name of the researcher */
 .researcher-name {
   font-size: var(--main-researcher-name-size);
   margin: var(--main-txt-heading-margin);
+  grid-area: name;
 }
 
 /* Paragraph describing the collection of work */
 .main-desc {
   font-size: var(--main-desc-size);
+  grid-area: desc;
 }
 
 /* Actual URL to the collection */
 .main-url {
   font-size: var(--main-link-size);
+  grid-area: url;
 }
 
 
@@ -214,22 +205,13 @@ a:visited {
 /**********************************************************************/
 /* Container for all the matrix items */
 .matrix {
-  //width: var(--matrix-width);
-  //max-width: var(--max-matrix-width);
   width: var(--left-col-width);
   display: grid;
   grid-template-columns: var(--matrix-col-spacing);
-  //grid-template-rows: var(--matrix-row-spacing);
   grid-gap: var(--matrix-item-gap);
-  //align-content: space-between;
   align-items: var(--center-position);
-  //column-gap: var(--matrix-item-gap);
-  //row-gap: var(--matrix-item-gap);
-  // max-height: 1890px; // Set this equal to main-container's height
   grid-area: matrix;
   overflow: var(--matrix-overflow);
-
-  // border: 3px solid white; // Border for testing purposes - remove later
 }
 
 /* Individual cell in the matrix */
@@ -259,11 +241,9 @@ a:visited {
   height: var(--popup-height);
   max-width: var(--popup-max-width);
 
-  // TODO: Stop-gap for testing in Immersion!!!! The positionings below will need to be reviewed after removing any fixed sizes
   left: var(--popup-left-position);
   top: var(--popup-top-position);
   transform: translateY(-50%) translateX(-50%);
-
 
   pointer-events: none;
   opacity: 0;
@@ -359,11 +339,8 @@ a:visited {
   z-index: 1;
 }
 
-// TODO change this logo
 /* Immersive Scholar logo */
 #logo {
-  //height: var(--logo-proportions);
-  //width: var(--logo-proportions);
   max-height: var(--max-logo-height);
   display: var(--logo-display);
   padding: var(--logo-padding);
@@ -371,29 +348,10 @@ a:visited {
 
 /* URL for the Immersive Scholar project that appears outside of .main-txt */
 .imm-sch-url {
-  //max-width: var(--max-main-line-length);
   padding: var(--imm-sch-url-padding);
   font-size: var(--imm-sch-url-size);
   display: var(--imm-sch-url-display);
   vertical-align: var(--imm-sch-url-vertical-align-percentage);
-}
-
-
-/**********************************************************************/
-/******************** Main desc ********************/
-/**********************************************************************/
-/* desc for the collection that appears outside of .main-txt */
-.outer-desc {
-  display: var(--main-desc-separate-display);
-  background-color: var(--main-txt-bg-color);
-  padding: var(--outer-desc-padding);
-  grid-area: desc;
-  z-index: 1;
-}
-
-/* desc for the collection that appears inside of .main-txt */
-.inner-desc {
-  display: var(--main-desc-included-display);
 }
 
 
@@ -419,27 +377,7 @@ a:visited {
 /******************** For narrower landscape layouts ********************/
 /**********************************************************************/
 // TODO Let's say each matrix item should be at least 400px long/tall?
-
-// TODO fix this media query
-/* 11/13 matrix, 2/13 text (3 x 7 matrix) */
-//@media (max-aspect-ratio: 68/21) and (min-height: 2100px) {
-  //:root {
-    /* body and .main-container properties */
-    //--left-col-width: 84.615vw; // 11/13
-    //--right-col-width: 15.385vw; // 2/13
-
-    /* .main-txt properties */
-
-    /* .matrix properties */
-
-    /* .popup properties */
-
-
-    /* .imm-sch-url-container properties */
-//  }
-//}
-
-/* 5/6 matrix, 1/6 text - remove two columns (3 x 5 matrix) */
+/* 5/6 matrix, 1/6 text */
 @media (max-aspect-ratio: 58/21) and (min-height: 2100px) {
   :root {
     /* body and .main-container properties */
@@ -447,18 +385,13 @@ a:visited {
     --right-col-width: 16.667vw; // 1/6
 
     /* .main-txt properties */
-
     /* .matrix properties */
-    --matrix-col-spacing: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    --matrix-row-spacing: 1fr 1fr 1fr;
-
     /* .popup properties */
-
     /* .imm-sch-url-container properties */
   }
 }
 
-/* 4/5 matrix, 1/5 text (3 x 7 matrix) */
+/* 4/5 matrix, 1/5 text */
 @media (max-aspect-ratio: 18/7) and (min-height: 2100px) {
   :root {
     /* body and .main-container properties */
@@ -466,21 +399,13 @@ a:visited {
     --right-col-width: 20vw; // 1/5
 
     /* .main-txt properties */
-
     /* .matrix properties */
-    --matrix-col-spacing: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    --matrix-row-spacing: 1fr 1fr 1fr;
-
     /* .popup properties */
     /* .imm-sch-url-container properties */
   }
-
-  // body {
-    //background-image: url("test-img/Art-Wall-Grid.jpg"); // For testing
-  // }
 }
 
-/* 3/4 matrix, 1/4 text (3 x 5 matrix) */
+/* 3/4 matrix, 1/4 text */
 @media (max-aspect-ratio: 15/7) and (min-height: 2100px) {
   :root {
     /* body and .main-container properties */
@@ -488,9 +413,7 @@ a:visited {
     --right-col-width: 25vw; // 1/4
 
     /* .main-txt properties */
-
     /* .matrix properties */
-
     /* .popup properties */
     /* .imm-sch-url-container properties */
   }
@@ -507,43 +430,27 @@ a:visited {
     /* body and .main-container properties */
     --main-container-grid-areas:
       "matrix matrix"
-      "main-txt desc"
+      "main-txt main-txt"
       "link link";
-    //--left-col-width: 50vw; // 1/2
-    //--right-col-width: 50vw; // 1/2
-    // Added this so the gap between the title and desc wouldn't be huge
-    --left-col-width: 40vw; // 2/5
-    --right-col-width: 60vw; // 3/5
-    //--top-row-height: 60vh; // 4/5
-    //--middle-row-height: 30vh; // 3/10
-    //--bottom-row-height: 10vh; // 1/10
+    --left-col-width: 100vw; // 1/1
+    --right-col-width: 0vw; // 0/1
     --top-row-height: 65vh; // 13/20
-    --middle-row-height: 30vh; // 3/10
-    --bottom-row-height: 5vh; // 1/20 // TODO Reduce padding between logo row and main-txt rows
+    --middle-row-height: 25vh; // 3/10
+    --bottom-row-height: 10vh; // 1/20
 
     /* .main-txt properties */
-    --main-txt-heading-margin: 50px 0;
-    --main-text-padding: 0 75px 0 75px;
+    --main-txt-heading-margin: 0px 0px 25px 0px;
     --main-title-size: 144px;
     --main-researcher-name-size: 84px;
-    //--main-desc-size: 48px;
-    // 60px fits for Commons Wall, but too big for smaller large-scale screens
-    --main-desc-size: 54px;
-    //--main-link-size: 36px;
-    // 36px looks better since it all fits on one line
-    --main-link-size: 48px;
+    --main-text-padding: 75px;
 
     /* .matrix properties */
-    --matrix-col-spacing: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    --matrix-row-spacing: 1fr 1fr 1fr;
     --matrix-width: 100%;
     --matrix-item-side-length: 85%; // Matrix items are squares/circles
 
     /* .popup properties - overall */
     --popup-width: 95%;
     --popup-height: 60vh;
-    //--popup-max-width: 90vw;
-    --popup-left-position: calc(50vw);
     /* .popup properties - text */
     --popup-heading-margin: 0px;
     --popup-title-size: 108px;
@@ -551,18 +458,13 @@ a:visited {
     /* .popup properties - image */
 
     /* .imm-sch-url-container properties */
-    --imm-sch-url-vertical-align-percentage: 35%;
-    --imm-sch-url-size: 36px;
+    --imm-sch-url-vertical-align-percentage: 55%;
+    --imm-sch-url-size: 24px;
     --imm-sch-url-bg-color: rgba(0, 0, 0, .8);
     --imm-sch-url-padding: 0 75px 75px 25px;
     --imm-sch-url-display: inline; // inline or block
     --logo-display: inline; // inline-block or block
     --logo-padding: 0 0 0 75px;
-
-    /* .outer-desc properties */
-    --main-desc-included-display: none; // desc that appears within .main-txt
-    --main-desc-separate-display: block; // desc that appears outside of .main-txt
-    --outer-desc-padding: 75px 75px 75px 0px;
   }
 
   .main-container {
@@ -570,20 +472,19 @@ a:visited {
     align-content: center;
   }
 
-  // .main-txt {
-    //text-align: right;
-  // }
-
   .matrix {
     width: 100vw;
   }
 
   .main-desc {
     margin: 0;
+    padding-left: 75px;
   }
 
   .imm-sch-url-container {
     height: 10vh;
+    box-sizing: border-box;
+    padding-top: 2.5vh;
   }
 
   #logo {
@@ -596,15 +497,28 @@ a:visited {
     //top: 2.5vh;
   }
 
-  // body {
-  //   background-image: url("test-img/Commons-Wall-Grid.jpg"); // For testing
-  // }
+  .main-txt {
+    display: grid;
+    grid-template-areas:
+      "title desc"
+      "name desc"
+      "url desc";
+  }
+}
 
+/* TODO comment this */
+@media (max-aspect-ratio: 8/7) and (min-height: 2100px) {
+  :root {
+    /* body and .main-container properties */
+    --top-row-height: 60vh; // 3/5
+    --middle-row-height: 30vh; // 7/20
+    --bottom-row-height: 10vh; // 1/20
 
-
-  //.matrix {
-    //max-height: 100vh;
-  //}
+    /* .main-txt properties */
+    /* .matrix properties */
+    /* .popup properties */
+    /* .imm-sch-url-container properties */
+  }
 }
 
 /* For a wider "portrait" layout - 4 x 3 matrix */
@@ -613,26 +527,13 @@ a:visited {
   :root {
     /* body and .main-container properties */
     --horizontal-center-margins: 0;
-    --main-container-grid-areas:
-      "matrix matrix"
-      "main-txt desc"
-      "link link";
-    --left-col-width: 50vw; // 1/2
-    --right-col-width: 50vw; // 1/2
-    --top-row-height: 45vh; // 45/100
-    --middle-row-height: 45vh; // 45/100
-    --bottom-row-height: 10vh; // 1/10
-    //--text-top-bottom-margins: 25px; // delete this
 
     /* .main-txt properties */
-    --main-txt-heading-margin: 0 0 75px 0;
-    //--min-main-line-length: 1050px;
     --max-main-line-length: 800px;
-    --main-text-padding: 75px;
     --main-title-size: 132px;
-    --main-researcher-name-size: 84px;
-    --main-desc-size: 48px;
-    --main-link-size: 36px;
+    --main-researcher-name-size: 72px;
+    --main-desc-size: 36px;
+    --main-link-size: 24px;
 
     /* .matrix properties */
     --matrix-col-spacing: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -645,8 +546,6 @@ a:visited {
     --popup-width: 90vw; // Am not sure why this has to be here
     --popup-max-width: 90vw; // 9/10
     --popup-height: 40%;
-    //--popup-left-position: calc(50vw);
-    //--popup-top-position: calc(25vh);
     /* .popup properties - text */
     --popup-txt-inner-padding: 75px;
     --popup-title-size: 84px;
@@ -671,15 +570,12 @@ a:visited {
 
     /* .imm-sch-url-container properties */
     --imm-sch-url-vertical-align: center;
-    --imm-sch-url-vertical-align-percentage: 60%;
+    --imm-sch-url-vertical-align-percentage: 45%;
     --imm-sch-url-padding: 0 75px 25px 0.5vw;
     --imm-sch-url-display: inline-table; // inline or block
     --logo-display: inline-block; // inline-block or block
     --max-logo-height: 90px;
 
-    /* .outer-desc properties */
-    --main-desc-included-display: none; // desc that appears within .main-txt
-    --main-desc-separate-display: block; // desc that appears outside of .main-txt
   }
 
   .main-container {
@@ -687,12 +583,16 @@ a:visited {
     align-content: center;
   }
 
-  .matrix {
-    width: 100vw;
+  .main-txt {
+    display: grid;
+    grid-template-areas:
+      "title desc"
+      "name desc"
+      "url desc";
   }
 
-  .outer-desc {
-    padding: var(--main-text-padding) var(--main-text-padding) 0 0;
+  .matrix {
+    width: 100vw;
   }
 
   .main-desc {
@@ -710,18 +610,21 @@ a:visited {
       "matrix matrix"
       "main-txt desc"
       "link link";
-    --top-row-height: 60vh; // 3/5
-    --middle-row-height: 30vh; // 3/10
-    --bottom-row-height: 10vh; // 1/10
+    --top-row-height: 80vh; // 3/4
+    --middle-row-height: 15vh; // 1/5
+    --bottom-row-height: 5vh; // 1/20
 
     /* .main-txt properties */
-    --main-title-size: 90px;
-    --main-researcher-name-size: 52px;
-    --main-desc-size: 30px;
-    --main-link-size: 18px;
+    --main-text-padding: 50px;
+    --main-txt-heading-margin: 0px 0px 15px 0px;
+    --main-title-size: 84px;
+    --main-researcher-name-size: 48px;
+    --main-desc-size: 24px;
+    --main-link-size: 12px;
     //--max-main-line-length: 1150px; // This seems to have no effect
 
     /* .matrix properties */
+    --matrix-item-side-length: 50%;
     --matrix-col-spacing: 1fr 1fr 1fr;
     --matrix-row-spacing: 1fr 1fr 1fr 1fr 1fr 1fr;
 
@@ -732,13 +635,16 @@ a:visited {
     --popup-story-size: 30px;
 
     /* .imm-sch-url-container properties */
+    --imm-sch-url-vertical-align-percentage: 55%;
     --imm-sch-url-padding: 0px;
     --imm-sch-url-size: 12px;
     --max-logo-height: 50px;
+  }
 
-    /* .outer-desc properties */
-    --main-desc-included-display: none; // desc that appears within .main-txt
-    --main-desc-separate-display: block; // desc that appears outside of .main-txt
+  .imm-sch-url-container {
+    height: 5vh;
+    box-sizing: border-box;
+    padding-top: 1.25vh;
   }
 }
 
@@ -758,6 +664,7 @@ a:visited {
     --main-txt-heading-margin: 25px 0;
 
     /* .matrix properties */
+    --matrix-item-side-length: 50%;
 
     /* .popup properties - overall */
     --popup-flex-flow: column nowrap;
@@ -793,10 +700,14 @@ a:visited {
     /* .imm-sch-url-container properties */
     --imm-sch-url-padding: 0 75px 75px 75px;
     --imm-sch-url-display: block; // inline or block
+  }
 
-    /* .outer-desc properties */
-    --main-desc-included-display: block; // desc that appears within .main-txt
-    --main-desc-separate-display: none; // desc that appears outside of .main-txt
+  .main-txt {
+    display: block;
+  }
+
+  .main-desc {
+    padding-left: 0;
   }
 }
 
