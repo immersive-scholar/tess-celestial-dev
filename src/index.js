@@ -5,19 +5,20 @@ import matrixZoomAnimation from './matrixZoomAnimation.js'
 import rawImgData from './data.csv'
 
 // Name of the folder containing the image assets, must be located in 'src' folder
-const imgFolder = `test-img`
-let imgData = rawImgData
-// Variables for timed transitions, timed transitions will be set if 'timedTransitions' is 'true'
+const imgFolder = `images`
+const imgData = rawImgData
+// Variables for timed transitions and zoom animation speed, timed transitions will be set if 'timedTransitions' is 'true'
+const zoomSpeed = 8000 // 8 sec for zoom in/out animation
 let timedTransitions = true
-const timeBetweenPopup = 15000
-const timePopupShown = 30000
+const timeBetweenPopup = 30000 + zoomSpeed // 30 sec in full matrix view
+const timePopupShown = 60000 + zoomSpeed // 60 sec in popup view
 let timedPopup
 
 // FOR TESTING: copy imgData multiple times to populate matrix
-const imgPadding = 21 - imgData.length
-for (let i = 0; i < imgPadding; i++) {
-  imgData.push(sample(rawImgData))
-}
+// const imgPadding = 21 - imgData.length
+// for (let i = 0; i < imgPadding; i++) {
+//   imgData.push(sample(rawImgData))
+// }
 
 const matrix = document.querySelector('.matrix')
 
@@ -71,8 +72,16 @@ const showPopup = function (event) {
 
   // Set 'currentStory' to clicked matrix img element or random selection of images that have not been removed from the display if timed event
   const currentStory = event ? this : sample(matrixImgs.filter(d =>
-    !d.classList.contains('removed'))
+    !d.classList.contains('removed') && !('viewed' in d.dataset))
   )
+
+  // Set viewed data option of element to true to prevent repeating of stories when in timed mode
+  currentStory.dataset.viewed = true
+  // If all stories have been viewed remove viewed data option to start fresh
+  if (matrixImgs.filter(d => !('viewed' in d.dataset)).length === 0) {
+    matrixImgs.forEach(d => delete d.dataset.viewed)
+  }
+
   // Switch src to higher resolution image for zoom
   currentStory.src = currentStory.dataset.bigSrc
 
@@ -99,7 +108,7 @@ const showPopup = function (event) {
   document.querySelector('.project-story').textContent = story.text
 
   // Zoom in on selected element (currentStory) in the matrix and display popup (storyPopup) after animation completes
-  matrixZoomAnimation(matrix, currentStory, storyPopup, 'zoom-in')
+  matrixZoomAnimation(matrix, currentStory, storyPopup, 'zoom-in', zoomSpeed)
 
   // This function removes the popup from the screen when a click occurs anywhere on the screen except on top of the open popup
   const removePopup = function (event) {
@@ -107,7 +116,7 @@ const showPopup = function (event) {
     if (event && event.path.includes(storyPopup)) { return }
 
     // Zoom out of selected element (currentStory) in the matrix and remove popup (storyPopup) before animation completes
-    matrixZoomAnimation(matrix, currentStory, storyPopup, 'zoom-out')
+    matrixZoomAnimation(matrix, currentStory, storyPopup, 'zoom-out', zoomSpeed)
     storyPopup.classList.remove('visible')
 
     // Timeout and interactive events
