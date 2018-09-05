@@ -112,8 +112,12 @@ const showPopup = function (event) {
 
   // This function removes the popup from the screen when a click occurs anywhere on the screen except on top of the open popup
   const removePopup = function (event) {
-    // Return if click occured on top of the popup
-    if (event && event.path.includes(storyPopup)) { return }
+    // TODO get rid of this when done testing
+    // console.log(event, event.path.includes(document.querySelector('#close-button')))
+
+    // Return if click occured on top of the popup and not on the close button
+    if (event && event.path.includes(storyPopup) &&
+      !event.path.includes(document.querySelector('#close-button'))) { return }
 
     // Zoom out of selected element (currentStory) in the matrix and remove popup (storyPopup) before animation completes
     matrixZoomAnimation(matrix, currentStory, storyPopup, 'zoom-out', zoomSpeed)
@@ -134,6 +138,8 @@ const showPopup = function (event) {
     timedPopup = window.setTimeout(removePopup, timePopupShown)
   }
   document.querySelector('body').addEventListener('click', removePopup)
+
+  document.querySelector('#close-button').addEventListener('click', removePopup)
 }
 
 // Attach an event listener to each matrix img to show popup on click

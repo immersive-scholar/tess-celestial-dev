@@ -275,6 +275,24 @@ a:visited {
   transition-timing-function: cubic-bezier(0.445, 0.05, 0.55, 0.95);
 }
 
+/* Button to close popup in interactive display */
+#close-button {
+  font-size: calc(var(--popup-story-size) * 2.5);
+  color: rgb(255, 255, 255);
+  background-color: rgba(0, 0, 0, 0); // Should have no BG
+  padding: 0; // TODO adjust padding to allow some wiggle room
+  border-width: 0;
+  // TODO adjust position
+  position: relative;
+    left: 95%;
+    top: -45%;
+}
+
+/* Hover state for close button */
+#close-button:hover {
+  cursor: pointer;
+}
+
 /* Area of matrix popup containing primary image and secondary images */
 .popup-img-area {
   padding: var(--popup-img-inner-padding);
