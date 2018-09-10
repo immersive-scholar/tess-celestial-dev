@@ -282,10 +282,11 @@ a:visited {
   background-color: rgba(0, 0, 0, 0); // Should have no BG
   padding: 0; // TODO adjust padding to allow some wiggle room
   border-width: 0;
-  // TODO adjust position
+  // TODO adjust position and add negative margin on top and bottom
   position: absolute;
-    right: 2.5%;
-    top: 2.5%;
+    right: 2.5vmin;
+    top: 2.5vmin;
+  margin: calc(var(--popup-story-size) * 2.5 * -1.175 / 2) 0px;
 }
 
 /* Hover state for close button */
