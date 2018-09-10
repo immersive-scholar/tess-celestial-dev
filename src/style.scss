@@ -61,6 +61,7 @@
   --matrix-overflow: hidden;
 
   /* .popup properties - overall */
+  // TODO set max-height for popup
   --popup-flex-flow: row nowrap; // For whole popup
   --popup-width: 65%;
   --popup-height: 71.429vh; // 5/7
@@ -768,9 +769,9 @@ a:visited {
       /* .main-txt properties */
       /* .matrix properties */
       /* .popup properties - overall */
-      /* .popup properties - image */
-      --popup-img-inner-padding: 4%;
       /* .popup properties - text */
+      --popup-img-inner-padding: 4%;
+      /* .popup properties - image */
       --popup-txt-inner-padding: 4%;
 
       /* .imm-sch-url-container properties */
@@ -789,8 +790,8 @@ a:visited {
 
       /* .popup properties - overall */
       --popup-width: 75vw;
-      /* .popup properties - image */
       /* .popup properties - text */
+      /* .popup properties - image */
 
       /* .imm-sch-url-container properties */
   }
@@ -814,8 +815,8 @@ a:visited {
     /* .matrix properties */
     /* .popup properties - overall */
     --popup-width: 65vw;
-    /* .popup properties - image */
     /* .popup properties - text */
+    /* .popup properties - image */
     --popup-title-size: 36px;
     --popup-story-size: 16px;
 
@@ -833,14 +834,29 @@ a:visited {
     --right-col-width: 40vw; // 2/5
 
     /* .main-txt properties */
+    --main-txt-padding: 25px;
+    --main-txt-heading-margin: 15px 0px;
+
     /* .matrix properties */
     --matrix-col-spacing: 1fr 1fr 1fr;
     --matrix-row-spacing: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 
-    /* .popup properties */
+    /* .popup properties - overall */
+    --popup-flex-flow: column nowrap; // For whole popup
+    --popup-width: 55%;
+    --popup-height: 85vh; // 17/20
+    /* .popup properties - text */
+    --popup-txt-area-width: 100%;
+    --popup-txt-area-height: 50%;
+    /* .popup properties - image */
+    --popup-img-flex-flow: column nowrap; // For img subsection
+    --popup-secondary-img-flex-flow: row nowrap;
 
     /* .imm-sch-url-container properties */
     --imm-sch-url-bg-color: rgb(54, 69, 79, .5);
+    --max-logo-height: 30px;
+    --imm-sch-url-display: block; // inline or block
+    --logo-display: block; // inline-block or block
   }
 }
 
