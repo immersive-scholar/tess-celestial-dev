@@ -11,6 +11,7 @@
 /*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
 /*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
 /*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+/* (Aspect ratios between 58/21 and 22/7) */
 :root {
   /* body and .main-container properties */
   --body-overflow: hidden;
@@ -407,8 +408,11 @@ a:visited {
 /*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
 /*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
 
-// TODO media query for wider landscape layouts
-/* Aspect ratios 22/7 - ??? */
+// TODO more media queries for wider landscape layouts
+/**********************************************************************/
+/******************** For wider landscape layouts ********************/
+/**********************************************************************/
+/* (Aspect ratios 22/7 and wider) */
 @media (min-aspect-ratio: 22/7) {
   :root {
     --left-col-width: 80vw; // 3/4
@@ -421,6 +425,7 @@ a:visited {
 /**********************************************************************/
 // TODO Let's say each matrix item should be at least 400px long/tall?
 /* 5/6 matrix, 1/6 text */
+/* (Aspect ratios between 18/7 and 58/21) */
 @media (max-aspect-ratio: 58/21) and (min-height: 2100px) {
   :root {
     /* body and .main-container properties */
@@ -435,6 +440,7 @@ a:visited {
 }
 
 /* 4/5 matrix, 1/5 text */
+/* (Aspect ratios between 15/7 and 18/7) */
 @media (max-aspect-ratio: 18/7) and (min-height: 2100px) {
   :root {
     /* body and .main-container properties */
@@ -444,11 +450,14 @@ a:visited {
     /* .main-txt properties */
     /* .matrix properties */
     /* .popup properties */
+    // TODO fix popup story text max font-size to avoid overflow
+    --popup-story-size: 42px;
     /* .imm-sch-url-container properties */
   }
 }
 
 /* 3/4 matrix, 1/4 text */
+/* (Aspect ratios between 8/5 and 15/7) */
 @media (max-aspect-ratio: 15/7) and (min-height: 2100px) {
   :root {
     /* body and .main-container properties */
@@ -458,6 +467,8 @@ a:visited {
     /* .main-txt properties */
     /* .matrix properties */
     /* .popup properties */
+    // TODO fix popup story text max font-size to avoid overflow
+    --popup-story-size: 36px;
     /* .imm-sch-url-container properties */
   }
 }
@@ -506,7 +517,7 @@ a:visited {
     /* .popup properties - text */
     --popup-heading-margin: 0px;
     --popup-title-size: 108px;
-    --popup-story-size: 42px;
+    --popup-story-size: 30px;
     /* .popup properties - image */
 
     /* .imm-sch-url-container properties */
@@ -537,6 +548,7 @@ a:visited {
 
     /* .matrix properties */
     /* .popup properties */
+    --popup-height: 55vh;
 
     /* .imm-sch-url-container properties */
     --logo-padding: 0 0 0 75px;
@@ -544,7 +556,7 @@ a:visited {
 }
 
 /* For a wider "portrait" layout */
-/* (Aspect ratios between 5/7 and 1/1) */
+/* (Aspect ratios between 6/7 and 1/1) */
 @media (max-aspect-ratio: 1/1) and (min-height: 2100px) {
   :root {
     /* body and .main-container properties */
@@ -568,7 +580,7 @@ a:visited {
     --popup-flex-flow: row nowrap;
     --popup-width: 90vw; // Am not sure why this has to be here
     --popup-max-width: 90vw; // 9/10
-    --popup-height: 40%;
+    //--popup-height: 40%;
     /* .popup properties - text */
     --popup-txt-inner-padding: 75px;
     --popup-title-size: 84px;
@@ -598,6 +610,13 @@ a:visited {
     --imm-sch-url-display: inline-table; // inline or block
     --logo-display: inline-block; // inline-block or block
     --max-logo-height: 80px;
+  }
+}
+
+/* (Aspect ratios between 5/7 and 6/7) */
+@media (max-aspect-ratio: 6/7) and (min-height: 2100px) {
+  :root {
+    // TODO adjust text sizing here
   }
 }
 
@@ -757,6 +776,7 @@ a:visited {
     --popup-border-radius: 10px;
     --popup-max-width: 70vw; // 7/10
     --popup-height: 75vh;
+    --popup-border: 4px solid rgba(255, 255, 255, 100);
     /* .popup properties - text */
     --popup-heading-margin: 0;
     --popup-title-size: 48px;
@@ -767,6 +787,23 @@ a:visited {
     --imm-sch-url-padding: 0vw;
     --imm-sch-url-size: 10px;
     --max-logo-height: 40px;
+  }
+
+  .main-title {
+    margin-top: 0px;
+  }
+
+  .matrix-item {
+    transition: 1s;
+    transform: scale(1.0);
+  }
+
+  // TODO deactivate this when zooming in/out and viewing popup
+  .matrix-item:hover {
+    cursor: pointer;
+    transition: 1s;
+    //filter: brightness(60%);
+    transform: scale(1.25);
   }
 }
 
