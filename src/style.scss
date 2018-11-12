@@ -52,7 +52,8 @@
 
   /* .matrix properties */
   --matrix-item-side-length: 70%; // Matrix items are squares/circles
-  --matrix-item-max-side-length: 700px;
+  //--matrix-item-max-side-length: 700px;
+  --matrix-item-max-side-length: 25vh; // Make no wider/taller than 1/4 of vh
   --matrix-item-gap: 0px; // Horizontal and vertical
   --matrix-col-spacing: 1fr 1fr 1fr 1fr 1fr 1fr 1fr; // 7 columns
   --matrix-row-spacing: 1fr 1fr 1fr; // 3 rows
@@ -407,6 +408,13 @@ a:visited {
 /*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
 
 // TODO media query for wider landscape layouts
+/* Aspect ratios 22/7 - ??? */
+@media (min-aspect-ratio: 22/7) {
+  :root {
+    --left-col-width: 80vw; // 3/4
+    --right-col-width: 20vw; // 1/4
+  }
+}
 
 /**********************************************************************/
 /******************** For narrower landscape layouts ********************/
