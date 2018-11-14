@@ -789,6 +789,10 @@ a:visited {
     --max-logo-height: 40px;
   }
 
+  .main-txt {
+    overflow: auto;
+  }
+
   .main-title {
     margin-top: 0px;
   }
@@ -803,6 +807,7 @@ a:visited {
     cursor: pointer;
     transition: 1s;
     //filter: brightness(60%);
+    z-index: 100;
     transform: scale(1.25);
   }
 }
@@ -829,14 +834,17 @@ a:visited {
       /* body and .main-container properties */
 
       /* .main-txt properties */
-      --popup-title-size: 42px;
+      --main-desc-size: 16px;
 
       /* .matrix properties */
 
       /* .popup properties - overall */
       --popup-width: 75vw;
       /* .popup properties - text */
+      --popup-title-size: 42px;
+      --popup-story-size: 16px;
       /* .popup properties - image */
+
 
       /* .imm-sch-url-container properties */
   }
@@ -854,7 +862,7 @@ a:visited {
     /* .main-txt properties */
     --main-title-size: 52px;
     --main-researcher-name-size: 24px;
-    --main-desc-size: 16px;
+    --main-desc-size: 14px;
     --main-link-size: 10px;
 
     /* .matrix properties */
@@ -863,7 +871,7 @@ a:visited {
     /* .popup properties - text */
     /* .popup properties - image */
     --popup-title-size: 36px;
-    --popup-story-size: 16px;
+    --popup-story-size: 14px;
 
     /* .imm-sch-url-container properties */
   }
@@ -875,8 +883,13 @@ a:visited {
 @media (max-width: 1024px) and (max-height: 2099px)  {
   :root {
     /* body and .main-container properties */
+    --main-container-grid-areas:
+      "matrix main-txt";
     --left-col-width: 60vw; // 3/5
     --right-col-width: 40vw; // 2/5
+    --top-row-height: 100vh;
+    --bottom-row-height: 0vh;
+    // TODO make matrix scrollable but make main-txt and imm-sch-url-container not
 
     /* .main-txt properties */
     --main-txt-padding: 25px;
@@ -889,19 +902,44 @@ a:visited {
     /* .popup properties - overall */
     --popup-flex-flow: column nowrap; // For whole popup
     --popup-width: 55%;
-    --popup-height: 85vh; // 17/20
+    --popup-height: 95vh; // 17/20
     /* .popup properties - text */
     --popup-txt-area-width: 100%;
     --popup-txt-area-height: 50%;
     /* .popup properties - image */
+    --popup-img-area-width: 80%;
+    --popup-img-area-height: 50%;
+    --popup-primary-img-max-width: 100%;
+    --popup-primary-img-max-height: 75%;
+    --popup-secondary-img-slides-width: 100%;
+    --popup-secondary-img-slides-height:25%;
+    --popup-secondary-img-max-width: 20%;
+    --popup-secondary-img-max-height: 100%;
     --popup-img-flex-flow: column nowrap; // For img subsection
     --popup-secondary-img-flex-flow: row nowrap;
 
     /* .imm-sch-url-container properties */
-    --imm-sch-url-bg-color: rgb(54, 69, 79, .5);
+    --imm-sch-url-bg-color: rgb(0, 0, 0, 0);
     --max-logo-height: 30px;
+    --logo-padding: 25px 25px 0 25px;
+    --imm-sch-url-padding: 5px 25px 25px 25px;
     --imm-sch-url-display: block; // inline or block
     --logo-display: block; // inline-block or block
+  }
+
+  // TODO Remove scrollbar in matrix (or at least make it more discreet)
+  // Scrollbar also stays when zooming in, which is quite unsightly
+  // "Overflow: hidden" does not allow scrolling
+
+  .imm-sch-url-container {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 40vw;
+  }
+
+  .imm-sch-url {
+    margin: 0;
   }
 }
 
