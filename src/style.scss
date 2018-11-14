@@ -18,6 +18,7 @@
   --background-color: #000000;
   --text-color: #FFFFFF;
   --link-color: #CC0000;
+  --link-color-hover: #CCCCCC;
   --outermost-padding: 100px;
   --main-container-display: grid; // grid for large-scale to laptop, block for smaller
   --main-container-grid-areas:
@@ -165,6 +166,11 @@ a {
 /* Keeps visited links the same color as unvisted links */
 a:visited {
   color: var(--link-color);
+}
+
+/* Makes links being hovered on a different color */
+a:hover {
+  color: var(--link-color-hover);
 }
 
 
@@ -947,8 +953,6 @@ a:visited {
   }
 }
 
-// TODO remove grid layout for these smaller personal devices?
-// (they are mostly viewed in portrait)
 /**********************************************************************/
 /******************** For tablet ********************/
 /**********************************************************************/
@@ -989,7 +993,7 @@ a:visited {
     --popup-secondary-img-flex-flow: row nowrap;
 
     /* .imm-sch-url-container properties */
-    --max-logo-height: 45px;
+    --max-logo-height: 5.859vw;
     --imm-sch-url-size: 1.563vw;
     --main-url-separate-display: none; // URL that appears outside of .main-txt
   }
