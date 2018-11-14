@@ -64,7 +64,6 @@
   --matrix-overflow: hidden;
 
   /* .popup properties - overall */
-  // TODO set max-height for popup
   --popup-flex-flow: row nowrap; // For whole popup
   --popup-width: 65%;
   --popup-height: 71.429vh; // 5/7
@@ -109,7 +108,6 @@
   --imm-sch-url-size: 24px;
   --imm-sch-url-display: inline; // inline or block
   --logo-display: inline-block; // inline-block or block
-  //--logo-proportions: 10%;
   --max-logo-height: 110px;
   --logo-padding: 0 0 0 2.083vw; // top, right, bottom, left
 }
@@ -311,8 +309,6 @@ a:hover {
   display: flex;
   flex-flow: var(--popup-img-flex-flow);
   align-items: var(--center-position);
-  // TODO should this really be centered? right-aligned seems better
-  //justify-content: var(--center-position);
   box-sizing: border-box;
   width: var(--popup-img-area-width);
   height: var(--popup-img-area-height);
@@ -535,7 +531,6 @@ a:hover {
     --imm-sch-url-padding: 0 75px 75px 25px;
     --imm-sch-url-display: inline; // inline or block
     --logo-display: inline; // inline-block or block
-    //--logo-padding: 0 0 0 75px;
     --logo-padding: 0 0 0 calc(.5 * 100vw - 1125px); //  TODO test y = mx + b
   }
 }
@@ -586,7 +581,6 @@ a:hover {
     --popup-flex-flow: row nowrap;
     --popup-width: 90vw; // Am not sure why this has to be here
     --popup-max-width: 90vw; // 9/10
-    //--popup-height: 40%;
     /* .popup properties - text */
     --popup-txt-inner-padding: 75px;
     --popup-title-size: 84px;
@@ -647,7 +641,6 @@ a:hover {
     --main-researcher-name-size: 48px;
     --main-desc-size: 24px;
     --main-link-size: 12px;
-    //--max-main-line-length: 1150px; // This seems to have no effect
 
     /* .matrix properties */
     --matrix-item-side-length: 45%;
@@ -764,7 +757,6 @@ a:hover {
     --main-txt-bg-color: rgba(0, 0, 0, 0.8);
     --main-txt-heading-margin: 25px 0;
     --main-txt-padding: 40px;
-    //--main-txt-bg-color: rgb(54, 69, 79, .5); // Charcoal, 50% opacity
     --main-title-size: 60px;
     --main-researcher-name-size: 30px;
     --main-desc-size: 18px;
