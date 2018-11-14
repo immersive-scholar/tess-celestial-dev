@@ -804,6 +804,10 @@ a:hover {
     margin-top: 0px;
   }
 
+  .matrix {
+    grid-gap: 25px 0px;
+  }
+
   .matrix-item {
     transition: 1s;
     transform: scale(1.0);
