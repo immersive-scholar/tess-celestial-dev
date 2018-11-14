@@ -171,6 +171,12 @@ a:hover {
   color: var(--link-color-hover);
 }
 
+/* Makes alt text conform to style of body text */
+img {
+  font-family: var(--paragraph-font-family);
+  font-size: var(--main-desc-size);
+}
+
 
 /**********************************************************************/
 /******************** Main text area ********************/
