@@ -956,6 +956,7 @@ a:visited {
 @media (max-width: 768px) and (max-height: 2099px)  {
   :root {
     /* body and .main-container properties */
+    --body-overflow: auto;
     --horizontal-center-margins: 0 auto;
     --main-container-display: block; // grid for large-scale to laptop, block for smaller
 
