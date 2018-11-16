@@ -915,16 +915,18 @@ img {
     --popup-width: 55%;
     --popup-height: 95vh; // 19/20
     /* .popup properties - text */
+    --popup-txt-inner-padding: 0px 25px 25px 25px;
     --popup-txt-area-width: 100%;
     --popup-txt-area-height: 50%;
     /* .popup properties - image */
+    --popup-img-inner-padding: 25px;
     --popup-img-area-width: 80%;
     --popup-img-area-height: 50%;
     --popup-img-primary-secondary-gap: 5% 0 0 0;
     --popup-primary-img-max-width: 100%;
     --popup-primary-img-max-height: 75%;
     --popup-secondary-img-slides-width: 100%;
-    --popup-secondary-img-slides-height:25%;
+    --popup-secondary-img-slides-height: 25%;
     --popup-secondary-img-max-width: 20%;
     --popup-secondary-img-max-height: 100%;
     --popup-img-flex-flow: column nowrap; // For img subsection
@@ -988,19 +990,28 @@ img {
 
     /* .popup properties */
     --popup-flex-flow: column nowrap;
-    --popup-width: 90%;
-    --popup-height: 90vh; // 9/10
+    --popup-width: 85%;
+    --popup-max-width: 85vw;
+    //--popup-height: 90vh; // 9/10
+    --popup-height: auto;
     --popup-left-position: 50%;
-    --popup-top-position: 50%;
-    --popup-max-width: 85vw; // 3/4
+    --popup-top-position: 25px;
     /* .popup properties - text */
-    --popup-txt-inner-padding: 25px;
+    //--popup-txt-inner-padding: 25px;
     --popup-title-size: 36px;
     --popup-story-size: 18px;
+    //--popup-story-size: calc(-.0001 * (768px - 100vw) + 2.34375vw);
     /* .popup properties - image */
-    --popup-img-inner-padding: 25px;
-    --popup-img-flex-flow: column nowrap; // For img subsection
-    --popup-secondary-img-flex-flow: row nowrap;
+    //--popup-img-inner-padding: 25px;
+    --popup-img-primary-secondary-gap: 0 0 0 5%;
+    --popup-primary-img-max-width: 75%;
+    --popup-primary-img-max-height: 100%;
+    --popup-secondary-img-slides-width: 20%;
+    --popup-secondary-img-slides-height: 100%;
+    --popup-secondary-img-max-width: 100%;
+    --popup-secondary-img-max-height: 20%;
+    --popup-img-flex-flow: row nowrap; // For img subsection
+    --popup-secondary-img-flex-flow: column nowrap;
 
     /* .imm-sch-url-container properties */
     --max-logo-height: 45px;
@@ -1011,10 +1022,22 @@ img {
     --main-url-separate-display: none; // URL that appears outside of .main-txt
   }
 
+  // TODO remove awkward scrolling past end of popup?
+
   .matrix {
     width: 100vw;
     overflow: visible;
     padding: 0px;
+  }
+
+  .matrix-popup {
+    transform: translateY(0%) translateX(-50%);
+    min-height: 90vh;
+  }
+
+  .secondary-img-slides {
+    // TODO fix spacing between secondary-img
+    justify-content: space-between; // why doesn't this work
   }
 
   .imm-sch-url-container {
@@ -1033,6 +1056,19 @@ img {
     /* .main-txt properties */
     /* .matrix properties */
     /* .popup properties */
+    --popup-img-primary-secondary-gap: 5% 0 0 0;
+    --popup-primary-img-max-width: 100%;
+    --popup-primary-img-max-height: 75%;
+    --popup-secondary-img-slides-width: 100%;
+    --popup-secondary-img-slides-height: 25%;
+    --popup-secondary-img-max-width: 20%;
+    --popup-secondary-img-max-height: 100%;
+    --popup-img-flex-flow: column nowrap; // For img subsection
+    --popup-secondary-img-flex-flow: row nowrap;
+    /* .popup properties - text */
+    --popup-title-size: 30px;
+    --popup-story-size: 16px;
+
     /* .imm-sch-url-container properties */
     --max-logo-height: 35px;
   }
