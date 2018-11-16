@@ -756,7 +756,6 @@ img {
 @media (max-height: 2099px) {
   :root {
     /* body and .main-container properties */
-    //--body-overflow: auto;
     --left-col-width: 75vw; // 3/4
     --right-col-width: 25vw; // 1/4
     --top-row-height: 90vh; // 9/10
@@ -977,7 +976,6 @@ img {
     --main-container-display: block; // grid for large-scale to laptop, block for smaller
 
     /* .main-txt properties */
-    //--main-txt-padding: 25px;
     --main-txt-padding: 25px var(--matrix-left-right-gap); // so main-txt lines up w/ matrix-item
     --main-title-size: 60px;
     --main-researcher-name-size: 36px;
@@ -996,17 +994,13 @@ img {
     --popup-flex-flow: column nowrap;
     --popup-width: 85%;
     --popup-max-width: 85vw;
-    //--popup-height: 90vh; // 9/10
     --popup-height: auto;
     --popup-left-position: 50%;
     --popup-top-position: 25px;
     /* .popup properties - text */
-    //--popup-txt-inner-padding: 25px;
     --popup-title-size: 36px;
     --popup-story-size: 18px;
-    //--popup-story-size: calc(-.0001 * (768px - 100vw) + 2.34375vw);
     /* .popup properties - image */
-    //--popup-img-inner-padding: 25px;
     --popup-img-primary-secondary-gap: 0 0 0 5%;
     --popup-primary-img-max-width: 75%;
     --popup-primary-img-max-height: 100%;
@@ -1020,7 +1014,6 @@ img {
     /* .imm-sch-url-container properties */
     --max-logo-height: 45px;
     --imm-sch-url-size: 12px;
-    //--logo-padding: 50px 25px 0 25px;
     --logo-padding: 50px var(--matrix-left-right-gap) 0 var(--matrix-left-right-gap);
     --imm-sch-url-padding: 5px var(--matrix-left-right-gap) 25px var(--matrix-left-right-gap);
     --main-url-separate-display: none; // URL that appears outside of .main-txt
@@ -1040,8 +1033,7 @@ img {
   }
 
   .secondary-img-slides {
-    // TODO fix spacing between secondary-img
-    justify-content: space-between; // why doesn't this work
+    height: 45vw;
   }
 
   .imm-sch-url-container {
@@ -1075,6 +1067,10 @@ img {
 
     /* .imm-sch-url-container properties */
     --max-logo-height: 35px;
+  }
+
+  .secondary-img-slides {
+    height: auto;
   }
 }
 
