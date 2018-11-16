@@ -865,7 +865,7 @@ img {
 /**********************************************************************/
 /******************** For large laptop ********************/
 /**********************************************************************/
-/* Between 1440px and 1024px wide */
+/* Between 1440px and 1232px wide */
 @media (max-width: 1440px) and (max-height: 2099px)  {
   :root {
     /* body and .main-container properties */
@@ -887,6 +887,37 @@ img {
     --popup-story-size: 14px;
 
     /* .imm-sch-url-container properties */
+  }
+}
+
+/* Between 1232px and 1024px wide */
+@media (max-width: 1232px) and (max-height: 2099px)  {
+  :root {
+    /* body and .main-container properties */
+    /* .main-txt properties */
+    /* .matrix properties */
+    /* .popup properties - overall */
+    /* .popup properties - text */
+    --popup-txt-area-width: 50%;
+    --popup-txt-area-height: 100%;
+    /* .popup properties - image */
+    --popup-img-area-width: 50%;
+    --popup-img-area-height: 100%;
+    --popup-img-primary-secondary-gap: 5% 0 0 0;
+    --popup-primary-img-max-width: 100%;
+    --popup-primary-img-max-height: 75%;
+    --popup-secondary-img-slides-width: 100%;
+    --popup-secondary-img-slides-height: 25%;
+    --popup-secondary-img-max-width: 20%;
+    --popup-secondary-img-max-height: 100%;
+    --popup-img-flex-flow: column nowrap; // For img subsection
+    --popup-secondary-img-flex-flow: row nowrap;
+
+    /* .imm-sch-url-container properties */
+  }
+
+  .popup-img-area {
+    justify-content: center;
   }
 }
 
@@ -925,15 +956,6 @@ img {
     --popup-img-inner-padding: 25px;
     --popup-img-area-width: 80%;
     --popup-img-area-height: 50%;
-    --popup-img-primary-secondary-gap: 5% 0 0 0;
-    --popup-primary-img-max-width: 100%;
-    --popup-primary-img-max-height: 75%;
-    --popup-secondary-img-slides-width: 100%;
-    --popup-secondary-img-slides-height: 25%;
-    --popup-secondary-img-max-width: 20%;
-    --popup-secondary-img-max-height: 100%;
-    --popup-img-flex-flow: column nowrap; // For img subsection
-    --popup-secondary-img-flex-flow: row nowrap;
 
     /* .imm-sch-url-container properties */
     --imm-sch-url-bg-color: rgb(0, 0, 0, 0);
