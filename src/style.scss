@@ -19,6 +19,7 @@
   --text-color: #FFFFFF;
   --link-color: #CC0000;
   --link-color-hover: #CCCCCC;
+  --button-color-hover: #666666;
   --outermost-padding: 100px;
   --main-container-display: grid; // grid for large-scale to laptop, block for smaller
   --main-container-grid-areas:
@@ -299,12 +300,16 @@ img {
   font-size: calc(var(--popup-story-size) * 2.5);
   display: var(--popup-button-display);
   position: absolute;
+  transition: .25s;
+  transform: scale(1.0);
 }
 
 /* Hover state for popup buttons */
 .popup-button:hover {
   cursor: pointer;
-  color: var(--link-color-hover);
+  color: var(--button-color-hover);
+  transition: .25s;
+  font-size: calc(var(--popup-story-size) * 2.75);;
 }
 
 /* Button to go to prev project in popup */
