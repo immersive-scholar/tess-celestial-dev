@@ -73,6 +73,7 @@
   --popup-bg-color: rgba(0, 0, 0, .8);
   --popup-border: 6px solid rgba(255, 255, 255, 100);
   --popup-border-radius: 25px;
+  --close-button-display: none;
   /* .popup properties - text */
   --popup-txt-inner-padding: 75px;
   --popup-heading-margin: 75px 0 75px 0;
@@ -290,21 +291,23 @@ img {
 
 /* Button to close popup in interactive display */
 #close-button {
+  font-family: var(--paragraph-font-family);
   font-size: calc(var(--popup-story-size) * 2.5);
-  color: rgb(255, 255, 255);
+  color: var(--text-color);
   background-color: rgba(0, 0, 0, 0); // Should have no BG
-  padding: 0; // TODO adjust padding to allow some wiggle room
   border-width: 0;
-  // TODO adjust position and add negative margin on top and bottom
+  padding: 0;
   position: absolute;
-    right: 2.5vmin;
-    top: 2.5vmin;
-  margin: calc(var(--popup-story-size) * 2.5 * -1.175 / 2) 0px;
+    right: 30px;
+    top: 30px;
+  display: var(--close-button-display);
+  transform: translateY(-55%) translateX(58%);
 }
 
 /* Hover state for close button */
 #close-button:hover {
   cursor: pointer;
+  color: var(--link-color-hover);
 }
 
 /* Area of matrix popup containing primary image and secondary images */
@@ -782,6 +785,7 @@ img {
     --popup-max-width: 70vw; // 7/10
     --popup-height: 75vh;
     --popup-border: 4px solid rgba(255, 255, 255, 100);
+    --close-button-display: block;
     /* .popup properties - text */
     --popup-heading-margin: 0;
     --popup-title-size: 48px;
