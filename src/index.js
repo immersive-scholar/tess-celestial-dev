@@ -112,9 +112,6 @@ const showPopup = function (event) {
 
   // This function removes the popup from the screen when a click occurs anywhere on the screen except on top of the open popup
   const removePopup = function (event) {
-    // TODO get rid of this when done testing
-    // console.log(event, event.path.includes(document.querySelector('#close-button')))
-
     // Return if click occured on top of the popup and not on the close button
     if (event && event.path.includes(storyPopup) &&
       !event.path.includes(document.querySelector('#close-button'))) { return }
