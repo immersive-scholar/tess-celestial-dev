@@ -1078,7 +1078,7 @@ img {
 /**********************************************************************/
 /******************** For larger mobile device ********************/
 /**********************************************************************/
-@media (max-width: 425px) and (max-height: 2099px)  { // Check pointer size/type too?
+@media (max-width: 600px) and (max-height: 2099px)  { // Check pointer size/type too?
   :root {
     /* body and .main-container properties */
     /* .main-txt properties */
@@ -1110,24 +1110,30 @@ img {
 /******************** For medium mobile device ********************/
 /**********************************************************************/
 @media (max-width: 375px) and (max-height: 2099px)  { // Check pointer size/type too?
-  // :root {
+  :root {
     /* body and .main-container properties */
     /* .main-txt properties */
+    --main-title-size: 54px;
+    --main-researcher-name-size: 36px;
     /* .matrix properties */
     /* .popup properties */
     /* .imm-sch-url-container properties */
-  // }
+  }
 }
 
 /**********************************************************************/
 /******************** For small mobile device ********************/
 /**********************************************************************/
 @media (max-width: 320px) and (max-height: 2099px)  { // Check pointer size/type too?
-  // :root {
+  :root {
     /* body and .main-container properties */
     /* .main-txt properties */
+    --main-title-size: 48px;
+    --main-researcher-name-size: 30px;
+    --main-desc-size: 16px;
+    --main-link-size: 14px;
     /* .matrix properties */
     /* .popup properties */
     /* .imm-sch-url-container properties */
-  // }
+  }
 }
