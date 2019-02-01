@@ -646,6 +646,12 @@ img {
     --logo-display: inline-block; // inline-block or block
     --max-logo-height: 80px;
   }
+
+  // TODO clean this up
+  .imm-sch-url {
+    margin: 0;
+    padding-left: 75px;
+  }
 }
 
 /* (Aspect ratios between 5/7 and 6/7) */
@@ -665,9 +671,9 @@ img {
       "matrix matrix"
       "main-txt desc"
       "link link";
-    --top-row-height: 80vh; // 4/5
-    --middle-row-height: 15vh; // 3/20
-    --bottom-row-height: 5vh; // 1/20
+    --top-row-height: 77.5vh;
+    --middle-row-height: 17.5vh;
+    --bottom-row-height: 5vh;
 
     /* .main-txt properties */
     --main-txt-padding: 50px;
@@ -696,6 +702,11 @@ img {
     --imm-sch-url-size: 12px;
     --logo-padding: 0 0 0 50px;
     --max-logo-height: 50px;
+  }
+
+  // TODO clean this up
+  .imm-sch-url {
+    padding-left: 0px;
   }
 }
 
@@ -754,6 +765,11 @@ img {
     --imm-sch-url-size: 12px;
     --imm-sch-url-display: block; // inline or block
     --max-logo-height: 50px;
+  }
+
+  // TODO clean this up
+  .imm-sch-url {
+    padding-left: 50px;
   }
 }
 
