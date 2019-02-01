@@ -7,6 +7,8 @@ import rawImgData from './data.csv'
 // Name of the folder containing the image assets, must be located in 'src' folder
 const imgFolder = `images`
 const imgData = rawImgData
+// Our minimum height for a "large-scale display"
+const minLargeHeight = 2100
 // Variables for timed transitions and zoom animation speed, timed transitions will be set if 'timedTransitions' is 'true'
 const zoomSpeed = 8000 // 8 sec for zoom in/out animation
 let timedTransitions = true
@@ -134,9 +136,75 @@ const showPopup = function (event) {
     window.clearTimeout(timedPopup)
     timedPopup = window.setTimeout(removePopup, timePopupShown)
   }
+
+  //
+  //
+  //
+  //
+  //
+  // If left/right button was clicked, change to popup to previous/next matrix-item
+  const swapMedia = function (event) {
+    if (event && event.path.includes(storyPopup) &&
+      event.path.includes(document.querySelector('#prev-button'))) {
+      // Try passing index to showPopup - -1 for prev, 1 for next (0 would be current)
+      // showPopup(event)
+      // hmmm it seems you can't access matrix items outside of this one (it's outside of scope)
+      showPopup(event)
+      /*
+      const popupAssets = imgData.reduce(preparePopupAssets, {})
+      // Set 'currentStory' to clicked matrix img element or random selection of images that have not been removed from the display if timed event
+      const currentStory = event ? this : sample(matrixImgs.filter(d =>
+        !d.classList.contains('removed') && !('viewed' in d.dataset))
+      )
+
+      // Set viewed data option of element to true to prevent repeating of stories when in timed mode
+      currentStory.dataset.viewed = true
+      // If all stories have been viewed remove viewed data option to start fresh
+      if (matrixImgs.filter(d => !('viewed' in d.dataset)).length === 0) {
+        matrixImgs.forEach(d => delete d.dataset.viewed)
+      }
+
+      // Switch src to higher resolution image for zoom
+      currentStory.src = currentStory.dataset.bigSrc
+
+      const pstoryId = currentStory.dataset.id - 1
+      const pstory = popupAssets[pstoryId]
+      // Set source of main img to img selected from matrix
+      document.getElementById('primary-popup-img').src = currentStory.src
+
+      // Set array of 'secondary' img elements from popup and make sure to remove any previously used images
+      const secondaryImgs = document.querySelectorAll('.secondary-img')
+      secondaryImgs.forEach(d => d.classList.add('removed'))
+
+      // Filter story media to display available secondary images
+      pstory.storyMedia
+        .filter(d => d !== '')
+        .forEach(function (mediaItem, i) {
+          secondaryImgs[i].classList.remove('removed')
+          secondaryImgs[i].src = require(`./${imgFolder}/${mediaItem}`)
+        })
+
+      // Set the title and text of the story popup
+      document.querySelector('.project-title').textContent = story.title
+      document.querySelector('.project-story').textContent = story.text
+      */
+    } // else if (event && event.path.includes(storyPopup) &&
+    // event.path.includes(document.querySelector('#next-button'))) {
+    // story = popupAssets[storyId + 1]
+    // }
+  }
+  //
+  //
+  //
+  //
+  //
+
   document.querySelector('body').addEventListener('click', removePopup)
 
   document.querySelector('#close-button').addEventListener('click', removePopup)
+
+  document.querySelector('#prev-button').addEventListener('click', swapMedia)
+  document.querySelector('#next-button').addEventListener('click', swapMedia)
 }
 
 // Attach an event listener to each matrix img to show popup on click
@@ -144,6 +212,13 @@ matrixImgs.forEach(d =>
   d.addEventListener('click', showPopup)
 )
 
+// Turn off auto (timed) transitions if on a personal-sized (interactive) display
+if (window.innerHeight < minLargeHeight) {
+  timedTransitions = false
+}
+
+// If the display is a (non-interactive) large-scale display, toggle timed
+// transitions/animations
 if (timedTransitions) { timedPopup = window.setTimeout(showPopup, timeBetweenPopup) }
 
 // This function removes overflow images from the matrix at media breakpoints to ensure every row has an equal number of columns given a matrix with 'x' grid columns and 'y' images
