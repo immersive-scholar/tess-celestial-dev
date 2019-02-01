@@ -42,6 +42,7 @@
   /* .main-txt properties */
   --main-txt-display: block;
   --main-txt-grid-areas: "";
+  --main-txt-row-spacing: none;
   --main-txt-heading-margin: 75px 0;
   --main-txt-bg-color: rgb(0, 0, 0, 0.8); // Black, 80% opacity
   --max-main-line-length: 1090px;
@@ -196,6 +197,7 @@ img {
   z-index: 1;
   display: var(--main-txt-display);
   grid-template-areas: var(--main-txt-grid-areas);
+  grid-template-rows: var(--main-txt-row-spacing);
 }
 
 /* Title of the researcher's collection of work */
@@ -533,6 +535,7 @@ img {
       "title desc"
       "name desc"
       "url desc";
+    --main-txt-row-spacing: auto auto 1fr;
     --main-txt-heading-margin: 0px 0px 25px 0px;
     --main-title-size: 144px;
     --main-researcher-name-size: 84px;
@@ -597,7 +600,7 @@ img {
 
     /* .main-txt properties */
     --max-main-line-length: 800px;
-    --main-title-size: 132px;
+    --main-title-size: 124px;
     --main-researcher-name-size: 72px;
     --main-desc-size: 36px;
     --main-link-size: 24px;
