@@ -145,6 +145,13 @@ body {
   grid-template-columns: var(--left-col-width) var(--right-col-width);
   grid-template-rows: var(--main-cont-row-heights);
   justify-content: center;
+  overflow: visible;
+}
+
+/* Clips the main-container when zoomed in and popup is displayed */
+.main-container.clipped {
+  overflow: hidden;
+  height: auto;
 }
 
 /* Main (collection) title, researcher name, and project titles */

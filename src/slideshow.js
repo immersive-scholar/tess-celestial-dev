@@ -8,7 +8,6 @@
  *
  * Reference: https://www.w3schools.com/howto/howto_js_slideshow.asp
  */
-
 /*
 // TODO import slideshow.js and add these functions in conditionals to index.js
 // Also need index.js to add onclick attributes to html buttons (start indexing at 0)
@@ -20,24 +19,24 @@ getPopup(popupIdx)
 swapPopupImg(imgIdx)
 
 // Get current indices
-function getCurrentIdx(n) {
+function getCurrentIdx (n) {
   getPopup(popupIdx = n)
 }
 
 // Move to next popup
-function changePopup(n) {
+function changePopup (n) {
   getPopup(popupIdx += n)
 }
 
 // If arrow is clicked on, increment/decrement index and update info displayed in popup
-function getPopup(n) {
+function getPopup (n) {
   // Get array of all the matrix items
-  var popups = document.getElementsByClassName("matrix-item")
+  var popups = document.getElementsByClassName('matrix-item')
 
   // Edge cases:
   // If index n is greater than the largest index in the array, change current index to 0
   // Else if n is negative, change current index to the last index
-  if (n >= popups.length){
+  if (n >= popups.length) {
     popupIdx = 0
   } else if (n < 0) {
     popupIdx = popups.length - 1
@@ -51,7 +50,7 @@ function getPopup(n) {
 // primary image currently displayed. The secondary slide images and the primary image
 // will reset back to their original images upon moving to a new project in the popup or
 // leaving the popup.
-function swapPopupImg() {
+function swapPopupImg () {
 
 }
 
