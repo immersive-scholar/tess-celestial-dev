@@ -55,8 +55,8 @@
   --main-desc-margin: initial;
 
   /* .matrix properties */
+  --matrix-padding: 0;
   --matrix-item-side-length: 70%; // Matrix items are squares/circles
-  //--matrix-item-max-side-length: 700px;
   --matrix-item-max-side-length: 25vh; // Make no wider/taller than 1/4 of vh
   --matrix-item-gap: 0px; // Horizontal and vertical
   --matrix-col-spacing: 1fr 1fr 1fr 1fr 1fr 1fr 1fr; // 7 columns
@@ -103,6 +103,7 @@
   --popup-secondary-img-max-height: 20%;
 
   /* .imm-sch-url-container properties */
+  --imm-sch-cont-position: relative;
   --imm-sch-cont-height: initial;
   --imm-sch-cont-padding-top: 0px;
   --imm-sch-url-bg-color: rgba(0, 0, 0, 0); // transparent
@@ -253,6 +254,7 @@ img {
   overflow: var(--matrix-overflow);
   position: relative; // So z-index will work
   z-index: 1; // Put it behind popup, main-txt, and imm-sch-url-container
+  padding: var(--matrix-padding);
 }
 
 /* Individual cell in the matrix */
@@ -432,7 +434,7 @@ img {
   box-sizing: border-box;
   height: var(--imm-sch-cont-height);
   padding-top: var(--imm-sch-cont-padding-top);
-  position: relative;
+  position: var(--imm-sch-cont-position);
   margin: 0;
 }
 
@@ -449,6 +451,7 @@ img {
   font-size: var(--imm-sch-url-size);
   display: var(--imm-sch-url-display);
   vertical-align: var(--imm-sch-url-vertical-align-percentage);
+  margin: 0;
 }
 
 
@@ -949,6 +952,7 @@ img {
     --main-txt-heading-margin: 15px 0px;
 
     /* .matrix properties */
+    --matrix-padding: 25px 0px;
     --matrix-col-spacing: 1fr 1fr 1fr;
     --matrix-row-spacing: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 
@@ -966,6 +970,7 @@ img {
     --popup-img-area-height: 50%;
 
     /* .imm-sch-url-container properties */
+    --imm-sch-cont-position: fixed;
     --imm-sch-url-bg-color: rgb(0, 0, 0, 0);
     --max-logo-height: 30px;
     --logo-padding: 25px 25px 0 25px;
@@ -974,23 +979,10 @@ img {
     --logo-display: block; // inline-block or block
   }
 
-  // TODO Remove scrollbar in matrix (or at least make it more discreet)
-  // Scrollbar also stays when zooming in, which is quite unsightly
-  // "Overflow: hidden" does not allow scrolling
-
-  .matrix {
-    padding: 25px 0px;
-  }
-
   .imm-sch-url-container {
-    position: fixed;
     bottom: 0;
     right: 0;
     width: 40vw;
-  }
-
-  .imm-sch-url {
-    margin: 0;
   }
 }
 
@@ -1006,6 +998,7 @@ img {
     --main-container-display: block; // grid for large-scale to laptop, block for smaller
 
     /* .main-txt properties */
+    --main-txt-bg-color: rgb(0, 0, 0, 0);
     --main-txt-padding: 25px var(--matrix-left-right-gap); // so main-txt lines up w/ matrix-item
     --main-title-size: 60px;
     --main-researcher-name-size: 36px;
@@ -1015,10 +1008,10 @@ img {
     /* .matrix properties */
     // Gap: (matrix-width - number-of-cols * matrix-item-width) / number-of-gaps
     // There are 6 gaps - 1 on the left and 1 on the right of each matrix-item
+    --matrix-padding: 0;
     --matrix-left-right-gap: calc((100vw - 3 * 23.4375vw) / 6);
     --matrix-col-spacing: 1fr 1fr 1fr;
     --matrix-row-spacing: 1fr 1fr 1fr 1fr 1fr 1fr;
-    --matrix-item-gap: 2.5%;
 
     /* .popup properties */
     --popup-flex-flow: column nowrap;
@@ -1042,6 +1035,7 @@ img {
     --popup-secondary-img-flex-flow: column nowrap;
 
     /* .imm-sch-url-container properties */
+    --imm-sch-cont-position: static;
     --max-logo-height: 45px;
     --imm-sch-url-size: 12px;
     --logo-padding: 50px var(--matrix-left-right-gap) 0 var(--matrix-left-right-gap);
@@ -1049,14 +1043,9 @@ img {
     --main-url-separate-display: none; // URL that appears outside of .main-txt
   }
 
-  .main-txt {
-    background-color: rgba(0, 0, 0, 0);
-  }
-
   .matrix {
     width: 100vw;
     overflow: visible;
-    padding: 0px;
   }
 
   .matrix-popup {
@@ -1070,7 +1059,6 @@ img {
 
   .imm-sch-url-container {
     width: 100vw;
-    position: static;
   }
 }
 
