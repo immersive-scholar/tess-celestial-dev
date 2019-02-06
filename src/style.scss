@@ -206,6 +206,7 @@ img {
   grid-template-areas: var(--main-txt-grid-areas);
   grid-template-rows: var(--main-txt-row-spacing);
   position: relative;
+  overflow: auto;
 }
 
 /* Title of the researcher's collection of work */
@@ -366,6 +367,7 @@ img {
   box-sizing: border-box;
   width: var(--popup-img-area-width);
   height: var(--popup-img-area-height);
+  justify-content: center;
 }
 
 /* The main (and largest) image of a matrix item */
@@ -812,7 +814,7 @@ img {
 
     /* .main-txt properties */
     --main-txt-bg-color: rgba(0, 0, 0, 0.8);
-    --main-txt-heading-margin: 25px 0;
+    --main-txt-heading-margin: 0 0 25px 0;
     --main-txt-padding: 40px;
     --main-title-size: 60px;
     --main-researcher-name-size: 30px;
@@ -820,6 +822,7 @@ img {
     --main-link-size: 12px;
 
     /* .matrix properties */
+    --matrix-item-gap: 25px 0px;
     --matrix-overflow: auto; // Scroll if clipped
     --matrix-col-spacing: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     --matrix-row-spacing: 1fr 1fr 1fr;
@@ -844,18 +847,6 @@ img {
     --imm-sch-url-padding: 0vw;
     --imm-sch-url-size: 10px;
     --max-logo-height: 40px;
-  }
-
-  .main-txt {
-    overflow: auto;
-  }
-
-  .main-title {
-    margin-top: 0px;
-  }
-
-  .matrix {
-    grid-gap: 25px 0px;
   }
 }
 
@@ -936,10 +927,6 @@ img {
 
     /* .imm-sch-url-container properties */
   }
-
-  .popup-img-area {
-    justify-content: center;
-  }
 }
 
 
@@ -956,7 +943,6 @@ img {
     --right-col-width: 40vw; // 2/5
     --top-row-height: 100vh;
     --bottom-row-height: 0vh;
-    // TODO make matrix scrollable but make main-txt and imm-sch-url-container not
 
     /* .main-txt properties */
     --main-txt-padding: 25px;
