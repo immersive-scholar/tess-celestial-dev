@@ -114,6 +114,8 @@ const showPopup = function (event) {
   matrixZoomAnimation(matrix, currentStory, storyPopup, 'zoom-in', zoomSpeed)
   // Clip overflow in main container when zoomed in
   document.querySelector('.main-container').classList.add('clipped')
+  // Deactivate matrix item hover state and put it behind all other elements
+  document.querySelector('.matrix').style.zIndex = '-1'
 
   // This function removes the popup from the screen when a click occurs anywhere on the screen except on top of the open popup
   const removePopup = function (event) {
@@ -126,6 +128,8 @@ const showPopup = function (event) {
     // Unclip overflow in main container when zoomed out
     document.querySelector('.main-container').classList.remove('clipped')
     storyPopup.classList.remove('visible')
+    // Reactivate matrix item hover state
+    document.querySelector('.matrix').style.zIndex = '1'
 
     // Timeout and interactive events
     document.querySelector('body').removeEventListener('click', removePopup)

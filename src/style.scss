@@ -201,10 +201,11 @@ img {
   margin: var(--horizontal-center-margins);
   grid-area: main-txt;
   background-color: var(--main-txt-bg-color);
-  z-index: 1;
+  z-index: 10;
   display: var(--main-txt-display);
   grid-template-areas: var(--main-txt-grid-areas);
   grid-template-rows: var(--main-txt-row-spacing);
+  position: relative;
 }
 
 /* Title of the researcher's collection of work */
@@ -249,6 +250,8 @@ img {
   align-items: var(--center-position);
   grid-area: matrix;
   overflow: var(--matrix-overflow);
+  position: relative; // So z-index will work
+  z-index: 1; // Put it behind popup, main-txt, and imm-sch-url-container
 }
 
 /* Individual cell in the matrix */
@@ -413,10 +416,11 @@ img {
   grid-area: link;
   align-self: var(--imm-sch-url-vertical-align);
   background-color: var(--imm-sch-url-bg-color);
-  z-index: 1;
+  z-index: 10;
   box-sizing: border-box;
   height: var(--imm-sch-cont-height);
   padding-top: var(--imm-sch-cont-padding-top);
+  position: relative;
 }
 
 /* Immersive Scholar logo */
@@ -867,7 +871,6 @@ img {
   .matrix-item:hover {
     cursor: pointer;
     transition: 1s;
-    //filter: brightness(60%);
     z-index: 100;
     transform: scale(1.25);
   }
@@ -1077,7 +1080,9 @@ img {
     --main-url-separate-display: none; // URL that appears outside of .main-txt
   }
 
-  // TODO remove awkward scrolling past end of popup?
+  .main-txt {
+    background-color: rgba(0, 0, 0, 0);
+  }
 
   .matrix {
     width: 100vw;
