@@ -259,6 +259,16 @@ img {
   width: var(--matrix-item-side-length);
   max-width: var(--matrix-item-max-side-length);
   justify-self: var(--center-position);
+  transition: 1s;
+  transform: scale(1.0);
+}
+
+/* Matrix items grow slightly when hovered on */
+.matrix-item:hover {
+  cursor: pointer;
+  transition: 1s;
+  z-index: 100;
+  transform: scale(1.25);
 }
 
 
@@ -421,6 +431,7 @@ img {
   height: var(--imm-sch-cont-height);
   padding-top: var(--imm-sch-cont-padding-top);
   position: relative;
+  margin: 0;
 }
 
 /* Immersive Scholar logo */
@@ -650,18 +661,13 @@ img {
     --popup-secondary-img-max-height: 25%;
 
     /* .imm-sch-url-container properties */
+    --imm-sch-url-padding: 0 75px 75px 75px;
     --imm-sch-url-vertical-align: center;
     --imm-sch-url-vertical-align-percentage: 40%;
     --imm-sch-url-padding: 0 75px 25px 0.5vw;
     --imm-sch-url-display: inline-table; // inline or block
     --logo-display: inline-block; // inline-block or block
     --max-logo-height: 80px;
-  }
-
-  // TODO clean this up
-  .imm-sch-url {
-    margin: 0;
-    padding-left: 75px;
   }
 }
 
@@ -709,15 +715,10 @@ img {
     --imm-sch-cont-height: 5vh;
     --imm-sch-cont-padding-top: 1.25vh;
     --imm-sch-url-vertical-align-percentage: 55%;
-    --imm-sch-url-padding: 0px;
+    --imm-sch-url-padding: 0 75px 75px 0px;
     --imm-sch-url-size: 12px;
     --logo-padding: 0 0 0 50px;
     --max-logo-height: 50px;
-  }
-
-  // TODO clean this up
-  .imm-sch-url {
-    padding-left: 0px;
   }
 }
 
@@ -772,15 +773,10 @@ img {
     --popup-secondary-img-max-height: 100%;
 
     /* .imm-sch-url-container properties */
-    --imm-sch-url-padding: 0 75px 75px 75px;
+    --imm-sch-url-padding: 0 75px 75px 50px;
     --imm-sch-url-size: 12px;
     --imm-sch-url-display: block; // inline or block
     --max-logo-height: 50px;
-  }
-
-  // TODO clean this up
-  .imm-sch-url {
-    padding-left: 50px;
   }
 }
 
@@ -860,19 +856,6 @@ img {
 
   .matrix {
     grid-gap: 25px 0px;
-  }
-
-  .matrix-item {
-    transition: 1s;
-    transform: scale(1.0);
-  }
-
-  // TODO deactivate this when zooming in/out and viewing popup
-  .matrix-item:hover {
-    cursor: pointer;
-    transition: 1s;
-    z-index: 100;
-    transform: scale(1.25);
   }
 }
 
