@@ -102,7 +102,7 @@ const showPopup = function (event) {
    * This function sets the story content (image sources, primary image,
    * secondary images, title, and text) in a popup.
    */
-  const setStory = function () {
+  const setStoryContent = function () {
     // Switch src to higher resolution image for zoom
     currentStory.src = currentStory.dataset.bigSrc
 
@@ -130,7 +130,7 @@ const showPopup = function (event) {
   }
 
   // Set the story content for the item that was clicked on
-  setStory()
+  setStoryContent()
 
   // Zoom in on selected element (currentStory) in the matrix and display popup (storyPopup) after animation completes
   matrixZoomAnimation(matrix, currentStory, storyPopup, 'zoom-in', zoomSpeed)
@@ -141,13 +141,12 @@ const showPopup = function (event) {
 
   // TODO debug this! Only the left button works when the end of the matrixImgs
   // array hasn't been reached yet. The other operations result in a TypeError
-  // because it tries to get the dataset.bigSrc of an undefined element. This
-  // also messes up the close button...
+  // because it tries to get the dataset.bigSrc of an undefined element.
   /**
    * This function changes the popup to the previous/next matrix-item
    * if the left or right arrow buttons were clicked.
    */
-  const swapMedia = function (event) {
+  const swapStory = function (event) {
     if (event && event.path.includes(storyPopup) &&
       event.path.includes(document.querySelector('#prev-button'))) {
       if (currentStory.dataset.pos === 0) {
@@ -156,8 +155,7 @@ const showPopup = function (event) {
       } else {
         currentStory = matrixImgs[currentStory.dataset.pos - 1]
       }
-      console.log(currentStory.dataset.bigSrc)
-      setStory()
+      setStoryContent()
     } else if (event && event.path.includes(storyPopup) &&
       event.path.includes(document.querySelector('#next-button'))) {
       if (currentStory.dataset.pos === matrixImgs.length - 1) {
@@ -168,7 +166,7 @@ const showPopup = function (event) {
         // It's as if only the images before "this" are loaded...
         currentStory = matrixImgs[currentStory.dataset.pos + 1]
       }
-      setStory()
+      setStoryContent()
     }
   }
 
@@ -213,8 +211,8 @@ const showPopup = function (event) {
 
   // Attach event listeners to prev-button and next-button to swap the popup
   // content if they are clicked without having to leave popup view
-  document.querySelector('#prev-button').addEventListener('click', swapMedia)
-  document.querySelector('#next-button').addEventListener('click', swapMedia)
+  document.querySelector('#prev-button').addEventListener('click', swapStory)
+  document.querySelector('#next-button').addEventListener('click', swapStory)
 }
 
 // Attach an event listener to each matrix img to show popup on click
