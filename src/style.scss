@@ -402,6 +402,14 @@ img {
   height: var(--popup-secondary-img-height);
   max-width: var(--popup-secondary-img-max-width);
   max-height: var(--popup-secondary-img-max-height);
+  cursor: pointer;
+  transition: .25s;
+  transform: scale(1.0);
+}
+
+/* Hover state for secondary-img */
+.secondary-img:hover {
+  transform: scale(1.25);
 }
 
 /* Area of matrix popup containing item title, story, and URL */
