@@ -25,7 +25,10 @@ let timedPopup
 
 const matrix = document.querySelector('.matrix')
 
-// This function takes in an image source path and a title to create an img element with alt-text. It returns the created img element.
+/**
+ * This function takes in an image source path and a title to create an img
+ * element with alt-text. It returns the created img element.
+ */
 const createImgElement = function (imgSrc, title) {
   const img = document.createElement('img')
   img.src = require(`./${imgFolder}-small/${imgSrc}`)
@@ -48,7 +51,11 @@ matrixImgs.forEach(function (img, i) {
 })
 
 // TODO assetsObject Key is obsolete with new data format!!!!!!!
-// This function takes in an array of objects with key names specified in 'data.csv' and returns an object with keys of 'title' and values of relative popup assets
+/**
+ * This function takes in an array of objects with key names specified in
+ * 'data.csv' and returns an object with keys of 'title' and values of relative
+ * popup assets.
+ */
 const preparePopupAssets = function (assetsObject, value) {
   assetsObject[value.title.split(' ').join('')] = {
     title: value.title,
@@ -66,7 +73,10 @@ const preparePopupAssets = function (assetsObject, value) {
 
 const popupAssets = imgData.reduce(preparePopupAssets, {})
 
-// This function displays a story popup window and assigns the content of that window based on data bound to the activated matrix img
+/**
+ * This function displays a story popup window and assigns the content of that
+ * window based on data bound to the activated matrix img.
+ */
 const showPopup = function (event) {
   const storyPopup = document.querySelector('.matrix-popup')
 
@@ -85,6 +95,10 @@ const showPopup = function (event) {
     matrixImgs.forEach(d => delete d.dataset.viewed)
   }
 
+  /**
+   * This function sets the story content (image sources, primary image,
+   * secondary images, title, and text) in a popup.
+   */
   const setStory = function () {
     // Switch src to higher resolution image for zoom
     currentStory.src = currentStory.dataset.bigSrc
@@ -112,8 +126,7 @@ const showPopup = function (event) {
     document.querySelector('.project-story').textContent = story.text
   }
 
-  // Set the story content (image sources, primary image, secondary images,
-  // title, text)
+  // Set the story content for the item that was clicked on
   setStory()
 
   // Zoom in on selected element (currentStory) in the matrix and display popup (storyPopup) after animation completes
@@ -123,8 +136,11 @@ const showPopup = function (event) {
   // Deactivate matrix item hover state and put it behind all other elements
   document.querySelector('.matrix').style.zIndex = '-1'
 
-  // TODO work on this! Clean this up by delegating to another function
-  // If left/right button was clicked, change to popup to previous/next matrix-item
+  // TODO debug this!
+  /**
+   * This function changes the popup to the previous/next matrix-item
+   * if the left or right arrow buttons were clicked.
+   */
   const swapMedia = function (event) {
     if (event && event.path.includes(storyPopup) &&
       event.path.includes(document.querySelector('#prev-button'))) {
@@ -147,7 +163,10 @@ const showPopup = function (event) {
     }
   }
 
-  // This function removes the popup from the screen when a click occurs anywhere on the screen except on top of the open popup
+  /**
+   * This function removes the popup from the screen when a click occurs
+   * anywhere on the screen except on top of the open popup.
+   */
   const removePopup = function (event) {
     // Return if click occured on top of the popup and not on the close button
     if (event && event.path.includes(storyPopup) &&
