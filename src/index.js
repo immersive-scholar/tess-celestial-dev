@@ -85,30 +85,36 @@ const showPopup = function (event) {
     matrixImgs.forEach(d => delete d.dataset.viewed)
   }
 
-  // Switch src to higher resolution image for zoom
-  currentStory.src = currentStory.dataset.bigSrc
+  const setStory = function () {
+    // Switch src to higher resolution image for zoom
+    currentStory.src = currentStory.dataset.bigSrc
 
-  const storyId = currentStory.dataset.id
-  const story = popupAssets[storyId]
+    let storyId = currentStory.dataset.id
+    let story = popupAssets[storyId]
 
-  // Set source of main img to img selected from matrix
-  document.getElementById('primary-popup-img').src = currentStory.src
+    // Set source of main img to img selected from matrix
+    document.getElementById('primary-popup-img').src = currentStory.src
 
-  // Set array of 'secondary' img elements from popup and make sure to remove any previously used images
-  const secondaryImgs = document.querySelectorAll('.secondary-img')
-  secondaryImgs.forEach(d => d.classList.add('removed'))
+    // Set array of 'secondary' img elements from popup and make sure to remove any previously used images
+    let secondaryImgs = document.querySelectorAll('.secondary-img')
+    secondaryImgs.forEach(d => d.classList.add('removed'))
 
-  // Filter story media to display available secondary images
-  story.storyMedia
-    .filter(d => d !== '')
-    .forEach(function (mediaItem, i) {
-      secondaryImgs[i].classList.remove('removed')
-      secondaryImgs[i].src = require(`./${imgFolder}/${mediaItem}`)
-    })
+    // Filter story media to display available secondary images
+    story.storyMedia
+      .filter(d => d !== '')
+      .forEach(function (mediaItem, i) {
+        secondaryImgs[i].classList.remove('removed')
+        secondaryImgs[i].src = require(`./${imgFolder}/${mediaItem}`)
+      })
 
-  // Set the title and text of the story popup
-  document.querySelector('.project-title').textContent = story.title
-  document.querySelector('.project-story').textContent = story.text
+    // Set the title and text of the story popup
+    document.querySelector('.project-title').textContent = story.title
+    document.querySelector('.project-story').textContent = story.text
+  }
+
+  // Set the story content (image sources, primary image, secondary images,
+  // title, text)
+  setStory()
 
   // Zoom in on selected element (currentStory) in the matrix and display popup (storyPopup) after animation completes
   matrixZoomAnimation(matrix, currentStory, storyPopup, 'zoom-in', zoomSpeed)
@@ -116,6 +122,30 @@ const showPopup = function (event) {
   document.querySelector('.main-container').classList.add('clipped')
   // Deactivate matrix item hover state and put it behind all other elements
   document.querySelector('.matrix').style.zIndex = '-1'
+
+  // TODO work on this! Clean this up by delegating to another function
+  // If left/right button was clicked, change to popup to previous/next matrix-item
+  const swapMedia = function (event) {
+    if (event && event.path.includes(storyPopup) &&
+      event.path.includes(document.querySelector('#prev-button'))) {
+      if (currentStory.dataset.pos === 0) {
+        // TODO why is this undefined?
+        currentStory = matrixImgs[matrixImgs.length - 1]
+      } else {
+        currentStory = matrixImgs[currentStory.dataset.pos - 1]
+      }
+      setStory()
+    } else if (event && event.path.includes(storyPopup) &&
+      event.path.includes(document.querySelector('#next-button'))) {
+      if (currentStory.dataset.pos === matrixImgs.length - 1) {
+        // TODO why is this undefined?
+        currentStory = matrixImgs[0]
+      } else {
+        currentStory = matrixImgs[currentStory.dataset.pos + 1]
+      }
+      setStory()
+    }
+  }
 
   // This function removes the popup from the screen when a click occurs anywhere on the screen except on top of the open popup
   const removePopup = function (event) {
@@ -146,31 +176,13 @@ const showPopup = function (event) {
     timedPopup = window.setTimeout(removePopup, timePopupShown)
   }
 
-  //
-  //
-  //
-  //
-  //
-  // If left/right button was clicked, change to popup to previous/next matrix-item
-  const swapMedia = function (event) {
-    if (event && event.path.includes(storyPopup) &&
-      event.path.includes(document.querySelector('#prev-button'))) {
-      //
-    } else if (event && event.path.includes(storyPopup) &&
-      event.path.includes(document.querySelector('#next-button'))) {
-      //
-    }
-  }
-  //
-  //
-  //
-  //
-  //
-
+  // Attach event listeners to the body and close-button to close the popup if
+  // they are clicked
   document.querySelector('body').addEventListener('click', removePopup)
-
   document.querySelector('#close-button').addEventListener('click', removePopup)
 
+  // Attach event listeners to prev-button and next-button to swap the popup
+  // content if they are clicked without having to leave popup view
   document.querySelector('#prev-button').addEventListener('click', swapMedia)
   document.querySelector('#next-button').addEventListener('click', swapMedia)
 }
