@@ -87,6 +87,9 @@ const showPopup = function (event) {
   let currentStory = event ? this : sample(matrixImgs.filter(d =>
     !d.classList.contains('removed') && !('viewed' in d.dataset))
   )
+  // Keep track of content of item that was originally clicked on so
+  // removePopup() won't have an error after popup content has been changed
+  const originalStory = currentStory
 
   // Set viewed data option of element to true to prevent repeating of stories when in timed mode
   currentStory.dataset.viewed = true
@@ -136,7 +139,10 @@ const showPopup = function (event) {
   // Deactivate matrix item hover state and put it behind all other elements
   document.querySelector('.matrix').style.zIndex = '-1'
 
-  // TODO debug this!
+  // TODO debug this! Only the left button works when the end of the matrixImgs
+  // array hasn't been reached yet. The other operations result in a TypeError
+  // because it tries to get the dataset.bigSrc of an undefined element. This
+  // also messes up the close button...
   /**
    * This function changes the popup to the previous/next matrix-item
    * if the left or right arrow buttons were clicked.
@@ -150,6 +156,7 @@ const showPopup = function (event) {
       } else {
         currentStory = matrixImgs[currentStory.dataset.pos - 1]
       }
+      console.log(currentStory.dataset.bigSrc)
       setStory()
     } else if (event && event.path.includes(storyPopup) &&
       event.path.includes(document.querySelector('#next-button'))) {
@@ -157,6 +164,8 @@ const showPopup = function (event) {
         // TODO why is this undefined?
         currentStory = matrixImgs[0]
       } else {
+        // TODO even this does not work
+        // It's as if only the images before "this" are loaded...
         currentStory = matrixImgs[currentStory.dataset.pos + 1]
       }
       setStory()
@@ -171,6 +180,8 @@ const showPopup = function (event) {
     // Return if click occured on top of the popup and not on the close button
     if (event && event.path.includes(storyPopup) &&
       !event.path.includes(document.querySelector('#close-button'))) { return }
+    // Revert to original story to avoid error in matrixZoomAnimation
+    currentStory = originalStory
 
     // Zoom out of selected element (currentStory) in the matrix and remove popup (storyPopup) before animation completes
     matrixZoomAnimation(matrix, currentStory, storyPopup, 'zoom-out', zoomSpeed)
