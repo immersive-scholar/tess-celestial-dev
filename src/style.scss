@@ -66,9 +66,11 @@
   --matrix-overflow: hidden;
 
   /* .popup properties - overall */
+  --popup-transform: translateY(-50%) translateX(-50%);
   --popup-flex-flow: row nowrap; // For whole popup
   --popup-width: 65%;
   --popup-height: 71.429vh; // 5/7
+  --popup-min-height: auto;
   --popup-max-width: 3500px;
   --popup-left-position: calc(var(--left-col-width) / 2);
   --popup-top-position: calc(var(--top-row-height) / 2);
@@ -105,6 +107,7 @@
   /* .imm-sch-url-container properties */
   --imm-sch-cont-position: relative;
   --imm-sch-cont-height: initial;
+  --imm-sch-cont-width: initial;
   --imm-sch-cont-padding-top: 0px;
   --imm-sch-url-bg-color: rgba(0, 0, 0, 0); // transparent
   --imm-sch-url-vertical-align: center;
@@ -292,12 +295,13 @@ img {
   align-items: var(--center-position);
   width: var(--popup-width);
   height: var(--popup-height);
+  min-height: var(--popup-min-height);
   max-width: var(--popup-max-width);
   box-shadow: var(--popup-shadow);
 
   left: var(--popup-left-position);
   top: var(--popup-top-position);
-  transform: translateY(-50%) translateX(-50%);
+  transform: var(--popup-transform);
 
   pointer-events: none;
   opacity: 0;
@@ -433,6 +437,7 @@ img {
   z-index: 10;
   box-sizing: border-box;
   height: var(--imm-sch-cont-height);
+  width: var(--imm-sch-cont-width);
   padding-top: var(--imm-sch-cont-padding-top);
   position: var(--imm-sch-cont-position);
   margin: 0;
@@ -801,7 +806,6 @@ img {
 /*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
 /*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
 
-// TODO use calc() for a more consistent font size and line length
 // TODO set better max-height
 /**********************************************************************/
 /******************** For large desktops (e.g. 4K display) ********************/
@@ -970,6 +974,7 @@ img {
     --popup-img-area-height: 50%;
 
     /* .imm-sch-url-container properties */
+    --imm-sch-cont-width: 40vw;
     --imm-sch-cont-position: fixed;
     --imm-sch-url-bg-color: rgb(0, 0, 0, 0);
     --max-logo-height: 30px;
@@ -982,7 +987,6 @@ img {
   .imm-sch-url-container {
     bottom: 0;
     right: 0;
-    width: 40vw;
   }
 }
 
@@ -996,6 +1000,7 @@ img {
     --body-overflow: auto;
     --horizontal-center-margins: 0 auto;
     --main-container-display: block; // grid for large-scale to laptop, block for smaller
+    --left-col-width: 100vw; // width of matrix
 
     /* .main-txt properties */
     --main-txt-bg-color: rgb(0, 0, 0, 0);
@@ -1012,10 +1017,13 @@ img {
     --matrix-left-right-gap: calc((100vw - 3 * 23.4375vw) / 6);
     --matrix-col-spacing: 1fr 1fr 1fr;
     --matrix-row-spacing: 1fr 1fr 1fr 1fr 1fr 1fr;
+    --matrix-overflow: visible;
 
     /* .popup properties */
+    --popup-transform: translateY(0%) translateX(-50%);
     --popup-flex-flow: column nowrap;
     --popup-width: 75%;
+    --popup-min-height: 90vh;
     --popup-max-width: 75vw;
     --popup-height: auto;
     --popup-left-position: 50%;
@@ -1028,37 +1036,20 @@ img {
     --popup-primary-img-max-width: 75%;
     --popup-primary-img-max-height: 100%;
     --popup-secondary-img-slides-width: 20%;
-    --popup-secondary-img-slides-height: 100%;
+    --popup-secondary-img-slides-height: 45vw;
     --popup-secondary-img-max-width: 100%;
     --popup-secondary-img-max-height: 20%;
     --popup-img-flex-flow: row nowrap; // For img subsection
     --popup-secondary-img-flex-flow: column nowrap;
 
     /* .imm-sch-url-container properties */
+    --imm-sch-cont-width: 100vw;
     --imm-sch-cont-position: static;
     --max-logo-height: 45px;
     --imm-sch-url-size: 12px;
     --logo-padding: 50px var(--matrix-left-right-gap) 0 var(--matrix-left-right-gap);
     --imm-sch-url-padding: 5px var(--matrix-left-right-gap) 25px var(--matrix-left-right-gap);
     --main-url-separate-display: none; // URL that appears outside of .main-txt
-  }
-
-  .matrix {
-    width: 100vw;
-    overflow: visible;
-  }
-
-  .matrix-popup {
-    transform: translateY(0%) translateX(-50%);
-    min-height: 90vh;
-  }
-
-  .secondary-img-slides {
-    height: 45vw;
-  }
-
-  .imm-sch-url-container {
-    width: 100vw;
   }
 }
 
@@ -1076,7 +1067,7 @@ img {
     --popup-primary-img-max-width: 100%;
     --popup-primary-img-max-height: 75%;
     --popup-secondary-img-slides-width: 100%;
-    --popup-secondary-img-slides-height: 25%;
+    --popup-secondary-img-slides-height: auto;
     --popup-secondary-img-max-width: 20%;
     --popup-secondary-img-max-height: 100%;
     --popup-img-flex-flow: column nowrap; // For img subsection
@@ -1087,10 +1078,6 @@ img {
 
     /* .imm-sch-url-container properties */
     --max-logo-height: 35px;
-  }
-
-  .secondary-img-slides {
-    height: auto;
   }
 }
 
