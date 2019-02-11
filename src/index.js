@@ -164,12 +164,6 @@ const showPopup = function (event) {
     }
   }
 
-  // TODO make sure this doesn't permanently change the primary-img or
-  // secondary-img (changes should be temporary - the popup content should
-  // revert back to its original layout after leaving the popup or viewing
-  // a different matrix-item's popup)
-  // This also stops working if you view a popup, move to a different popup, and
-  // go back to the original popup...
   /**
    * This function swaps the primary-img with the secondary-img that was clicked
    * on (the secondary-img is now the primary-img, and vice versa).
