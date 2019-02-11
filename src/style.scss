@@ -344,21 +344,26 @@ img {
 /* Button to go to prev project in popup */
 #prev-button {
   left: 0px;
-  transform: translateY(0%) translateX(-200%);
+  padding: 0px 15px; // Increase clickable area
+  margin: 0px -15px;
+  transform: translateY(0%) translateX(-100%);
 }
 
 /* Button to go to next project in popup */
 #next-button {
   right: 0px;
-  transform: translateY(0%) translateX(200%);
+  padding: 0px 15px; // Increase clickable area
+  margin: 0px -15px;
+  transform: translateY(0%) translateX(100%);
 }
 
 /* Button to close popup in interactive display */
 #close-button {
   border-width: 0;
-  padding: 0;
-  right: 30px;
+  right: 45px;
   top: 30px;
+  padding: 0px 15px; // Increase clickable area
+  margin: 0px -15px;
   transform: translateY(-55%) translateX(58%);
 }
 
