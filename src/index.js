@@ -87,6 +87,7 @@ const showPopup = function (event) {
   let currentStory = event ? this : sample(matrixImgs.filter(d =>
     !d.classList.contains('removed') && !('viewed' in d.dataset))
   )
+
   // Keep track of content of item that was originally clicked on so
   // removePopup() won't have an error after popup content has been changed
   const originalStory = currentStory
@@ -151,20 +152,20 @@ const showPopup = function (event) {
       event.path.includes(document.querySelector('#prev-button'))) {
       if (currentStory.dataset.pos === 0) {
         // TODO why is this undefined?
-        currentStory = matrixImgs[matrixImgs.length - 1]
+        currentStory = matrixImgs[+matrixImgs.length - 1]
       } else {
-        currentStory = matrixImgs[currentStory.dataset.pos - 1]
+        currentStory = matrixImgs[+currentStory.dataset.pos - 1]
       }
       setStoryContent()
     } else if (event && event.path.includes(storyPopup) &&
       event.path.includes(document.querySelector('#next-button'))) {
-      if (currentStory.dataset.pos === matrixImgs.length - 1) {
+      if (currentStory.dataset.pos === +matrixImgs.length - 1) {
         // TODO why is this undefined?
         currentStory = matrixImgs[0]
       } else {
         // TODO even this does not work
         // It's as if only the images before "this" are loaded...
-        currentStory = matrixImgs[currentStory.dataset.pos + 1]
+        currentStory = matrixImgs[+currentStory.dataset.pos + 1]
       }
       setStoryContent()
     }
