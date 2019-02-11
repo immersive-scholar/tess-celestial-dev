@@ -223,6 +223,17 @@ const showPopup = function (event) {
   for (let i = 0; i < document.querySelectorAll('.secondary-img').length; i++) {
     document.querySelectorAll('.secondary-img')[i].addEventListener('click', swapImg)
   }
+
+  // Attach event listeners for keyboard for convenience
+  window.addEventListener('keydown', function (event) {
+    if (event.keyCode === 37) { // Left arrow key
+      document.querySelector('#prev-button').click()
+    } else if (event.keyCode === 39) { // Right arrow key
+      document.querySelector('#next-button').click()
+    } else if (event.keyCode === 27) { // Esc key
+      document.querySelector('#close-button').click()
+    }
+  }, true)
 }
 
 // Attach an event listener to each matrix img to show popup on click
