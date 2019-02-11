@@ -150,7 +150,7 @@ const showPopup = function (event) {
   const swapStory = function (event) {
     if (event && event.path.includes(storyPopup) &&
       event.path.includes(document.querySelector('#prev-button'))) {
-      if (currentStory.dataset.pos === 0) {
+      if (+currentStory.dataset.pos === 0) {
         // TODO why is this undefined?
         currentStory = matrixImgs[+matrixImgs.length - 1]
       } else {
@@ -159,7 +159,7 @@ const showPopup = function (event) {
       setStoryContent()
     } else if (event && event.path.includes(storyPopup) &&
       event.path.includes(document.querySelector('#next-button'))) {
-      if (currentStory.dataset.pos === +matrixImgs.length - 1) {
+      if (+currentStory.dataset.pos === +matrixImgs.length - 1) {
         // TODO why is this undefined?
         currentStory = matrixImgs[0]
       } else {
