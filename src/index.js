@@ -140,9 +140,6 @@ const showPopup = function (event) {
   // Deactivate matrix item hover state and put it behind all other elements
   document.querySelector('.matrix').style.zIndex = '-1'
 
-  // TODO debug this! Only the left button works when the end of the matrixImgs
-  // array hasn't been reached yet. The other operations result in a TypeError
-  // because it tries to get the dataset.bigSrc of an undefined element.
   /**
    * This function changes the popup to the previous/next matrix-item
    * if the left or right arrow buttons were clicked.
@@ -151,7 +148,6 @@ const showPopup = function (event) {
     if (event && event.path.includes(storyPopup) &&
       event.path.includes(document.querySelector('#prev-button'))) {
       if (+currentStory.dataset.pos === 0) {
-        // TODO why is this undefined?
         currentStory = matrixImgs[+matrixImgs.length - 1]
       } else {
         currentStory = matrixImgs[+currentStory.dataset.pos - 1]
@@ -160,11 +156,8 @@ const showPopup = function (event) {
     } else if (event && event.path.includes(storyPopup) &&
       event.path.includes(document.querySelector('#next-button'))) {
       if (+currentStory.dataset.pos === +matrixImgs.length - 1) {
-        // TODO why is this undefined?
         currentStory = matrixImgs[0]
       } else {
-        // TODO even this does not work
-        // It's as if only the images before "this" are loaded...
         currentStory = matrixImgs[+currentStory.dataset.pos + 1]
       }
       setStoryContent()
