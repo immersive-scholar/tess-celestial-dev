@@ -164,6 +164,9 @@ const showPopup = function (event) {
     }
   }
 
+  // TODO test this more extensively - sometimes it doesn't work
+  // Doesn't work if you enter popup mode, swap some images in the popup, exit
+  // popup mode, and then open up any popup again
   /**
    * This function swaps the primary-img with the secondary-img that was clicked
    * on (the secondary-img is now the primary-img, and vice versa).

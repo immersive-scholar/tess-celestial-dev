@@ -412,6 +412,7 @@ img {
   transform: scale(1.0);
 }
 
+// TODO fix this - scaling causes popup to shift slightly
 /* Hover state for secondary-img */
 .secondary-img:hover {
   transform: scale(1.25);
@@ -1008,6 +1009,8 @@ img {
 /**********************************************************************/
 /******************** For tablet ********************/
 /**********************************************************************/
+// TODO remove slight amount of awkward horizontal scroll here
+// <body> is narrower than <main> for some reason
 /* Between 768px and 425px wide */
 @media (max-width: 768px) and (max-height: 2099px)  {
   :root {
