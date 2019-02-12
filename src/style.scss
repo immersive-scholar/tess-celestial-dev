@@ -1011,6 +1011,9 @@ img {
 /**********************************************************************/
 // TODO remove slight amount of awkward horizontal scroll here
 // <body> is narrower than <main> for some reason
+// Edit: Tested it on my phone and it didn't have the scrolling. Maybe it only
+// shows up if it's the display is in a desktop browser because of the
+// overlaying scrollbar?
 /* Between 768px and 425px wide */
 @media (max-width: 768px) and (max-height: 2099px)  {
   :root {
