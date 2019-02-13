@@ -172,6 +172,9 @@ const showPopup = function (event) {
    * on (the secondary-img is now the primary-img, and vice versa).
    */
   const swapImg = function (event) {
+    // The function is being called but the images aren't changing...
+    // After exiting and re-entering the popup, clicking on an image makes it
+    // fire twice
     let temp = document.getElementById('primary-popup-img').src
     document.getElementById('primary-popup-img').src = this.src
     this.src = temp
@@ -195,6 +198,13 @@ const showPopup = function (event) {
     storyPopup.classList.remove('visible')
     // Reactivate matrix item hover state
     document.querySelector('.matrix').style.zIndex = '1'
+
+    // Remove secondary-img EventListeners so they don't build up
+    for (let i = 0; i < document.querySelectorAll('.secondary-img').length; i++) {
+      console.log('value of i: ' + i)
+      document.querySelectorAll('.secondary-img')[i].removeEventListener('click', swapImg)
+    }
+    console.log('\n')
 
     // Timeout and interactive events
     document.querySelector('body').removeEventListener('click', removePopup)
