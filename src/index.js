@@ -164,9 +164,6 @@ const showPopup = function (event) {
     }
   }
 
-  // TODO test this more extensively - sometimes it doesn't work
-  // Doesn't work if you enter popup mode, swap some images in the popup, exit
-  // popup mode, and then open up any popup again
   /**
    * This function swaps the primary-img with the secondary-img that was clicked
    * on (the secondary-img is now the primary-img, and vice versa).
@@ -199,15 +196,16 @@ const showPopup = function (event) {
     // Reactivate matrix item hover state
     document.querySelector('.matrix').style.zIndex = '1'
 
-    // Remove secondary-img EventListeners so they don't build up
+    // Remove EventListeners so they don't build up and fire multiple times
     for (let i = 0; i < document.querySelectorAll('.secondary-img').length; i++) {
-      console.log('value of i: ' + i)
-      document.querySelectorAll('.secondary-img')[i].removeEventListener('click', swapImg)
+      document.querySelectorAll('.secondary-img')[i].removeEventListener('click', swapImg, true)
     }
-    console.log('\n')
+    document.querySelector('body').removeEventListener('click', removePopup)
+    document.querySelector('#close-button').removeEventListener('click', removePopup)
+    document.querySelector('#prev-button').removeEventListener('click', swapStory)
+    document.querySelector('#next-button').removeEventListener('click', swapStory)
 
     // Timeout and interactive events
-    document.querySelector('body').removeEventListener('click', removePopup)
     window.clearTimeout(timedPopup)
     if (!event) { timedPopup = window.setTimeout(showPopup, timeBetweenPopup) }
   }
@@ -234,25 +232,25 @@ const showPopup = function (event) {
   // Attach event listeners to each secondary-img to swap the primary-img with
   // the secondary-img that is clicked
   for (let i = 0; i < document.querySelectorAll('.secondary-img').length; i++) {
-    document.querySelectorAll('.secondary-img')[i].addEventListener('click', swapImg)
+    document.querySelectorAll('.secondary-img')[i].addEventListener('click', swapImg, true)
   }
-
-  // Attach event listeners for keyboard for convenience
-  window.addEventListener('keydown', function (event) {
-    if (event.keyCode === 37) { // Left arrow key
-      document.querySelector('#prev-button').click()
-    } else if (event.keyCode === 39) { // Right arrow key
-      document.querySelector('#next-button').click()
-    } else if (event.keyCode === 27) { // Esc key
-      document.querySelector('#close-button').click()
-    }
-  }, true)
 }
 
 // Attach an event listener to each matrix img to show popup on click
 matrixImgs.forEach(d =>
   d.addEventListener('click', showPopup)
 )
+
+// Attach event listeners for keyboard for convenience
+window.addEventListener('keydown', function (event) {
+  if (event.keyCode === 37) { // Left arrow key
+    document.querySelector('#prev-button').click()
+  } else if (event.keyCode === 39) { // Right arrow key
+    document.querySelector('#next-button').click()
+  } else if (event.keyCode === 27) { // Esc key
+    document.querySelector('#close-button').click()
+  }
+}, true)
 
 // Turn off auto (timed) transitions if on a personal-sized (interactive) display
 // and adjust zoom speed accordingly
