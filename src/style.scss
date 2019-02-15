@@ -583,6 +583,7 @@ img {
     --main-txt-heading-margin: 0px 0px 25px 0px;
     --main-title-size: 144px;
     --main-researcher-name-size: 84px;
+    --main-desc-size: 42px;
     --main-txt-padding: 75px calc(.5 * 100vw - 1125px);
     --main-desc-padding-left: 75px;
     --main-desc-margin: 0px;
@@ -720,10 +721,17 @@ img {
     --matrix-row-spacing: 1fr 1fr 1fr 1fr 1fr 1fr;
 
     /* .popup properties */
-    --popup-flex-flow: row nowrap;
+    --popup-flex-flow: column nowrap;
+    --popup-height: 70vh;
     /* .popup properties - text */
+    --popup-txt-inner-padding: 0 75px 75px 75px;
+    --popup-txt-area-width: 100%;
+    --popup-txt-area-height: 55%;
     --popup-title-size: 78px;
     --popup-story-size: 30px;
+    /* .popup properties - image */
+    --popup-img-area-width: 100%;
+    --popup-img-area-height: 45%;
 
     /* .imm-sch-url-container properties */
     --imm-sch-cont-height: 5vh;
@@ -750,8 +758,8 @@ img {
     --left-col-width: 100vw; // 1/1
     --right-col-width: 0vw; // 0/1
     --top-row-height: 70vh; // 7/10
-    --middle-row-height: 25vh; // 1/4
-    --bottom-row-height: 5vh; // 1/20
+    --middle-row-height: 22.5vh; // 1/4
+    --bottom-row-height: 7.5vh; // 1/20
 
     /* .main-txt properties */
     --main-txt-display: block;
@@ -763,16 +771,14 @@ img {
     --matrix-item-side-length: 45%;
 
     /* .popup properties - overall */
-    --popup-flex-flow: column nowrap;
     --popup-width: 90%;
-    --popup-height: 60vh;
+    --popup-height: 65vh;
     --popup-max-width: 1300px;
     --popup-left-position: 50%;
-    --popup-top-position: 32.5%;
+    --popup-top-position: 35%;
     /* .popup properties - text */
-    --popup-txt-inner-padding: 0 75px 75px 75px;
     --popup-heading-margin: 0px;
-    --popup-title-size: 78px;
+    --popup-title-size: 72px;
     --popup-story-size: 30px;
     --popup-txt-area-width: 100%;
     --popup-txt-area-height: 50%;
@@ -781,6 +787,7 @@ img {
     --popup-secondary-img-flex-flow: row nowrap;
     --popup-img-area-width: 100%;
     --popup-img-area-height: 50%;
+    --popup-img-primary-secondary-gap: 5% 0 0 0;
     --popup-primary-img-max-width: 100%;
     --popup-primary-img-max-height: 75%;
     --popup-secondary-img-slides-width: 100%;
