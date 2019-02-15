@@ -568,8 +568,8 @@ img {
       "link link";
     --left-col-width: 100vw; // 1/1
     --right-col-width: 0vw; // 0/1
-    --top-row-height: 65vh; // 13/20
-    --middle-row-height: 25vh; // 3/10
+    --top-row-height: 60vh; // 3/5
+    --middle-row-height: 30vh; // 7/20
     --bottom-row-height: 10vh; // 1/20
     --main-cont-row-heights: var(--top-row-height) var(--middle-row-height) var(--bottom-row-height);
 
@@ -583,18 +583,17 @@ img {
     --main-txt-heading-margin: 0px 0px 25px 0px;
     --main-title-size: 144px;
     --main-researcher-name-size: 84px;
-    //--main-txt-padding: 75px;
-    --main-txt-padding: 75px calc(.5 * 100vw - 1125px); //  TODO test y = mx + b
+    --main-txt-padding: 75px calc(.5 * 100vw - 1125px);
     --main-desc-padding-left: 75px;
     --main-desc-margin: 0px;
 
     /* .matrix properties */
     --matrix-width: 100%;
-    --matrix-item-side-length: 85%; // Matrix items are squares/circles
+    --matrix-item-side-length: 80%; // Matrix items are squares/circles
 
     /* .popup properties - overall */
     --popup-width: 95%;
-    --popup-height: 60vh;
+    --popup-height: 50vh;
     /* .popup properties - text */
     --popup-heading-margin: 0px;
     --popup-title-size: 108px;
@@ -619,12 +618,10 @@ img {
 @media (max-aspect-ratio: 8/7) and (min-height: 2100px) {
   :root {
     /* body and .main-container properties */
-    --top-row-height: 60vh; // 3/5
-    --middle-row-height: 30vh; // 7/20
-    --bottom-row-height: 10vh; // 1/20
-
     /* .main-txt properties */
     --main-txt-padding: 75px;
+    --main-title-size: 132px;
+    --main-researcher-name-size: 78px;
 
     /* .matrix properties */
     /* .popup properties */
@@ -635,8 +632,9 @@ img {
   }
 }
 
+// TODO fix this - footer text doesn't wrap properly when layout is narrower
 /* For a wider "portrait" layout */
-/* (Aspect ratios between 6/7 and 1/1) */
+/* (Aspect ratios between 5/7 and 1/1) */
 @media (max-aspect-ratio: 1/1) and (min-height: 2100px) {
   :root {
     /* body and .main-container properties */
@@ -644,7 +642,7 @@ img {
 
     /* .main-txt properties */
     --max-main-line-length: 800px;
-    --main-title-size: 124px;
+    --main-title-size: 120px;
     --main-researcher-name-size: 72px;
     --main-desc-size: 36px;
     --main-link-size: 24px;
@@ -693,13 +691,7 @@ img {
   }
 }
 
-/* (Aspect ratios between 5/7 and 6/7) */
-@media (max-aspect-ratio: 6/7) and (min-height: 2100px) {
-  :root {
-    // TODO adjust text sizing here
-  }
-}
-
+// TODO fix this - popup is too short for the longest stories
 /* For an even narrower "portrait" layout */
 /* (Aspect ratios between 11/21 and 5/7) */
 @media (max-aspect-ratio: 5/7) and (min-height: 2100px) {
@@ -744,6 +736,8 @@ img {
   }
 }
 
+// TODO fix this - popup is too short for the longest stories
+// and there isn't enough room for the footer
 /* The narrowest "portrait" layouts */
 /* (Aspect ratios below 11/21) */
 @media (max-aspect-ratio: 11/21) and (min-height: 2100px) {
@@ -1009,11 +1003,6 @@ img {
 /**********************************************************************/
 /******************** For tablet ********************/
 /**********************************************************************/
-// TODO remove slight amount of awkward horizontal scroll here
-// <body> is narrower than <main> for some reason
-// Edit: Tested it on my phone and it didn't have the scrolling. Maybe it only
-// shows up if it's the display is in a desktop browser because of the
-// overlaying scrollbar?
 /* Between 768px and 425px wide */
 @media (max-width: 768px) and (max-height: 2099px)  {
   :root {
