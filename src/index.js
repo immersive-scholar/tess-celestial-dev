@@ -12,6 +12,8 @@ const imgData = rawImgData
 const minLargeHeight = 2100
 // Variables for timed transitions and zoom animation speed, timed transitions will be set if 'timedTransitions' is 'true'
 let zoomSpeed = 8000 // 8 sec for zoom in/out animation
+// Time for new popup content to fade in after being changed (delay)
+let contentSwapSpeed = 300
 let timedTransitions = true
 const timeBetweenPopup = 30000 + zoomSpeed // 30 sec in full matrix view
 const timePopupShown = 60000 + zoomSpeed // 60 sec in popup view
@@ -74,6 +76,22 @@ const preparePopupAssets = function (assetsObject, value) {
 const popupAssets = imgData.reduce(preparePopupAssets, {})
 
 /**
+ * Fades an element in.
+ */
+const fadeIn = function (element) {
+  element.style.transition = 'opacity 0.3s ease-in-out 0s'
+  element.style.opacity = 1
+}
+
+/**
+ * Fades an element out.
+ */
+const fadeOut = function (element) {
+  element.style.transition = 'opacity 0.3s ease-in-out 0s'
+  element.style.opacity = 0
+}
+
+/**
  * This function displays a story popup window and assigns the content of that
  * window based on data bound to the activated matrix img.
  */
@@ -123,6 +141,7 @@ const showPopup = function (event) {
       .forEach(function (mediaItem, i) {
         secondaryImgs[i].classList.remove('removed')
         secondaryImgs[i].src = require(`./${imgFolder}/${mediaItem}`)
+        secondaryImgs[i].id = 'secondary-img-' + i
       })
 
     // Set the title and text of the story popup
@@ -169,12 +188,24 @@ const showPopup = function (event) {
    * on (the secondary-img is now the primary-img, and vice versa).
    */
   const swapImg = function (event) {
-    // The function is being called but the images aren't changing...
-    // After exiting and re-entering the popup, clicking on an image makes it
-    // fire twice
-    let temp = document.getElementById('primary-popup-img').src
-    document.getElementById('primary-popup-img').src = this.src
-    this.src = temp
+    // Fade out original images
+    fadeOut(document.getElementById('primary-popup-img'))
+    fadeOut(this)
+
+    // Grab the ID of "this" to be used in fadeIn()
+    let thisElem = document.getElementById(this.id)
+
+    setTimeout(function () {
+      // The source swapping occurs here because it should happen after the
+      // original images fade out, not before
+      let temp = document.getElementById('primary-popup-img').src
+      document.getElementById('primary-popup-img').src = thisElem.src
+      thisElem.src = temp
+
+      // Fade in new images
+      fadeIn(thisElem)
+      fadeIn(document.getElementById('primary-popup-img'))
+    }, contentSwapSpeed)
   }
 
   /**
@@ -226,7 +257,7 @@ const showPopup = function (event) {
 
   // Attach event listeners to prev-button and next-button to swap the popup
   // content if they are clicked without having to leave popup view
-  document.querySelector('#prev-button').addEventListener('click', swapStory)
+  // document.querySelector('#prev-button').addEventListener('click', swapStory)
   document.querySelector('#next-button').addEventListener('click', swapStory)
 
   // Attach event listeners to each secondary-img to swap the primary-img with
