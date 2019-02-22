@@ -188,6 +188,11 @@ const showPopup = function (event) {
    * on (the secondary-img is now the primary-img, and vice versa).
    */
   const swapImg = function (event) {
+    // Grab original hover transitions of the images
+    // so they can be reset after the transition
+    let temp1 = document.getElementById('primary-popup-img').style.transition
+    let temp2 = this.style.transition
+
     // Fade out original images
     fadeOut(document.getElementById('primary-popup-img'))
     fadeOut(this)
@@ -205,6 +210,10 @@ const showPopup = function (event) {
       // Fade in new images
       fadeIn(thisElem)
       fadeIn(document.getElementById('primary-popup-img'))
+
+      // Reset hover transitions
+      document.getElementById('primary-popup-img').style.transition = temp1
+      thisElem.style.transition = temp2
     }, contentSwapSpeed)
   }
 

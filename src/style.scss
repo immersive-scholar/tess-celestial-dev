@@ -272,8 +272,8 @@ img {
 /* Matrix items grow slightly when hovered on */
 .matrix-item:hover {
   cursor: pointer;
-  transition: 1s;
   z-index: 100;
+  transition: 1s;
   transform: scale(1.25);
 }
 
@@ -415,6 +415,7 @@ img {
 // TODO fix this - scaling causes popup to shift slightly
 /* Hover state for secondary-img */
 .secondary-img:hover {
+  transition: .25s;
   transform: scale(1.25);
 }
 
