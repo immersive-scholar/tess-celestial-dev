@@ -294,6 +294,8 @@ img {
   // z-index: 90; // TODO make it appear on top of main-txt when visible
   // TODO keep it from scrolling back to top each time by tracking
   // scroll position
+  // TODO fix this: while in full matrix view, you get stuck if you scroll
+  // on top of the footer (but it's fine everywhere else)
 }
 
 /* Container for matrix item title, story, images, and URL */
