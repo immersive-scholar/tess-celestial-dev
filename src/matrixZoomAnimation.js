@@ -46,6 +46,7 @@ function matrixZoomAnimation (container, element, popup, direction, zoomSpeed = 
     if (direction === 'zoom-in') {
       container.style['will-change'] = 'auto'
       popup.classList.add('visible')
+      document.querySelector('.overlay').classList.add('visible')
     } else if (direction === 'zoom-out') {
       // Switch src to lower resolution image for full matrix view
       element.src = element.dataset.smallSrc

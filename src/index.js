@@ -106,6 +106,10 @@ const showPopup = function (event) {
     !d.classList.contains('removed') && !('viewed' in d.dataset))
   )
 
+  // Keep track of current scroll position (to revert to when exiting popup)
+  let scrollPos = window.pageYOffset
+  // document.querySelector('.main-container').style.top = -scrollPos + 'px'
+
   // Keep track of content of item that was originally clicked on so
   // removePopup() won't have an error after popup content has been changed
   const originalStory = currentStory
@@ -233,6 +237,7 @@ const showPopup = function (event) {
     // Unclip overflow in main container when zoomed out
     document.querySelector('.main-container').classList.remove('clipped')
     storyPopup.classList.remove('visible')
+    document.querySelector('.overlay').classList.remove('visible')
     // Reactivate matrix item hover state
     document.querySelector('.matrix').style.zIndex = '1'
 
@@ -244,6 +249,9 @@ const showPopup = function (event) {
     document.querySelector('#close-button').removeEventListener('click', removePopup)
     document.querySelector('#prev-button').removeEventListener('click', swapStory)
     document.querySelector('#next-button').removeEventListener('click', swapStory)
+
+    // Return to original scroll position
+    window.scrollTo(0, scrollPos)
 
     // Timeout and interactive events
     window.clearTimeout(timedPopup)

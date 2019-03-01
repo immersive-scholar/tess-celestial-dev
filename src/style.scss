@@ -291,11 +291,15 @@ img {
   overscroll-behavior: contain;
   width: 100vw;
   height: 100vh;
-  // z-index: 90; // TODO make it appear on top of main-txt when visible
+  visibility: hidden;
   // TODO keep it from scrolling back to top each time by tracking
   // scroll position
-  // TODO fix this: while in full matrix view, you get stuck if you scroll
-  // on top of the footer (but it's fine everywhere else)
+}
+
+/* Class to make overlay visible only in popup mode */
+.overlay.visible {
+  visibility: visible;
+  z-index: 100;
 }
 
 /* Container for matrix item title, story, images, and URL */
