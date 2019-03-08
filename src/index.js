@@ -226,6 +226,11 @@ const showPopup = function (event) {
     // Return if click occured on top of the popup and not on the close button
     if (event && event.path.includes(storyPopup) &&
       !event.path.includes(document.querySelector('#close-button'))) { return }
+
+    // Prevent popup from being removed before it is even fully visible
+    // (Must be zoomed in in popup mode before attempting to exit)
+    if (!storyPopup.classList.contains('visible')) { return }
+
     // Revert to original story to avoid error in matrixZoomAnimation
     currentStory = originalStory
 
