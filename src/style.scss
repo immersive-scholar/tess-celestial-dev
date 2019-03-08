@@ -122,6 +122,11 @@
   --logo-padding: 0 0 0 2.083vw; // top, right, bottom, left
 }
 
+// TODO
+html {
+  scroll-behavior: smooth;
+}
+
 /* Element containing .main-container */
 body {
   margin: 0;

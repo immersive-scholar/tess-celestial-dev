@@ -108,7 +108,6 @@ const showPopup = function (event) {
 
   // Keep track of current scroll position (to revert to when exiting popup)
   let scrollPos = window.pageYOffset
-  // document.querySelector('.main-container').style.top = -scrollPos + 'px'
 
   // Keep track of content of item that was originally clicked on so
   // removePopup() won't have an error after popup content has been changed
@@ -158,8 +157,6 @@ const showPopup = function (event) {
 
   // Zoom in on selected element (currentStory) in the matrix and display popup (storyPopup) after animation completes
   matrixZoomAnimation(matrix, currentStory, storyPopup, 'zoom-in', zoomSpeed)
-  // Clip overflow in main container when zoomed in
-  document.querySelector('.main-container').classList.add('clipped')
   // Deactivate matrix item hover state and put it behind all other elements
   document.querySelector('.matrix').style.zIndex = '-1'
 
@@ -234,8 +231,7 @@ const showPopup = function (event) {
 
     // Zoom out of selected element (currentStory) in the matrix and remove popup (storyPopup) before animation completes
     matrixZoomAnimation(matrix, currentStory, storyPopup, 'zoom-out', zoomSpeed)
-    // Unclip overflow in main container when zoomed out
-    document.querySelector('.main-container').classList.remove('clipped')
+    // Hide popup (doesn't disappear quickly enough if inside of matrixZoomAnimation())
     storyPopup.classList.remove('visible')
     document.querySelector('.overlay').classList.remove('visible')
     // Reactivate matrix item hover state
@@ -250,12 +246,11 @@ const showPopup = function (event) {
     document.querySelector('#prev-button').removeEventListener('click', swapStory)
     document.querySelector('#next-button').removeEventListener('click', swapStory)
 
-    // Return to original scroll position
-    window.scrollTo(0, scrollPos)
-
     // Timeout and interactive events
     window.clearTimeout(timedPopup)
     if (!event) { timedPopup = window.setTimeout(showPopup, timeBetweenPopup) }
+    // Return to original scroll position
+    window.scrollTo(0, scrollPos)
   }
 
   // If popup was made visible via a click event, prevent the 'removePopup' event attached to body from being thrown
