@@ -122,7 +122,7 @@
   --logo-padding: 0 0 0 2.083vw; // top, right, bottom, left
 }
 
-// TODO
+/* The root element */
 html {
   scroll-behavior: smooth;
 }
@@ -297,14 +297,24 @@ img {
   width: 100vw;
   height: 100vh;
   visibility: hidden;
-  // TODO keep it from scrolling back to top each time by tracking
-  // scroll position
+
+  pointer-events: none;
+
+  transition-property: visibility;
+  transition-duration: 0.6s;
+  transition-timing-function: cubic-bezier(0.445, 0.05, 0.55, 0.95);
 }
 
 /* Class to make overlay visible only in popup mode */
 .overlay.visible {
   visibility: visible;
   z-index: 100;
+
+  pointer-events: auto;
+
+  transition-property: visibility;
+  transition-duration: 0.6s;
+  transition-timing-function: cubic-bezier(0.445, 0.05, 0.55, 0.95);
 }
 
 /* Container for matrix item title, story, images, and URL */
@@ -335,7 +345,7 @@ img {
   transition-duration: 0.6s;
   transition-timing-function: cubic-bezier(0.445, 0.05, 0.55, 0.95);
 
-  // TODO create a variable for this
+  // TODO create a variable for this?
   margin-bottom: 25px;
 }
 
