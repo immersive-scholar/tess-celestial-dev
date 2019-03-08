@@ -165,6 +165,10 @@ const showPopup = function (event) {
    * if the left or right arrow buttons were clicked.
    */
   const swapStory = function (event) {
+    // Prevent swapping before popup is even fully visible
+    // (Must be zoomed in in popup mode before attempting to exit)
+    if (!storyPopup.classList.contains('visible')) { return }
+
     if (event && event.path.includes(storyPopup) &&
       event.path.includes(document.querySelector('#prev-button'))) {
       if (+currentStory.dataset.pos === 0) {
@@ -189,6 +193,10 @@ const showPopup = function (event) {
    * on (the secondary-img is now the primary-img, and vice versa).
    */
   const swapImg = function (event) {
+    // Prevent swapping before popup is even fully visible
+    // (Must be zoomed in in popup mode before attempting to exit)
+    if (!storyPopup.classList.contains('visible')) { return }
+
     // Grab original hover transitions of the images
     // so they can be reset after the transition
     let temp1 = document.getElementById('primary-popup-img').style.transition
