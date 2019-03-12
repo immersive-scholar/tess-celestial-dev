@@ -15,6 +15,7 @@ let zoomSpeed = 8000 // 8 sec for zoom in/out animation
 // Time for new popup content to fade in after being changed (delay)
 let contentSwapSpeed = 300
 let timedTransitions = true
+let isVisWall = false
 const timeBetweenPopup = 30000 + zoomSpeed // 30 sec in full matrix view
 const timePopupShown = 60000 + zoomSpeed // 60 sec in popup view
 let timedPopup
@@ -133,6 +134,13 @@ const showPopup = function (event) {
 
     // Set source of main img to img selected from matrix
     document.getElementById('primary-popup-img').src = currentStory.src
+
+    // Add pattern columns to the left and right of the popup
+    if (isVisWall) {
+      let patternUrl = 'url(' + currentStory.src + ')'
+      document.getElementById('pattern-1').style.backgroundImage = patternUrl
+      document.getElementById('pattern-2').style.backgroundImage = patternUrl
+    }
 
     // Set array of 'secondary' img elements from popup and make sure to remove any previously used images
     let secondaryImgs = document.querySelectorAll('.secondary-img')
@@ -297,6 +305,16 @@ matrixImgs.forEach(d =>
   d.addEventListener('click', showPopup)
 )
 
+/***********************************************************************/
+/***********************************************************************/
+/** Conditions for personal-sized displays and the Visualization Wall **/
+/***********************************************************************/
+/***********************************************************************/
+// Check if this is the Visualization Wall
+if (window.innerHeight === 1518 && window.innerWidth === 3840) {
+  isVisWall = true
+}
+
 // Attach event listeners for keyboard for convenience
 window.addEventListener('keydown', function (event) {
   if (event.keyCode === 37) { // Left arrow key
@@ -310,7 +328,7 @@ window.addEventListener('keydown', function (event) {
 
 // Turn off auto (timed) transitions if on a personal-sized (interactive) display
 // and adjust zoom speed accordingly
-if (window.innerHeight < minLargeHeight) {
+if (window.innerHeight < minLargeHeight && !isVisWall) {
   timedTransitions = false
   if (window.innerWidth <= 425) { // Mobile
     zoomSpeed = 2000
@@ -319,6 +337,18 @@ if (window.innerHeight < minLargeHeight) {
   } else { // Larger than tablet (laptop, desktop, etc.)
     zoomSpeed = 6000
   }
+}
+
+// Adds pattern columns for the Visualization Wall display
+if (isVisWall) {
+  let pattern1 = document.createElement('div')
+  let pattern2 = document.createElement('div')
+  pattern1.classList.add('pattern')
+  pattern2.classList.add('pattern')
+  pattern1.id = 'pattern-1'
+  pattern2.id = 'pattern-2'
+  document.querySelector('.matrix-popup').appendChild(pattern1)
+  document.querySelector('.matrix-popup').appendChild(pattern2)
 }
 
 // If the display is a (non-interactive) large-scale display, toggle timed
