@@ -623,7 +623,7 @@ img {
     --main-title-size: 144px;
     --main-researcher-name-size: 84px;
     --main-desc-size: 42px;
-    --main-txt-padding: 75px calc(.5 * 100vw - 1125px);
+    --main-txt-padding: 75px calc(75px + (50vw - 1050px));
     --main-desc-padding-left: 75px;
     --main-desc-margin: 0px;
 
@@ -659,6 +659,10 @@ img {
     align-items: center;
   }
 
+  .main-container.clipped {
+    height: 100vh;
+  }
+
   .main-txt {
     order: 2;
     height: auto;
@@ -672,13 +676,18 @@ img {
   .imm-sch-url-container {
     order: 3;
     height: auto;
-    padding: 75px calc(.5 * 100vw - 1125px);
+    padding: var(--main-txt-padding);
     padding-top: 0;
     align-self: flex-start;
+    width: 100%;
   }
 
   .imm-sch-url {
-    padding-bottom: 0;
+    padding: 0;
+  }
+
+  #logo {
+    margin-right: .5vw;
   }
 }
 
@@ -697,7 +706,8 @@ img {
     --main-link-size: 24px;
 
     /* .matrix properties */
-    --main-txt-padding: 75px;
+    // --main-txt-padding: 75px;
+    --main-txt-padding: 50px calc(50px + (50vw - 750px));
     --matrix-col-spacing: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     --matrix-row-spacing: 1fr 1fr 1fr;
     --matrix-width: 100%;
@@ -730,17 +740,11 @@ img {
     --popup-secondary-img-max-height: 25%;
 
     /* .imm-sch-url-container properties */
-    --imm-sch-url-padding: 0 75px 75px 75px;
     --imm-sch-url-vertical-align: center;
     --imm-sch-url-vertical-align-percentage: 40%;
-    --imm-sch-url-padding: 0 75px 25px 0.5vw;
     --imm-sch-url-display: inline-table; // inline or block
     --logo-display: inline-block; // inline-block or block
     --max-logo-height: 80px;
-  }
-
-  .imm-sch-url-container {
-    padding: 0px 75px 75px 75px;
   }
 }
 
@@ -760,7 +764,8 @@ img {
     --bottom-row-height: 5vh;
 
     /* .main-txt properties */
-    --main-txt-padding: 50px;
+    //--main-txt-padding: 50px;
+    --main-txt-padding: 50px calc(50px + (50vw - 550px));
     --main-txt-heading-margin: 0px 0px 15px 0px;
     --main-title-size: 84px;
     --main-researcher-name-size: 48px;
@@ -789,15 +794,12 @@ img {
     --imm-sch-cont-height: 5vh;
     --imm-sch-cont-padding-top: 1.25vh;
     --imm-sch-url-vertical-align-percentage: 55%;
-    --imm-sch-url-padding: 0 75px 75px 0px;
     --imm-sch-url-size: 12px;
-    --logo-padding: 0 0 0 50px;
     --max-logo-height: 50px;
   }
 }
 
 // TODO fix this - popup is too short for the longest stories
-// and there isn't enough room for the footer
 /* The narrowest "portrait" layouts */
 /* (Aspect ratios below 11/21) */
 @media (max-aspect-ratio: 11/21) and (min-height: 2100px) {
@@ -814,6 +816,7 @@ img {
     --bottom-row-height: 7.5vh; // 1/20
 
     /* .main-txt properties */
+    --main-txt-padding: 25px calc(25px + (50vw - 300px));
     --main-txt-display: block;
     --main-txt-grid-areas: "";
     --main-txt-heading-margin: 0px 0px 25px 0px;
