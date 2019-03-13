@@ -11,7 +11,7 @@
 /*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
 /*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
 /*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
-/* (Aspect ratios between 58/21 and 22/7) */
+/* (Aspect ratios greater than 15/7) */
 :root {
   /* body and .main-container properties */
   --body-overflow: hidden;
@@ -32,8 +32,10 @@
   --center-position: center; // For centering in various properties
   --horizontal-center-margins: 0; // For horizontally centering
   // .main-container will have 4 grid cells in landscape layouts, 6 in portrait layouts
-  --left-col-width: 87.5vw; // 7/8
-  --right-col-width: 12.5vw; // 1/8
+  // --left-col-width: 87.5vw; // 7/8
+  // --right-col-width: 12.5vw; // 1/8
+  --left-col-width: calc(100vw - 1100px);
+  --right-col-width: 1100px;
   --top-row-height: 85.714vh; // 6/7
   --middle-row-height: 0vh; // 0/7
   --bottom-row-height: 14.286vh; // 1/7
@@ -114,12 +116,10 @@
   --imm-sch-url-bg-color: rgba(0, 0, 0, 0); // transparent
   --imm-sch-url-vertical-align: center;
   --imm-sch-url-vertical-align-percentage: 62.5%;
-  --imm-sch-url-padding: 0 0 0 0.5vw; // TODO align to left edge of leftmost matrix item in landscape
   --imm-sch-url-size: 24px;
   --imm-sch-url-display: inline; // inline or block
   --logo-display: inline-block; // inline-block or block
   --max-logo-height: 110px;
-  --logo-padding: 0 0 0 2.083vw; // top, right, bottom, left
 }
 
 /* The root element */
@@ -491,7 +491,8 @@ img {
   box-sizing: border-box;
   height: var(--imm-sch-cont-height);
   width: var(--imm-sch-cont-width);
-  padding-top: var(--imm-sch-cont-padding-top);
+  // padding-top: var(--imm-sch-cont-padding-top);
+  padding: 0 0 0 75px;
   position: var(--imm-sch-cont-position);
   margin: 0;
 }
@@ -500,12 +501,11 @@ img {
 #logo {
   max-height: var(--max-logo-height);
   display: var(--logo-display);
-  padding: var(--logo-padding);
+  margin-right: 15px;
 }
 
 /* URL for the Immersive Scholar project that appears outside of .main-txt */
 .imm-sch-url {
-  padding: var(--imm-sch-url-padding);
   font-size: var(--imm-sch-url-size);
   display: var(--imm-sch-url-display);
   vertical-align: var(--imm-sch-url-vertical-align-percentage);
@@ -528,67 +528,23 @@ img {
 /*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
 /*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
 
-// TODO more media queries for wider landscape layouts
-/**********************************************************************/
-/******************** For wider landscape layouts ********************/
-/**********************************************************************/
-/* (Aspect ratios 22/7 and wider) */
-@media (min-aspect-ratio: 22/7) {
-  :root {
-    --left-col-width: 80vw; // 3/4
-    --right-col-width: 20vw; // 1/4
-  }
-}
-
 /**********************************************************************/
 /******************** For narrower landscape layouts ********************/
 /**********************************************************************/
-/* 5/6 matrix, 1/6 text */
-/* (Aspect ratios between 18/7 and 58/21) */
-@media (max-aspect-ratio: 58/21) and (min-height: 2100px) {
-  :root {
-    /* body and .main-container properties */
-    --left-col-width: 83.333vw; // 5/6
-    --right-col-width: 16.667vw; // 1/6
-
-    /* .main-txt properties */
-    /* .matrix properties */
-    /* .popup properties */
-    /* .imm-sch-url-container properties */
-  }
-}
-
-/* 4/5 matrix, 1/5 text */
 /* (Aspect ratios between 15/7 and 18/7) */
 @media (max-aspect-ratio: 18/7) and (min-height: 2100px) {
   :root {
-    /* body and .main-container properties */
-    --left-col-width: 80vw; // 4/5
-    --right-col-width: 20vw; // 1/5
-
-    /* .main-txt properties */
-    /* .matrix properties */
     /* .popup properties */
-    // TODO fix popup story text max font-size to avoid overflow
+    --popup-title-size: 114px;
     --popup-story-size: 42px;
-    /* .imm-sch-url-container properties */
   }
 }
 
-/* 3/4 matrix, 1/4 text */
 /* (Aspect ratios between 8/5 and 15/7) */
 @media (max-aspect-ratio: 15/7) and (min-height: 2100px) {
   :root {
-    /* body and .main-container properties */
-    --left-col-width: 75vw; // 3/4
-    --right-col-width: 25vw; // 1/4
-
-    /* .main-txt properties */
-    /* .matrix properties */
     /* .popup properties */
-    // TODO fix popup story text max font-size to avoid overflow
     --popup-story-size: 36px;
-    /* .imm-sch-url-container properties */
   }
 }
 
@@ -601,16 +557,11 @@ img {
 @media (max-aspect-ratio: 8/5) and (min-height: 2100px) {
   :root {
     /* body and .main-container properties */
-    // --main-container-grid-areas:
-      // "matrix matrix"
-      // "main-txt main-txt"
-      // "link link";
     --left-col-width: 100vw; // 1/1
     --right-col-width: 0vw; // 0/1
     --top-row-height: 60vh; // 3/5
     --middle-row-height: 30vh; // 7/20
     --bottom-row-height: 10vh; // 1/20
-    // --main-cont-row-heights: var(--top-row-height) var(--middle-row-height) var(--bottom-row-height);
 
     /* .main-txt properties */
     --main-txt-display: grid;
@@ -646,10 +597,8 @@ img {
     --imm-sch-url-vertical-align-percentage: 55%;
     --imm-sch-url-size: 24px;
     --imm-sch-url-bg-color: rgba(0, 0, 0, .8);
-    --imm-sch-url-padding: 0 75px 75px 25px;
     --imm-sch-url-display: inline; // inline or block
     --logo-display: inline; // inline-block or block
-    --logo-padding: 0;
   }
 
   .main-container {
@@ -684,10 +633,6 @@ img {
 
   .imm-sch-url {
     padding: 0;
-  }
-
-  #logo {
-    margin-right: .5vw;
   }
 }
 
@@ -851,7 +796,6 @@ img {
     --popup-secondary-img-max-height: 100%;
 
     /* .imm-sch-url-container properties */
-    --imm-sch-url-padding: 0 75px 75px 50px;
     --imm-sch-url-size: 12px;
     --imm-sch-url-display: block; // inline or block
     --max-logo-height: 50px;
@@ -919,7 +863,6 @@ img {
 
     /* .imm-sch-url-container properties */
     --imm-sch-url-vertical-align-percentage: 52.5%;
-    --imm-sch-url-padding: 0vw;
     --imm-sch-url-size: 10px;
     --max-logo-height: 40px;
   }
@@ -957,7 +900,6 @@ img {
       --popup-title-size: 42px;
       --popup-story-size: 16px;
       /* .popup properties - image */
-
 
       /* .imm-sch-url-container properties */
   }
@@ -1050,8 +992,6 @@ img {
     --imm-sch-cont-position: fixed;
     --imm-sch-url-bg-color: rgb(0, 0, 0, 0);
     --max-logo-height: 30px;
-    --logo-padding: 25px 25px 0 25px;
-    --imm-sch-url-padding: 5px 25px 25px 25px;
     --imm-sch-url-display: block; // inline or block
     --logo-display: block; // inline-block or block
   }
@@ -1121,8 +1061,6 @@ img {
     --imm-sch-cont-position: static;
     --max-logo-height: 45px;
     --imm-sch-url-size: 12px;
-    --logo-padding: 50px var(--matrix-left-right-gap) 0 var(--matrix-left-right-gap);
-    --imm-sch-url-padding: 5px var(--matrix-left-right-gap) 25px var(--matrix-left-right-gap);
     --main-url-separate-display: none; // URL that appears outside of .main-txt
   }
 }
@@ -1201,12 +1139,28 @@ img {
 /*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
 /*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
 /*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
-/*||||||||||||  Visualization Wall display (special case)!  ||||||||||||*/
+/*|||||||||||||||||||||||||||  Special cases |||||||||||||||||||||||||||*/
 /*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
 /*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
 /*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
 /*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
 /*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+/*
+ * iPearl Immersion Theater (6816 x 2240):
+ * - main-txt is narrower than usual to fit in a column two tiles wide.
+ * - matrix is shifted to line up with the 7 x 3 gridlines.
+ */
+@media (width: 6816px) and (height: 2240px)  {
+  :root {
+  }
+}
+
+/*
+ * Visualization Wall (3840 x 1518):
+ * - Needs to adhere to the "picket fence" layout.
+ * - Also includes two "pattern" columns in the popup that contain a closeup
+ *   of the tessellation being viewed.
+ */
 @media (width: 3840px) and (height: 1518px)  {
   :root {
     /* body and .main-container properties */
@@ -1244,7 +1198,6 @@ img {
     /* .imm-sch-url-container properties */
     --imm-sch-url-size: 12px;
     --imm-sch-url-display: block;
-    --logo-padding: 0px;
   }
 
   .main-txt, .imm-sch-url-container {
