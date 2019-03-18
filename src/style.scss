@@ -594,11 +594,12 @@ img {
     --matrix-item-side-length: 80%; // Matrix items are squares/circles
 
     /* .popup properties - overall */
-    --popup-width: 95%;
+    //--popup-width: 95%;
+    --popup-width: 90%;
     --popup-height: 50vh;
     /* .popup properties - text */
     --popup-heading-margin: 0px;
-    --popup-title-size: 108px;
+    --popup-title-size: 96px;
     --popup-story-size: 30px;
     /* .popup properties - image */
 
@@ -624,6 +625,10 @@ img {
 
   .main-txt {
     height: auto;
+  }
+
+  .matrix-popup {
+    max-width: 2500px;
   }
 
   .imm-sch-url-container {
