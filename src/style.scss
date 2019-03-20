@@ -598,10 +598,12 @@ img {
     --popup-width: 90%;
     --popup-height: 50vh;
     /* .popup properties - text */
+    --popup-txt-area-width: 50%;
     --popup-heading-margin: 0px;
     --popup-title-size: 96px;
     --popup-story-size: 30px;
     /* .popup properties - image */
+    --popup-img-area-width: 50%;
 
     /* .imm-sch-url-container properties */
     --imm-sch-cont-height: 10vh;
@@ -629,6 +631,8 @@ img {
 
   .matrix-popup {
     max-width: 2500px;
+    //min-width: 1950px;
+    width: 92.813vw;
   }
 
   .imm-sch-url-container {
@@ -667,26 +671,28 @@ img {
     --popup-width: 90vw; // Am not sure why this has to be here
     --popup-max-width: 90vw; // 9/10
     /* .popup properties - text */
-    --popup-txt-inner-padding: 75px;
+    --popup-txt-inner-padding: 50px;
     --popup-title-size: 84px;
     --popup-story-size: 24px;
-    --popup-txt-area-width: 40%;
+    // --popup-txt-area-width: 40%;
     --popup-txt-area-height: 100%;
     /* .popup properties - image */
-    --popup-img-flex-flow: row-reverse nowrap; // For img subsection
-    --popup-secondary-img-flex-flow: column nowrap;
-    --popup-img-area-width: 60%;
+    --popup-img-inner-padding: 50px;
+    --popup-img-flex-flow: column nowrap; // For img subsection
+    --popup-secondary-img-flex-flow: row nowrap;
+    // --popup-img-area-width: 60%;
     --popup-img-area-height: 100%;
     --popup-primary-img-width: auto;
     --popup-primary-img-height: auto;
-    --popup-primary-img-max-width: 75%;
-    --popup-primary-img-max-height: 100%;
-    --popup-secondary-img-slides-width: 25%;
-    --popup-secondary-img-slides-height: 100%;
+    --popup-primary-img-max-width: 100%;
+    --popup-primary-img-max-height: 75%;
+    --popup-img-primary-secondary-gap: 5% 0 0 0;
+    --popup-secondary-img-slides-width: 100%;
+    --popup-secondary-img-slides-height: 25%;
     --popup-secondary-img-width: auto;
     --popup-secondary-img-height: auto;
-    --popup-secondary-img-max-width: 100%;
-    --popup-secondary-img-max-height: 25%;
+    --popup-secondary-img-max-width: 20%;
+    --popup-secondary-img-max-height: 100%;
 
     /* .imm-sch-url-container properties */
     --imm-sch-url-vertical-align: center;
@@ -722,22 +728,23 @@ img {
     --main-link-size: 12px;
 
     /* .matrix properties */
-    --matrix-item-side-length: 45%;
+    --matrix-item-side-length: 40%;
+    // --matrix-item-gap: 25px 0;
     --matrix-col-spacing: 1fr 1fr 1fr;
     --matrix-row-spacing: 1fr 1fr 1fr 1fr 1fr 1fr;
 
     /* .popup properties */
     --popup-flex-flow: column nowrap;
-    --popup-height: 70vh;
+    --popup-height: 67.5vh;
     /* .popup properties - text */
-    --popup-txt-inner-padding: 0 75px 75px 75px;
+    --popup-txt-inner-padding: 0 50px 50px 50px;
     --popup-txt-area-width: 100%;
-    --popup-txt-area-height: 55%;
-    --popup-title-size: 78px;
-    --popup-story-size: 30px;
+    --popup-txt-area-height: 50%;
+    --popup-title-size: 60px;
+    --popup-story-size: 24px;
     /* .popup properties - image */
     --popup-img-area-width: 100%;
-    --popup-img-area-height: 45%;
+    --popup-img-area-height: 50%;
 
     /* .imm-sch-url-container properties */
     --imm-sch-cont-height: 5vh;
@@ -745,6 +752,10 @@ img {
     --imm-sch-url-vertical-align-percentage: 55%;
     --imm-sch-url-size: 12px;
     --max-logo-height: 50px;
+  }
+
+  .matrix-popup {
+    width: 750px;
   }
 }
 
@@ -782,27 +793,32 @@ img {
     --popup-top-position: 35%;
     /* .popup properties - text */
     --popup-heading-margin: 0px;
-    --popup-title-size: 72px;
-    --popup-story-size: 30px;
+    --popup-title-size: 54px;
+    --popup-story-size: 24px;
     --popup-txt-area-width: 100%;
-    --popup-txt-area-height: 50%;
+    --popup-txt-area-height: 60%;
     /* .popup properties - image */
     --popup-img-flex-flow: column nowrap;
     --popup-secondary-img-flex-flow: row nowrap;
     --popup-img-area-width: 100%;
-    --popup-img-area-height: 50%;
+    --popup-img-area-height: 40%;
     --popup-img-primary-secondary-gap: 5% 0 0 0;
     --popup-primary-img-max-width: 100%;
     --popup-primary-img-max-height: 75%;
     --popup-secondary-img-slides-width: 100%;
     --popup-secondary-img-slides-height: 25%;
-    --popup-secondary-img-max-width: 25%;
+    --popup-secondary-img-max-width: 20%;
     --popup-secondary-img-max-height: 100%;
 
     /* .imm-sch-url-container properties */
     --imm-sch-url-size: 12px;
     --imm-sch-url-display: block; // inline or block
     --max-logo-height: 50px;
+  }
+
+  .matrix-popup {
+    width: 91.667vw;
+    max-width: 750px;
   }
 }
 
