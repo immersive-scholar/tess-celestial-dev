@@ -29,15 +29,17 @@
   --paragraph-line-height: 1.3; // Default = 1.2
   --center-position: center; // For centering in various properties
   --horizontal-center-margins: 0; // For horizontally centering
-  // .main-container will have 4 grid cells in landscape layouts, 6 in portrait layouts
   --left-col-width: calc(100vw - 1100px);
   --right-col-width: 1100px;
   --top-row-height: 85.714vh; // 6/7
   --middle-row-height: 0vh; // 0/7
   --bottom-row-height: 14.286vh; // 1/7
   --main-cont-row-heights: var(--top-row-height) var(--bottom-row-height);
+  --main-cont-clipped-height: auto;
 
   /* .main-txt properties */
+  --main-txt-height: auto;
+  --main-txt-overflow: hidden;
   --main-txt-display: block;
   --main-txt-grid-areas: "";
   --main-txt-row-spacing: none;
@@ -53,6 +55,7 @@
   --main-desc-margin: initial;
 
   /* .matrix properties */
+  --matrix-height: auto;
   --matrix-padding: 0;
   --matrix-item-side-length: 70%; // Matrix items are squares/circles
   --matrix-item-max-side-length: 25vh; // Make no wider/taller than 1/4 of vh
@@ -145,18 +148,21 @@ body {
   height: 100vh;
   width: 100vw;
   box-sizing: border-box;
+  overflow: visible;
   display: var(--main-container-display);
+
+  // Grid and flex properties
   grid-template-areas: var(--main-container-grid-areas);
   grid-template-columns: var(--left-col-width) var(--right-col-width);
   grid-template-rows: var(--main-cont-row-heights);
   justify-content: center;
-  overflow: visible;
+  flex-flow: column nowrap;
 }
 
 /* Clips the main-container when zoomed in and popup is displayed */
 .main-container.clipped {
   overflow: hidden;
-  height: auto;
+  height: var(--main-cont-clipped-height);
 }
 
 /* Main (collection) title, researcher name, and project titles */
@@ -202,6 +208,7 @@ img {
  * description, and Immersive Scholar logo
  */
 .main-txt {
+  height: var(--main-txt-height);
   padding: var(--main-txt-padding);
   margin: var(--horizontal-center-margins);
   grid-area: main-txt;
@@ -211,7 +218,7 @@ img {
   grid-template-areas: var(--main-txt-grid-areas);
   grid-template-rows: var(--main-txt-row-spacing);
   position: relative;
-  overflow: auto;
+  overflow: var(--main-txt-overflow);
 
   // Flex properties
   order: 2;
@@ -253,17 +260,18 @@ img {
 /* Container for all the matrix items */
 .matrix {
   width: var(--left-col-width);
+  height: var(--matrix-height);
   display: grid;
-  grid-template-columns: var(--matrix-col-spacing);
-  grid-gap: var(--matrix-item-gap);
-  align-items: var(--center-position);
-  grid-area: matrix;
   overflow: var(--matrix-overflow);
   position: relative; // So z-index will work
   z-index: 1; // Put it behind popup, main-txt, and imm-sch-url-container
   padding: var(--matrix-padding);
 
-  // Flex properties
+  // Grid and flex properties
+  grid-template-columns: var(--matrix-col-spacing);
+  grid-gap: var(--matrix-item-gap);
+  align-items: var(--center-position);
+  grid-area: matrix;
   order: 1;
   flex: 1;
 }
@@ -568,6 +576,7 @@ img {
     --top-row-height: 60vh; // 3/5
     --middle-row-height: 30vh; // 7/20
     --bottom-row-height: 10vh; // 1/20
+    --main-cont-clipped-height: 100vh;
 
     /* .main-txt properties */
     --main-txt-display: grid;
@@ -601,33 +610,14 @@ img {
     --popup-img-area-width: 50%;
 
     /* .imm-sch-url-container properties */
-    --imm-sch-cont-height: 10vh;
+    --imm-sch-cont-width: 100%;
+    --imm-sch-cont-height: auto;
     --imm-sch-cont-padding: 0px calc(75px + (50vw - 1050px)) 75px;
     --imm-sch-url-vertical-align-percentage: 55%;
     --imm-sch-url-size: 24px;
     --imm-sch-url-bg-color: rgba(0, 0, 0, .8);
     --imm-sch-url-display: inline; // inline or block
     --logo-display: inline; // inline-block or block
-  }
-
-  .main-container {
-    flex-flow: column nowrap;
-    justify-content: space-evenly;
-    align-items: center;
-  }
-
-  .main-container.clipped {
-    height: 100vh;
-  }
-
-  .main-txt {
-    height: auto;
-  }
-
-  .imm-sch-url-container {
-    height: auto;
-    align-self: flex-start;
-    width: 100%;
   }
 }
 
@@ -660,7 +650,6 @@ img {
     --popup-txt-inner-padding: 50px;
     --popup-title-size: 84px;
     --popup-story-size: 24px;
-    // --popup-txt-area-width: 40%;
     --popup-txt-area-height: 100%;
     /* .popup properties - image */
     --popup-img-inner-padding: 50px;
@@ -714,12 +703,12 @@ img {
 
     /* .matrix properties */
     --matrix-item-side-length: 40%;
-    // --matrix-item-gap: 25px 0;
     --matrix-col-spacing: 1fr 1fr 1fr;
     --matrix-row-spacing: 1fr 1fr 1fr 1fr 1fr 1fr;
 
     /* .popup properties */
     --popup-flex-flow: column nowrap;
+    --popup-width: 750px;
     --popup-height: 67.5vh;
     /* .popup properties - text */
     --popup-txt-inner-padding: 0 50px 50px 50px;
@@ -737,10 +726,6 @@ img {
     --imm-sch-url-vertical-align-percentage: 55%;
     --imm-sch-url-size: 12px;
     --max-logo-height: 50px;
-  }
-
-  .matrix-popup {
-    width: 750px;
   }
 }
 
@@ -770,9 +755,9 @@ img {
     --matrix-item-side-length: 45%;
 
     /* .popup properties - overall */
-    --popup-width: 90%;
+    --popup-width: 91.667vw;
     --popup-height: 65vh;
-    --popup-max-width: 1300px;
+    --popup-max-width: 750px;
     --popup-left-position: 50%;
     --popup-top-position: 35%;
     /* .popup properties - text */
@@ -800,11 +785,6 @@ img {
     --imm-sch-url-display: block; // inline or block
     --max-logo-height: 50px;
   }
-
-  .matrix-popup {
-    width: 91.667vw;
-    max-width: 750px;
-  }
 }
 
 
@@ -823,7 +803,7 @@ img {
 /*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
 /*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
 
-// TODO set better max-height
+// TODO set better max-height or have toggle for interactive/non-interactive
 /**********************************************************************/
 /******************** For large desktops (e.g. 4K display) ********************/
 /**********************************************************************/
@@ -837,6 +817,7 @@ img {
     --bottom-row-height: 10vh; // 1/10
 
     /* .main-txt properties */
+    --main-txt-overflow: auto;
     --main-txt-bg-color: rgba(0, 0, 0, 0.8);
     --main-txt-heading-margin: 0 0 25px 0;
     --main-txt-padding: 40px;
@@ -1199,30 +1180,16 @@ img {
     --bottom-row-height: 10vh;
     --main-cont-row-heights: var(--top-row-height) var(--middle-row-height) var(--bottom-row-height);
 
-    --main-txt-padding: 0 11.111vw;
+    --main-txt-height: calc(20vh - 50px);
+    --main-txt-padding: 50px 11.111vw 0;
 
+    --matrix-height: 70vh;
+
+    --popup-max-width: 77.778vw;
     --popup-story-size: 36px;
 
+    --imm-sch-cont-height: 10vh;
     --imm-sch-cont-padding: 50px 319.997px;
-  }
-
-  .main-txt {
-    height: 20vh;
-    padding-top: 50px;
-    box-sizing: border-box;
-    overflow: hidden;
-  }
-
-  .matrix {
-    height: 70vh;
-  }
-
-  .imm-sch-url-container {
-    height: 10vh;
-  }
-
-  .matrix-popup {
-    max-width: 77.778vw;
   }
 }
 
@@ -1254,12 +1221,14 @@ img {
     --left-col-width: 100vw; // width of matrix
 
     /* .main-txt properties */
+    --main-txt-height: 100vh;
     --main-txt-padding: 445px 32px 0 32px;
     --main-title-size: 58px;
     --main-researcher-name-size: 36px;
     --main-link-size: 12px;
 
     /* .matrix properties */
+    --matrix-height: 100vh;
     --matrix-item-max-side-length: 400px;
 
     /* .popup properties - overall */
@@ -1292,14 +1261,6 @@ img {
       left: 610.84px;
     width: 406px;
     box-sizing: border-box;
-  }
-
-  .main-txt {
-    height: 100vh;
-  }
-
-  .matrix {
-    height: 100vh;
   }
 
   .overlay {
