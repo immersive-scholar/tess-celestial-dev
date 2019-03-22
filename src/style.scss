@@ -3,9 +3,7 @@
 /*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
 /*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
 /*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
-/*|||||||||| Default settings (Immersion Theater - 6816 x 2240) ||||||||||*/
-/*|||||||||| (Lines up with the bevel grid lines in the Theater ||||||||||*/
-/*|||||||||| (Works for any screen with ratios similar to 27:9) ||||||||||*/
+/*|||||||||||||||||||||||||| Default settings ||||||||||||||||||||||||||*/
 /*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
 /*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
 /*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
@@ -32,8 +30,6 @@
   --center-position: center; // For centering in various properties
   --horizontal-center-margins: 0; // For horizontally centering
   // .main-container will have 4 grid cells in landscape layouts, 6 in portrait layouts
-  // --left-col-width: 87.5vw; // 7/8
-  // --right-col-width: 12.5vw; // 1/8
   --left-col-width: calc(100vw - 1100px);
   --right-col-width: 1100px;
   --top-row-height: 85.714vh; // 6/7
@@ -112,7 +108,7 @@
   --imm-sch-cont-position: relative;
   --imm-sch-cont-height: initial;
   --imm-sch-cont-width: initial;
-  --imm-sch-cont-padding-top: 0px;
+  --imm-sch-cont-padding: 0 0 0 75px;
   --imm-sch-url-bg-color: rgba(0, 0, 0, 0); // transparent
   --imm-sch-url-vertical-align: center;
   --imm-sch-url-vertical-align-percentage: 62.5%;
@@ -498,8 +494,7 @@ img {
   box-sizing: border-box;
   height: var(--imm-sch-cont-height);
   width: var(--imm-sch-cont-width);
-  // padding-top: var(--imm-sch-cont-padding-top);
-  padding: 0 0 0 75px;
+  padding: var(--imm-sch-cont-padding);
   position: var(--imm-sch-cont-position);
   margin: 0;
 
@@ -594,8 +589,8 @@ img {
     --matrix-item-side-length: 80%; // Matrix items are squares/circles
 
     /* .popup properties - overall */
-    //--popup-width: 95%;
-    --popup-width: 90%;
+    --popup-width: 92.813vw;
+    --popup-max-width: 2500px;
     --popup-height: 50vh;
     /* .popup properties - text */
     --popup-txt-area-width: 50%;
@@ -607,7 +602,7 @@ img {
 
     /* .imm-sch-url-container properties */
     --imm-sch-cont-height: 10vh;
-    --imm-sch-cont-padding-top: 2.5vh;
+    --imm-sch-cont-padding: 0px calc(75px + (50vw - 1050px)) 75px;
     --imm-sch-url-vertical-align-percentage: 55%;
     --imm-sch-url-size: 24px;
     --imm-sch-url-bg-color: rgba(0, 0, 0, .8);
@@ -629,16 +624,8 @@ img {
     height: auto;
   }
 
-  .matrix-popup {
-    max-width: 2500px;
-    //min-width: 1950px;
-    width: 92.813vw;
-  }
-
   .imm-sch-url-container {
     height: auto;
-    padding: var(--main-txt-padding);
-    padding-top: 0;
     align-self: flex-start;
     width: 100%;
   }
@@ -659,7 +646,6 @@ img {
     --main-link-size: 24px;
 
     /* .matrix properties */
-    // --main-txt-padding: 75px;
     --main-txt-padding: 50px calc(50px + (50vw - 750px));
     --matrix-col-spacing: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     --matrix-row-spacing: 1fr 1fr 1fr;
@@ -695,6 +681,7 @@ img {
     --popup-secondary-img-max-height: 100%;
 
     /* .imm-sch-url-container properties */
+    --imm-sch-cont-padding: 0 calc(50px + (50vw - 750px)) 50px;
     --imm-sch-url-vertical-align: center;
     --imm-sch-url-vertical-align-percentage: 40%;
     --imm-sch-url-display: inline-table; // inline or block
@@ -703,7 +690,6 @@ img {
   }
 }
 
-// TODO fix this - popup is too short for the longest stories
 /* For an even narrower "portrait" layout */
 /* (Aspect ratios between 11/21 and 5/7) */
 @media (max-aspect-ratio: 5/7) and (min-height: 2100px) {
@@ -719,7 +705,6 @@ img {
     --bottom-row-height: 5vh;
 
     /* .main-txt properties */
-    //--main-txt-padding: 50px;
     --main-txt-padding: 50px calc(50px + (50vw - 550px));
     --main-txt-heading-margin: 0px 0px 15px 0px;
     --main-title-size: 84px;
@@ -747,8 +732,8 @@ img {
     --popup-img-area-height: 50%;
 
     /* .imm-sch-url-container properties */
+    --imm-sch-cont-padding: 0 calc(50px + (50vw - 550px)) 50px;
     --imm-sch-cont-height: 5vh;
-    --imm-sch-cont-padding-top: 1.25vh;
     --imm-sch-url-vertical-align-percentage: 55%;
     --imm-sch-url-size: 12px;
     --max-logo-height: 50px;
@@ -759,7 +744,6 @@ img {
   }
 }
 
-// TODO fix this - popup is too short for the longest stories
 /* The narrowest "portrait" layouts */
 /* (Aspect ratios below 11/21) */
 @media (max-aspect-ratio: 11/21) and (min-height: 2100px) {
@@ -811,6 +795,7 @@ img {
     --popup-secondary-img-max-height: 100%;
 
     /* .imm-sch-url-container properties */
+    --imm-sch-cont-padding: 0 calc(25px + (50vw - 300px)) 25px;
     --imm-sch-url-size: 12px;
     --imm-sch-url-display: block; // inline or block
     --max-logo-height: 50px;
@@ -1166,12 +1151,93 @@ img {
 /*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
 /*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
 /*
+ * These media queries align the content to the different tile gridlines
+ * found in the Hunt Library video walls.
+ */
+
+
+/*
+ * Art Wall (5760 x 2304):
+ * - main-txt is 3 tiles wide (wider than usual)
+ * - matrix is 12 tiles wide and 7 tiles tall (narrower and taller than usual)
+ * - popup is is 8 tiles wide (narrower than usual) and 5 tiles tall (shorter
+ *   than usual)
+ * - imm-sch-url-container is 1 tile tall (shorter than usual)
+ */
+@media (width: 5760px) and (height: 2304px)  {
+  :root {
+    --left-col-width: 80vw;
+    --right-col-width: 20vw;
+    --top-row-height: 87.5vh;
+    --bottom-row-height: 12.5vh;
+
+    --popup-width: 53.333vw;
+    --popup-height: 62.5vh;
+  }
+}
+
+/*
+ * Commons Wall (2880 x 2400):
+ * - main-txt is 2 tiles high (shorter than usual)
+ * --- contents are 7 tiles wide (wider than usual)
+ * - matrix is 7 tiles high (taller than usual)
+ * - popup is 7 tiles wide (narrower than usual)
+ * --- font-size of popup-story is 36px instead of 30px due to the
+ *     greater reading distance
+ * - imm-sch-url-container is 1 tile high (shorter than usual)
+ * --- contents are 7 tiles wide (wider than usual)
+ */
+@media (width: 2880px) and (height: 2400px)  {
+  :root {
+    --main-container-display: grid;
+    --main-container-grid-areas:
+      "matrix"
+      "main-txt"
+      "link";
+    --top-row-height: 70vh;
+    --middle-row-height: 20vh;
+    --bottom-row-height: 10vh;
+    --main-cont-row-heights: var(--top-row-height) var(--middle-row-height) var(--bottom-row-height);
+
+    --main-txt-padding: 0 11.111vw;
+
+    --popup-story-size: 36px;
+
+    --imm-sch-cont-padding: 50px 319.997px;
+  }
+
+  .main-txt {
+    height: 20vh;
+    padding-top: 50px;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  .matrix {
+    height: 70vh;
+  }
+
+  .imm-sch-url-container {
+    height: 10vh;
+  }
+
+  .matrix-popup {
+    max-width: 77.778vw;
+  }
+}
+
+/*
  * iPearl Immersion Theater (6816 x 2240):
- * - main-txt is narrower than usual to fit in a column two tiles wide.
- * - matrix is shifted to line up with the 7 x 3 gridlines.
+ * - main-txt is 2 tiles wide (narrower than usual)
+ * - matrix is 14 tiles wide (wider than usual)
+ * - popup is 8 tiles wide (narrower than usual)
  */
 @media (width: 6816px) and (height: 2240px)  {
   :root {
+    --left-col-width: 87.5vw;
+    --right-col-width: 12.5vw;
+
+    --popup-width: 50vw;
   }
 }
 
@@ -1216,6 +1282,7 @@ img {
     --popup-secondary-img-max-height: 152.3px;
     --popup-secondary-img-slides-height: 1062.5px;
     /* .imm-sch-url-container properties */
+    --imm-sch-cont-padding: 32px;
     --imm-sch-url-size: 12px;
     --imm-sch-url-display: block;
   }
@@ -1287,6 +1354,5 @@ img {
 
   .imm-sch-url-container {
     bottom: 500px;
-    padding: 32px;
   }
 }
