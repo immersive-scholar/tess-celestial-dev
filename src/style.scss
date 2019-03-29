@@ -848,9 +848,14 @@ img {
     --popup-story-size: 18px;
 
     /* .imm-sch-url-container properties */
+    --imm-sch-cont-padding: 0 0 0 40px;
     --imm-sch-url-vertical-align-percentage: 52.5%;
     --imm-sch-url-size: 10px;
     --max-logo-height: 40px;
+  }
+
+  #logo {
+    margin-right: 10px;
   }
 }
 
@@ -974,6 +979,7 @@ img {
     --popup-img-area-height: 50%;
 
     /* .imm-sch-url-container properties */
+    --imm-sch-cont-padding: var(--main-txt-padding);
     --imm-sch-cont-width: 40vw;
     --imm-sch-cont-position: fixed;
     --imm-sch-url-bg-color: rgb(0, 0, 0, 0);
