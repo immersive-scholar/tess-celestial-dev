@@ -45,10 +45,15 @@ function matrixZoomAnimation (container, element, popup, direction, zoomSpeed = 
     container.style.filter = animationDirection[1].filter
     if (direction === 'zoom-in') {
       container.style['will-change'] = 'auto'
+      // Clip main-container while zooming in
+      document.querySelector('.main-container').classList.add('clipped')
       popup.classList.add('visible')
+      document.querySelector('.overlay').classList.add('visible')
     } else if (direction === 'zoom-out') {
       // Switch src to lower resolution image for full matrix view
       element.src = element.dataset.smallSrc
+      // Unclip main-container when zoomed out
+      document.querySelector('.main-container').classList.remove('clipped')
     }
   })
 }
