@@ -1,3 +1,5 @@
+import 'web-animations-js'
+
 function matrixZoomAnimation (container, element, popup, direction, zoomSpeed = 8000) {
   const style = window.getComputedStyle(container)
   const columns = style.getPropertyValue('grid-template-columns')
@@ -15,7 +17,7 @@ function matrixZoomAnimation (container, element, popup, direction, zoomSpeed = 
 
   const containerAnimationProperties = [
     {
-      transform: 'scale(1) translate(0)',
+      transform: 'translate(0)',
       opacity: '1',
       filter: 'blur(0)'
     },

@@ -286,7 +286,7 @@ img {
   width: var(--matrix-item-side-length);
   max-width: var(--matrix-item-max-side-length);
   justify-self: var(--center-position);
-  transition: 1s;
+  transition: 0.6s;
   transform: scale(1.0);
 }
 
@@ -294,8 +294,8 @@ img {
 .matrix-item:hover {
   cursor: pointer;
   z-index: 100;
-  transition: 1s;
-  transform: scale(1.25);
+  transition: 0.6s;
+  transform: scale(1.1);
 }
 
 
@@ -383,7 +383,7 @@ img {
   font-size: calc(var(--popup-story-size) * 2.5);
   display: var(--popup-button-display);
   position: absolute;
-  transition: .25s;
+  transition: .4s;
   transform: scale(1.0);
 }
 
@@ -391,8 +391,8 @@ img {
 .popup-button:hover {
   cursor: pointer;
   color: var(--button-color-hover);
-  transition: .25s;
-  font-size: calc(var(--popup-story-size) * 2.75);;
+  transition: .4s;
+  font-size: calc(var(--popup-story-size) * 2.75);
 }
 
 /* Button to go to prev project in popup */
@@ -470,7 +470,7 @@ img {
 /* Hover state for secondary-img */
 .secondary-img:hover {
   transition: .25s;
-  transform: scale(1.25);
+  transform: scale(1.1);
 }
 
 /* Area of matrix popup containing item title, story, and URL */

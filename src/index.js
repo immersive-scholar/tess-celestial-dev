@@ -177,22 +177,25 @@ const showPopup = function (event) {
     // (Must be zoomed in in popup mode before attempting to exit)
     if (!storyPopup.classList.contains('visible')) { return }
 
-    if (event && event.path.includes(storyPopup) &&
-      event.path.includes(document.querySelector('#prev-button'))) {
-      if (+currentStory.dataset.pos === 0) {
-        currentStory = matrixImgs[+matrixImgs.length - 1]
-      } else {
-        currentStory = matrixImgs[+currentStory.dataset.pos - 1]
+    if (event) {
+      const path = event.path || event.composedPath()
+      if (path.includes(storyPopup) &&
+        path.includes(document.querySelector('#prev-button'))) {
+        if (+currentStory.dataset.pos === 0) {
+          currentStory = matrixImgs[+matrixImgs.length - 1]
+        } else {
+          currentStory = matrixImgs[+currentStory.dataset.pos - 1]
+        }
+        setStoryContent()
+      } else if (path.includes(storyPopup) &&
+        path.includes(document.querySelector('#next-button'))) {
+        if (+currentStory.dataset.pos === +matrixImgs.length - 1) {
+          currentStory = matrixImgs[0]
+        } else {
+          currentStory = matrixImgs[+currentStory.dataset.pos + 1]
+        }
+        setStoryContent()
       }
-      setStoryContent()
-    } else if (event && event.path.includes(storyPopup) &&
-      event.path.includes(document.querySelector('#next-button'))) {
-      if (+currentStory.dataset.pos === +matrixImgs.length - 1) {
-        currentStory = matrixImgs[0]
-      } else {
-        currentStory = matrixImgs[+currentStory.dataset.pos + 1]
-      }
-      setStoryContent()
     }
   }
 
@@ -240,9 +243,11 @@ const showPopup = function (event) {
    */
   const removePopup = function (event) {
     // Return if click occured on top of the popup and not on the close button
-    if (event && event.path.includes(storyPopup) &&
-      !event.path.includes(document.querySelector('#close-button'))) { return }
-
+    if (event) {
+      const path = event.path || event.composedPath()
+      if (path.includes(storyPopup) &&
+      !path.includes(document.querySelector('#close-button'))) { return }
+    }
     // Prevent popup from being removed before it is even fully visible
     // (Must be zoomed in in popup mode before attempting to exit)
     if (!storyPopup.classList.contains('visible')) { return }
