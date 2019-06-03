@@ -1,3 +1,4 @@
+// Polyfill for animate function in Safari
 import 'web-animations-js'
 
 function matrixZoomAnimation (container, element, popup, direction, zoomSpeed = 8000) {
