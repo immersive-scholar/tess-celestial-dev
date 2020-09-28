@@ -64,6 +64,7 @@ matrixImgs.forEach(function(img, i) {
 		rowElement.classList.add('grid-y', 'grid-autofill');
 
 		gridElement = document.createElement('div');
+		gridElement.style.gap = '25px';
 		gridElement.classList.add('grid-x');
 	}
 
@@ -71,8 +72,7 @@ matrixImgs.forEach(function(img, i) {
 	img.dataset.pos = i;
 
 	const cellElement = document.createElement('div');
-	cellElement.classList.add('cell', 'align-middle');
-	cellElement.style.display = 'grid';
+	cellElement.classList.add('cell');
 	cellElement.appendChild(img);
 
 	gridElement.appendChild(cellElement);
@@ -142,7 +142,7 @@ const showPopup = function(event) {
 				matrixImgs.filter(
 					(d) => !d.classList.contains('removed') && !('viewed' in d.dataset)
 				)
-      );
+			);
 
 	// Keep track of current scroll position (to revert to when exiting popup)
 	let scrollPos = window.pageYOffset;
@@ -184,11 +184,13 @@ const showPopup = function(event) {
 		secondaryImgs.forEach((d) => d.classList.add('removed'));
 
 		// Filter story media to display available secondary images
-		story.storyMedia.filter((d) => d !== '' && d !== undefined).forEach(function(mediaItem, i) {
-			secondaryImgs[i].classList.remove('removed');
-			secondaryImgs[i].src = require(`./${imgFolder}/${mediaItem}`);
-			secondaryImgs[i].id = 'secondary-img-' + i;
-		});
+		story.storyMedia
+			.filter((d) => d !== '' && d !== undefined)
+			.forEach(function(mediaItem, i) {
+				secondaryImgs[i].classList.remove('removed');
+				secondaryImgs[i].src = require(`./${imgFolder}/${mediaItem}`);
+				secondaryImgs[i].id = 'secondary-img-' + i;
+			});
 
 		// Set the title and text of the story popup
 		document.querySelector('.project-title').textContent = story.title;
@@ -371,7 +373,8 @@ const showPopup = function(event) {
 	// Attach event listeners to each secondary-img to swap the primary-img with
 	// the secondary-img that is clicked
 	for (let i = 0; i < document.querySelectorAll('.secondary-img').length; i++) {
-		document.querySelectorAll('.secondary-img')[i].addEventListener('click', swapImg, true);
+		document
+			.querySelectorAll('.secondary-img')[i].addEventListener('click', swapImg, true);
 	}
 };
 

@@ -5,304 +5,308 @@
 }
 
 .theme-random-colors .cell:nth-child(1) {
-  background-color: #ff7547;
-}
-.theme-random-colors .cell:nth-child(2) {
-  background-color: #ff5e29;
-}
-.theme-random-colors .cell:nth-child(3) {
-  background-color: #ff794d;
-}
-.theme-random-colors .cell:nth-child(4) {
-  background-color: #ff8c66;
-}
-.theme-random-colors .cell:nth-child(5) {
-  background-color: #ff6a38;
-}
-.theme-random-colors .cell:nth-child(6) {
-  background-color: #ff8861;
-}
-.theme-random-colors .cell:nth-child(7) {
-  background-color: #ff8861;
-}
-.theme-random-colors .cell:nth-child(8) {
-  background-color: #ff8157;
-}
-.theme-random-colors .cell:nth-child(9) {
-  background-color: #ff7547;
-}
-.theme-random-colors .cell:nth-child(10) {
-  background-color: #ff6a38;
-}
-.theme-random-colors .cell:nth-child(11) {
   background-color: #ff6633;
 }
-.theme-random-colors .cell:nth-child(12) {
-  background-color: #ff8c66;
+.theme-random-colors .cell:nth-child(2) {
+  background-color: #ff7547;
 }
-.theme-random-colors .cell:nth-child(13) {
-  background-color: #ff4f14;
-}
-.theme-random-colors .cell:nth-child(14) {
-  background-color: #ff9c7a;
-}
-.theme-random-colors .cell:nth-child(15) {
-  background-color: #ff6e3d;
-}
-.theme-random-colors .cell:nth-child(16) {
-  background-color: #ff9c7a;
-}
-.theme-random-colors .cell:nth-child(17) {
-  background-color: #ff906b;
-}
-.theme-random-colors .cell:nth-child(18) {
-  background-color: #ff571f;
-}
-.theme-random-colors .cell:nth-child(19) {
+.theme-random-colors .cell:nth-child(3) {
   background-color: #ff5e29;
 }
-.theme-random-colors .cell:nth-child(20) {
-  background-color: #ff6e3d;
+.theme-random-colors .cell:nth-child(4) {
+  background-color: #ff5e29;
 }
-.theme-random-colors .cell:nth-child(21) {
-  background-color: #ff7142;
+.theme-random-colors .cell:nth-child(5) {
+  background-color: #ff531a;
 }
-.theme-random-colors .cell:nth-child(22) {
+.theme-random-colors .cell:nth-child(6) {
+  background-color: #ff5e29;
+}
+.theme-random-colors .cell:nth-child(7) {
+  background-color: #ff7d52;
+}
+.theme-random-colors .cell:nth-child(8) {
+  background-color: #ff4f14;
+}
+.theme-random-colors .cell:nth-child(9) {
   background-color: #ff4405;
 }
-.theme-random-colors .cell:nth-child(23) {
-  background-color: #ff6e3d;
+.theme-random-colors .cell:nth-child(10) {
+  background-color: #ff4f14;
 }
-.theme-random-colors .cell:nth-child(24) {
-  background-color: #ff470a;
+.theme-random-colors .cell:nth-child(11) {
+  background-color: #ff571f;
 }
-.theme-random-colors .cell:nth-child(25) {
-  background-color: #ff531a;
+.theme-random-colors .cell:nth-child(12) {
+  background-color: #ff4b0f;
 }
-.theme-random-colors .cell:nth-child(26) {
+.theme-random-colors .cell:nth-child(13) {
+  background-color: #ff8861;
+}
+.theme-random-colors .cell:nth-child(14) {
   background-color: #ff622e;
 }
+.theme-random-colors .cell:nth-child(15) {
+  background-color: #ff7142;
+}
+.theme-random-colors .cell:nth-child(16) {
+  background-color: #ff470a;
+}
+.theme-random-colors .cell:nth-child(17) {
+  background-color: #ff571f;
+}
+.theme-random-colors .cell:nth-child(18) {
+  background-color: #ff8861;
+}
+.theme-random-colors .cell:nth-child(19) {
+  background-color: #ff6633;
+}
+.theme-random-colors .cell:nth-child(20) {
+  background-color: #ff8157;
+}
+.theme-random-colors .cell:nth-child(21) {
+  background-color: #ff9875;
+}
+.theme-random-colors .cell:nth-child(22) {
+  background-color: #ff8c66;
+}
+.theme-random-colors .cell:nth-child(23) {
+  background-color: #ff571f;
+}
+.theme-random-colors .cell:nth-child(24) {
+  background-color: #ff5e29;
+}
+.theme-random-colors .cell:nth-child(25) {
+  background-color: #ff906b;
+}
+.theme-random-colors .cell:nth-child(26) {
+  background-color: #ff6a38;
+}
 .theme-random-colors .cell:nth-child(27) {
-  background-color: #ff531a;
+  background-color: #ff571f;
 }
 .theme-random-colors .cell:nth-child(28) {
-  background-color: #ff9c7a;
+  background-color: #ff622e;
 }
 .theme-random-colors .cell:nth-child(29) {
   background-color: #ff571f;
 }
 .theme-random-colors .cell:nth-child(30) {
-  background-color: #ff531a;
+  background-color: #ff8861;
 }
 .theme-random-colors .cell:nth-child(31) {
-  background-color: #ff9875;
+  background-color: #ff571f;
 }
 .theme-random-colors .cell:nth-child(32) {
-  background-color: #ff7547;
+  background-color: #ff906b;
 }
 .theme-random-colors .cell:nth-child(33) {
   background-color: #ff5b24;
 }
 .theme-random-colors .cell:nth-child(34) {
-  background-color: #ff5b24;
+  background-color: #ff622e;
 }
 .theme-random-colors .cell:nth-child(35) {
-  background-color: #ff8861;
+  background-color: #ff906b;
 }
 .theme-random-colors .cell:nth-child(36) {
   background-color: #ff9c7a;
 }
 .theme-random-colors .cell:nth-child(37) {
-  background-color: #ff8861;
+  background-color: #ff9c7a;
 }
 .theme-random-colors .cell:nth-child(38) {
-  background-color: #ff531a;
+  background-color: #ff5b24;
 }
 .theme-random-colors .cell:nth-child(39) {
-  background-color: #ff571f;
+  background-color: #ff7d52;
 }
 .theme-random-colors .cell:nth-child(40) {
-  background-color: #ff6e3d;
+  background-color: #ff9c7a;
 }
 .theme-random-colors .cell:nth-child(41) {
-  background-color: #ff794d;
-}
-.theme-random-colors .cell:nth-child(42) {
-  background-color: #ff531a;
-}
-.theme-random-colors .cell:nth-child(43) {
   background-color: #ff855c;
 }
-.theme-random-colors .cell:nth-child(44) {
+.theme-random-colors .cell:nth-child(42) {
+  background-color: #ff9f80;
+}
+.theme-random-colors .cell:nth-child(43) {
   background-color: #ff6e3d;
 }
+.theme-random-colors .cell:nth-child(44) {
+  background-color: #ff855c;
+}
 .theme-random-colors .cell:nth-child(45) {
-  background-color: #ff8861;
+  background-color: #ff9c7a;
 }
 .theme-random-colors .cell:nth-child(46) {
-  background-color: #ff8c66;
+  background-color: #ff4405;
 }
 .theme-random-colors .cell:nth-child(47) {
   background-color: #ff9875;
 }
 .theme-random-colors .cell:nth-child(48) {
-  background-color: #ff6e3d;
-}
-.theme-random-colors .cell:nth-child(49) {
-  background-color: #ff7d52;
-}
-.theme-random-colors .cell:nth-child(50) {
-  background-color: #ff5b24;
-}
-.theme-random-colors .cell:nth-child(51) {
-  background-color: #ff8861;
-}
-.theme-random-colors .cell:nth-child(52) {
-  background-color: #ff906b;
-}
-.theme-random-colors .cell:nth-child(53) {
-  background-color: #ff7142;
-}
-.theme-random-colors .cell:nth-child(54) {
-  background-color: #ff5b24;
-}
-.theme-random-colors .cell:nth-child(55) {
-  background-color: #ff5e29;
-}
-.theme-random-colors .cell:nth-child(56) {
-  background-color: #ff7d52;
-}
-.theme-random-colors .cell:nth-child(57) {
-  background-color: #ff622e;
-}
-.theme-random-colors .cell:nth-child(58) {
-  background-color: #ff9f80;
-}
-.theme-random-colors .cell:nth-child(59) {
-  background-color: #ff470a;
-}
-.theme-random-colors .cell:nth-child(60) {
-  background-color: #ff8c66;
-}
-.theme-random-colors .cell:nth-child(61) {
-  background-color: #ff4f14;
-}
-.theme-random-colors .cell:nth-child(62) {
-  background-color: #ff4f14;
-}
-.theme-random-colors .cell:nth-child(63) {
-  background-color: #ff4405;
-}
-.theme-random-colors .cell:nth-child(64) {
-  background-color: #ff571f;
-}
-.theme-random-colors .cell:nth-child(65) {
-  background-color: #ff6a38;
-}
-.theme-random-colors .cell:nth-child(66) {
-  background-color: #ff9f80;
-}
-.theme-random-colors .cell:nth-child(67) {
-  background-color: #ff4b0f;
-}
-.theme-random-colors .cell:nth-child(68) {
-  background-color: #ff4405;
-}
-.theme-random-colors .cell:nth-child(69) {
-  background-color: #ff7547;
-}
-.theme-random-colors .cell:nth-child(70) {
-  background-color: #ff7d52;
-}
-.theme-random-colors .cell:nth-child(71) {
-  background-color: #ff9c7a;
-}
-.theme-random-colors .cell:nth-child(72) {
-  background-color: #ff794d;
-}
-.theme-random-colors .cell:nth-child(73) {
-  background-color: #ff8c66;
-}
-.theme-random-colors .cell:nth-child(74) {
-  background-color: #ff7547;
-}
-.theme-random-colors .cell:nth-child(75) {
-  background-color: #ff906b;
-}
-.theme-random-colors .cell:nth-child(76) {
-  background-color: #ff4b0f;
-}
-.theme-random-colors .cell:nth-child(77) {
-  background-color: #ff6633;
-}
-.theme-random-colors .cell:nth-child(78) {
-  background-color: #ff8861;
-}
-.theme-random-colors .cell:nth-child(79) {
-  background-color: #ff794d;
-}
-.theme-random-colors .cell:nth-child(80) {
   background-color: #ff9875;
 }
-.theme-random-colors .cell:nth-child(81) {
-  background-color: #ff9f80;
+.theme-random-colors .cell:nth-child(49) {
+  background-color: #ff6a38;
 }
-.theme-random-colors .cell:nth-child(82) {
-  background-color: #ff855c;
-}
-.theme-random-colors .cell:nth-child(83) {
-  background-color: #ff622e;
-}
-.theme-random-colors .cell:nth-child(84) {
+.theme-random-colors .cell:nth-child(50) {
   background-color: #ff9470;
 }
-.theme-random-colors .cell:nth-child(85) {
-  background-color: #ff6633;
+.theme-random-colors .cell:nth-child(51) {
+  background-color: #ff4405;
 }
-.theme-random-colors .cell:nth-child(86) {
+.theme-random-colors .cell:nth-child(52) {
+  background-color: #ff6e3d;
+}
+.theme-random-colors .cell:nth-child(53) {
   background-color: #ff531a;
 }
-.theme-random-colors .cell:nth-child(87) {
+.theme-random-colors .cell:nth-child(54) {
+  background-color: #ff6633;
+}
+.theme-random-colors .cell:nth-child(55) {
+  background-color: #ff6e3d;
+}
+.theme-random-colors .cell:nth-child(56) {
+  background-color: #ff8157;
+}
+.theme-random-colors .cell:nth-child(57) {
+  background-color: #ff6e3d;
+}
+.theme-random-colors .cell:nth-child(58) {
   background-color: #ff8861;
 }
-.theme-random-colors .cell:nth-child(88) {
+.theme-random-colors .cell:nth-child(59) {
+  background-color: #ff6a38;
+}
+.theme-random-colors .cell:nth-child(60) {
+  background-color: #ff9875;
+}
+.theme-random-colors .cell:nth-child(61) {
+  background-color: #ff571f;
+}
+.theme-random-colors .cell:nth-child(62) {
+  background-color: #ff9c7a;
+}
+.theme-random-colors .cell:nth-child(63) {
   background-color: #ff9f80;
 }
-.theme-random-colors .cell:nth-child(89) {
-  background-color: #ff8861;
+.theme-random-colors .cell:nth-child(64) {
+  background-color: #ff794d;
 }
-.theme-random-colors .cell:nth-child(90) {
+.theme-random-colors .cell:nth-child(65) {
+  background-color: #ff5e29;
+}
+.theme-random-colors .cell:nth-child(66) {
+  background-color: #ff5e29;
+}
+.theme-random-colors .cell:nth-child(67) {
+  background-color: #ff5e29;
+}
+.theme-random-colors .cell:nth-child(68) {
   background-color: #ff7142;
 }
+.theme-random-colors .cell:nth-child(69) {
+  background-color: #ff9c7a;
+}
+.theme-random-colors .cell:nth-child(70) {
+  background-color: #ff5e29;
+}
+.theme-random-colors .cell:nth-child(71) {
+  background-color: #ff622e;
+}
+.theme-random-colors .cell:nth-child(72) {
+  background-color: #ff4f14;
+}
+.theme-random-colors .cell:nth-child(73) {
+  background-color: #ff4405;
+}
+.theme-random-colors .cell:nth-child(74) {
+  background-color: #ff4405;
+}
+.theme-random-colors .cell:nth-child(75) {
+  background-color: #ff9875;
+}
+.theme-random-colors .cell:nth-child(76) {
+  background-color: #ff855c;
+}
+.theme-random-colors .cell:nth-child(77) {
+  background-color: #ff9c7a;
+}
+.theme-random-colors .cell:nth-child(78) {
+  background-color: #ff855c;
+}
+.theme-random-colors .cell:nth-child(79) {
+  background-color: #ff4b0f;
+}
+.theme-random-colors .cell:nth-child(80) {
+  background-color: #ff622e;
+}
+.theme-random-colors .cell:nth-child(81) {
+  background-color: #ff906b;
+}
+.theme-random-colors .cell:nth-child(82) {
+  background-color: #ff531a;
+}
+.theme-random-colors .cell:nth-child(83) {
+  background-color: #ff4f14;
+}
+.theme-random-colors .cell:nth-child(84) {
+  background-color: #ff7547;
+}
+.theme-random-colors .cell:nth-child(85) {
+  background-color: #ff4b0f;
+}
+.theme-random-colors .cell:nth-child(86) {
+  background-color: #ff5e29;
+}
+.theme-random-colors .cell:nth-child(87) {
+  background-color: #ff470a;
+}
+.theme-random-colors .cell:nth-child(88) {
+  background-color: #ff4405;
+}
+.theme-random-colors .cell:nth-child(89) {
+  background-color: #ff794d;
+}
+.theme-random-colors .cell:nth-child(90) {
+  background-color: #ff622e;
+}
 .theme-random-colors .cell:nth-child(91) {
-  background-color: #ff7d52;
+  background-color: #ff4405;
 }
 .theme-random-colors .cell:nth-child(92) {
   background-color: #ff8c66;
 }
 .theme-random-colors .cell:nth-child(93) {
-  background-color: #ff906b;
+  background-color: #ff6a38;
 }
 .theme-random-colors .cell:nth-child(94) {
-  background-color: #ff9875;
-}
-.theme-random-colors .cell:nth-child(95) {
-  background-color: #ff855c;
-}
-.theme-random-colors .cell:nth-child(96) {
-  background-color: #ff5b24;
-}
-.theme-random-colors .cell:nth-child(97) {
-  background-color: #ff6633;
-}
-.theme-random-colors .cell:nth-child(98) {
-  background-color: #ff8861;
-}
-.theme-random-colors .cell:nth-child(99) {
   background-color: #ff470a;
 }
-.theme-random-colors .cell:nth-child(100) {
+.theme-random-colors .cell:nth-child(95) {
+  background-color: #ff4405;
+}
+.theme-random-colors .cell:nth-child(96) {
   background-color: #ff6a38;
+}
+.theme-random-colors .cell:nth-child(97) {
+  background-color: #ff5b24;
+}
+.theme-random-colors .cell:nth-child(98) {
+  background-color: #ff5b24;
+}
+.theme-random-colors .cell:nth-child(99) {
+  background-color: #ff6633;
+}
+.theme-random-colors .cell:nth-child(100) {
+  background-color: #ff9470;
+}
+
+.theme-border .cell + * {
+  border: 1px solid black;
 }
 
 /**
@@ -10915,6 +10919,8 @@ html.is-reveal-open body {
   .distance-near p,
 .distance-near a,
 .distance-near button,
+.distance-near .button-group .button,
+.distance-near .pagination li,
 .distance-near * {
     font-size: 96px;
   }
@@ -10941,6 +10947,8 @@ html.is-reveal-open body {
   .distance-far p,
 .distance-far a,
 .distance-far button,
+.distance-far .button-group .button,
+.distance-far .pagination li,
 .distance-far * {
     font-size: 75px;
   }
@@ -11479,6 +11487,29 @@ html.is-reveal-open body {
     height: 100vh;
   }
 }
+@media screen and (min-width: 125em) {
+  .dropdown-pane {
+    width: auto;
+  }
+
+  [type=text],
+[type=password],
+[type=date],
+[type=datetime],
+[type=datetime-local],
+[type=month],
+[type=week],
+[type=email],
+[type=number],
+[type=search],
+[type=tel],
+[type=time],
+[type=url],
+[type=color],
+textarea {
+    height: auto;
+  }
+}
 .presentation #contents {
   text-align: center;
   width: 100%;
@@ -11530,6 +11561,22 @@ html.is-reveal-open body {
 
 .full-height {
   height: 100vh;
+}
+
+.emulate-vast .grid-container {
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-rows: repeat(auto-fit, minmax(100px, 1fr));
+}
+.emulate-vast .grid-x {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  height: 100%;
+}
+.emulate-vast .fill-contain {
+  width: 100%;
+  object-fit: contain;
 }
 
 @media screen and (min-width: 125em) {
