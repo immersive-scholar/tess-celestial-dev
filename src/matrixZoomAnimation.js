@@ -2,13 +2,16 @@
 import 'web-animations-js'
 
 function matrixZoomAnimation (container, element, popup, direction, zoomSpeed = 8000) {
-  const style = window.getComputedStyle(container)
-  const columns = style.getPropertyValue('grid-template-columns')
-    .split(' ').length
+  // const style = window.getComputedStyle(container)
+  // const columns = style.getPropertyValue('grid-template-columns')
+  //   .split(' ').length
+  const matrixEl = document.getElementsByClassName('matrix')[0];
+  const rows = matrixEl.getElementsByClassName('grid-y').length;
+  const columns = matrixEl.getElementsByClassName('grid-x')[0].getElementsByClassName('cell').length;
   const columnShift = columns / 2 - 0.5
-  const rows = style.getPropertyValue('grid-template-rows')
-    .split(' ').length
-  const rowShift = rows / 2 - 0.5
+  // const rows = style.getPropertyValue('grid-template-rows')
+  //   .split(' ').length
+  const rowShift = rows / 2 - 0.5;
 
   const elementRowPos = Math.floor(+element.dataset.pos / columns)
   const elementColPos = +element.dataset.pos - elementRowPos * columns
