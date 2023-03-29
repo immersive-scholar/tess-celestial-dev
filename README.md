@@ -1,35 +1,31 @@
 # Tess-celestial
+
 > Immersive Scholar Local Resident Radmila Sazdanović
 
-Quick start:
----
+## Quick start:
+
 Install node modules after initial clone or download:
-  ```
-  npm install
-  ```
+
+```
+npm install
+```
 
 Run in development mode:
-  ```
-  npm start
-  ```
-  _Start a local development server at port 3000. Navigate to http://localhost:3000/ in your browser_
+
+```
+npm run dev
+```
+
+The address of the local development server is displayed in the terminal output. Navigate to this address in your browser.
 
 Build for production:
-  ```
-  npm run build
-  ```
-  _Build an optimized version for production_
 
-Initial source
----
+```
+npm run build
+```
 
-This application was initialized with the base Webpack template https://github.ncsu.edu/jwgurley/no-framework-webpack-starter
+_Build an optimized version for production_
 
-Features:
-* Hot reloading in development (no more `⌘ + R`)
-* ES6 support (Using eslint with standard JS style guide)
-* Babel transpiler
-* SASS support
-* Autoprefixer for css
-* Image and font loaders
-* csv file loader
+## Initial source
+
+This application was developed with [Vite](https://vitejs.dev/)
