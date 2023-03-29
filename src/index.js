@@ -267,7 +267,7 @@ const showPopup = function (event) {
    * anywhere on the screen except on top of the open popup.
    */
   const removePopup = function (event) {
-    // Return if click occured on top of the popup and not on the close button
+    // Return if click occurred on top of the popup and not on the close button
     if (event) {
       const path = event.path || event.composedPath();
       if (

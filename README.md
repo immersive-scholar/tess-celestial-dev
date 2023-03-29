@@ -2,30 +2,30 @@
 
 > Immersive Scholar Local Resident Radmila Sazdanović
 
-## Quick start:
+## Quick start
 
 Install node modules after initial clone or download:
 
-```
+```sh
 npm install
 ```
 
 Run in development mode:
 
-```
+```sh
 npm run dev
 ```
 
-The address of the local development server is displayed in the terminal output. Navigate to this address in your browser.
+After running this command, the address of the local development server is displayed in the terminal output. Navigate to this address in your browser.
 
 Build for production:
 
-```
+```sh
 npm run build
 ```
 
-_Build an optimized version for production_
+This command builds an optimized version of the app. The output is contained in the folder `dist`.
 
 ## Initial source
 
-This application was developed with [Vite](https://vitejs.dev/)
+This application is created with [Vite](https://vitejs.dev/)
