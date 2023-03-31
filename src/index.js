@@ -9,7 +9,7 @@ const imgFolder = `images`;
 const imgData = rawImgData;
 // Our minimum height for a "large-scale display"
 // (Since we're not designing for the Visualization Wall anyway)
-const minLargeHeight = 1500;
+const minLargeHeight = 1000;
 // Variables for timed transitions and zoom animation speed, timed transitions will be set if 'timedTransitions' is 'true'
 let zoomSpeed = 8000; // 8 sec for zoom in/out animation
 // Time for new popup content to fade in after being changed (delay)
